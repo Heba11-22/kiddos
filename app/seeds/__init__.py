@@ -1,3 +1,6 @@
+# We are creating a command to type on the terminal to seed...
+# flask doesn't have a command for seeding.
+
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 

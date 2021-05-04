@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
+# current user is who is using the app now either login or not.
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
@@ -75,6 +76,8 @@ def sign_up():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
+# it is just for flask-login in order to use  @login_require to know
+# what should send when a user is not authorized.
 @auth_routes.route('/unauthorized')
 def unauthorized():
     """
