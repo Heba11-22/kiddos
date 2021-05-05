@@ -1,11 +1,12 @@
+from flask_sqlalchemy import SQLAlchemy
 from .db import db
 
 
-class Categories(db.Modal):
+class Categories(db.Model):
     __tablename__ = 'categories'
 
     id = db.Column(db.Integer, primary_key=True)
-    categoryName = db.Column(db.String(40), nullable=False)
+    categoryName = db.Column(db.String(250), nullable=False)
     mainCategoryId = db.Column(db.Integer, db.ForeignKey("mainCategories.id"), nullable=False)
 
     # send data as JSON format

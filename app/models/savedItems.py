@@ -1,11 +1,12 @@
+from flask_sqlalchemy import SQLAlchemy
 from .db import db
 
 
-class SavedItems(db.Modal):
+class SavedItems(db.Model):
     __tablename__ = 'savedItems'
 
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     itemId = db.Column(db.Integer, db.ForeignKey("items.id"), nullable=False)
 
 # send data as JSON format

@@ -1,11 +1,12 @@
 from .db import db
+from flask_sqlalchemy import SQLAlchemy
 
 
-class Carts(db.Modal):
+class Carts(db.Model):
     __tablename__ = 'carts'
 
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey("user.id"))
+    userId = db.Column(db.Integer, db.ForeignKey("users.id"))
     itemId = db.Column(db.Integer, db.ForeignKey("items.id"), nullable=False)
 
     # send data as JSON format
