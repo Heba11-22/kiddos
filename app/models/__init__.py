@@ -2,11 +2,13 @@
 
 from .db import db
 from .user import User
-from .carts import Carts
-from .categories import Categories
-from .itemReviews import ItemReviews
-from .items import Items
-from .mainCategories import MainCategories
-from .savedItems import SavedItems
 from .photos import Photos
+from .mainCategories import MainCategories
+from .categories import Categories
+from .items import Items
+from .items import Sizes
+from .items import item_sizes
+from .savedItems import SavedItems
+# from .itemReviews import ItemReviews
+from .carts import Carts
 # from .sizes import Sizes

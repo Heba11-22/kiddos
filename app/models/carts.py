@@ -9,6 +9,8 @@ class Carts(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey("users.id"))
     itemId = db.Column(db.Integer, db.ForeignKey("items.id"), nullable=False)
 
+    items = db.relationship("Items", back_populates="cart", cascade="all, delete")
+
     # send data as JSON format
     def to_dict(self):
         return {

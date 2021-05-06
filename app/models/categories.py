@@ -7,7 +7,9 @@ class Categories(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     categoryName = db.Column(db.String(250), nullable=False)
-    mainCategoryId = db.Column(db.Integer, db.ForeignKey("mainCategories.id"))
+    mainCategoryId = db.Column(db.Integer, db.ForeignKey("maincategories.id"))
+    items = db.relationship("Items", back_populates="category", cascade="all, delete")
+
 
     # send data as JSON format
     def to_dict(self):

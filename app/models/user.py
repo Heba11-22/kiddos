@@ -12,6 +12,8 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)  # using from werkzeug.security.
     avatar_url = db.Column(db.String(255))  # using from werkzeug.security.
 
+    user_cart = db.relationship("Carts", backref="user", cascade="all, delete")
+
     @property
     def password(self):
         return self.hashed_password

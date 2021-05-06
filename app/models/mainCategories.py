@@ -3,10 +3,11 @@ from .db import db
 
 
 class MainCategories(db.Model):
-    __tablename__ = 'mainCategories'
+    __tablename__ = 'maincategories'
 
     id = db.Column(db.Integer, primary_key=True)
     main_categoryName = db.Column(db.String(50), nullable=False)
+    categories = db.relationship("Categories", backref='maincategorie', cascade="all, delete")
 
     def to_dict(self):
         return {

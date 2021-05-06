@@ -2,14 +2,14 @@ from app.models import db, MainCategories
 
 
 def seed_mainCategories():
-    mainCategory1 = MainCategories(main_categoryName="GIRL")
-    mainCategory2 = MainCategories(main_categoryName="TODDLER_GIRL")
-    mainCategory3 = MainCategories(main_categoryName="BOY")
-    mainCategory4 = MainCategories(main_categoryName="TODDLER_BOY")
-    db.session.add(mainCategory1)
-    db.session.add(mainCategory2)
-    db.session.add(mainCategory3)
-    db.session.add(mainCategory4)
+    maincategory1 = MainCategories(main_categoryName="GIRL")
+    maincategory2 = MainCategories(main_categoryName="TODDLER_GIRL")
+    maincategory3 = MainCategories(main_categoryName="BOY")
+    maincategory4 = MainCategories(main_categoryName="TODDLER_BOY")
+    db.session.add(maincategory1)
+    db.session.add(maincategory2)
+    db.session.add(maincategory3)
+    db.session.add(maincategory4)
     db.session.commit()
 
 

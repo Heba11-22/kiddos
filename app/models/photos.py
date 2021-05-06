@@ -6,6 +6,7 @@ class Photos(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     photo_url = db.Column(db.String(500), nullable=False)
+    item = db.relationship("Items", back_populates="photos", cascade="all, delete")
 
     def to_dict(self):
         return {
