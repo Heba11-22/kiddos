@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
 
-const NavBar = () => {
-  const dispatch = useDispatch();
+const LogSign = () => {
+  // const dispatch = useDispatch();
   return (
     <nav>
       <ul>
@@ -36,4 +36,4 @@ const NavBar = () => {
   );
 }
 
-export default NavBar;
+export default LogSign;
