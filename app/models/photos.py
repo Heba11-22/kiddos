@@ -13,3 +13,8 @@ class Photos(db.Model):
             "id": self.id,
             "photo_url": self.photo_url
         }
+
+    def get_photo(self):
+        return {
+            "photo_url": self.photo_url
+        }

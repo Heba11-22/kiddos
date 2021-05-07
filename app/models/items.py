@@ -19,6 +19,7 @@ class Items(db.Model):
     detail = db.Column(db.Text, nullable=False)
     # item_identifiers = db.Column(db.String(5), nullable=False)
     # size = db.Column(db.String(40), nullable=False)
+    # photos = db.Column(db.String(255), nullable=False)
     photoId = db.Column(db.Integer, db.ForeignKey("photos.id"), nullable=False)
     categoryId = db.Column(db.Integer, db.ForeignKey("categories.id"), nullable=False)
     photos = db.relationship("Photos", back_populates="item", cascade="all, delete")
@@ -37,8 +38,10 @@ class Items(db.Model):
             "colors": self.colors,
             "material": self.material,
             "detail": self.detail,
-            "photoId": self.photoId,
+            # "photoId": self.photoId,
             "categoryId": self.categoryId,
+            # "photos": [photo.get_photo() for photo in self.photos],
+            "photos": self.photos.get_photo(),
             "sizes": [size.get_item() for size in self.sizes]
             #^ size.get_item() bc .to_dict gave me recursion error
         }
