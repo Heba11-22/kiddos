@@ -10,7 +10,6 @@ class Categories(db.Model):
     mainCategoryId = db.Column(db.Integer, db.ForeignKey("maincategories.id"))
     items = db.relationship("Items", back_populates="category", cascade="all, delete")
 
-
     # send data as JSON format
     def to_dict(self):
         return {
@@ -18,3 +17,10 @@ class Categories(db.Model):
             "categoryName": self.categoryName,
             "mainCategoryId": self.mainCategoryId,
         }
+     
+    def get_categories(self):
+        return {
+            "categoryName": self.categoryName,
+            "items": [item.get_items() for item in self.items]
+        }
+

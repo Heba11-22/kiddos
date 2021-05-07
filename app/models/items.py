@@ -46,6 +46,17 @@ class Items(db.Model):
             #^ size.get_item() bc .to_dict gave me recursion error
         }
 
+    def get_items(self):
+        return {
+            "itemName": self.itemName,
+            "colors": self.colors,
+            "material": self.material,
+            "detail": self.detail,
+            "categoryId": self.categoryId,
+            "photos": self.photos.get_photo(),
+            "sizes": [size.get_item() for size in self.sizes]
+        }
+
 
 class Sizes(db.Model):
     __tablename__ = 'sizes'
