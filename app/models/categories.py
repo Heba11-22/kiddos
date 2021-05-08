@@ -14,13 +14,13 @@ class Categories(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "categoryName": self.categoryName,
-            "mainCategoryId": self.mainCategoryId,
+            "CategoryName": self.categoryName,
+            "MainCategoryId": self.mainCategoryId,
         }
      
     def get_categories(self):
         return {
-            "categoryName": self.categoryName,
-            "items": [item.get_items() for item in self.items]
+            "CategoryName": self.categoryName,
+            "Items": [item.get_items() for item in self.items]
         }
 

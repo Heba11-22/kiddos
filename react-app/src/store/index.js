@@ -4,10 +4,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from './session';
 import item from './items';
+import mainCategories from './mainCategories';
 
 const rootReducer = combineReducers({
     session,
-    item
+    item,
+    mainCategories,
 });
 
 let enhancer;

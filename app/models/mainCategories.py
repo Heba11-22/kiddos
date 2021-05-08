@@ -12,8 +12,8 @@ class MainCategories(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "main_categoryName": self.main_categoryName,
+            "Main_CategoryName": self.main_categoryName,
             # "categories": self.categories
-            "categories": [category.get_categories() for
+            "Categories": [category.get_categories() for
                            category in self.categories]
         }

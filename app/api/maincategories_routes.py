@@ -9,5 +9,5 @@ maincategories_routes = Blueprint('maincategories', __name__)
 @maincategories_routes.route('/')
 def get_maincategories():
     maincategories = MainCategories.query.all()
-    print("++++++", [maincategory.to_dict() for maincategory in maincategories])
+    # print("++++++", [maincategory.to_dict() for maincategory in maincategories])
     return {"maincategories": [maincategory.to_dict() for maincategory in maincategories]}
