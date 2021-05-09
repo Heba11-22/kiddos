@@ -6,7 +6,9 @@
     position: fixed;
     opacity: .9;
     width: 100%;
-    /* text-decoration: none; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
 .navBar1 {
@@ -39,6 +41,7 @@
     height: 65px;
     /* align-self: flex-start; */
     background: white;
+    outline: none;
 }
 
 .k,
@@ -73,10 +76,13 @@
     background: red;
 } */
 
-.main-cat-li{
-    /* text-decoration: none; */
+.kiddos-link{
+    text-decoration: none;
+    cursor: pointer;
 }
-.main-cat-button{
+
+.main-cat-button,
+.search-button {
     border: none;
     outline: none;
     background: none;
@@ -90,15 +96,28 @@
     justify-content: space-around;
     align-items: center;
 }
+
 .search-saved-div {
     /* width: 30%; */
-    padding-right: 8%;
+    padding-right: 10%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
-
+/* .search-bar{
+    align-self: flex-end;
+}
+.search-button {
+    height: 3px;
+} */
+.search-button-input{
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+.my-fav-div{
+    padding-left: 24%;
+}
 .my-fav {
     color: black;
     text-decoration: none;

@@ -27,6 +27,7 @@ const SearchForm = () => {
 
     return (
         <div className="search-saved-div">
+        
             <form onSubmit={handleSubmit}>
                 <div className="search-bar">
                     {search_icon}
@@ -34,13 +35,20 @@ const SearchForm = () => {
                         placeholder="Search"
                         value={search}
                         onChange={onChange}
+                        className="search-button-input"
                         
                     />
                     {/* {console.log(search)} */}
-                    <button className="search-button" type="submit">Search</button>
                 </div>
             </form>
-            <NavLink to="/savedItems" className="my-fav"><ul>My Fav</ul></NavLink>
+            <button className="search-button" type="submit">
+                <span class="material-icons">&#xe8b6;</span>
+            </button>
+        <div className="my-fav-div">
+            <NavLink to="/savedItems" className="my-fav">
+                <span class="material-icons">&#xe171;</span>
+            </NavLink>
+        </div>
         </div>
 
     )
