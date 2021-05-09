@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { allMainCategories } from '../../store/mainCategories'
+import SearchForm from "./SearchForm"
 
 function Categories () {
     // debugger
@@ -11,19 +12,21 @@ function Categories () {
     // useEffect( () => {
     // }, [dispatch])
     const state_mainCat = Object.values(useSelector(state => state.mainCategories))
-    // debugger
+    console.log(">>>>>>>>>>>>>>>>>", state_mainCat)
+    const mCategoriesArray = ["GIRL", "TODDLER GIRL", "BOY", "TODDLER BOY"]
+
     return (
-        
-        <div className="categories">{state_mainCat.length > 0 && state_mainCat.map(cat => {
-            return (
-                <div>
-                    <div>{`${cat.Main_CategoryName}`}</div>
-                    {/* <div>{cat.Categories.map(cat => {
-                        return <div>{cat}</div>
-                    })}</div> */}
-                </div>
-            )
-        })}</div>
+        <div className="third-nav-div">
+            <ul className="categories-ul">{mCategoriesArray.map((cat, i) => {
+                return (
+                    <li key={i} className="main-cat-li" value={`${cat.Main_CategoryName}`}>
+                        <button className="main-cat-button">{mCategoriesArray[i]}</button>
+                    </li>
+                )
+            })}
+            </ul>
+            <SearchForm/>
+        </div>
     )
 }
 

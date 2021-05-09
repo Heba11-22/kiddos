@@ -5,10 +5,12 @@ import thunk from "redux-thunk";
 import session from './session';
 import item from './items';
 import mainCategories from './mainCategories';
+import search from './search';
 
 const rootReducer = combineReducers({
     session,
     item,
+    search,
     mainCategories,
 });
 

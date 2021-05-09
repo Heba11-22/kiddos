@@ -1,7 +1,12 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap'); */
+
+
 .navBar {
     position: fixed;
     opacity: .9;
     width: 100%;
+    /* text-decoration: none; */
 }
 
 .navBar1 {
@@ -54,6 +59,34 @@
     font-size: 25px;
 }
 
-.categories{
+.categories-ul{
     background: red;
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+/* .h3{
+    background: red;
+} */
+
+.main-cat-li{
+    /* text-decoration: none; */
+}
+.main-cat-button{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.third-nav-div {
+    background: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
