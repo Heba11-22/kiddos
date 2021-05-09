@@ -48,6 +48,7 @@ class Items(db.Model):
 
     def get_items(self):
         return {
+            "id": self.id,
             "itemName": self.itemName,
             "colors": self.colors,
             "material": self.material,

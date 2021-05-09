@@ -32,5 +32,7 @@ def post_search_category():
     categories = MainCategories.query.filter(MainCategories.main_categoryName.ilike(f'%{data}%')).all()
     # if not categories:
     #     return {"Categories": []}
+    # cat = categories.categories
     # print("5++++++++++", [category.to_dict() for category in categories])
+    # print("5++++++++++", cat)
     return {"Categories": [category.to_dict() for category in categories]}

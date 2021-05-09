@@ -20,6 +20,7 @@ class Categories(db.Model):
      
     def get_categories(self):
         return {
+            "id": self.id,
             "CategoryName": self.categoryName,
             "Items": [item.get_items() for item in self.items]
         }
