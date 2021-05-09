@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import { searchThunk } from '../../store/search';
 
 
@@ -40,6 +40,7 @@ const SearchForm = () => {
                     <button className="search-button" type="submit">Search</button>
                 </div>
             </form>
+            <NavLink to="/savedItems" className="my-fav"><ul>My Fav</ul></NavLink>
         </div>
 
     )

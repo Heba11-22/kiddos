@@ -5,12 +5,12 @@ import { NavLink } from "react-router-dom";
 function MainCat(){
     const cats = useSelector(state => state.search.Categories) || {}
     let catsValue = (Object.values(cats))
-    let test = catsValue.Categories
+    // let test = catsValue.Categories
     console.log("1111>>>>>>>>>>>>>",cats)
     console.log("2222>>>>>>>>>>>>>",catsValue)
-    console.log("33333>>>>>>>>>>>>>",test)
+    // console.log("33333>>>>>>>>>>>>>",test)
+    {/* {if (cat = null) {<h2>Sorry No Results for {`${cat.Main_CategoryName}`}</h2>}} */}
     let item;
-    let cc;
     let showPhoto = 
         <ul>
             <li>
@@ -27,6 +27,8 @@ function MainCat(){
                                 </div>
                             ))
                         ))
+                    
+                    
                 ))}
             </li>
     </ul>
