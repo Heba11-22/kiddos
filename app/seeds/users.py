@@ -1,13 +1,13 @@
 # from werkzeug.security import generate_password_hash  >>>>>Already in the models.<<<<<<
 from app.models import db, User
 from faker import Faker
-from flask import request
+import requests
 import random
 
 fake = Faker()
 
 
-# Adds a demo user, you can add other users here if you wan
+# Adds a demo user, you can add other users here if you want
 def seed_users():
     url = 'https://api.unsplash.com/photos/random?query=profile&orientation=squarish&count=30&client_id=w7D9hahfveF5lpAyA5ED7oMcmfmnf-34xpUmZsC2ubs'
     r = requests.get(url)
