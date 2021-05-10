@@ -6,12 +6,14 @@ import session from './session';
 import item from './items';
 import mainCategories from './mainCategories';
 import search from './search';
+import categories from './categories';
 
 const rootReducer = combineReducers({
     session,
     item,
     search,
     mainCategories,
+    categories,
 });
 
 let enhancer;

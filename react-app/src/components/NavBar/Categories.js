@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { allMainCategories } from '../../store/mainCategories'
+import { getCategoryThunk } from '../../store/categories'
 import SearchForm from "./SearchForm"
 
 function Categories () {
     const dispatch = useDispatch();
     const [targetButton, setTargetButton] = useState()
+    const [targetCat, setTargetCat] = useState()
     const [showMenu, setShowMenu] = useState(false);  // setting the menu showing to false "closed"
 
     // const state_mainCat = Object.values(useSelector(state => state.mainCategories))
@@ -20,6 +22,7 @@ function Categories () {
     
     useEffect( () => {
         dispatch(allMainCategories())
+        dispatch(getCategoryThunk(targetCat))
         }, [dispatch])
 
     const values = (Object.values(categories))[targetButton] || {}
@@ -43,7 +46,10 @@ function Categories () {
     //     catArry.push(categoriesArray) 
     // })
     
-    
+    const onClick = async (e) => {
+        console.log("FOR LIS",e.target.value)
+        setTargetCat(e.target.value)
+    }
 
         // function to open the menu
         const openMenu = async(e) => {
@@ -80,7 +86,7 @@ function Categories () {
                             <ul className="cat-dropDown-ul">
                                 {values2.map((arr1,i) => (
                                     <di>
-                                        <li key={i} className="cat-dropDown-li">{arr1[i]}</li>
+                                        <button onClick={onClick}><li key={i} className="cat-dropDown-li">{arr1[i]}</li></button>
                                         <li className="cat-dropDown-li">{arr1[i+1]}</li>
                                         <li  className="cat-dropDown-li">{arr1[i+2]}</li>
                                     </di>

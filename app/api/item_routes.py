@@ -10,7 +10,7 @@ item_routes = Blueprint('items', __name__)
 @item_routes.route('/')
 def get_items():
     items = Items.query.all()
-    print("++++++++++++++++++", [item.to_dict() for item in items])
+    # print("++++++++++++++++++", [item.to_dict() for item in items])
     return {"items": [item.to_dict() for item in items]}
 
 
@@ -19,3 +19,6 @@ def get_items():
 def get_single_item(id):
     item = Items.query.get(id)
     return {"item": item.to_dict()}
+
+
+# Route for getting items

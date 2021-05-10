@@ -13,12 +13,21 @@ def get_maincategories():
     return {"maincategories": [maincategory.to_dict() for maincategory in maincategories]}
 
 
-# Rote for getting a specific main Categories:
+# Route for getting a specific main Categories:
 @maincategories_routes.route('/<string:mc>')
 def get_some_maincategories(mc):
     maincategories = MainCategories.query.filter(MainCategories.main_categoryName.ilike(f'%{mc}%')).all()
     # print("4------------------", [maincategory.to_dict() for maincategory in maincategories])
     return {"Categories": [maincategory.to_dict() for maincategory in maincategories]}
+
+
+# Route for getting a specific main Categories:
+@maincategories_routes.route('/categories/<int:id>')
+def get_a_category(id):
+    category = Categories.query.get(id)
+    print(">>>>>>>>>>", category)
+    # print("4------------------", [maincategory.to_dict() for maincategory in maincategories])
+    return {"Category": category.to_dict()}
 
 
 # Route POST for the search:

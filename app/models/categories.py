@@ -16,6 +16,7 @@ class Categories(db.Model):
             "id": self.id,
             "CategoryName": self.categoryName,
             "MainCategoryId": self.mainCategoryId,
+            "Items": [item.get_items() for item in self.items]
         }
      
     def get_categories(self):
