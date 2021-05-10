@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 // import { useSelector } from "react-redux";
+import {useDispatch} from 'react-redux'
 import { useParams } from "react-router-dom";
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
-// import { allMainCategories } from '../../store/mainCategories'
+import { allMainCategories } from '../../store/mainCategories'
 
 
 function SingleItem() {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     // const state_mainCat = useSelector(state => state.maincategories) || {}
     const [item, setItem] = useState({})
     const { itemId } = useParams();
 
-//   useEffect( () => {
-//     dispatch(allMainCategories())
-//     }, [dispatch])
+  useEffect( () => {
+    dispatch(allMainCategories())
+    }, [dispatch])
 
     useEffect ( ()=> {
         if (!itemId) return;
