@@ -11,7 +11,7 @@ import User from "../../components/User";
 import { authenticate } from "../../store/session";
 
 function SavedItems() {
-const [authenticated, setAuthenticated] = useState(false);
+// const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
 
@@ -22,7 +22,7 @@ const [authenticated, setAuthenticated] = useState(false);
       await dispatch(authenticate());
       setLoaded(true);
       })();
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;

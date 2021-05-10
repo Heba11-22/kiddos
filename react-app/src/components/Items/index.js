@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom";
 
 
 function SingleItem() {
-    const dispatch = useDispatch();
-    const state_mainCat = useSelector(state => state.maincategories) || {}
+    // const dispatch = useDispatch();
+    // const state_mainCat = useSelector(state => state.maincategories) || {}
     const [item, setItem] = useState({})
     const { itemId } = useParams();
 

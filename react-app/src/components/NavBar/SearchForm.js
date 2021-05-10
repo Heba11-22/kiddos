@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink } from "react-router-dom";
 import { searchThunk } from '../../store/search';
@@ -8,7 +8,7 @@ const SearchForm = () => {
     const search_icon = <i class="fas fa-search"></i>
     const dispatch = useDispatch();
     const history = useHistory()
-    const searchResult = useSelector(state => state.search.search)
+    // const searchResult = useSelector(state => state.search.search)
     const [search, setSearch] = useState("")
     // const [isSearch, setIsSearch] = useState(false)
 

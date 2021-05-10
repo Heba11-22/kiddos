@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 function MainCat(){
@@ -9,8 +9,8 @@ function MainCat(){
     console.log("1111>>>>>>>>>>>>>",cats)
     console.log("2222>>>>>>>>>>>>>",catsValue)
     // console.log("33333>>>>>>>>>>>>>",test)
-    {/* {if (cat = null) {<h2>Sorry No Results for {`${cat.Main_CategoryName}`}</h2>}} */}
-    let item;
+    /* {if (cat = null) {<h2>Sorry No Results for {`${cat.Main_CategoryName}`}</h2>}} */
+    // let item;
     let showPhoto = 
         <ul>
             <li>
@@ -21,7 +21,7 @@ function MainCat(){
                             .map( c1 => (
                                 <div className="item-info">
                                 <NavLink to={`/items/${c1.id}`}>
-                                    <div><img src={c1.photos.photo_url}/></div>
+                                    <div><img alt="p" src={c1.photos.photo_url}/></div>
                                     <div className="item-name">{c1.itemName}</div>
                                 </NavLink>
                                 </div>
