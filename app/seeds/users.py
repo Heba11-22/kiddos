@@ -1,7 +1,7 @@
 # from werkzeug.security import generate_password_hash  >>>>>Already in the models.<<<<<<
 from app.models import db, User
 from faker import Faker
-import requests
+from flask import request
 import random
 
 fake = Faker()

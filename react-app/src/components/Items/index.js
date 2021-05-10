@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
@@ -24,7 +24,7 @@ function SingleItem() {
             setItem(item)
         })();
         // dispatch(getSingleItem(itemId))
-    }, [setItem])
+    }, [setItem, itemId])
     const itemValues = Object.values(item)[0] || {}
     let photo_url = (Object.values(itemValues))[6] || {}
     // let sizes = (Object.values(itemValues.sizes)) || {}
