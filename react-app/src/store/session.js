@@ -73,7 +73,7 @@ export const authenticate = () => async(dispatch) => {
         "Content-Type": "application/json",
       }
     });
-    const data = await response.json();
+    // const data = await response.json();
     dispatch(removeUser())
   };
   
