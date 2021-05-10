@@ -26,18 +26,26 @@ function SingleItem() {
         })();
         // dispatch(getSingleItem(itemId))
     }, [setItem, itemId])
+
+const handleSavedItems = () => {
+    // if (!user) {
+    //     return
+    // }
+}
+
     const itemValues = Object.values(item)[0] || {}
     let photo_url = (Object.values(itemValues))[6] || {}
-    // let sizes = (Object.values(itemValues.sizes)) || {}
     // console.log(photo_url.photo_url)
     let sizesArray = itemValues.sizes || {};
-    console.log(itemValues)
-    console.log(sizesArray)
-    // console.log(sizes)
+    // console.log(itemValues)
+    // console.log(sizesArray)
+
+
     return (
         <div className="single-item">
             <div className="item-img-div"><img className="item-img" src={photo_url.photo_url}/></div>
-            
+            <div className="save-items-button-div"><button className="save-items-button" onClick={handleSavedItems}>Add To Saved</button></div>
+            {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
             <h1 className="word-color">color:</h1>
             <div className="item-color">{itemValues.colors}</div>
             <div className="item-sizes">{Object.values(sizesArray).map((size, i) => (

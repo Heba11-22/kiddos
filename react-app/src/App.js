@@ -8,7 +8,16 @@ import SavedItems from "./components/SavedItems";
 // import Categories from "./components/NavBar/Categories";
 import NavBar from "./components/NavBar";
 import MainCat from "./components/MainCat";
+import LoginSignUpForm from "./components/LoginSignUpForm";
 import { allMainCategories } from './store/mainCategories'
+import LoginForm from "./components/LoginSignUpForm/LoginForm";
+import SignUpForm from "./components/LoginSignUpForm/SignUpForm";
+import LogSign from "./components/LogSign";
+import ProtectedRoute from "./components/LoginSignUpForm/ProtectedRoute";
+import UsersList from "./components/UsersList";
+import User from "./components/User";
+// import { authenticate } from "./services/auth";
+import { authenticate } from "./store/session";
  
 
 function App() {
@@ -35,6 +44,22 @@ function App() {
           <MainCat/>
         </Route>
       </Switch>
+      <LogSign />
+      <Route path="/login" exact={true}>
+        <LoginForm />
+      </Route>
+      <Route path="/sign-up" exact={true}>
+        <SignUpForm />
+      </Route>
+      <ProtectedRoute path="/users" exact={true} >
+        <UsersList/>
+      </ProtectedRoute>
+      <ProtectedRoute path="/users/:userId" exact={true}>
+        <User />
+      </ProtectedRoute>
+      <ProtectedRoute path="/" exact={true}>
+        <h1>My Home Page</h1>
+      </ProtectedRoute>
     </>
   );
 }

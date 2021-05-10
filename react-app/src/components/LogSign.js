@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from './LoginSignUpForm/LogoutButton';
 
 const LogSign = () => {
   // const dispatch = useDispatch();

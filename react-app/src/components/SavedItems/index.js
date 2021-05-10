@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import LoginForm from "../../components/auth/LoginForm";
-import SignUpForm from "../../components/auth/SignUpForm";
+import LoginForm from "../../components/LoginSignUpForm/LoginForm";
+import SignUpForm from "../../components/LoginSignUpForm/SignUpForm";
 import LogSign from "../LogSign";
-import ProtectedRoute from "../../components/auth/ProtectedRoute";
+import ProtectedRoute from "../../components/LoginSignUpForm/ProtectedRoute";
 import UsersList from "../../components/UsersList";
 import User from "../../components/User";
 // import { authenticate } from "./services/auth";
@@ -29,7 +29,8 @@ function SavedItems() {
   }
 
   return (
-    <BrowserRouter>
+    <div className="form">
+    {/* <BrowserRouter>
     <LogSign />
     <Switch>
       <Route path="/login" exact={true}>
@@ -48,7 +49,10 @@ function SavedItems() {
         <h1>My Home Page</h1>
       </ProtectedRoute>
     </Switch>
-  </BrowserRouter>
+  </BrowserRouter> */}
+
+  SavedItmes
+  </div>
   )
 }
 
