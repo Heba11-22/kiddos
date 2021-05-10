@@ -19,8 +19,3 @@ jobs:
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web 
-    # - name: Database Upgrade
-    # env:
-    #   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    # run: heroku run -a {{ secrets.HEROKU_APP_NAME }} pipenv run flask db upgrade && heroku run -a {{ secrets.HEROKU_APP_NAME }} pipenv run flask seed undo && heroku run -a {{ secrets.HEROKU_APP_NAME }} pipenv run flask seed all
-    
