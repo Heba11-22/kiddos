@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // import { useSelector } from "react-redux";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector } from 'react-redux'
 import { useParams } from "react-router-dom";
+import { useHistory, NavLink} from "react-router-dom";
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
 import { allMainCategories } from '../../store/mainCategories'
@@ -11,7 +12,9 @@ import { Modal } from '../../context/Modal';
 
 function SingleItem() {
     const dispatch = useDispatch();
-    // const state_mainCat = useSelector(state => state.maincategories) || {}
+    const history = useHistory()
+    const user = useSelector(state => state.session) || {}
+    console.log("USEEEEER",user)
     const [item, setItem] = useState({})
     const [showModal, setShowModal] = useState(false);
     const { itemId } = useParams();
@@ -34,7 +37,11 @@ const handleSavedItems = async (e) => {
     // if (!user) {
     //     return
     // }
-    setShowModal(true)
+     if (!user) {
+        setShowModal(true)
+     } 
+        // else {history.push(`/saveditems`)}
+        else if (user) history.push(`/saveditems`)
 }
 
     const itemValues = Object.values(item)[0] || {}

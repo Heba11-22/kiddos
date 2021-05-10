@@ -2,17 +2,18 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 import LogoutButton from './LoginSignUpForm/LogoutButton';
+import './LoginSignUpForm/LoginSignUpForm.css'
 
 const LogSign = () => {
   // const dispatch = useDispatch();
   return (
     <nav>
-      <ul>
-        <li>
+      <ul className="ul">
+        {/* <li>
           <NavLink to="/" exact={true} activeClassName="active">
             Home
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/login" exact={true} activeClassName="active">
             Login
@@ -23,11 +24,11 @@ const LogSign = () => {
             Sign Up
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/users" exact={true} activeClassName="active">
             Users
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <LogoutButton />
         </li>

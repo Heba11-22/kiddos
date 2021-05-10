@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink} from "react-router-dom";
+import { useHistory, NavLink} from "react-router-dom";
 import { Modal } from '../../context/Modal';
+import './LoginSignUpForm.css'
 
 
 const LoginSignUpModal = () => {
-
+    const history = useHistory()
     const [showModal, setShowModal] = useState(false);
 
     return (
