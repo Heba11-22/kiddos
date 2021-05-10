@@ -4,8 +4,11 @@ import { allMainCategories } from '../../store/mainCategories'
 import SearchForm from "./SearchForm"
 
 function Categories () {
-  
-    const state_mainCat = Object.values(useSelector(state => state.mainCategories))
+    const dispatch = useDispatch();
+    const [targetButton, setTargetButton] = useState()
+    const [showMenu, setShowMenu] = useState(false);  // setting the menu showing to false "closed"
+
+    // const state_mainCat = Object.values(useSelector(state => state.mainCategories))
     // console.log(">>>>>>>>>>>>>>>>>", state_mainCat)
     const categories = [
         {"GIRL": ["DRESSES", "TOPS", "PANTS"]},
@@ -13,28 +16,41 @@ function Categories () {
         {"BOY": ["SHIRTS", "JACKETS", "PANTS"]}, 
         {"TODDLER BOY": ["SHIRTS", "JACKETS", "PANTS"]}
     ]
+
+    
+    useEffect( () => {
+        dispatch(allMainCategories())
+        }, [dispatch])
+
+    const values = (Object.values(categories))[targetButton] || {}
+    const values2 = (Object.values(values))
+    
     const mCatArry = []
+    
     categories.map(category => {
         const mCategoriesArray = Object.keys(category)
         mCatArry.push(mCategoriesArray)
+        // {console.log("1111111",mCategoriesArray)}
     })
-    const catArry = []
-    categories.map(category => {
-        const categoriesArray = Object.values(category)
-        catArry.push(categoriesArray)
-        // console.log("cccccccccccccc",categoriesArray)
-    })
+    // categories.map(category => {
+    //     const mCategoriesArray = Object.values(category)
+    //     {console.log("fffffff1111111",mCategoriesArray)}
+    // })
 
-    // const mCategoriesArray = Object.keys(categories)
-    console.log("MMMMMMMMMM",mCatArry)
-    console.log("ccccccc",catArry)
+    // const catArry = []
+    // categories.map((category,i) => {
+    //     const categoriesArray = Object.values(category)
+    //     catArry.push(categoriesArray) 
+    // })
     
-    const [showMenu, setShowMenu] = useState(false);  // setting the menu showing to false "closed"
+    
 
         // function to open the menu
-        const openMenu = () => {
+        const openMenu = async(e) => {
             if (showMenu) return;
             setShowMenu(true);
+            setTargetButton(e.target.value)
+            // console.log("fdfdfdfd",e.target.value)
         }
 
         // close the menu
@@ -55,44 +71,25 @@ function Categories () {
             <ul className="categories-ul">{mCatArry.map((cat, i) => {
                 return (
                     <li key={i} className="main-cat-li" value={`${cat.Main_CategoryName}`}>
-                        <button className="main-cat-button" onClick={openMenu}>{mCatArry[i]}</button>
+                        <button className="main-cat-button" value={i} onClick={openMenu}>{mCatArry[i]}</button>
                     </li>
                 )
             })}
+                    {showMenu && (
+                        <div className="cat-dropDown-div">
+                            <ul className="cat-dropDown-ul">
+                                {values2.map((arr1,i) => (
+                                    <di>
+                                        <li key={i} className="cat-dropDown-li">{arr1[i]}</li>
+                                        <li className="cat-dropDown-li">{arr1[i+1]}</li>
+                                        <li  className="cat-dropDown-li">{arr1[i+2]}</li>
+                                    </di>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
             </ul>
             <SearchForm/>
-                        {showMenu && (
-                            <div className="cat-dropdown-div">
-                            <ul className="categories-ul">{mCatArry.map((cat, i) => {
-                                {console.log(cat)}
-                            return (
-                                <li key={i} className="main-cat-li">
-                                    {/* <button className="main-cat-button"> */}
-                                        <ul className="sub-menu-ul">
-                                            {catArry[i].map((submenu,j)=> (
-                                                <li key={j} className="sub-menu-li">
-                                                {console.log(submenu)}
-                                                    <button className="sub-menu-button">
-                                                        <ul>
-                                                            {submenu.map(sub1 => (
-                                                                <li>{sub1}
-                                                                {console.log(sub1)}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </button>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    {/* </button> */}
-                                </li>
-                            )
-            })}
-            </ul>
-                            
-                            </div>
-                        )}
-            
         </div>
     )
 }
