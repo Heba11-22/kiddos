@@ -6,6 +6,24 @@ import { Modal } from '../../context/Modal';
 
 const LoginSignUpModal = () => {
 
+    const [showModal, setShowModal] = useState(false);
+
+    return (
+        <div>
+            <Modal onClose={() => setShowModal(false)}>
+            {console.log("DEEEEEEEP")}
+                <h2>Inside the modal</h2>
+                <h2>Inside the modal</h2>
+                <h2>Inside the modal</h2>
+                <h2>Inside the modal</h2>
+                <h2>Inside the modal</h2>
+                <h2>Inside the modal</h2>
+                <h2>Inside the modal</h2>
+                <h2>Inside the modal</h2>
+                <h2>Inside the modal</h2>
+            </Modal>
+        </div>
+    )
 }
 
 export default LoginSignUpModal;
