@@ -27,7 +27,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/savedItems" />;
   }
 
   return (
@@ -59,7 +59,7 @@ const LoginForm = () => {
           />
         </div>
         <div>
-          <button className="login-button"type="submit">Login</button>
+          <button className="login-button" type="submit">Login</button>
         </div>
       </form>
     </div>

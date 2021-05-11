@@ -4,6 +4,7 @@ import { useHistory, NavLink} from "react-router-dom";
 import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
+import NavBar from "../NavBar";
 import './LoginSignUpForm.css'
 
 
@@ -12,12 +13,17 @@ const LoginSignUpModal = () => {
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <div className="log-sig-forms-div">
-            <div className="log-div">
-                <LoginForm/>
+        <div className="sign-page-div">
+            <div className="nav-div">
+                <NavBar/> 
             </div>
-            <div className="signup-div">
-                <SignUpForm/>
+            <div className="log-sign-forms-div">
+                <div className="log-div">
+                    <LoginForm/>
+                </div>
+                <div className="signup-div">
+                    <SignUpForm/>
+                </div>
             </div>
         </div>
     )

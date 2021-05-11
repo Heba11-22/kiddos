@@ -9,9 +9,18 @@
     margin-top: 300px;
     background-color: rgb(0, 255, 119);
 } */
+.sign-page-div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* align-items: center; */
+}
 
-.log-sig-forms-div {
+.log-sign-forms-div {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /* margin-bottom: 0px; */
+    margin-top: 30%; 
+    background-color: green; 
 }

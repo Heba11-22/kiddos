@@ -45,12 +45,12 @@ let sizesArray = itemValues.sizes || {};
 const handleSavedItems = () => {
     setShowModal(true)
     if (!user ) {
-       console.log("NOT USER")
+       console.log("NOT A USER")
      } 
     //     // else {history.push(`/saveditems`)}
     //  if (user) console.log("..........USER")
     //  if (user) history.push(`/saveditems`)
-    history.push(`/saveditems`)
+    history.push(`/signform`)
 }
 
     return (
@@ -64,7 +64,10 @@ const handleSavedItems = () => {
         )} */}
             {/* <LoginSignUpModal/> */}
             <div className="item-img-div"><img className="item-img" src={photo_url.photo_url}/></div>
-            <div className="save-items-button-div"><button className="save-items-button" onClick={handleSavedItems}>Add To Saved</button></div>
+            <div className="save-items-button-div"><button className="save-items-button" onClick={
+                !user ? (history.push(`/signform`)) : history.push(`/savedItems`)
+                
+            }>Add To Saved</button></div>
             {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
             <h1 className="word-color">color:</h1>
             <div className="item-color">{itemValues.colors}</div>

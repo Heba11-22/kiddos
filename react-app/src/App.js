@@ -28,7 +28,7 @@ function App() {
     }, [dispatch])
 
   return (
-   <>
+    <BrowserRouter>
       <NavBar />
       <Switch>
         <Route path="/items/:itemId" exact={true}>
@@ -47,6 +47,7 @@ function App() {
           <MainCat/>
         </Route>
         <Route path="/signform">
+          {/* <NavBar /> */}
           <LoginSignUpForm/>
         </Route>
       {/* </Switch> */}
@@ -67,7 +68,7 @@ function App() {
         <h1>My Home Page</h1>
       </ProtectedRoute> */}
       </Switch>
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink } from "react-router-dom";
+import LogoutButton from '../LoginSignUpForm/LogoutButton'
 import { searchThunk } from '../../store/search';
 import LogSign from '../LogSign'
 
@@ -9,7 +10,7 @@ const SearchForm = () => {
     const search_icon = <i class="fas fa-search"></i>
     const dispatch = useDispatch();
     const history = useHistory()
-    // const searchResult = useSelector(state => state.search.search)
+    const user = useSelector(state => state.session.user)
     const [search, setSearch] = useState("")
     // const [isSearch, setIsSearch] = useState(false)
 
@@ -50,7 +51,8 @@ const SearchForm = () => {
                 <span class="material-icons">&#xe171;</span>
             </NavLink>
         </div>
-        <LogSign/>
+        { user && (<LogoutButton />)}
+
         </div>
 
     )

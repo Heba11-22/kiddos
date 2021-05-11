@@ -7,6 +7,7 @@ import LogSign from "../LogSign";
 import ProtectedRoute from "../../components/LoginSignUpForm/ProtectedRoute";
 import UsersList from "../../components/UsersList";
 import User from "../../components/User";
+import LoginSignUpForm from "../LoginSignUpForm";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "../../store/session";
 
@@ -30,6 +31,9 @@ function SavedItems() {
 
   return (
     <div className="form">
+      {/* <div className="log-sign-form">
+        <LoginSignUpForm />
+      </div> */}
     {/* <BrowserRouter>
     <LogSign />
     <Switch>
