@@ -16,6 +16,7 @@ import LogSign from "./components/LogSign";
 import ProtectedRoute from "./components/LoginSignUpForm/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import DemoUser from "./components/LoginSignUpForm/DemoUser"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
  

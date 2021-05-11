@@ -1,6 +1,7 @@
 // Constants: the type of actions thet are gonna happen.
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
+const GET_SINGLE_USER = 'session/GET_SINGLE_USER'
 
 
 // Action Creators: retun objects which will be passing into the reducer.
@@ -11,6 +12,11 @@ const REMOVE_USER = "session/REMOVE_USER";
     payload: user
  })
 
+ // Get one user:
+ const getOneUser = (user) => ({
+  type: GET_SINGLE_USER,
+  payload: user
+})
 
  // Remove a user from the store:
  const removeUser = () => ({
@@ -94,6 +100,35 @@ export const authenticate = () => async(dispatch) => {
     dispatch(setUser(data))
   }
 
+  //Thunk 4 for getting one user:
+  export const getSingleUser = (id) => async (dispatch) => {
+    const res = await fetch(`/api/users/${id}`, {
+        method: 'GET'
+    })
+    if (res.ok) {
+        const user = await res.json();
+        dispatch(getOneUser(user))
+        return user
+    }
+}
+
+  // Thunk 5 Demo user: 
+  export const demoLogin = () => async (dispatch) => {
+    const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: "demo@aa.io",
+            password: "password"
+        }),
+    })
+    const data = await response.json()
+    dispatch(setUser(data));
+    return response;
+}
+
 
 //Reducer
 
@@ -108,6 +143,9 @@ export default function reducer (state=initialState, action) {
         
         case REMOVE_USER:
             return { user: null };
+
+        case GET_SINGLE_USER:
+          return { ...state, target_user: action.payload }
 
         default:
             return state;
