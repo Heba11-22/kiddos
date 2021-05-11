@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import { useSelector } from "react-redux";
 import {useDispatch, useSelector } from 'react-redux'
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { useHistory, NavLink} from "react-router-dom";
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
@@ -48,9 +48,11 @@ const handleSavedItems = () => {
        console.log("NOT A USER")
      } 
     //     // else {history.push(`/saveditems`)}
-    //  if (user) console.log("..........USER")
+     if (user) {
+         history.push(`/savedItems`)}
     //  if (user) history.push(`/saveditems`)
-    history.push(`/signform`)
+        else {
+        return <Redirect to="/signform" />}
 }
 
     return (
@@ -64,10 +66,7 @@ const handleSavedItems = () => {
         )} */}
             {/* <LoginSignUpModal/> */}
             <div className="item-img-div"><img className="item-img" src={photo_url.photo_url}/></div>
-            <div className="save-items-button-div"><button className="save-items-button" onClick={
-                !user ? (history.push(`/signform`)) : history.push(`/savedItems`)
-                
-            }>Add To Saved</button></div>
+            <div className="save-items-button-div"><button className="save-items-button" onClick={handleSavedItems}>Add To Saved</button></div>
             {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
             <h1 className="word-color">color:</h1>
             <div className="item-color">{itemValues.colors}</div>
