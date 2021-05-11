@@ -1,4 +1,4 @@
-.login-form{ 
+/* .login-form{ 
     margin-top: 500px;
     background-color: red;
 }
@@ -8,4 +8,10 @@
 .ul{
     margin-top: 300px;
     background-color: rgb(0, 255, 119);
+} */
+
+.log-sig-forms-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

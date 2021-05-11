@@ -13,7 +13,7 @@ import { Modal } from '../../context/Modal';
 function SingleItem() {
     const dispatch = useDispatch();
     const history = useHistory()
-    const user = useSelector(state => state.session) || {}
+    const user = useSelector(state => state.session.user) || {}
     console.log("USEEEEER",user)
     const [item, setItem] = useState({})
     const [showModal, setShowModal] = useState(false);
@@ -32,35 +32,37 @@ function SingleItem() {
         })();
         // dispatch(getSingleItem(itemId))
     }, [setItem, itemId])
+let show;
 
-const handleSavedItems = async (e) => {
-    // if (!user) {
-    //     return
-    // }
-     if (!user) {
-        setShowModal(true)
+
+const itemValues = Object.values(item)[0] || {}
+let photo_url = (Object.values(itemValues))[6] || {}
+// console.log(photo_url.photo_url)
+let sizesArray = itemValues.sizes || {};
+// console.log(itemValues)
+// console.log(sizesArray)
+
+const handleSavedItems = () => {
+    setShowModal(true)
+    if (!user ) {
+       console.log("NOT USER")
      } 
-        // else {history.push(`/saveditems`)}
-        else if (user) history.push(`/saveditems`)
+    //     // else {history.push(`/saveditems`)}
+    //  if (user) console.log("..........USER")
+    //  if (user) history.push(`/saveditems`)
+    history.push(`/saveditems`)
 }
-
-    const itemValues = Object.values(item)[0] || {}
-    let photo_url = (Object.values(itemValues))[6] || {}
-    // console.log(photo_url.photo_url)
-    let sizesArray = itemValues.sizes || {};
-    // console.log(itemValues)
-    // console.log(sizesArray)
-
 
     return (
         <div className="single-item">
-        {showModal && (
+        {/* {showModal && (
             <div>
                 <Modal onClose={() => setShowModal(false)}>
-                    <h2>Inside the modal</h2>
-                </Modal>
+                    <LoginSignUpModal/>
+                </Modal> 
             </div>
-        )}
+        )} */}
+            {/* <LoginSignUpModal/> */}
             <div className="item-img-div"><img className="item-img" src={photo_url.photo_url}/></div>
             <div className="save-items-button-div"><button className="save-items-button" onClick={handleSavedItems}>Add To Saved</button></div>
             {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}

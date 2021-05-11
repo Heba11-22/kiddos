@@ -37,15 +37,21 @@ function App() {
         {/* <Route path="/maincategories" exact={true}>
           <Categories/>
         </Route> */}
-        <ProtectedRoute path="/savedItems" exact={true}>
+        <Route path="/savedItems" exact={true}>
           <SavedItems/>
-        </ProtectedRoute>
+        </Route>
+        {/* <ProtectedRoute path="/savedItems" exact={true}>
+          <SavedItems/>
+        </ProtectedRoute> */}
         <Route path="/maincategories/:mc">
           <MainCat/>
         </Route>
-      </Switch>
-      <LogSign />
-      <Route path="/login" exact={true}>
+        <Route path="/signform">
+          <LoginSignUpForm/>
+        </Route>
+      {/* </Switch> */}
+      {/* <LogSign /> */}
+      {/* <Route path="/login" exact={true}>
         <LoginForm />
       </Route>
       <Route path="/sign-up" exact={true}>
@@ -56,10 +62,11 @@ function App() {
       </ProtectedRoute>
       <ProtectedRoute path="/users/:userId" exact={true}>
         <User />
-      </ProtectedRoute>
+      </ProtectedRoute> */}
       {/* <ProtectedRoute path="/" exact={true}>
         <h1>My Home Page</h1>
       </ProtectedRoute> */}
+      </Switch>
     </>
   );
 }

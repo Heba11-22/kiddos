@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink } from "react-router-dom";
 import { searchThunk } from '../../store/search';
+import LogSign from '../LogSign'
 
 
 const SearchForm = () => {
@@ -49,6 +50,7 @@ const SearchForm = () => {
                 <span class="material-icons">&#xe171;</span>
             </NavLink>
         </div>
+        <LogSign/>
         </div>
 
     )

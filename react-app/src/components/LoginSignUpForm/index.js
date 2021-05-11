@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, NavLink} from "react-router-dom";
 import { Modal } from '../../context/Modal';
+import LoginForm from './LoginForm'
+import SignUpForm from './SignUpForm'
 import './LoginSignUpForm.css'
 
 
@@ -10,19 +12,13 @@ const LoginSignUpModal = () => {
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <div>
-            <Modal onClose={() => setShowModal(false)}>
-            {console.log("DEEEEEEEP")}
-                <h2>Inside the modal</h2>
-                <h2>Inside the modal</h2>
-                <h2>Inside the modal</h2>
-                <h2>Inside the modal</h2>
-                <h2>Inside the modal</h2>
-                <h2>Inside the modal</h2>
-                <h2>Inside the modal</h2>
-                <h2>Inside the modal</h2>
-                <h2>Inside the modal</h2>
-            </Modal>
+        <div className="log-sig-forms-div">
+            <div className="log-div">
+                <LoginForm/>
+            </div>
+            <div className="signup-div">
+                <SignUpForm/>
+            </div>
         </div>
     )
 }

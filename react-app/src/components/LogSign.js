@@ -15,12 +15,12 @@ const LogSign = () => {
           </NavLink>
         </li> */}
         <li>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
+          <NavLink to="/signform" exact={true} activeClassName="active">
+            Sign In
           </NavLink>
         </li>
         <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
+          <NavLink to="/signform" exact={true} activeClassName="active">
             Sign Up
           </NavLink>
         </li>
@@ -30,7 +30,9 @@ const LogSign = () => {
           </NavLink>
         </li> */}
         <li>
+        <NavLink to="/" exact={true} activeClassName="active">
           <LogoutButton />
+        </NavLink>
         </li>
       </ul>
     </nav>
