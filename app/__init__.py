@@ -7,11 +7,12 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 # the JWT token on the frontend.
 from flask_login import LoginManager
 
-from .models import db, User
+from .models import db
+from .models.items import User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.item_routes import item_routes
-from .api.saved_items_routes import saved_items_routes
+# from .api.saved_items_routes import saved_items_routes
 from .api.maincategories_routes import maincategories_routes
 
 from .seeds import seed_commands
@@ -38,7 +39,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(item_routes, url_prefix='/api/items')
 app.register_blueprint(maincategories_routes, url_prefix='/api/maincategories')
-app.register_blueprint(saved_items_routes, url_prefix='/api/saveditems')
+# app.register_blueprint(saved_items_routes, url_prefix='/api/saveditems')
 db.init_app(app)
 Migrate(app, db)
 

@@ -1,4 +1,5 @@
 from app.models import db, Items
+from app.models.items import User
 from faker import Faker
 
 fake = Faker()
@@ -19,7 +20,22 @@ def undo_items():
 
 
 def seed_item_sizes():
-    items = db.Items.query.all()
-    allsizes = db.Sizes.query.all()
-    for item in items:
-        item.Sizes.extend(allsizes)
+    # items = db.Items.query.all()
+    # allsizes = db.Sizes.query.all()
+    # for item in items:
+    #     item.Sizes.extend(allsizes)
+    db.session.execute(f"""insert into item_sizes ("sizeId", "itemId")
+    values ({1}, {3});""")
+    db.session.commit()
+
+
+def undo_item_sizes():
+    db.session.execute('TRUNCATE item_sizes RESTART IDENTITY CASCADE;')
+    db.session.commit()
+
+
+# def seed_user_items():
+#     items = db.Items.query.all()
+#     users = db.User.query.all()
+#     for item in items:
+#         item.Users.append(users)

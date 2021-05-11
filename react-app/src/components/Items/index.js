@@ -52,7 +52,8 @@ const handleSavedItems = () => {
          history.push(`/savedItems`)}
     //  if (user) history.push(`/saveditems`)
         else {
-        return <Redirect to="/signform" />}
+            console.log("HIIIII")
+        return <Redirect to="/signform"/>}
 }
 
     return (

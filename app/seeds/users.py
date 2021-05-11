@@ -38,3 +38,10 @@ def seed_users():
 def undo_users():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
+
+
+# def seed_user_items():
+#     users = db.User.query.all()
+#     items = db.Items.query.all()
+#     for user in users:
+#         user.Items.extend(items)
