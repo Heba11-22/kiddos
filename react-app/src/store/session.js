@@ -1,4 +1,4 @@
-// Constants: the type of actions thet are gonna happen.
+//1-// Constants: the type of actions thet are gonna happen.
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const GET_SINGLE_USER = 'session/GET_SINGLE_USER'

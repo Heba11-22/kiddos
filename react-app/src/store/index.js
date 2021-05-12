@@ -7,6 +7,7 @@ import item from './items';
 import mainCategories from './mainCategories';
 import search from './search';
 import categories from './categories';
+import savedItems from './savedItems';
 
 const rootReducer = combineReducers({
     session,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     search,
     mainCategories,
     categories,
+    savedItems
 });
 
 let enhancer;

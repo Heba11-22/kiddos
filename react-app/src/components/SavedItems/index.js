@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from "../../components/LoginSignUpForm/LoginForm";
 import SignUpForm from "../../components/LoginSignUpForm/SignUpForm";
 import LogSign from "../LogSign";
@@ -10,19 +10,20 @@ import User from "../../components/User";
 import LoginSignUpForm from "../LoginSignUpForm";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "../../store/session";
+import { getItemsThunk } from "../../store/savedItems";
 
 function SavedItems() {
 // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
+  const allItems = useSelector(state => state.savedItems.items) 
+  const user = useSelector(state => state.session.user) || {}
+  const userId = user.id
   const [loaded, setLoaded] = useState(false);
 
 
   // useEffect cant't have async func. Only if we invoke it immeditaly.
   useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
-      })();
+    dispatch(getItemsThunk(userId))
   }, [dispatch]);
 
   if (!loaded) {
