@@ -6,7 +6,7 @@ def seed_user_items():
     # db.session.add(row)
     # for i in range(2):
     db.session.execute(f"""insert into user_items ("userId", "itemId")
-    values ({1}, {3});""")
+    values (1, 3);""")
     db.session.commit()
     # count = 4
     # # result = []

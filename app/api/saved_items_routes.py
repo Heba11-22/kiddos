@@ -1,16 +1,49 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import login_required, current_user
-from app.models import db, Items, SavedItems
+from app.models import db, Items
+from app.models.items import user_items, User
 import json
 
-saved_items_routes = Blueprint('comments', __name__)
+saved_items_routes = Blueprint('saveditems', __name__)
 
 
 # Route for getting all the saved items for a user:
+@saved_items_routes.route('/<int:user_id>')
+# @login_required
+def get_savedItems(user_id):
+    items = User.query.filter(User.id == user_id).all()
+    return {"items": [item.to_dict() for item in items]}
 
-@saved_items_routes.route('/<int:id>')
-@login_required
-def get_savedItems(id):
-    savedItems = SavedItems.query.filter_by(userId=current_user.id).all()
-    print(">>>>>>>><<<<<<<<<<<<", savedItems)
-    return {"items": [savedItem.to_dict() for savedItem in savedItems]}
+
+# Post Route for save an item in a user saved_items page:
+@saved_items_routes.route('/<int:item_id>', methods=['POST'])
+# @login_required
+def post_save_an_item(item_id):
+    # user_id = current_user.id
+    db.session.execute(f"""insert into user_items ("userId", "itemId")
+    values (1, 10);""")
+    db.session.commit()
+    items = User.query.filter(User.id == 1).all()
+    return {"items": [item.to_dict() for item in items]}
+    # item = Items.query.get(id)
+    # print("DDDDDDDD", current_user.id)
+    # saved_item = User(
+    #     id=1,
+    #     items=item_id
+    # )
+    # db.session.add(saved_item)
+    # db.session.commit()
+    # return {"items": saved_item}
+    # return {"items": [item.to_dict() for item in items]}
+
+
+# DELETE Route for an item in a user saved_items page:
+@saved_items_routes.route('/<int:item_id>', methods=['DELETE'])
+# @login_required
+def delete_save_an_item(item_id):
+    # user_id = current_user.id
+    db.session.execute(f""" DELETE FROM user_items 
+    WHERE "userId" = 1 AND "itemId" = 10""")
+    db.session.commit()
+    items = User.query.filter(User.id == 1).all()
+    return {"items": [item.to_dict() for item in items]}

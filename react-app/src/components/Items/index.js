@@ -13,8 +13,8 @@ import { Modal } from '../../context/Modal';
 function SingleItem() {
     const dispatch = useDispatch();
     const history = useHistory()
-    const user = useSelector(state => state.session.user) || {}
-    console.log("USEEEEER",user)
+    const user = useSelector(state => state.session.user)
+    // console.log("USEEEEER",user)
     const [item, setItem] = useState({})
     const [showModal, setShowModal] = useState(false);
     const { itemId } = useParams();
@@ -43,28 +43,29 @@ let sizesArray = itemValues.sizes || {};
 // console.log(sizesArray)
 
 const handleSavedItems = () => {
-    setShowModal(true)
+    console.log("test")
     if (!user ) {
-       console.log("NOT A USER")
-     } 
-    //     // else {history.push(`/saveditems`)}
-     if (user) {
-         history.push(`/savedItems`)}
-    //  if (user) history.push(`/saveditems`)
-        else {
-            console.log("HIIIII")
-        return <Redirect to="/signform"/>}
+        setShowModal(true)
+    //    console.log("NOT A USER")
+    //    history.push(`/signform`)
+     } else if (user) {
+        //  console.log("HIIIII")
+         history.push(`/savedItems`)
+        }
+         
+         //  if (user) history.push(`/saveditems`)
+        // return <Redirect to="/signform"/>}
 }
 
     return (
         <div className="single-item">
-        {/* {showModal && (
+        {showModal && (
             <div>
                 <Modal onClose={() => setShowModal(false)}>
                     <LoginSignUpModal/>
                 </Modal> 
             </div>
-        )} */}
+        )}
             {/* <LoginSignUpModal/> */}
             <div className="item-img-div"><img className="item-img" src={photo_url.photo_url}/></div>
             <div className="save-items-button-div"><button className="save-items-button" onClick={handleSavedItems}>Add To Saved</button></div>
