@@ -58,7 +58,7 @@ class Items(db.Model):
             # "photos": [photo.get_photo() for photo in self.photos],
             "photos": self.photos.get_photo(),
             "sizes": [size.get_item() for size in self.sizes],
-            "users": [user.to_dict() for user in self.users],
+            "users": [user.get_user() for user in self.users],
             # size.get_item() bc .to_dict gave me recursion error
         }
 
@@ -141,4 +141,12 @@ class User(db.Model, UserMixin):
           "email": self.email,
           "avatar_url": self.avatar_url,
           "items": [item.get_items() for item in self.items]
+        }
+
+    def get_user(self):
+        return {
+          "id": self.id,
+          "username": self.username,
+          "email": self.email,
+          "avatar_url": self.avatar_url,
         }

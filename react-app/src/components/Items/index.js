@@ -8,15 +8,15 @@ import { useHistory, NavLink} from "react-router-dom";
 import { allMainCategories } from '../../store/mainCategories'
 import LoginSignUpModal from '../LoginSignUpForm'
 import { Modal } from '../../context/Modal';
-import { saveAnItemThunk } from "../../store/savedItems";
+// import { getItemsThunk } from "../../store/savedItems";
 
 
 function SingleItem() {
     const dispatch = useDispatch();
     const history = useHistory()
-    const user = useSelector(state => state.session.user)
+    const user = useSelector(state => state.session.user) 
     // console.log("USEEEEER",user)
-    const userId = user.id
+    // const userId = user.id || {}
     const [item, setItem] = useState({})
     const [showModal, setShowModal] = useState(false);
     const { itemId } = useParams();
@@ -24,6 +24,7 @@ function SingleItem() {
   useEffect( () => {
     dispatch(allMainCategories())
     }, [dispatch])
+
 
     useEffect ( ()=> {
         if (!itemId) return;
@@ -52,7 +53,7 @@ const handleSavedItems = () => {
     //    history.push(`/signform`)
      } else if (user) {
         //  console.log("HIIIII")
-        dispatch(saveAnItemThunk())
+        // dispatch(saveAnItemThunk())
          history.push(`/savedItems`)
         }
 }

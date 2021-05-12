@@ -26,8 +26,8 @@ const deleteAnItem = () => ({
 // Thunks:
 // 1- get saved items:
 export const getItemsThunk = (id) => async (dispatch) => {
-    const res = await fetch('/api/users/:id/saveditems', {
-        // method: "GET",
+    const res = await fetch(`/api/users/${id}/saveditems`, {
+        method: "GET",
         // headers: {
         //     'Content-Type': 'application/json'
         // }
@@ -35,30 +35,31 @@ export const getItemsThunk = (id) => async (dispatch) => {
     if (res.ok) {
         const items = await res.json();
         dispatch(getItems(items))
+        return items
     }
 }
 
 // 2- save an item:
-export const saveAnItemThunk = (params) => async (dispatch) => {
-    const { userId, itemId } = params;
-    const res = await fetch(`/api/saveditems/${itemId}`, {
-        method: 'POST',
-        userId,
-        itemId,
-    })
-    const data = await res.json();
-    dispatch(saveAnItem(data))
-}
+// export const saveAnItemThunk = (params) => async (dispatch) => {
+//     const { userId, itemId } = params;
+//     const res = await fetch(`/api/saveditems/${itemId}`, {
+//         method: 'POST',
+//         userId,
+//         itemId,
+//     })
+//     const data = await res.json();
+//     dispatch(saveAnItem(data))
+// }
 
 // 3- delete an item:
-export const deleteAnItemThunk = (itemId) => async (dispatch) => {
-    const res = await fetch(`/api/saveditems/${itemId}`, {
-        method: 'DELETE', 
-        itemId
-    })
-    const data = await res.json();
-    dispatch(deleteAnItem(data))
-}
+// export const deleteAnItemThunk = (itemId) => async (dispatch) => {
+//     const res = await fetch(`/api/saveditems/${itemId}`, {
+//         method: 'DELETE', 
+//         itemId
+//     })
+//     const data = await res.json();
+//     dispatch(deleteAnItem(data))
+// }
 
 
 // Reducer:
@@ -68,8 +69,8 @@ export default function reducer (state=initialState, action) {
     switch(action.type) {
         case GET_SAVED_ITEMS:
             return {...state, ...action.payload}
-        case SAVE_AN_ITEM:
-            return {...state, items: action.payload}
+        // case SAVE_AN_ITEM:
+        //     return {...state, items: action.payload}
         default:
             return state;
     }

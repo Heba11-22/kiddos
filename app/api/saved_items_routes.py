@@ -22,15 +22,17 @@ saved_items_routes = Blueprint('saveditems', __name__)
 
 
 # Post Route for save an item in a user saved_items page:
-@saved_items_routes.route('/<int:item_id>', methods=['POST'])
-@login_required
-def post_save_an_item(item_id):
-    user_id = current_user.id
-    db.session.execute(f"""insert into user_items ("userId", "itemId")
-    values ({user_id}, {item_id});""")
-    db.session.commit()
-    items = User.query.filter(User.id == user_id).all()
-    return {"items": [item.to_dict() for item in items]}
+# @saved_items_routes.route('/<int:item_id>', methods=['POST'])
+# @login_required
+# def post_save_an_item(item_id):
+#     user_id = current_user.id
+#     db.session.execute(f"""insert into user_items ("userId", "itemId")
+#     values ({user_id}, {item_id});""")
+#     db.session.commit()
+#     items = User.query.filter(User.id == user_id).all()
+#     return {"items": [item.to_dict() for item in items]}
+
+
     # item = Items.query.get(id)
     # print("DDDDDDDD", current_user.id)
     # saved_item = User(
@@ -44,12 +46,12 @@ def post_save_an_item(item_id):
 
 
 # DELETE Route for an item in a user saved_items page:
-@saved_items_routes.route('/<int:item_id>', methods=['DELETE'])
-@login_required
-def delete_save_an_item(item_id):
-    user_id = current_user.id
-    db.session.execute(f""" DELETE FROM user_items 
-    WHERE "userId" = {user_id} AND "itemId" = {item_id}""")
-    db.session.commit()
-    items = User.query.filter(User.id == 1).all()
-    return {"items": [item.to_dict() for item in items]}
+# @saved_items_routes.route('/<int:item_id>', methods=['DELETE'])
+# @login_required
+# def delete_save_an_item(item_id):
+#     user_id = current_user.id
+#     db.session.execute(f""" DELETE FROM user_items 
+#     WHERE "userId" = {user_id} AND "itemId" = {item_id}""")
+#     db.session.commit()
+#     items = User.query.filter(User.id == 1).all()
+#     return {"items": [item.to_dict() for item in items]}

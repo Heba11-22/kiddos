@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SingleItem from "./components/Items";
-import SavedItems from "./components/SavedItems";
+// import SavedItems from "./components/SavedItems";
 // import Categories from "./components/NavBar/Categories";
 import NavBar from "./components/NavBar";
 import MainCat from "./components/MainCat";
@@ -13,6 +13,7 @@ import { allMainCategories } from './store/mainCategories'
 import LoginForm from "./components/LoginSignUpForm/LoginForm";
 import SignUpForm from "./components/LoginSignUpForm/SignUpForm";
 import LogSign from "./components/LogSign";
+import SavedItems from "./components/SavedItems";
 import ProtectedRoute from "./components/LoginSignUpForm/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
@@ -38,12 +39,12 @@ function App() {
         {/* <Route path="/maincategories" exact={true}>
           <Categories/>
         </Route> */}
-        <Route path="/savedItems" exact={true}>
+        {/* <Route path="/savedItems" exact={true}>
           <SavedItems/>
-        </Route>
-        {/* <ProtectedRoute path="/savedItems" exact={true}>
+        </Route> */}
+        <ProtectedRoute path="/savedItems" exact={true}>
           <SavedItems/>
-        </ProtectedRoute> */}
+        </ProtectedRoute>
         <Route path="/maincategories/:mc">
           <MainCat/>
         </Route>

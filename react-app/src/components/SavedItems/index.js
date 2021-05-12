@@ -15,49 +15,37 @@ import { getItemsThunk } from "../../store/savedItems";
 function SavedItems() {
 // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
-  const allItems = useSelector(state => state.savedItems.items) 
+  const allItems = useSelector(state => state.savedItems.items) || {}
   const user = useSelector(state => state.session.user) || {}
   const userId = user.id
   const [loaded, setLoaded] = useState(false);
-
+  const allItemsValues = Object.values(allItems)
+  console.log("////////////", allItemsValues)
 
   // useEffect cant't have async func. Only if we invoke it immeditaly.
   useEffect(() => {
     dispatch(getItemsThunk(userId))
   }, [dispatch]);
 
-  if (!loaded) {
-    return null;
-  }
+  // if (!loaded) {
+  //   return null;
+  // }
+
+  
 
   return (
-    <div className="form">
-      {/* <div className="log-sign-form">
-        <LoginSignUpForm />
-      </div> */}
-    {/* <BrowserRouter>
-    <LogSign />
-    <Switch>
-      <Route path="/login" exact={true}>
-        <LoginForm />
-      </Route>
-      <Route path="/sign-up" exact={true}>
-        <SignUpForm />
-      </Route>
-      <ProtectedRoute path="/users" exact={true} >
-        <UsersList/>
-      </ProtectedRoute>
-      <ProtectedRoute path="/users/:userId" exact={true}>
-        <User />
-      </ProtectedRoute>
-      <ProtectedRoute path="/" exact={true}>
-        <h1>My Home Page</h1>
-      </ProtectedRoute>
-    </Switch>
-  </BrowserRouter> */}
+    <div className="saved-items-div">
+      <div>HHHHHHIIIIIII</div>
+      {/* <ul className="saved-items-ul">
+        {allItemsValues.map((item,i) => (
+          <li key={i}>
+            <h5>{item}</h5>
+            {console.log("?????????", item)}
+          </li>
+        ))}
 
-  SavedItmes
-  </div>
+      </ul> */}
+   </div>
   )
 }
 
