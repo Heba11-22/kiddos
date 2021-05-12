@@ -46,7 +46,7 @@ function SavedItems() {
           <NavLink to={`/items/${item.id}`}>
             <img className="saved-items-img" src={item.photos.photo_url}></img>
           </NavLink>
-            {console.log("?????????", item)}
+            {/* {console.log("?????????", item)} */}
           </li>
         ))}
 
