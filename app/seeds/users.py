@@ -17,13 +17,13 @@ def seed_users():
         newList.append(item["urls"]["thumb"])
 
     demo = User(username='Demo', email='demo@aa.io',
-                hashed_password='password', avatar_url='https://hebacapstone.s3.us-east-2.amazonaws.com/Screen+Shot+2021-05-05+at+4.55.23+PM.png')
+                password='password', avatar_url='https://hebacapstone.s3.us-east-2.amazonaws.com/Screen+Shot+2021-05-05+at+4.55.23+PM.png')
 
     db.session.add(demo)
 
     for num in range(5):
         user = User(username=fake.name(), email=fake.email(),
-                    hashed_password='password',
+                    password='password',
                     avatar_url=newList[random.randrange(len(newList))])
 
         db.session.add(user)

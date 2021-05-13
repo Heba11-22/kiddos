@@ -29,25 +29,25 @@ def user_items(user_id):
 
 
 # Post Route for save an item in a user saved_items page:
-@user_routes.route('/<int:user_id>/saveditems/<int:item_id>', methods=['POST'])
-# @login_required
-def post_save_an_item(user_id, item_id):
-    # user_id = current_user.id
-    user = User.query.filter(User.id == user_id).first()
-    # item = Items.query.filter(Items.id == item_id).first()
-    db.session.execute(f"""insert into user_items ("userId", "itemId")
-    values ({user_id}, {item_id});""")
-    db.session.commit()
-    return user.to_dict()
+# @user_routes.route('/<int:user_id>/saveditems/<int:item_id>', methods=['POST'])
+# # @login_required
+# def post_save_an_item(user_id, item_id):
+#     # user_id = current_user.id
+#     user = User.query.filter(User.id == user_id).first()
+#     # item = Items.query.filter(Items.id == item_id).first()
+#     db.session.execute(f"""insert into user_items ("userId", "itemId")
+#     values ({user_id}, {item_id});""")
+#     db.session.commit()
+#     return user.to_dict()
 
 # DELETE Route for save an item in a user saved_items page: <<<<<< NOT DONE
-@user_routes.route('/<int:user_id>/saveditems/<int:item_id>', methods=['DELETE'])
-# @login_required
-def post_save_an_item(user_id, item_id):
-    # user_id = current_user.id
-    user = User.query.filter(User.id == user_id).first()
-    # item = Items.query.filter(Items.id == item_id).first()
-    db.session.execute(f"""insert into user_items ("userId", "itemId")
-    values ({user_id}, {item_id});""")
-    db.session.commit()
-    return user.to_dict()
+# @user_routes.route('/<int:user_id>/saveditems/<int:item_id>', methods=['DELETE'])
+# # @login_required
+# def post_save_an_item(user_id, item_id):
+#     # user_id = current_user.id
+#     user = User.query.filter(User.id == user_id).first()
+#     # item = Items.query.filter(Items.id == item_id).first()
+#     db.session.execute(f"""insert into user_items ("userId", "itemId")
+#     values ({user_id}, {item_id});""")
+#     db.session.commit()
+#     return user.to_dict()
