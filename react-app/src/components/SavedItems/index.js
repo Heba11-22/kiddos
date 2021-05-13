@@ -11,7 +11,7 @@ import User from "../../components/User";
 import LoginSignUpForm from "../LoginSignUpForm";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "../../store/session";
-import { getItemsThunk } from "../../store/savedItems";
+import { getItemsThunk, deleteAnItemThunk } from "../../store/savedItems";
 
 function SavedItems() {
 // const [authenticated, setAuthenticated] = useState(false);
@@ -26,7 +26,11 @@ function SavedItems() {
   // useEffect cant't have async func. Only if we invoke it immeditaly.
   useEffect(() => {
     dispatch(getItemsThunk(userId))
-  }, [dispatch]);
+  }, [dispatch, allItemsValues]);
+
+  // const handleUnsave = async() => {
+  //   dispatch(deleteAnItemThunk(item.id))
+  // }
 
   // if (!loaded) {
   //   return null;
@@ -51,9 +55,11 @@ function SavedItems() {
                 <img className="saved-items-img" src={item.photos.photo_url}></img>
               </NavLink>
               )}
-              {!item.photos && (<h3>Sorry something wrong try one more time</h3>)}
+              {!item.photos && (<h3>Already in the favorite list</h3>)}
                 {/* {console.log("?????????", item)} */}
+                <button className="unsave-item" onClick={() => dispatch(deleteAnItemThunk(item.id))}>Unsave</button>
               </li>
+              
             ))}
 
           </ul>

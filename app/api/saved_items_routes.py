@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import login_required, current_user
-from app.models import db, Items
-from app.models.items import user_items, User
+from app.models import db, Items, User
+
 import json
 
 saved_items_routes = Blueprint('saveditems', __name__)
@@ -46,12 +46,17 @@ saved_items_routes = Blueprint('saveditems', __name__)
 
 
 # DELETE Route for an item in a user saved_items page:
-# @saved_items_routes.route('/<int:item_id>', methods=['DELETE'])
-# @login_required
-# def delete_save_an_item(item_id):
-#     user_id = current_user.id
-#     db.session.execute(f""" DELETE FROM user_items 
-#     WHERE "userId" = {user_id} AND "itemId" = {item_id}""")
-#     db.session.commit()
-#     items = User.query.filter(User.id == 1).all()
-#     return {"items": [item.to_dict() for item in items]}
+@saved_items_routes.route('/<int:item_id>', methods=['DELETE'])
+@login_required
+def delete_save_an_item(item_id):
+    user_id = current_user.id
+    # user_id = 1
+    user = User.query.filter(User.id == user_id).first()
+    item = Items.query.filter(Items.id == item_id).first()
+    # db.session.execute(f""" DELETE FROM user_items 
+    # WHERE "userId" = {user_id} AND "itemId" = {item_id}""")
+    # db.session.commit()
+    # items = User.query.filter(User.id == 1).all()
+    user.items.remove(item)
+    db.session.commit()
+    return user.to_dict()
