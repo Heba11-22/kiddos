@@ -35,23 +35,31 @@ function SavedItems() {
   
 
   return (
-    <div className="saved-items-div">
-      <div>HHHHHHIIIIIII</div>
-      <ul className="saved-items-ul">
-        {allItemsValues.map((item,i) => (
-          <li key={i}>
-          <NavLink to={`/items/${item.id}`}>
-            <h5>{item.itemName}</h5>
-          </NavLink>
-          <NavLink to={`/items/${item.id}`}>
-            <img className="saved-items-img" src={item.photos.photo_url}></img>
-          </NavLink>
-            {/* {console.log("?????????", item)} */}
-          </li>
-        ))}
+    <>
+    
+      <div className="saved-items-div">
+        <div>HHHHHHIIIIIII</div>
+        
+          <ul className="saved-items-ul">
+            {allItemsValues.map((item,i) => (
+              <li key={i}>
+              <NavLink to={`/items/${item.id}`}>
+                <h5>{item.itemName}</h5>
+              </NavLink>
+              {item.photos && (
+              <NavLink to={`/items/${item.id}`}>
+                <img className="saved-items-img" src={item.photos.photo_url}></img>
+              </NavLink>
+              )}
+              {!item.photos && (<h3>Sorry something wrong try one more time</h3>)}
+                {/* {console.log("?????????", item)} */}
+              </li>
+            ))}
 
-      </ul>
-   </div>
+          </ul>
+      </div>
+      
+      </>
   )
 }
 

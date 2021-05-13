@@ -8,7 +8,7 @@ import { useHistory, NavLink} from "react-router-dom";
 import { allMainCategories } from '../../store/mainCategories'
 import LoginSignUpModal from '../LoginSignUpForm'
 import { Modal } from '../../context/Modal';
-// import { getItemsThunk } from "../../store/savedItems";
+import { saveAnItemThunk } from "../../store/savedItems";
 
 
 function SingleItem() {
@@ -18,6 +18,7 @@ function SingleItem() {
     // console.log("USEEEEER",user)
     // const userId = user.id || {}
     const [item, setItem] = useState({})
+    const [targtedItem, setTargtedItem] = useState()
     const [showModal, setShowModal] = useState(false);
     const { itemId } = useParams();
 
@@ -45,15 +46,18 @@ let sizesArray = itemValues.sizes || {};
 // console.log(itemValues)
 // console.log(sizesArray)
 
-const handleSavedItems = () => {
+const handleSavedItems = (e) => {
     console.log("test")
     if (!user ) {
         setShowModal(true)
+        console.log("HIIIII", itemId)
+        // if(user) console.log("UUUUU", user.id)
     //    console.log("NOT A USER")
     //    history.push(`/signform`)
      } else if (user) {
-        //  console.log("HIIIII")
-        // dispatch(saveAnItemThunk())
+         dispatch(saveAnItemThunk(itemId))
+         // console.log("!!!!!!!!", userId, itemId)
+         console.log("HIIIII", e.target.value, "UUUUU", user.id)
          history.push(`/savedItems`)
         }
 }
@@ -69,7 +73,7 @@ const handleSavedItems = () => {
         )}
             {/* <LoginSignUpModal/> */}
             <div className="item-img-div"><img className="item-img" src={photo_url.photo_url}/></div>
-            <div className="save-items-button-div"><button className="save-items-button" onClick={handleSavedItems}>Add To Saved</button></div>
+            <div className="save-items-button-div"><button className="save-items-button" value={itemId} onClick={handleSavedItems}>Add To Saved</button></div>
             {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
             <h1 className="word-color">color:</h1>
             <div className="item-color">{itemValues.colors}</div>

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import login_required, current_user
-from app.models import db, Items
+from app.models import db, Items, User
 import json
 
 item_routes = Blueprint('items', __name__)
@@ -21,4 +21,23 @@ def get_single_item(id):
     return {"item": item.to_dict()}
 
 
+@item_routes.route('/<int:item_id>', methods=['POST'])
+# @login_required
+def post_save_an_item(item_id):
+    user_id = current_user.get_id()
+    # user_id = 1
+    # print("11111<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>")
+    user = User.query.filter(User.id == user_id).first()
+    # user_id = user.id
+    item = Items.query.filter(Items.id == item_id).first()
+    # print("22211111<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>")
+    # db.session.execute(f"""insert into user_items ("userId", "itemId")
+    # values ({user_id}, {item_id});""")
+    user.items.append(item)
+    # new_item = user_items()
+    # db.session.add()
+    # print("33311111<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>")
+    db.session.commit()
+    # print("4444411111<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>")
+    return user.to_dict()
 # Route for getting items

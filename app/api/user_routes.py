@@ -29,15 +29,19 @@ def user_items(user_id):
 
 
 # Post Route for save an item in a user saved_items page:
-# @user_routes.route('/<int:user_id>/saveditems/<int:item_id>', methods=['POST'])
-# # @login_required
+# @user_routes.route('/saveditems/<int:item_id>', methods=['POST'])
+# @login_required
 # def post_save_an_item(user_id, item_id):
-#     # user_id = current_user.id
+#     user_id = current_user.id
+#     print("11111<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>")
 #     user = User.query.filter(User.id == user_id).first()
 #     # item = Items.query.filter(Items.id == item_id).first()
+#     print("22211111<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>")
 #     db.session.execute(f"""insert into user_items ("userId", "itemId")
 #     values ({user_id}, {item_id});""")
+#     print("33311111<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>")
 #     db.session.commit()
+#     print("4444411111<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>")
 #     return user.to_dict()
 
 # DELETE Route for save an item in a user saved_items page: <<<<<< NOT DONE

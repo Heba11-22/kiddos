@@ -40,16 +40,21 @@ export const getItemsThunk = (id) => async (dispatch) => {
 }
 
 // 2- save an item:
-// export const saveAnItemThunk = (params) => async (dispatch) => {
-//     const { userId, itemId } = params;
-//     const res = await fetch(`/api/saveditems/${itemId}`, {
-//         method: 'POST',
-//         userId,
-//         itemId,
-//     })
-//     const data = await res.json();
-//     dispatch(saveAnItem(data))
-// }
+export const saveAnItemThunk = (itemId) => async (dispatch) => {
+    // const {  itemId } = params;
+    const res = await fetch(`/api/items/${itemId}`
+    , {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            itemId
+        }),
+    });
+    const data = await res.json();
+    dispatch(saveAnItem(data))
+}
 
 // 3- delete an item:
 // export const deleteAnItemThunk = (itemId) => async (dispatch) => {
@@ -69,8 +74,8 @@ export default function reducer (state=initialState, action) {
     switch(action.type) {
         case GET_SAVED_ITEMS:
             return {...state, ...action.payload}
-        // case SAVE_AN_ITEM:
-        //     return {...state, items: action.payload}
+        case SAVE_AN_ITEM:
+            return {...state, items: action.payload}
         default:
             return state;
     }
