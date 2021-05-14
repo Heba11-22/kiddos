@@ -16,10 +16,10 @@ function MainCat(){
             <li>
                 {catsValue.map((cat,i) => (
                     (Object.values(cat.Categories))
-                        .map(c => (
+                        .map((c,i) => (
                             ((Object.values(c))[1])
-                            .map( c1 => (
-                                <div className="item-info">
+                            .map( (c1,i) => (
+                                <div key={i} className="item-info">
                                 <NavLink to={`/items/${c1.id}`}>
                                     <div><img alt="p" src={c1.photos.photo_url}/></div>
                                     <div className="item-name">{c1.itemName}</div>

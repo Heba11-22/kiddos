@@ -85,11 +85,11 @@ function Categories () {
                         <div className="cat-dropDown-div">
                             <ul className="cat-dropDown-ul">
                                 {values2.map((arr1,i) => (
-                                    <di>
-                                        <button onClick={onClick}><li key={i} className="cat-dropDown-li">{arr1[i]}</li></button>
+                                    <div key={i}>
+                                        <button onClick={onClick}><li  className="cat-dropDown-li">{arr1[i]}</li></button>
                                         <li className="cat-dropDown-li">{arr1[i+1]}</li>
                                         <li  className="cat-dropDown-li">{arr1[i+2]}</li>
-                                    </di>
+                                    </div>
                                 ))}
                             </ul>
                         </div>

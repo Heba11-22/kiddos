@@ -14,7 +14,7 @@ import { saveAnItemThunk } from "../../store/savedItems";
 function SingleItem() {
     const dispatch = useDispatch();
     const history = useHistory()
-    const user = useSelector(state => state.session.user) 
+    const user = useSelector(state => state.session.user)
     // console.log("USEEEEER",user)
     // const userId = user.id || {}
     const [item, setItem] = useState({})
