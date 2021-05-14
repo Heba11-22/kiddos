@@ -27,7 +27,7 @@ function Categories () {
     // function to open the menu
     
     const openMenu = async (e) => {
-        if (showMenu && ["0", "1", "2", "3"].includes(e.target.value) && e.target.innerHTML !== targetCat) return;
+        if (showMenu || e.target.innerHTML == targetCat ) return;
         setShowMenu(true);
         buttonValue = e.target.value
         // setTargetButton(buttonValue)
