@@ -1,38 +1,38 @@
-// // The constants:
-// const Get_ONE_ITEM = "/items/Get_ONE_ITEM";
+// The constants:
+const Get_CATEGORY_ITEMS = "/categories/Get_CATEGORY_ITEMS";
 
-// // The action creator:
+ // The action creator:
 
-// // 1- for getting one item:
-// const getItem = (item) => ({
-//     type: Get_ONE_ITEM,
-//     payload: item
-// })
+// 1- for getting one item:
+const getItems = (items) => ({
+    type: Get_CATEGORY_ITEMS,
+    payload: items
+})
 
 
 // // The Thunks: 
 
-// // 1- for getting one item:
-// export const getSingleItem = (id) => async(dispatch) => {
-//     const res = await fetch(`/api/items/${id}`, {
-//         method: 'GET'
-//     });
-//     if (res.ok) {
-//         const item = await res.json();
-//         dispatch(getItem(item));
-//         return item;
-//     }
-// }
+// // 1- for getting items:
+export const getCategoryItems = (id) => async(dispatch) => {
+    const res = await fetch(`/api/maincategories/categories/${id}/items`, {
+        method: 'GET'
+    });
+    if (res.ok) {
+        const items = await res.json();
+        dispatch(getItems(items));
+        return items;
+    }
+}
 
 // // The reducers: 
 
-// const initialState = {item: null}
-// export default function reducer(state = initialState, action) {
-//     switch (action.type) {
-//         case Get_ONE_ITEM:
-//             return { user: action.payload }
+const initialState = {item: null}
+export default function reducer(state = initialState, action) {
+    switch (action.type) {
+        case Get_CATEGORY_ITEMS:
+            return { items: action.payload }
         
-//         default:
-//             return state;
-//     }
-// }
+        default:
+            return state;
+    }
+}

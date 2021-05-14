@@ -17,6 +17,7 @@ import SavedItems from "./components/SavedItems";
 import ProtectedRoute from "./components/LoginSignUpForm/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import CategoryItems from "./components/CategoryItems";
 import DemoUser from "./components/LoginSignUpForm/DemoUser"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
@@ -36,6 +37,9 @@ function App() {
       <Switch>
         <Route path="/items/:itemId" exact={true}>
           <SingleItem/>
+        </Route>
+        <Route path="/maincategories/categories/:id/items" exact={true}>
+          <CategoryItems/>
         </Route>
         {/* <Route path="/maincategories" exact={true}>
           <Categories/>

@@ -56,8 +56,11 @@ const handleSavedItems = (e) => {
     //    console.log("NOT A USER")
     //    history.push(`/signform`)
      } else if (user) {
-        //  if (!savedItemsArray.includes(itemId)) {
          dispatch(saveAnItemThunk(itemId))
+        //  if (savedItemsArray.includes(itemId)) { 
+        //      alert("Your file is being uploaded!")
+        //     console.log("????????????")
+        //     return}
          savedItemsArray.push(itemId)
          // console.log("!!!!!!!!", userId, itemId)
         //  console.log("HIIIII", e.target.value, "UUUUU", user.id)
