@@ -24,7 +24,7 @@ function SingleItem() {
 
   useEffect( () => {
     dispatch(allMainCategories())
-    }, [dispatch])
+    }, )
 
 
     useEffect ( ()=> {
@@ -47,17 +47,17 @@ let sizesArray = itemValues.sizes || {};
 // console.log(sizesArray)
 
 const handleSavedItems = (e) => {
-    console.log("test")
+    // console.log("test")
     if (!user ) {
         setShowModal(true)
-        console.log("HIIIII", itemId)
+        // console.log("HIIIII", itemId)
         // if(user) console.log("UUUUU", user.id)
     //    console.log("NOT A USER")
     //    history.push(`/signform`)
      } else if (user) {
          dispatch(saveAnItemThunk(itemId))
          // console.log("!!!!!!!!", userId, itemId)
-         console.log("HIIIII", e.target.value, "UUUUU", user.id)
+        //  console.log("HIIIII", e.target.value, "UUUUU", user.id)
          history.push(`/savedItems`)
         }
 }

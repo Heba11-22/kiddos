@@ -53,6 +53,8 @@ export const saveAnItemThunk = (itemId) => async (dispatch) => {
         }),
     });
     const data = await res.json();
+    // debugger
+    // console.log(">>>>>>>>>>>.",data)
     dispatch(saveAnItem(data))
 }
 
@@ -80,7 +82,7 @@ export default function reducer (state=initialState, action) {
         case GET_SAVED_ITEMS:
             return {...state, ...action.payload}
         case SAVE_AN_ITEM:
-            return {...state, items: action.payload}
+            return {...state, [state.items[action.payload.id]]: action.payload}
         case UN_SAVE_AN_ITEM:
             return state
         default:

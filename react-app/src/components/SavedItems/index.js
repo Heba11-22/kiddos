@@ -19,14 +19,15 @@ function SavedItems() {
   const allItems = useSelector(state => state.savedItems.items) || {}
   const user = useSelector(state => state.session.user) || {}
   const userId = user.id
-  const [loaded, setLoaded] = useState(false);
+  const [trigger, setTrigger] = useState(false);
   const allItemsValues = Object.values(allItems) || {}
   console.log("////////////", allItemsValues)
 
   // useEffect cant't have async func. Only if we invoke it immeditaly.
   useEffect(() => {
     dispatch(getItemsThunk(userId))
-  }, [dispatch, allItemsValues]);
+  },[trigger]);
+  // }, [allItemsValues]);
 
   // const handleUnsave = async() => {
   //   dispatch(deleteAnItemThunk(item.id))
@@ -57,7 +58,12 @@ function SavedItems() {
               )}
               {!item.photos && (<h3>Already in the favorite list</h3>)}
                 {/* {console.log("?????????", item)} */}
-                <button className="unsave-item" onClick={() => dispatch(deleteAnItemThunk(item.id))}>Unsave</button>
+                <button className="unsave-item" onClick={() => {
+                  dispatch(deleteAnItemThunk(item.id))
+                  setTrigger(!trigger)
+                }}>
+                  Unsave
+                </button>
               </li>
               
             ))}

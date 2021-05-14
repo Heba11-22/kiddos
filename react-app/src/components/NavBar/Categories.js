@@ -21,33 +21,36 @@ function Categories () {
 
         let buttonValue
         let catObject
-        let catObjectArr
-        let catObjectArr2
+        // let catObjectArr
+        // let catObjectArr2
         let catObjectArr3
     // function to open the menu
     
-    const openMenu = async(e) => {
-        if (showMenu) return;
+    const openMenu = async (e) => {
+        if (showMenu && ["0", "1", "2", "3"].includes(e.target.value) && e.target.innerHTML !== targetCat) return;
         setShowMenu(true);
         buttonValue = e.target.value
         // setTargetButton(buttonValue)
         setTargetCat(buttonValue)
         catObject = (mainCat_states[buttonValue])
-        catObjectArr = (Object.values(catObject))[0] 
-        catObjectArr2 = (Object.values(catObject))[0]
+        // catObjectArr = (Object.values(catObject))[0] 
+        // catObjectArr2 = (Object.values(catObject))[0]
         catObjectArr3 = (Object.values(catObject))[0] || {}
         setTargetbutton(catObjectArr3)
         // catObjectArr3 = (((Object.values(catObject))[0])[0]).CategoryName
-        console.log("fdfdfdfd",targetbutton)
+        // console.log("fdfdfdfd",targetbutton)
         // console.log("fdfdfdfd",(Object.values(catObjectArr)).CategoryName)
     }
 
 
  // close the menu
  useEffect(() => {
+    //  console.log("????")
     if (!showMenu) return;
-    const closeMenu = () => {
+    const closeMenu = (e) => {
+        // if (["0", "1", "2", "3"].includes(e.target.value) && e.target.innerHTML !== targetCat) return;
         setShowMenu(false);
+        console.log("????")
     };
 
     document.addEventListener('click', closeMenu);
@@ -56,27 +59,36 @@ function Categories () {
 
 
 return (
-    <div className="mainCat">
-        <ul className="main-cat-ul">
-            {mainCat_states.map( (mainCat_state, i) => (
-                <li key={i} className="mCat_li">
-                    <button value={i} onClick={openMenu}>{mainCat_state.Main_CategoryName}</button>
-                    {/* {console.log("SSSSSSS", mainCat_state)} */}
-                    {/* {console.log("SSSSSSS", Object.values(mainCat_state))} */}
-                </li>
-            ))}
-                {openMenu && (
-                    <ul className="drop-down-ul">
+    <>
+    <div className="third-nav-div">
+        <div className="main-cat-ul">
+            <ul className="main-cat-ul">
+                {mainCat_states.map( (mainCat_state, i) => (
+                    <li key={i} className="mCat_li">
+                        <button value={i} onClick={openMenu}>{mainCat_state.Main_CategoryName}</button>
+                        {/* {console.log("SSSSSSS", mainCat_state)} */}
+                        {/* {console.log("SSSSSSS", Object.values(mainCat_state))} */}
+                    </li>
+                ))}
+            </ul>
+        </div>
+        <div className="search-saved-div">
+            <SearchForm/>
+        </div>
+    </div>
+        {showMenu && (
+            <div>
+                <ul className="drop-down-ul">
                     {targetbutton && ( targetbutton.map((cat, i) => (
-                         <li key={i} className="drop-down-li"> 
+                        <li key={i} className="drop-down-li"> 
                             {(Object.values(cat))[0]}
                             {console.log("SSSSSSS", cat)}
                         </li>
-                          )))} 
-                    </ul>
-                )}
-        </ul>
-    </div>
+                        )))} 
+                </ul>
+            </div>
+        )}
+    </>
 
 )}
 

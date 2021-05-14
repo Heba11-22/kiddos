@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, MainCategories, Categories
+from app.models import db, MainCategories, Categories, Items
 
 
 maincategories_routes = Blueprint('maincategories', __name__)
@@ -28,6 +28,15 @@ def get_a_category(id):
     print(">>>>>>>>>>", category)
     # print("4------------------", [maincategory.to_dict() for maincategory in maincategories])
     return {"Category": category.to_dict()}
+
+
+# Route for getting items under Categories:
+@maincategories_routes.route('/categories/<int:id>/items')
+def get_category_items(id):
+    items = Items.query.filter(Items.categoryId == id).all()
+    # print(">>>>>>>>>>", items)
+    # print("4------------------", [maincategory.to_dict() for maincategory in maincategories])
+    return {"items": [item.to_dict() for item in items]}
 
 
 # Route POST for the search:

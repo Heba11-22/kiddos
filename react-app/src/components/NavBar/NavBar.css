@@ -62,7 +62,7 @@
     font-size: 25px;
 }
 
-.categories-ul{
+.main-cat-ul{
     background: red;
     width: 65%;
     display: flex;
@@ -81,7 +81,7 @@
     cursor: pointer;
 }
 
-.main-cat-button,
+/* .main-cat-button, */
 .search-button {
     border: none;
     outline: none;
