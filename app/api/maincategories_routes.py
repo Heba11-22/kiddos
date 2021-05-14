@@ -14,7 +14,7 @@ def get_maincategories():
 
 
 # Route for getting a specific main Categories:
-@maincategories_routes.route('/<string:mc>')
+@maincategories_routes.route('/<string:mc>/')
 def get_some_maincategories(mc):
     maincategories = MainCategories.query.filter(MainCategories.main_categoryName.ilike(f'%{mc}%')).all()
     # print("4------------------", [maincategory.to_dict() for maincategory in maincategories])
