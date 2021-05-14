@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink} from "react-router-dom";
 import { allMainCategories } from '../../store/mainCategories'
 import { getCategoryThunk } from '../../store/categories'
 import SearchForm from "./SearchForm"
@@ -14,8 +15,9 @@ function Categories () {
     const [targetbutton, setTargetbutton] = useState()
 
 
-    useEffect( () => {
+    useEffect( (e) => {
         dispatch(allMainCategories())
+        // console.log(e.target)
         // dispatch(getCategoryThunk(targetCat))
         }, [dispatch])
 
@@ -80,10 +82,14 @@ return (
             <div>
                 <ul className="drop-down-ul">
                     {targetbutton && ( targetbutton.map((cat, i) => (
-                        <li key={i} className="drop-down-li"> 
+                       
+                        <NavLink to={`/maincategories/categories/${cat.id}/items`}>
+                            <li key={i} className="drop-down-li"> 
                             {(Object.values(cat))[0]}
-                            {console.log("SSSSSSS", cat)}
-                        </li>
+                                {/* {console.log("SSSSSSS", cat.id)} */}
+                            </li>
+                        </NavLink>
+                        
                         )))} 
                 </ul>
             </div>
@@ -91,7 +97,6 @@ return (
     </>
 
 )}
-
 
 
 
