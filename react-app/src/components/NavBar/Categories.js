@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink} from "react-router-dom";
+import { NavLink, useParams} from "react-router-dom";
 import { allMainCategories } from '../../store/mainCategories'
 import { getCategoryThunk } from '../../store/categories'
 import SearchForm from "./SearchForm"
@@ -9,7 +9,8 @@ function Categories () {
     const dispatch = useDispatch();
     const mainCat_states = Object.values(useSelector(state => state.mainCategories)) || {}
     // console.log("SSSSSSS", mainCat_states.Categories)
-
+    // const {itemId2}   = useParams();
+    // console.log("nnnnn>>>>>", useParams())
     const [showMenu, setShowMenu] = useState(false);  // setting the menu showing to false "closed"
     const [targetCat, setTargetCat] = useState()
     const [margin, setMargin] = useState(13)
@@ -22,11 +23,14 @@ function Categories () {
     // let catObjectArr
     // let catObjectArr2
     let catObjectArr3
+
     useEffect( (e) => {
         dispatch(allMainCategories())
+        
         // console.log(e.target)
         // dispatch(getCategoryThunk(targetCat))
         }, [dispatch])
+    
         // let margin
         
         // if (buttonValue === 0) {margin = {
@@ -73,6 +77,7 @@ function Categories () {
     document.addEventListener('click', closeMenu);
     return (() => document.removeEventListener('click', closeMenu))
 }, [showMenu]);
+
 
 
 return (
@@ -148,7 +153,7 @@ return (
         </div>
     </div>
         {showMenu && ( 
-            <div style={{marginLeft: margin + '%', marginTop: '-2%', marginRight: '-30%'}}>
+            <div style={{marginLeft: margin + '%', marginTop: '-2%', }}>
                         {/* // onMouseOver={openMenu} */}
                         {/* // {console.log("CCCCCCCCCCc")}}} */}
                         {/* // onMouseOut={() => setShowMenu(false)}> */}
