@@ -113,6 +113,7 @@ button {
     justify-content: space-between;
     align-items: center;
     padding-right: 13%;
+    background-color: white;
 }
 
 .search-saved-div {

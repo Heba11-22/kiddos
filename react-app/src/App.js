@@ -18,6 +18,7 @@ import ProtectedRoute from "./components/LoginSignUpForm/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import CategoryItems from "./components/CategoryItems";
+import LandingPage from "./components/LandingPage";
 import DemoUser from "./components/LoginSignUpForm/DemoUser"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
@@ -35,6 +36,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path="/" exact={true}>
+          <LandingPage/>
+        </Route>
         <Route path="/items/:itemId" exact={true}>
           <SingleItem/>
         </Route>
