@@ -82,14 +82,14 @@ function Categories () {
 
 return (
     <>
-    <div className="third-nav-div">
+    <nav className="third-nav-div">
         <div className="main-cat-ul">
         
             <ul className="main-cat-ul">
                 {mainCat_states.map( (mainCat_state, i) => (
                     <li key={i} className="mCat_li">
                     
-                        <button value={i} onClick={openMenu}>{mainCat_state.Main_CategoryName}</button>
+                        <button className="mCat_button" value={i} onClick={openMenu}>{mainCat_state.Main_CategoryName}</button>
                         {/* <button  */}
                         {/* // value={i}  */}
                         {/* // onMouseOver={openMenu} */}
@@ -151,7 +151,8 @@ return (
         <div className="search-saved-div">
             <SearchForm/>
         </div>
-    </div>
+    </nav>
+
         {showMenu && ( 
             <div style={{marginLeft: margin + '%', marginTop: '-2%', }}>
                         {/* // onMouseOver={openMenu} */}
@@ -161,7 +162,7 @@ return (
                     {targetbutton && ( targetbutton.map((cat, i) => (
                        
                         <li key={i} className="drop-down-li"> 
-                            <NavLink to={`/maincategories/categories/${cat.id}/items`}>
+                            <NavLink className="drop-down-link" to={`/maincategories/categories/${cat.id}/items`}>
                                 {(Object.values(cat))[0]}
                                     {/* {console.log("SSSSSSS", cat.id)} */}
                             </NavLink>

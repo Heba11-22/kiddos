@@ -42,6 +42,7 @@
     /* align-self: flex-start; */
     background: white;
     outline: none;
+   
 }
 
 .k,
@@ -49,7 +50,8 @@
 .s{
     font-family: 'Emilys Candy', cursive;
     font-weight: bolder;
-    font-size: 23px;
+    font-size: 32px;
+    color:rgb(119, 49, 113)
     /* align-self: flex-end; */
 
 }
@@ -57,13 +59,13 @@
 .i,
 .o {
     font-family: 'Emilys Candy', cursive;
-    color: rgb(101, 178, 192);
+    color: rgb(58, 152, 168);
     font-weight: bolder;
-    font-size: 25px;
+    font-size: 35px;
 }
 
 .main-cat-ul{
-    background: red;
+    /* background: red; */
     width: 65%;
     display: flex;
     flex-direction: row;
@@ -72,6 +74,19 @@
     list-style: none;
 }
 
+li {
+    list-style: none;
+}
+
+.mCat_button{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.drop-down-link,
+.kiddos-link{
+    text-decoration: none;
+}
 /* .h3{
     background: red;
 } */
@@ -82,7 +97,8 @@
 }
 
 /* .main-cat-button, */
-.search-button {
+.search-button,
+button {
     border: none;
     outline: none;
     background: none;
@@ -90,16 +106,17 @@
 }
 
 .third-nav-div {
-    background: red;
+    /* background: red; */
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding-right: 13%;
 }
 
 .search-saved-div {
     /* width: 30%; */
-    padding-right: 10%;
+    /* padding-right: 13%; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
