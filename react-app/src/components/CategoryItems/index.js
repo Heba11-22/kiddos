@@ -16,7 +16,7 @@ function CategoryItems() {
     useEffect(() =>{
         // console.log(e.target)
         dispatch(getCategoryItems(categoryId))
-    }, [dispatch])
+    }, [dispatch, categoryId])
     
     return (
         <div className="category-items-div">
