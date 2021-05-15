@@ -7,26 +7,23 @@ import { getCategoryItems } from "../../store/items";
 
 function CategoryItems() {
     const dispatch = useDispatch();
-    // useEffect((e) =>{
-    //     console.log(e.target)
-    // //     dispatch(getCategoryItems())
-    // })
+    const categoryId = useParams().id
+    const categoryItems = useSelector(state => state.categoryItems) || {} 
+    console.log(categoryItems.items)
+
+    useEffect(() =>{
+        // console.log(e.target)
+        dispatch(getCategoryItems(categoryId))
+    }, [dispatch])
     return (
         <>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
-        <div>CategoryItems</div>
+            {/* <ul>
+                {categoryItems.map((categoryItem, i) => (
+                    <li key={i}>{categoryItem}</li>
+                ))}
+            </ul> */}
+        <div>{categoryId}</div>
+        {/* <div>{categoryItems}</div> */}
         </>
     )
 }

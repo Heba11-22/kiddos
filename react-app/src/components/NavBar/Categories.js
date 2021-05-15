@@ -52,7 +52,7 @@ function Categories () {
     const closeMenu = (e) => {
         // if (["0", "1", "2", "3"].includes(e.target.value) && e.target.innerHTML !== targetCat) return;
         setShowMenu(false);
-        console.log("????")
+        // console.log("????")
     };
 
     document.addEventListener('click', closeMenu);
@@ -83,12 +83,12 @@ return (
                 <ul className="drop-down-ul">
                     {targetbutton && ( targetbutton.map((cat, i) => (
                        
-                        <NavLink to={`/maincategories/categories/${cat.id}/items`}>
-                            <li key={i} className="drop-down-li"> 
-                            {(Object.values(cat))[0]}
-                                {/* {console.log("SSSSSSS", cat.id)} */}
-                            </li>
-                        </NavLink>
+                        <li key={i} className="drop-down-li"> 
+                            <NavLink to={`/maincategories/categories/${cat.id}/items`}>
+                                {(Object.values(cat))[0]}
+                                    {/* {console.log("SSSSSSS", cat.id)} */}
+                            </NavLink>
+                        </li>
                         
                         )))} 
                 </ul>
