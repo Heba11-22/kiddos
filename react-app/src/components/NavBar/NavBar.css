@@ -142,13 +142,19 @@ button {
 }
 
 .drop-down-div{
+    width: 12%;
+    /* margin-bottom: -100px; */
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     /* border: 1px solid black; */
-    width: 12%;
     background:rgb(246, 245, 245);
     /* border-radius: 6px; */
     box-shadow: -3px 5px 8px rgba(149, 147, 147, 0.692);
+}
+
+.drop-down-link {
+    color: black;
 }

@@ -54,7 +54,7 @@ function Categories () {
         // catObjectArr2 = (Object.values(catObject))[0]
         catObjectArr3 = (Object.values(catObject))[0] || 0
         setTargetbutton(catObjectArr3)
-        setMargin(buttonValue + 9.999999999999)
+        setMargin(buttonValue + 7)
         // if (buttonValue === 1) margin = {marginLeft: "100%"} 
 
         //
@@ -152,9 +152,8 @@ return (
             <SearchForm/>
         </div>
     </nav>
-
         {showMenu && ( 
-            <div className="drop-down-div" style={{marginLeft: margin + '%', marginTop: '-2%', }}>
+            <div className="drop-down-div" style={{marginLeft: margin + '%', marginTop: '-1%', }}>
                         {/* // onMouseOver={openMenu} */}
                         {/* // {console.log("CCCCCCCCCCc")}}} */}
                         {/* // onMouseOut={() => setShowMenu(false)}> */}
@@ -172,6 +171,7 @@ return (
                 </ul>
             </div>
          )}
+
     
     </>
 
