@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 //import * as sessionActions from '../../store/session'
 import { useHistory, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -28,6 +28,9 @@ const DemoUser = () => {
         await dispatch(demoLogin())
         history.push('/savedItems')
     }
+    // useEffect( () => {
+    //     dispatch(demoLogin())
+    // }, [dispatch])
     //doesn't have to be a form could be a link, but not a link instead of a form
     return (
         <>

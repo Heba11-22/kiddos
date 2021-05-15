@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, NavLink } from "react-router-dom";
 import LogoutButton from '../LoginSignUpForm/LogoutButton'
 import { searchThunk } from '../../store/search';
+import { Modal } from '../../context/Modal';
+import LoginSignUpModal from '../LoginSignUpForm'
 import LogSign from '../LogSign'
 
 
@@ -12,6 +14,7 @@ const SearchForm = () => {
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     const [search, setSearch] = useState("")
+    const [showModal, setShowModal] = useState(false);
     // const [isSearch, setIsSearch] = useState(false)
 
     const handleSubmit = (e) => {
@@ -26,6 +29,14 @@ const SearchForm = () => {
         dispatch(searchThunk(e.target.value));
         // console.log(search)
     }
+    const handleSavedItems = (e) => {
+        if (!user ) {
+            setShowModal(true)
+         } else if (user) {
+             history.push(`/savedItems`)
+            }
+    }
+    
 
     return (
         <div className="search-saved-div">
@@ -38,21 +49,32 @@ const SearchForm = () => {
                         value={search}
                         onChange={onChange}
                         className="search-button-input"
-                        
+
                     />
                     {/* {console.log(search)} */}
                 </div>
             </form>
-            <button className="search-button" type="submit">
-                <span class="material-icons">&#xe8b6;</span>
-            </button>
+            <div className="search-button-div">
+                <button className="search-button" type="submit">
+                    <span class="material-icons">&#xe8b6;</span>
+                </button>
+            </div>
         <div className="my-fav-div">
-            <NavLink to="/savedItems" className="my-fav">
-                <span class="material-icons">&#xe171;</span>
+            <NavLink to="/savedItems" className="my-fav" onClick={handleSavedItems}>
+                <span class="material-icons">&#xe599;</span>
             </NavLink>
         </div>
+        <div>
         { user && (<LogoutButton />)}
+        </div>
 
+        {showModal && (
+            <div>
+                <Modal onClose={() => setShowModal(false)}>
+                    <LoginSignUpModal/>
+                </Modal> 
+            </div>
+        )}
         </div>
 
     )

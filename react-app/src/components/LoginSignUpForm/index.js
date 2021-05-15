@@ -14,9 +14,9 @@ const LoginSignUpModal = () => {
 
     return (
         <div className="sign-page-div">
-            <div className="nav-div">
+            {/* <div className="nav-div">
                 <NavBar/> 
-            </div>
+            </div> */}
             <div className="log-sign-forms-div">
                 <div className="log-div">
                     <LoginForm/>

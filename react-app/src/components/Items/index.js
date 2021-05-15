@@ -46,7 +46,7 @@ let sizesArray = itemValues.sizes || {};
 // console.log(itemValues)
 // console.log(sizesArray)
 
-let savedItemsArray = []
+// let savedItemsArray = []
 const handleSavedItems = (e) => {
     // console.log("test")
     if (!user ) {
@@ -61,7 +61,7 @@ const handleSavedItems = (e) => {
         //      alert("Your file is being uploaded!")
         //     console.log("????????????")
         //     return}
-         savedItemsArray.push(itemId)
+        //  savedItemsArray.push(itemId)
          // console.log("!!!!!!!!", userId, itemId)
         //  console.log("HIIIII", e.target.value, "UUUUU", user.id)
          history.push(`/savedItems`)
