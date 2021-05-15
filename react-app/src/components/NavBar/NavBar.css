@@ -154,6 +154,13 @@ button {
     text-decoration: none;
 }
 
+/* .sen-plz-login{
+    display: flex;
+    justify-content: center;
+    font-family: 'Emilys Candy', cursive;
+    font-size: 30px;
+} */
+
 .drop-down-div{
     width: 12%;
     /* margin-bottom: -100px; */

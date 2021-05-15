@@ -17,7 +17,9 @@ const LoginSignUpModal = () => {
             {/* <div className="nav-div">
                 <NavBar/> 
             </div> */}
+                <h3 className="sen-plz-login">Please Login or Sign up</h3>
             <div className="log-sign-forms-div">
+
                 <div className="log-div">
                     <LoginForm/>
                 </div>

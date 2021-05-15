@@ -71,6 +71,7 @@ const SearchForm = () => {
         {showModal && (
             <div>
                 <Modal onClose={() => setShowModal(false)}>
+                    {/* <h3 className="sen-plz-login">Please Login or Sign up</h3> */}
                     <LoginSignUpModal/>
                 </Modal> 
             </div>

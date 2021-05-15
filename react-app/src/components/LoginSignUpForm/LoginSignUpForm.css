@@ -2,6 +2,12 @@
 .sign-page-div{
     height: 100%;
 }
+.sen-plz-login{
+    display: flex;
+    justify-content: center;
+    font-family: 'Emilys Candy', cursive;
+    font-size: 30px;
+}
 .log-sign-forms-div {
     display: flex;
     justify-content: space-around;
@@ -12,7 +18,7 @@
 
 /* .log-sign-forms-div, */
 .log-div {
-    border-right: 2px solid rgb(209, 207, 207);
+    /* border-right: 2px solid rgb(209, 207, 207); */
 }
 .log-div,
 .signup-div {
@@ -26,6 +32,7 @@
     /* background:rgb(246, 245, 245); */
     /* border-radius: 5px; */
     width: 50%;
+    
  } 
  .login-form-div,
  .signup-form-div{
@@ -35,6 +42,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+ }
+ .login-forms {
+
+     border-right: 2px solid rgb(209, 207, 207);
  }
  .login-forms,
  .signup-forms {
