@@ -34,16 +34,19 @@
     width: 50%;
     
  } 
+ /* .login-form-div {
+     margin-bottom: 30%;
+ } */
  .login-form-div,
  .signup-form-div{
-    height: 80%;
+    height: 65%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
  }
- .login-forms {
+ .login-form-div {
 
      border-right: 2px solid rgb(209, 207, 207);
  }
@@ -88,8 +91,8 @@
 }
 
 .log-in,
-.demo-log-in,
 .login-button,
+.demo-log-in,
 .sign-up-button {
     width: 50%;
     height: 30px;
@@ -108,5 +111,7 @@
     outline: none;
     background: none;
     cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
     /* padding-bottom: 30%; */
-}
+ } 

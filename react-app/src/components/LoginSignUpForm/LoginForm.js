@@ -37,8 +37,8 @@ const LoginForm = () => {
       <form onSubmit={onLogin} className="login-forms">
       <div className="login-form">
         <div>
-          {errors.map((error) => (
-            <div>{error}</div>
+          {errors.map((error,i) => (
+            <div key={i}>{error}</div>
           ))}
         </div>
         <div className="email">
@@ -68,11 +68,11 @@ const LoginForm = () => {
         <div className="log-in">
           <button className="login-button" type="submit">Login</button>
         </div>
-        <div className="demo-log-in">
-          <DemoUser />
-        </div>
         </div>
       </form>
+      <div className="demo-log-in">
+        <DemoUser />
+      </div>
     </div>
   );
 };

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, NavLink } from "react-router-dom";
+import { useParams, useHistory, NavLink } from "react-router-dom";
 import LogoutButton from '../LoginSignUpForm/LogoutButton'
 import { searchThunk } from '../../store/search';
 import { Modal } from '../../context/Modal';
+import { saveAnItemThunk } from "../../store/savedItems";
 import LoginSignUpModal from '../LoginSignUpForm'
 import LogSign from '../LogSign'
 
@@ -13,10 +14,20 @@ const SearchForm = () => {
     const dispatch = useDispatch();
     const history = useHistory()
     const user = useSelector(state => state.session.user)
+    // const [item, setItem] = useState({})
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
+    const { itemId } = useParams();
     // const [isSearch, setIsSearch] = useState(false)
-
+    // useEffect ( ()=> {
+    //     if (!itemId) return;
+    //     (async () => {
+    //         const res = await fetch(`/api/items/${itemId}`);
+    //         const item = await res.json();
+    //         setItem(item)
+    //     })();
+    //     // dispatch(getSingleItem(itemId))
+    // }, [setItem, itemId])
     const handleSubmit = (e) => {
         e.preventDefault();
         history.push(`/maincategories/${search}`)
@@ -33,12 +44,20 @@ const SearchForm = () => {
         if (!user ) {
             setShowModal(true)
          } else if (user) {
+            // dispatch(saveAnItemThunk(itemId))
              history.push(`/savedItems`)
             }
     }
     
 
     return (
+        <>
+        {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    {/* <h3 className="sen-plz-login">Please Login or Sign up</h3> */}
+                    <LoginSignUpModal/>
+                </Modal> 
+        )}
         <div className="search-saved-div">
         
             <form onSubmit={handleSubmit}>
@@ -68,15 +87,9 @@ const SearchForm = () => {
         { user && (<LogoutButton />)}
         </div>
 
-        {showModal && (
-            <div>
-                <Modal onClose={() => setShowModal(false)}>
-                    {/* <h3 className="sen-plz-login">Please Login or Sign up</h3> */}
-                    <LoginSignUpModal/>
-                </Modal> 
-            </div>
-        )}
         </div>
+        
+        </>
 
     )
 }
