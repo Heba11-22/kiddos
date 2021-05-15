@@ -17,6 +17,7 @@ function CategoryItems() {
         // console.log(e.target)
         dispatch(getCategoryItems(categoryId))
     }, [dispatch])
+    
     return (
         <div className="category-items-div">
            <ul>

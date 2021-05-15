@@ -12,40 +12,55 @@ function Categories () {
 
     const [showMenu, setShowMenu] = useState(false);  // setting the menu showing to false "closed"
     const [targetCat, setTargetCat] = useState()
+    const [margin, setMargin] = useState(13)
     const [targetbutton, setTargetbutton] = useState()
 
 
+    
+    let buttonValue
+    let catObject
+    // let catObjectArr
+    // let catObjectArr2
+    let catObjectArr3
     useEffect( (e) => {
         dispatch(allMainCategories())
         // console.log(e.target)
         // dispatch(getCategoryThunk(targetCat))
         }, [dispatch])
+        // let margin
+        
+        // if (buttonValue === 0) {margin = {
+        //         marginLeft: "13%",
+        //     }}
+        //     else if (buttonValue === 1) {margin = {marginLeft: "24%"}}
+        //     else if (buttonValue === 2) {margin = {marginLeft: "35%"}}
+        //     else if (buttonValue === 3) {margin = {marginLeft: "45%"}}
 
-        let buttonValue
-        let catObject
-        // let catObjectArr
-        // let catObjectArr2
-        let catObjectArr3
     // function to open the menu
     
-    const openMenu = async (e) => {
-        if (showMenu || e.target.innerHTML == targetCat ) return;
+    const openMenu =  (e) => {
+        // if (showMenu || e.target.innerHTML == targetCat ) return;
         setShowMenu(true);
-        buttonValue = e.target.value
+        buttonValue = e.target.value || 0
+        console.log(">>>>>>", buttonValue)
         // setTargetButton(buttonValue)
         setTargetCat(buttonValue)
         catObject = (mainCat_states[buttonValue])
         // catObjectArr = (Object.values(catObject))[0] 
         // catObjectArr2 = (Object.values(catObject))[0]
-        catObjectArr3 = (Object.values(catObject))[0] || {}
+        catObjectArr3 = (Object.values(catObject))[0] || 0
         setTargetbutton(catObjectArr3)
+        setMargin(buttonValue + 9.999999999999)
+        // if (buttonValue === 1) margin = {marginLeft: "100%"} 
+
+        //
         // catObjectArr3 = (((Object.values(catObject))[0])[0]).CategoryName
-        // console.log("fdfdfdfd",targetbutton)
+        // console.log("fdfdfdfd",buttonValue)
         // console.log("fdfdfdfd",(Object.values(catObjectArr)).CategoryName)
     }
 
 
- // close the menu
+//  close the menu
  useEffect(() => {
     //  console.log("????")
     if (!showMenu) return;
@@ -64,10 +79,64 @@ return (
     <>
     <div className="third-nav-div">
         <div className="main-cat-ul">
+        
             <ul className="main-cat-ul">
                 {mainCat_states.map( (mainCat_state, i) => (
                     <li key={i} className="mCat_li">
+                    
                         <button value={i} onClick={openMenu}>{mainCat_state.Main_CategoryName}</button>
+                        {/* <button  */}
+                        {/* // value={i}  */}
+                        {/* // onMouseOver={openMenu} */}
+                        {/* // {console.log("CCCCCCCCCCc")}}} */}
+                        {/* // onMouseOut={() => {setShowMenu(false)}} */}
+                        {/* // {console.log("vvvvvvvvvvvvv")} */}
+                        
+                        {/* // > */}
+                            {/* {mainCat_state.Main_CategoryName} */}
+                            
+                        {/* </button> */}
+                        
+                        {/* {showMenu && ( */}
+                            {/* <div > */}
+                                {/* <ul className="drop-down-ul" style={margin}> */}
+                                    {/* {targetbutton && ( targetbutton.map((cat, i) => ( */}
+                                    
+                                        {/* <li key={i} className="drop-down-li">  */}
+                                            {/* <NavLink to={`/maincategories/categories/${cat.id}/items`}> */}
+                                                {/* {(Object.values(cat))[0]} */}
+                                                    {/* {console.log("SSSSSSS", cat.id)} */}
+                                            {/* </NavLink> */}
+                                        {/* </li> */}
+                                        
+                                        {/* )))}  */}
+                                {/* </ul> */}
+                            {/* </div> */}
+                        {/* )} */}
+                        {/* {showMenu && (
+                            <div>
+                            {(Object.values(mainCat_state.Categories))[i] && (
+                                <ul>
+                                    {((((Object.values(mainCat_state.Categories)))[i]).CategoryName).map((subcategory,i) => (
+                                        <li key={i} className="subcategory-li">
+                                            {subcategory}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                                <ul>
+
+                                </ul>
+                            </div>
+                        )} */}
+                        {/* {(Object.values(mainCat_state.Categories))[i] && console.log(">>>>>>>>>>>>>>>",(((Object.values(mainCat_state.Categories)))[i]).CategoryName)} */}
+                        {/* {showMenu && ( 
+                            <div>
+                                <ul>
+
+                                </ul>
+                            </div> */}
+                        {/* )} */}
                         {/* {console.log("SSSSSSS", mainCat_state)} */}
                         {/* {console.log("SSSSSSS", Object.values(mainCat_state))} */}
                     </li>
@@ -78,9 +147,12 @@ return (
             <SearchForm/>
         </div>
     </div>
-        {showMenu && (
-            <div>
-                <ul className="drop-down-ul">
+        {showMenu && ( 
+            <div style={{marginLeft: margin + '%', marginTop: '-2%', marginRight: '-30%'}}>
+                        {/* // onMouseOver={openMenu} */}
+                        {/* // {console.log("CCCCCCCCCCc")}}} */}
+                        {/* // onMouseOut={() => setShowMenu(false)}> */}
+                <ul className="drop-down-ul" >
                     {targetbutton && ( targetbutton.map((cat, i) => (
                        
                         <li key={i} className="drop-down-li"> 
@@ -93,7 +165,8 @@ return (
                         )))} 
                 </ul>
             </div>
-        )}
+         )}
+    
     </>
 
 )}
