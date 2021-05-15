@@ -9,22 +9,27 @@ function CategoryItems() {
     const dispatch = useDispatch();
     const categoryId = useParams().id
     const categoryItems = useSelector(state => state.categoryItems) || {} 
-    console.log(categoryItems.items)
+    const items = categoryItems.items || {}
+    const items2 = ((Object.values(items))[0]) || {}
+    // console.log((items2))
 
     useEffect(() =>{
         // console.log(e.target)
         dispatch(getCategoryItems(categoryId))
     }, [dispatch])
     return (
-        <>
-            {/* <ul>
-                {categoryItems.map((categoryItem, i) => (
-                    <li key={i}>{categoryItem}</li>
-                ))}
-            </ul> */}
-        <div>{categoryId}</div>
-        {/* <div>{categoryItems}</div> */}
-        </>
+        <div className="category-items-div">
+           <ul>
+                {items2 && ((Object.values(items2)).map((categoryItem, i) => (
+                    <div className="one-item-div">
+                        <NavLink to={`/items/${categoryItem.id}`}>
+                            <li key={i} className="category-items-name">{categoryItem.itemName}</li>
+                            <img className="category-items-img" src={categoryItem.photos.photo_url}/>
+                        </NavLink>
+                    </div>
+                )))} 
+            </ul> 
+        </div>
     )
 }
 
