@@ -154,7 +154,7 @@ return (
     </nav>
 
         {showMenu && ( 
-            <div style={{marginLeft: margin + '%', marginTop: '-2%', }}>
+            <div className="drop-down-div" style={{marginLeft: margin + '%', marginTop: '-2%', }}>
                         {/* // onMouseOver={openMenu} */}
                         {/* // {console.log("CCCCCCCCCCc")}}} */}
                         {/* // onMouseOut={() => setShowMenu(false)}> */}
