@@ -29,12 +29,12 @@
 #modal-content {
   position: absolute;
   /* position: fixed; */
-  /* background-color:red; */
+  background-color:white;
   height: 65%;
   /* margin-right: 18%; */
   width: 65%;
   border: 2px solid rgb(209, 207, 207);
-  border-radius: 5px;
+  border-radius: 9px;
   box-shadow: -3px 5px 8px rgba(149, 147, 147, 0.692);
 }
 

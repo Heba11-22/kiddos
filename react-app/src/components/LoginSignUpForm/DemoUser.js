@@ -37,7 +37,9 @@ const DemoUser = () => {
 
             <form onSubmit={demoLoginWrapper}>
                 <div className="demo-link">
-                    <input type="submit" value="Demo"/>
+                    <button type="submit" value="Demo"/>
+                        Guest Login
+                    <button/>
                 </div>
 
             </form>

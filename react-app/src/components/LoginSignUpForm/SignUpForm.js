@@ -6,6 +6,7 @@ import { signUp } from "../../store/session";
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
+  const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +15,10 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password));
+      if (data.errors) {
+        setErrors(data.errors);
+      };
     }
   };
 
@@ -39,47 +43,60 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className="signup">
-    <form onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
-        ></input>
+    <div className="signup-form-div">
+      <form onSubmit={onSignUp} className="signup-forms">
+      <div className="signup-form">
+        <div>
+            {errors.map((error) => (
+              <div>{error}</div>
+            ))}
+        </div>
+        <div className="user-name">
+          <label>User Name</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="User Name"
+            onChange={updateUsername}
+            value={username}
+          ></input>
+        </div>
+        <div className="email2">
+          <label>Email</label>
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            onChange={updateEmail}
+            value={email}
+          ></input>
+        </div>
+        <div className="password2">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={updatePassword}
+            value={password}
+          ></input>
+        </div>
+        <div className="repeat-pass">
+          <label>Repeat Password</label>
+          <input
+            type="password"
+            name="repeat_password"
+            placeholder="Repeat Password"
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+          ></input>
+        </div>
+        <div className="sign-up-button">
+          <button type="submit">Sign Up</button>
+        </div>
       </div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type="submit">Sign Up</button>
-    </form>
+      </form>
     </div>
   );
 };
