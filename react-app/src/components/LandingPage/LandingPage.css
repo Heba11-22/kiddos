@@ -18,8 +18,15 @@
 }
 
 .second-img {
-    
     width: 40%;
     height: 600px;
-    
+}
+
+.latest-items-div {
+    padding-top: 10%;
+    /* height: 200px; */
+}
+
+.latest-items-img{
+    height: 600px;
 }
