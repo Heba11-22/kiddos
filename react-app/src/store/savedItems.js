@@ -42,7 +42,7 @@ export const getItemsThunk = (id) => async (dispatch) => {
 // 2- save an item:
 export const saveAnItemThunk = (itemId) => async (dispatch) => {
     // const {  itemId } = params;
-    const res = await fetch(`/api/items/${itemId}/`
+    const res = await fetch(`/api/items/${itemId}`
     , {
         method: "POST",
         headers: {
@@ -60,7 +60,7 @@ export const saveAnItemThunk = (itemId) => async (dispatch) => {
 
 // 3- delete an item:
 export const deleteAnItemThunk = (itemId) => async (dispatch) => {
-    const res = await fetch(`/api/saveditems/${itemId}/`, {
+    const res = await fetch(`/api/saveditems/${itemId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

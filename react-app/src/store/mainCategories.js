@@ -12,7 +12,7 @@ const all_maincategories = (maincategories) => ({
 
 // Thunk:
 export const allMainCategories = () => async (dispatch) => {
-    const res = await fetch ('/api/maincategories/', {
+    const res = await fetch ('/api/maincategories', {
         method: "GET"
     });
     console.log(res)

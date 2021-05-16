@@ -26,7 +26,7 @@ function SavedItems() {
   // useEffect cant't have async func. Only if we invoke it immeditaly.
   useEffect(() => {
     dispatch(getItemsThunk(userId))
-  },[trigger, allItemsValues]);
+  },[trigger, allItemsValues, dispatch]);
   // }, [allItemsValues]);
 
   // const handleUnsave = async() => {

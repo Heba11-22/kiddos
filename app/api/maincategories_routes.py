@@ -14,7 +14,7 @@ def get_maincategories():
 
 
 # Route for getting a specific main Categories:
-@maincategories_routes.route('/<string:mc>/')
+@maincategories_routes.route('/<string:mc>')
 def get_some_maincategories(mc):
     maincategories = MainCategories.query.filter(MainCategories.main_categoryName.ilike(f'%{mc}%')).all()
     # print("4------------------", [maincategory.to_dict() for maincategory in maincategories])
@@ -22,7 +22,7 @@ def get_some_maincategories(mc):
 
 
 # Route for getting a specific main Categories:
-@maincategories_routes.route('/categories/<int:id>/')
+@maincategories_routes.route('/categories/<int:id>')
 def get_a_category(id):
     category = Categories.query.get(id)
     print(">>>>>>>>>>", category)
@@ -40,7 +40,7 @@ def get_category_items(id):
 
 
 # Route POST for the search:
-@maincategories_routes.route('/search/', methods=['POST'])
+@maincategories_routes.route('/search', methods=['POST'])
 def post_search_category():
     # print("3------------------")
     data = request.json["search"]
