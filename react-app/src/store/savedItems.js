@@ -80,9 +80,10 @@ const initialState = {items: null}
 export default function reducer (state=initialState, action) {
     switch(action.type) {
         case GET_SAVED_ITEMS:
-            return {...state, ...action.payload}
+            return {...state, savedItems: action.payload}
         case SAVE_AN_ITEM:
-            return {...state, [state.items[action.payload.id]]: action.payload}
+            return {...state, savedItems: action.payload}
+            // return {...state, [state.items[action.payload.id]]: action.payload}
         case UN_SAVE_AN_ITEM:
             return state
         default:

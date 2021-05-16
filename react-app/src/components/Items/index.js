@@ -27,7 +27,7 @@ function SingleItem() {
 
   useEffect( () => {
     dispatch(allMainCategories())
-    }, )
+    }, [dispatch])
 
 
     useEffect ( ()=> {

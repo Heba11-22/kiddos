@@ -23,14 +23,18 @@ import Footer from "./components/Footer";
 import DemoUser from "./components/LoginSignUpForm/DemoUser"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
+import { getItemsThunk, deleteAnItemThunk } from "./store/savedItems";
  
 
 function App() {
   
   const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user) || {}
+  const userId = user.id
   useEffect( () => {
     dispatch(allMainCategories())
     dispatch(authenticate())
+    dispatch(getItemsThunk(userId))
     }, [dispatch])
 
   return (
@@ -46,6 +50,9 @@ function App() {
         <Route path="/maincategories/categories/:id/items" exact={true}>
           <CategoryItems/>
         </Route>
+        <Route path="/saveItems" exact={true}>
+          <SavedItems/>
+        </Route>
         {/* <Route path="/maincategories" exact={true}>
           <Categories/>
         </Route> */}
@@ -55,10 +62,10 @@ function App() {
         <ProtectedRoute path="/savedItems" exact={true}>
           <SavedItems/>
         </ProtectedRoute>
-        <Route path="/maincategories/:mc">
+        <Route path="/maincategories/:mc" exact={true}>
           <MainCat/>
         </Route>
-        <Route path="/signform">
+        <Route path="/signform" exact={true}>
           {/* <NavBar /> */}
           <LoginSignUpForm/>
         </Route>

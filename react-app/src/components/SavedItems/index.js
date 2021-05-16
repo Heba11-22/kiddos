@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, Redirect} from "react-router-dom";
 import LoginForm from "../../components/LoginSignUpForm/LoginForm";
 import SignUpForm from "../../components/LoginSignUpForm/SignUpForm";
 import LogSign from "../LogSign";
@@ -16,7 +16,9 @@ import { getItemsThunk, deleteAnItemThunk } from "../../store/savedItems";
 function SavedItems() {
 // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
-  const allItems = useSelector(state => state.savedItems.items) || {}
+  const history = useHistory()
+  const allItemsState = useSelector(state => state.savedItems.savedItems) || {}
+  const allItems = allItemsState.items || {}
   const user = useSelector(state => state.session.user) || {}
   const userId = user.id
   const [trigger, setTrigger] = useState(false);
@@ -26,7 +28,8 @@ function SavedItems() {
   // useEffect cant't have async func. Only if we invoke it immeditaly.
   useEffect(() => {
     dispatch(getItemsThunk(userId))
-  },[trigger, allItemsValues, dispatch]);
+  // },[trigger, dispatch, userId, allItemsValues]);
+  },[dispatch]);
   // }, [allItemsValues]);
 
   // const handleUnsave = async() => {
@@ -60,7 +63,11 @@ function SavedItems() {
                 {/* {console.log("?????????", item)} */}
                 <button className="unsave-item" onClick={() => {
                   dispatch(deleteAnItemThunk(item.id))
+                  // window.location.reload("/savedItems/")
+                  // history.push("/savedItems")
                   setTrigger(!trigger)
+                  window.location.reload(false)
+                {/* <Redirect to="/savedItems"/> */}
                 }}>
                   Unsave
                 </button>
