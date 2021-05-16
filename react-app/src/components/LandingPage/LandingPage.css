@@ -22,11 +22,47 @@
     height: 600px;
 }
 
+.main-latest-div {
+    height: 700px;
+   
+}
+
 .latest-items-div {
     padding-top: 10%;
     /* height: 200px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 .latest-items-img{
     height: 600px;
+    cursor: pointer;
+}
+
+.item-name,
+.latest-sen,
+.latest-sen2{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    
+    
+}
+
+.latest-sen{
+    font-family: 'Emilys Candy', cursive;
+    font-weight: bold;
+    font-size: 30px;
+}
+.latest-sen2{
+    font-family: 'Emilys Candy', cursive;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.item-name{
+    text-decoration: none;
+    cursor: pointer;
 }

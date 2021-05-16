@@ -23,24 +23,29 @@ const LandingPage = () => {
             </div>
             <div className="latest-sen">
                 <h1>NEW ARRIVALS</h1>
+            </div>
+            
+            <div className="latest-sen2">
                 <h3>Shop The Latest Trends & Styles</h3>
             </div>
             {/* <div className="latest-items-div">
                 <ul className="latest-items-ul"> */}
-                <ScrollMenu
-                    arrowLeft={<div style={{ fontSize: "70px" }}>{" < "}</div>}
-                    arrowRight={<div style={{ fontSize: "70px" }}>{" > "}</div>}
-                    data={(Object.values(latestItems)).map((item, i) => (
-                        <div key={i} className="latest-items-div">
-                            {/* <li  className="latest-items-li"> */}
-                                <NavLink to={`/items/${item.id}`}>
-                                    <img className="latest-items-img" src={item.photos.photo_url}/>
-                                    <h3>{item.itemName}</h3>
-                                </NavLink>
-                            {/* </li> */}
-                        </div>
-                    ))}
-                    />
+                <div className="main-latest-div">
+                    <ScrollMenu
+                        arrowLeft={<div style={{ fontSize: "50px" }}>{" < "}</div>}
+                        arrowRight={<div style={{ fontSize: "70px" }}>{" > "}</div>}
+                        data={(Object.values(latestItems)).map((item, i) => (
+                            <div key={i} className="latest-items-div">
+                                {/* <li  className="latest-items-li"> */}
+                                    <NavLink to={`/items/${item.id}`}>
+                                        <img className="latest-items-img" src={item.photos.photo_url}/>
+                                        <h3 className="item-name">{item.itemName}</h3>
+                                    </NavLink>
+                                {/* </li> */}
+                            </div>
+                        ))}
+                        />
+                </div>
         </div>
     )
 }
