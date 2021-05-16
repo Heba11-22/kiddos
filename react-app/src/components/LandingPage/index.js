@@ -31,8 +31,9 @@ const LandingPage = () => {
             </div>
             {/* <div className="latest-items-div">
                 <ul className="latest-items-ul"> */}
-                <div className="main-latest-div">
+                <div >
                     <ScrollMenu
+                        className="main-latest-div"
                         arrowLeft={<div style={{ fontSize: "50px" }}>{" < "}</div>}
                         arrowRight={<div style={{ fontSize: "70px" }}>{" > "}</div>}
                         data={(Object.values(latestItems)).map((item, i) => (

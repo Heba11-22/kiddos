@@ -1,23 +1,53 @@
 import React, { useState, useEffect, Component } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, NavLink} from "react-router-dom";
+import "./Footer.css";
 
 const Footer = () => {
     return (
         <div className="footer-div">
-            <div className="my-name">
-                <h3>
-                    <span class="material-icons">&#xe1b0;</span>
-                    By Heba Elkasaby
-                </h3>
+            <div className="left">
+                <div className="my-name">
+                    <h3>
+                        <span class="material-icons">&#xe1b0;</span>
+                        By: Heba Elkasaby
+                    </h3>
+                </div>
+                <div className="languages">
+                    <span class="material-icons">&#xe894;</span>
+                    <h3>Used Languages: </h3>
+                    <h5> Python, Flask, JavaScript, React, JSX, CSS </h5>
+                </div>
             </div>
-            <div className="languages">
-                <span class="material-icons">&#xe894;</span>
-                <span><h3>Used Languages:</h3> </span>
-                Python, Flask, JavaScript, React, JSX, CSS 
-            </div>
-            <div className="github">
-            <button className="github-icon"></button>
+            <div className="icons">
+                <div className="github">
+                <a href="https://github.com/Heba11-22" className="github-icon-link">
+                    
+                    <img 
+                        className="github-icon" 
+                        src="https://hebacapstone.s3.us-east-2.amazonaws.com/GitHub-logo-500x281.png"
+                        style={{height: "40px", width: "40px"}}
+                        />
+                </a>
+                </div>
+                <div className="linkedin">
+                <a href="https://www.linkedin.com/in/heba-e-3091261b5/" className="linkedin-icon-link">
+                    <img 
+                        className="linkedin-icon" 
+                        src="https://hebacapstone.s3.us-east-2.amazonaws.com/174857.png"
+                        style={{height: "40px", width: "40px"}}
+                        />
+                </a>
+                </div>
+                <div className="angellist">
+                <a href="https://angel.co/u/heba-elkasaby" className="angellist-icon-link">
+                    <img 
+                        className="angellist-icon" 
+                        src="https://hebacapstone.s3.us-east-2.amazonaws.com/20_Angellist_logo_logos-512.webp"
+                        style={{height: "40px", width: "40px"}}
+                        />
+                </a>
+                </div>
 
             </div>
         </div>

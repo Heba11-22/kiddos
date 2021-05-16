@@ -24,11 +24,13 @@
 
 .main-latest-div {
     height: 700px;
+    z-index: -1;
    
 }
 
 .latest-items-div {
     padding-top: 10%;
+    
     /* height: 200px; */
     /* display: flex;
     justify-content: center;
@@ -38,6 +40,7 @@
 .latest-items-img{
     height: 600px;
     cursor: pointer;
+    
 }
 
 .item-name,
