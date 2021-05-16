@@ -10,7 +10,7 @@ const searchCat = (searchList) => ({
 //Thunk:
 // We need the search from the backend to be in the body
 export const searchThunk = (searchField) => async (dispatch) => {
-    const response = await fetch ('/api/maincategories/search', {
+    const response = await fetch ('/api/maincategories/search/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

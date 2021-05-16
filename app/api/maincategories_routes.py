@@ -22,7 +22,7 @@ def get_some_maincategories(mc):
 
 
 # Route for getting a specific main Categories:
-@maincategories_routes.route('/categories/<int:id>')
+@maincategories_routes.route('/categories/<int:id>/')
 def get_a_category(id):
     category = Categories.query.get(id)
     print(">>>>>>>>>>", category)
@@ -31,7 +31,7 @@ def get_a_category(id):
 
 
 # Route for getting items under Categories:
-@maincategories_routes.route('/categories/<int:id>/items')
+@maincategories_routes.route('/categories/<int:id>/items/')
 def get_category_items(id):
     items = Items.query.filter(Items.categoryId == id).all()
     # print(">>>>>>>>>>", items)
@@ -40,7 +40,7 @@ def get_category_items(id):
 
 
 # Route POST for the search:
-@maincategories_routes.route('/search', methods=['POST'])
+@maincategories_routes.route('/search/', methods=['POST'])
 def post_search_category():
     # print("3------------------")
     data = request.json["search"]
