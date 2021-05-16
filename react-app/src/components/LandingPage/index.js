@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, NavLink} from "react-router-dom";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {getLatestItemsThunk} from "../../store/items"
+import Shop from "./Shop";
 // import {getLatestItemsThunk} from "../../store/items"
 import "./LandingPage.css"
 
@@ -39,7 +40,7 @@ const LandingPage = () => {
                         data={(Object.values(latestItems)).map((item, i) => (
                             <div key={i} className="latest-items-div">
                                 {/* <li  className="latest-items-li"> */}
-                                    <NavLink to={`/items/${item.id}`}>
+                                    <NavLink to={`/items/${item.id}`} className="item-name-nav">
                                         <img className="latest-items-img" src={item.photos.photo_url}/>
                                         <h3 className="item-name">{item.itemName}</h3>
                                     </NavLink>
@@ -47,6 +48,9 @@ const LandingPage = () => {
                             </div>
                         ))}
                         />
+                </div>
+                <div className="shop-imgs">
+                    <Shop/>
                 </div>
         </div>
     )

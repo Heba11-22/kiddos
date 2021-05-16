@@ -60,7 +60,63 @@
     font-size: 20px;
 }
 
-.item-name{
+.item-name-nav{
     text-decoration: none;
     cursor: pointer;
+}
+
+/* .shop-imgs, */
+.shop-div{
+    height: 700px;
+    width: 100%;
+    padding: 10% 0%;
+}
+.shop-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.girl,
+.boy{
+    height: 100%;
+    width: 50%;
+}
+
+.girl-img,
+.boy-img{
+    height: 100%;
+    width: 100%;
+}
+.shop-girl-h{
+    color: rgb(240, 157, 222);
+    /* outline: none; */
+}
+.shop-boy-h{
+    color: rgb(152, 205, 248);
+}
+
+.shop-girl-nav,
+.shop-boy-nav {
+    /* border: 1px solid black; */
+    width: 99%;
+    height: 80px;
+    margin-top: -15%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Emilys Candy', cursive;
+    font-size: 30px;
+    text-decoration: none;
+}
+.shop-girl-div,
+.shop-boy-div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }

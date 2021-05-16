@@ -1,12 +1,14 @@
 .footer-div {
     /* position:absolute; */
-    margin-bottom: 0px;
+    
+    /* margin-bottom: 0px; */
     background-color: rgb(58, 152, 168);
     width: 100%;
     height: 300px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /* align-self: start; */
 }
 
 .languages,
