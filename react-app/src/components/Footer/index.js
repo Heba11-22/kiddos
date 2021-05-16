@@ -5,8 +5,20 @@ import { useHistory, NavLink} from "react-router-dom";
 const Footer = () => {
     return (
         <div className="footer-div">
-            <div className="may name">
-                <h3>By Heba Elkasaby</h3>
+            <div className="my-name">
+                <h3>
+                    <span class="material-icons">&#xe1b0;</span>
+                    By Heba Elkasaby
+                </h3>
+            </div>
+            <div className="languages">
+                <span class="material-icons">&#xe894;</span>
+                <span><h3>Used Languages:</h3> </span>
+                Python, Flask, JavaScript, React, JSX, CSS 
+            </div>
+            <div className="github">
+            <button className="github-icon"></button>
+
             </div>
         </div>
     )
