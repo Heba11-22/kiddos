@@ -23,7 +23,7 @@ function CategoryItems() {
            <ul>
                 {items2 && ((Object.values(items2)).map((categoryItem, i) => (
                     <div className="one-item-div">
-                        <NavLink to={`/items/${categoryItem.id}`}>
+                        <NavLink to={`/items/${categoryItem.id}/`}>
                             <li key={i} className="category-items-name">{categoryItem.itemName}</li>
                             <img className="category-items-img" src={categoryItem.photos.photo_url}/>
                         </NavLink>

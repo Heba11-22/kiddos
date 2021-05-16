@@ -6,7 +6,7 @@ import { demoLogin,login } from "../../store/session";
 
 // import { setErrors } from '../../store/errors';
 
-const DemoUser = () => {
+const DemoUser = ({setShowModal}) => {
 	let history = useHistory()
 	const dispatch = useDispatch()
 
@@ -26,6 +26,7 @@ const DemoUser = () => {
     const demoLoginWrapper = async (e) => {
         e.preventDefault()
         await dispatch(demoLogin())
+        setShowModal(false)
         history.push('/savedItems')
     }
     // useEffect( () => {

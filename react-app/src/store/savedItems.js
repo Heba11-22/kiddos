@@ -42,7 +42,7 @@ export const getItemsThunk = (id) => async (dispatch) => {
 // 2- save an item:
 export const saveAnItemThunk = (itemId) => async (dispatch) => {
     // const {  itemId } = params;
-    const res = await fetch(`/api/items/${itemId}`
+    const res = await fetch(`/api/items/${itemId}/`
     , {
         method: "POST",
         headers: {

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from "../../store/session";
 import DemoUser from './DemoUser';
 
-const LoginForm = () => {
+const LoginForm = ( {setShowModal} ) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
   // const userId = user.id
@@ -14,10 +14,10 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login(email, password)) || {}
     if (data.errors) {
       setErrors(data.errors);
-    };
+    } else if (!data.errors) setShowModal(false)
   };
 
   const updateEmail = (e) => {
@@ -71,7 +71,7 @@ const LoginForm = () => {
         </div>
       </form>
       <div className="demo-log-in">
-        <DemoUser />
+        <DemoUser setShowModal={setShowModal}/>
       </div>
     </div>
   );

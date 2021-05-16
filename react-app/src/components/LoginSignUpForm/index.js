@@ -8,9 +8,9 @@ import NavBar from "../NavBar";
 import './LoginSignUpForm.css'
 
 
-const LoginSignUpModal = () => {
+const LoginSignUpModal = ({setShowModal}) => {
     const history = useHistory()
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
 
     return (
         <div className="sign-page-div">
@@ -21,10 +21,10 @@ const LoginSignUpModal = () => {
             <div className="log-sign-forms-div">
 
                 <div className="log-div">
-                    <LoginForm/>
+                    <LoginForm setShowModal={setShowModal}/>
                 </div>
                 <div className="signup-div">
-                    <SignUpForm/>
+                    <SignUpForm setShowModal={setShowModal}/>
                 </div>
             </div>
         </div>

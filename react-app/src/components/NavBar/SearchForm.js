@@ -40,6 +40,7 @@ const SearchForm = () => {
         dispatch(searchThunk(e.target.value));
         // console.log(search)
     }
+    
     const handleSavedItems = (e) => {
         if (!user ) {
             setShowModal(true)
@@ -55,7 +56,7 @@ const SearchForm = () => {
         {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     {/* <h3 className="sen-plz-login">Please Login or Sign up</h3> */}
-                    <LoginSignUpModal/>
+                    <LoginSignUpModal setShowModal={setShowModal}/>
                 </Modal> 
         )}
         <div className="search-saved-div">

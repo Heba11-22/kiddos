@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from "../../store/session";
 
-const SignUpForm = () => {
+const SignUpForm = ({setShowModal}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
   const [errors, setErrors] = useState([]);
@@ -15,10 +15,10 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password)) || {};
       if (data.errors) {
         setErrors(data.errors);
-      };
+      } else if (!data.errors) setShowModal(false)
     }
   };
 
