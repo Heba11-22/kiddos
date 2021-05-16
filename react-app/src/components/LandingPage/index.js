@@ -24,7 +24,7 @@ const LandingPage = () => {
             <div className="latest-sen">
                 <h1>NEW ARRIVALS</h1>
             </div>
-            
+
             <div className="latest-sen2">
                 <h3>Shop The Latest Trends & Styles</h3>
             </div>
@@ -41,7 +41,7 @@ const LandingPage = () => {
                                         <img className="latest-items-img" src={item.photos.photo_url}/>
                                         <h3 className="item-name">{item.itemName}</h3>
                                     </NavLink>
-                                {/* </li> */}
+                                
                             </div>
                         ))}
                         />
