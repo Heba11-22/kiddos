@@ -19,6 +19,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import CategoryItems from "./components/CategoryItems";
 import LandingPage from "./components/LandingPage";
+import Footer from "./components/Footer";
 import DemoUser from "./components/LoginSignUpForm/DemoUser"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
@@ -79,6 +80,7 @@ function App() {
         <h1>My Home Page</h1>
       </ProtectedRoute> */}
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }
