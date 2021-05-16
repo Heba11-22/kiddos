@@ -26,8 +26,8 @@ const DemoUser = ({setShowModal}) => {
     const demoLoginWrapper = async (e) => {
         e.preventDefault()
         await dispatch(demoLogin())
-        setShowModal(false)
         history.push('/savedItems')
+        setShowModal(false)
     }
     // useEffect( () => {
     //     dispatch(demoLogin())

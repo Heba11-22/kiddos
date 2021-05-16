@@ -157,7 +157,7 @@ const handleSavedItems = (e) => {
                 {showModal && (
                     <div>
                         <Modal onClose={() => setShowModal(false)}>
-                            <LoginSignUpModal/>
+                            <LoginSignUpModal setShowModal={setShowModal}/>
                         </Modal> 
                     </div>
                 )}
