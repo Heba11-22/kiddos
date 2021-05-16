@@ -33,7 +33,7 @@ export const getCategoryItems = (id) => async(dispatch) => {
 
 // // 1- for getting the latest items:
 export const getLatestItemsThunk = () => async(dispatch) => {
-    const res = await fetch(`/api/items`, {
+    const res = await fetch(`/api/items/`, {
         method: 'GET'
     });
     if (res.ok) {
