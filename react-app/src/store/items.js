@@ -21,7 +21,7 @@ const getLatestItems = (items) => ({
 
 // // 1- for getting items:
 export const getCategoryItems = (id) => async(dispatch) => {
-    const res = await fetch(`/api/maincategories/categories/${id}/items`, {
+    const res = await fetch(`/api/maincategories/categories/${id}/items/`, {
         method: 'GET'
     });
     if (res.ok) {
