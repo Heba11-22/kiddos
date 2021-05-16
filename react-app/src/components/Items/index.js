@@ -4,13 +4,16 @@ import {useDispatch, useSelector } from 'react-redux'
 import { useParams, Redirect } from "react-router-dom";
 import { useHistory, NavLink} from "react-router-dom";
 import ImageZoom from 'react-medium-image-zoom'
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
 import { allMainCategories } from '../../store/mainCategories'
 import LoginSignUpModal from '../LoginSignUpForm'
 import { Modal } from '../../context/Modal';
 import { saveAnItemThunk } from "../../store/savedItems";
+import {getLatestItemsThunk} from "../../store/items"
 import "./Items.css"
+// import "../LandingPage/LandingPage.css"
 
 
 function SingleItem() {
@@ -39,16 +42,27 @@ function SingleItem() {
         })();
         // dispatch(getSingleItem(itemId))
     }, [setItem, itemId])
-let show;
+
+    const latestItemsStore = useSelector(state => state.item.latestItems) || {}
+    const latestItems = (latestItemsStore.items) || {}
+    // console.log(">>>>>>", latestItems[0])
+    useEffect( () => {
+        dispatch(getLatestItemsThunk())
+    }, [dispatch])
 
 
 const itemValues = Object.values(item)[0] || {}
 let photo_url = (Object.values(itemValues))[6] || {}
 // console.log(photo_url.photo_url)
 let sizesArray = itemValues.sizes || {};
-console.log("IIIIIIIIIIIII",item)
-// console.log(sizesArray)
-
+let currentItemId = itemValues.categoryId
+console.log("111IIIIIIIIIIIII",itemValues.categoryId)
+let suggestedItems = items[currentItemId] || {}
+let suggestedItemsValues = (Object.values(suggestedItems))[0]|| {}
+let suggestedItemsValues2 = Object.values(suggestedItemsValues) || {}
+// let suggestedItemsValues3 = Object.values(suggestedItemsValues2) 
+// let suggestedItems2 = suggestedItemsValues3[0] 
+console.log("222IIIIIIIIIIIII",suggestedItemsValues)
 // let savedItemsArray = []
 const handleSavedItems = (e) => {
     // console.log("test")
@@ -73,60 +87,103 @@ const handleSavedItems = (e) => {
 }
 
     return (
-        <div className="single-item">
-            {/* <LoginSignUpModal/> */}
-            <div className="item-img-div">
-            <ImageZoom
-                image={{ 
-                    className: "item-img", 
-                    src: `${photo_url.photo_url}`
-                    }}
-                    zoomImage={{
-                        src: `${photo_url.photo_url}-big`,
-                        alt: 'Golden Gate Bridge'
-                    }}
+        <>
+            {/* <div className="links-to-previuos">
+                <NavLink to="/" className="home-nav">
+                    HOME >
+                </NavLink>
+            </div> */}
+            <div className="single-item">
+                {/* <LoginSignUpModal/> */}
+                <div className="item-img-div">
+                <ImageZoom
+                    image={{ 
+                        className: "item-img", 
+                        src: `${photo_url.photo_url}`
+                        }}
+                        zoomImage={{
+                            src: `${photo_url.photo_url}-big`,
+                            alt: 'Golden Gate Bridge'
+                        }}
 
+                    />
+                </div>
+                <div className="item-info-div">
+                    {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
+                    <h2 className="item-name">{itemValues.itemName}</h2>
+                    <h4 className="item-price-sale-sen">OUR PRICE: </h4>
+                    <div className="price">
+                        <div className="item-price-sale">$24</div>
+                        <div className="item-price">$50</div>
+                    </div>
+                    <div className="word-color">
+                    <h2>color: </h2>
+                        <h3>{itemValues.colors}</h3>
+                        <div className="item-color" >
+                            <span class="material-icons" style={{color: itemValues.colors, fontSize: "45px"}}>&#xef4a;</span>
+                        </div>
+                    </div>
+                    <div className="sizes">
+                        <h2 className="item-sizes-sen">Sizes: </h2>
+                        <ul className="item-sizes">{Object.values(sizesArray).map((size, i) => (
+                            <li key={i} className="one-size-list" style={{border: "2px solid rgb(214, 208, 208)", width: "100%", height: "20%"}}>
+                                <div className="one-size-div">{size.size}</div>
+                            </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="save-bag-buttons">
+                        <div className="save-button-div"><button className="save-button" value={itemId} onClick={handleSavedItems}>Add To Favorite</button></div>
+                        <div className="bag-button-div"><button className="bag-button" value={itemId} onClick={handleSavedItems}>Add To Bag</button></div>
+                    </div>
+                    <div className="item-detail">
+                        
+                        <h3>Product Details: </h3>
+                        <h4 style={{width: "50%", fontWeight: "lighter"}}>{itemValues.detail}</h4>
+                    </div>
+                    {/* <ScrollMenu
+                            className="main-latest-div"
+                            arrowLeft={<div style={{ fontSize: "50px", color: "gray" }}>{" < "}</div>}
+                            arrowRight={<div style={{ fontSize: "50px", color: "gray" }}>{" > "}</div>}
+                            data={(Object.values(suggestedItemsValues)).map((suggestedItem, i) => (
+                                <NavLink to={`/items/${suggestedItem.id}`} className="item-name-nav">
+                                {console.log("dfgetrgtgrwg",suggestedItem)}
+                                            {/* <img className="latest-items-img" src={suggestedItem.photos.photo_url}/> */}
+                                            {/* <h3 className="item-name">{suggestedItem.itemName}</h3> */}
+                                {/* </NavLink> */}
+                            {/* ))} */}
+                            {/* />  */}
+                </div>
+                {showModal && (
+                    <div>
+                        <Modal onClose={() => setShowModal(false)}>
+                            <LoginSignUpModal/>
+                        </Modal> 
+                    </div>
+                )}
+            </div>
+            <div style={{ fontSize: "20px", fontWeight: "bold", paddingTop: "8%", paddingBottom: "8%"}}>Customers also loved</div>
+                <ScrollMenu
+                className="main-latest-div2"
+                arrowLeft={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)"}}>{" < "}</div>}
+                arrowRight={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)" }}>{" > "}</div>}
+                data={(Object.values(latestItems)).map((item, i) => (
+                    <div 
+                        key={i} 
+                        className="latest-items-div2"
+                        style={{paddingBottom: "8%"}}
+                        >
+                        {/* <li  className="latest-items-li"> */}
+                            <NavLink to={`/items/${item.id}`} className="item-name-nav2"
+                                style={{textDecoration: "none", color: "black"}}>
+                                <img className="latest-items-img2" src={item.photos.photo_url}/>
+                                <h3 className="item-name2">{item.itemName}</h3>
+                            </NavLink>
+                        {/* </li> */}
+                    </div>
+                ))}
                 />
-            </div>
-            <div className="item-info-div">
-                {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
-                <h2 className="item-name">{itemValues.itemName}</h2>
-                <h4 className="item-price-sale">OUR PRICE: </h4>
-                <h4 className="item-price-sale">$price</h4>
-                <h4 className="item-price">price</h4>
-                <h3 className="word-color">color: 
-                    <h4>{itemValues.colors}</h4>
-                    <div className="item-color" >
-                        <span class="material-icons" style={{color: itemValues.colors, fontSize: "50px"}}>&#xef4a;</span>
-                    </div>
-                </h3>
-                <div className="sizes">
-                    <h3 className="item-price">Sizes: </h3>
-                    <div className="item-sizes">{Object.values(sizesArray).map((size, i) => (
-                        <li key={i} className="one-size-list" style={{border: "2px solid", width: "8%", height: "10%"}}>
-                            <div className="one-size-div">{size.size}</div>
-                        </li>
-                        ))}
-                    </div>
-                </div>
-                <div className="save-bag-buttons">
-                    <div className="save-button-div"><button className="save-button" value={itemId} onClick={handleSavedItems}>Add To Favorite</button></div>
-                    <div className="bag-button-div"><button className="bag-button" value={itemId} onClick={handleSavedItems}>Add To Bag</button></div>
-                </div>
-                <div className="item-detail">
-                    
-                    <h3>Product Details: </h3>
-                    <h4 style={{width: "50%", fontWeight: "lighter"}}>{itemValues.detail}</h4>
-                </div>
-            </div>
-            {showModal && (
-                <div>
-                    <Modal onClose={() => setShowModal(false)}>
-                        <LoginSignUpModal/>
-                    </Modal> 
-                </div>
-            )}
-        </div>
+        </>
     )
 }
 

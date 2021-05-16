@@ -35,10 +35,13 @@ const LandingPage = () => {
                 <div >
                     <ScrollMenu
                         className="main-latest-div"
-                        arrowLeft={<div style={{ fontSize: "50px" }}>{" < "}</div>}
-                        arrowRight={<div style={{ fontSize: "70px" }}>{" > "}</div>}
+                        arrowLeft={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)" }}>{" < "}</div>}
+                        arrowRight={<div style={{ fontSize: "70px", color: "rgb(214, 208, 208)" }}>{" > "}</div>}
                         data={(Object.values(latestItems)).map((item, i) => (
-                            <div key={i} className="latest-items-div">
+                            <div 
+                                key={i} 
+                                className="latest-items-div"
+                                >
                                 {/* <li  className="latest-items-li"> */}
                                     <NavLink to={`/items/${item.id}`} className="item-name-nav">
                                         <img className="latest-items-img" src={item.photos.photo_url}/>
