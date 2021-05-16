@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector } from 'react-redux'
 import { useParams, Redirect } from "react-router-dom";
 import { useHistory, NavLink} from "react-router-dom";
+import ImageZoom from 'react-medium-image-zoom'
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
 import { allMainCategories } from '../../store/mainCategories'
@@ -75,7 +76,17 @@ const handleSavedItems = (e) => {
         <div className="single-item">
             {/* <LoginSignUpModal/> */}
             <div className="item-img-div">
-                <img className="item-img" src={photo_url.photo_url}/>
+            <ImageZoom
+                image={{ 
+                    className: "item-img", 
+                    src: `${photo_url.photo_url}`
+                    }}
+                    zoomImage={{
+                        src: `${photo_url.photo_url}-big`,
+                        alt: 'Golden Gate Bridge'
+                    }}
+
+                />
             </div>
             <div className="item-info-div">
                 {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
