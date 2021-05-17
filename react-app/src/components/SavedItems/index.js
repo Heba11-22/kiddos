@@ -12,6 +12,7 @@ import LoginSignUpForm from "../LoginSignUpForm";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "../../store/session";
 import { getItemsThunk, deleteAnItemThunk } from "../../store/savedItems";
+import "./SavedItems.css"
 
 function SavedItems() {
 // const [authenticated, setAuthenticated] = useState(false);
@@ -43,42 +44,50 @@ function SavedItems() {
   
 
   return (
-    <>
+    <div className="saved-items-div">
     
-      <div className="saved-items-div">
-        <div>HHHHHHIIIIIII</div>
+      {/* <div className="saved-items"> */}
         
           <ul className="saved-items-ul">
             {allItemsValues.map((item,i) => (
-              <li key={i}>
-              <NavLink to={`/items/${item.id}`}>
-                <h5>{item.itemName}</h5>
-              </NavLink>
-              {item.photos && (
-              <NavLink to={`/items/${item.id}`}>
-                <img className="saved-items-img" src={item.photos.photo_url}></img>
-              </NavLink>
-              )}
-              {!item.photos && (<h3>Already in the favorite list</h3>)}
-                {/* {console.log("?????????", item)} */}
-                <button className="unsave-item" onClick={() => {
-                  dispatch(deleteAnItemThunk(item.id))
-                  window.location.assign("/savedItems")
-                  // history.push("/savedItems")
-                  setTrigger(!trigger)
-                  // window.location.reload(false)
-                {/* <Redirect to="/savedItems"/> */}
-                }}>
-                  Unsave
-                </button>
+              <li key={i} className="saved-items-li">
+                <NavLink to={`/items/${item.id}`} className="saved-items-nav">
+                  {item.photos && (
+                    <img className="saved-items-img" src={item.photos.photo_url}></img>
+                    )}
+                    <h3 className="saved-items-name">{item.itemName}</h3>
+                    <div className="price4">
+                        <div className="item-price4">$50</div>
+                        <div className="item-price-sale4-div">Sale <span className="item-price-sale4"> $24</span></div>
+                    </div>
+                </NavLink>
+                {/* {item.photos && (
+                  <NavLink to={`/items/${item.id}`}>
+                    <img className="saved-items-img" src={item.photos.photo_url}></img>
+                  </NavLink>
+                )} */}
+                {!item.photos && (<h3>Already in the favorite list</h3>)}
+                  {/* {console.log("?????????", item)} */}
+                  <button className="unsave-item" onClick={() => {
+                    dispatch(deleteAnItemThunk(item.id))
+                    window.location.assign("/savedItems")
+                    // history.push("/savedItems")
+                    setTrigger(!trigger)
+                    // window.location.reload(false)
+                    {/* <Redirect to="/savedItems"/> */}
+                    }}>
+                    DELETE
+                  </button>
+                  <button className="add-cart">
+                    Add to Cart
+                  </button>
               </li>
               
             ))}
 
           </ul>
-      </div>
-      
-      </>
+      {/* </div> */}
+    </div>
   )
 }
 

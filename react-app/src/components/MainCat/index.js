@@ -35,8 +35,6 @@ function MainCat(){
                             </div>
                         ))
                     ))
-                
-                
             ))}
         </ul>
     
