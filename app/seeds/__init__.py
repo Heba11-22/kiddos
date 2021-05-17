@@ -35,9 +35,9 @@ def seed():
     seed_users()
     seed_photos()
     seed_categories()
-    # seed_items()
+    seed_items()
     seed_sizes()
-    seed_carts()
+    # seed_carts()
     seed_user_items()
     # seed_savedItems()
     # Add other seed functions here
@@ -47,9 +47,9 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     # undo_savedItems()
-    undo_carts()
+    # undo_carts()
     undo_sizes()
-    # undo_items()
+    undo_items()
     undo_categories()
     undo_photos()
     undo_users()
