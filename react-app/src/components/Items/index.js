@@ -70,21 +70,24 @@ const handleSavedItems = (e) => {
         setShowModal(true)
         // console.log("HIIIII", itemId)
         // if(user) console.log("UUUUU", user.id)
-    //    console.log("NOT A USER")
-    //    history.push(`/signform`)
-     } else if (user) {
-         dispatch(saveAnItemThunk(itemId))
+        //    console.log("NOT A USER")
+        //    history.push(`/signform`)
+    } else if (user) {
+        dispatch(saveAnItemThunk(itemId))
         //  if (savedItemsArray.includes(itemId)) { 
-        //      alert("Your file is being uploaded!")
-        //     console.log("????????????")
-        //     return}
-        //  savedItemsArray.push(itemId)
-         // console.log("!!!!!!!!", userId, itemId)
-        //  console.log("HIIIII", e.target.value, "UUUUU", user.id)
-         history.push(`/savedItems`)
-        //  } else alert("Your file is being uploaded!")
+            //      alert("Your file is being uploaded!")
+            //     console.log("????????????")
+            //     return}
+            //  savedItemsArray.push(itemId)
+            // console.log("!!!!!!!!", userId, itemId)
+            //  console.log("HIIIII", e.target.value, "UUUUU", user.id)
+            history.push(`/savedItems`)
+            //  } else alert("Your file is being uploaded!")
         }
-}
+    }
+    const handleSavedCart = (e) => {
+        history.push(`/cart`)
+    }
 
     return (
         <>
@@ -134,7 +137,7 @@ const handleSavedItems = (e) => {
                     </div>
                     <div className="save-bag-buttons">
                         <div className="save-button-div"><button className="save-button" value={itemId} onClick={handleSavedItems}>Add To Favorite</button></div>
-                        <div className="bag-button-div"><button className="bag-button" value={itemId} onClick={handleSavedItems}>Add To Bag</button></div>
+                        <div className="bag-button-div"><button className="bag-button" value={itemId} onClick={handleSavedCart}>Add To Cart</button></div>
                     </div>
                     <div className="item-detail">
                         

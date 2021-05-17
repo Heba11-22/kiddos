@@ -87,3 +87,10 @@
     border-radius: 3px;
     color: rgb(233, 227, 227);
 }
+
+.add-cart-nav{
+    cursor: pointer;
+    font-weight: bolder;
+    text-decoration: none;
+    color: rgb(233, 227, 227);
+}

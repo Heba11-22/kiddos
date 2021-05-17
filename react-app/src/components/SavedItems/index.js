@@ -80,7 +80,7 @@ function SavedItems() {
                       DELETE
                     </button>
                     <button className="add-cart">
-                      Add to Cart
+                      <NavLink className="add-cart-nav" to="/cart">Add to Cart</NavLink>
                     </button>
                   </div>
               </li>
