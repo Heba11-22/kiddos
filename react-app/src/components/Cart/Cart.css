@@ -10,7 +10,15 @@
     height: 100%;
     width: 100%;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 9px;
     box-shadow: -3px 5px 8px rgba(149, 147, 147, 0.692);
     
+}
+
+.cart-sen{
+    font-family: 'Emilys Candy', cursive;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(28, 87, 97);
+    padding-left: 29%;
 }
