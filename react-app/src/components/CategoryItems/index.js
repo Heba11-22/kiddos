@@ -24,17 +24,17 @@ function CategoryItems() {
     }, [dispatch, categoryId])
     
     return (
-        <div className="category-page-div">
-            <div className="side-menu-div">
-                    <ul className="cats-ul">
+        <div className="category-page-div2">
+            <div className="side-menu-div2">
+                    <ul className="cats-ul2">
                         {mainCat_states.map( (mainCat_state, i) => (
-                            <li key={i} className="cat-li">
+                            <li key={i} className="cat-li2">
                             {/* {console.log(mainCat_state.Categories)} */}
-                                <h4 className="cat-button" value={i}>{mainCat_state.Main_CategoryName}</h4>
-                                <ul className="sub-cat-ul" >
+                                <h4 className="cat-button2" value={i}>{mainCat_state.Main_CategoryName}</h4>
+                                <ul className="sub-cat-ul2" >
                                     {(mainCat_state.Categories).map((cat, i) => (
-                                        <li key={i} className="sub-cat-li">
-                                            <NavLink className="sub-cat-link" to={`/maincategories/categories/${cat.id}/items`}>
+                                        <li key={i} className="sub-cat-li2">
+                                            <NavLink className="sub-cat-link2" to={`/maincategories/categories/${cat.id}/items`}>
                                                 {(Object.values(cat))[0]}
                                     {/* {console.log("SSSSSSS", cat.id)} */}
                                             </NavLink>
@@ -46,13 +46,18 @@ function CategoryItems() {
                         ))}
                     </ul>
             </div>
-            <div className="category-items-div">
-                <ul>
+            <div className="category-items-div2">
+                <ul className="category-items-ul2">
                     {items2 && ((Object.values(items2)).map((categoryItem, i) => (
-                        <div className="one-item-div">
-                            <NavLink to={`/items/${categoryItem.id}/`}>
-                                <li key={i} className="category-items-name">{categoryItem.itemName}</li>
-                                <img className="category-items-img" src={categoryItem.photos.photo_url}/>
+                        <div className="one-item-div2">
+                            <NavLink to={`/items/${categoryItem.id}/`} className="category-items-nav2">
+                                <img className="category-items-img2" src={categoryItem.photos.photo_url}/>
+                                <li key={i} className="category-items-name2">{categoryItem.itemName}</li>
+                                <div className="price2">
+                                    <div className="item-price2">$50</div>
+                                    <div>Sale  <span className="item-price-sale2">$24</span></div>
+                                    
+                                </div>
                             </NavLink>
                         </div>
                     )))} 

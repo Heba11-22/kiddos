@@ -1,11 +1,13 @@
-.category-page-div{
+.category-page-div2{
     padding-top: 11%;
     display: flex;
+    flex-direction: column; 
     justify-content: space-between;
     align-content: center;
+    width: 100%;
 }
 
-.sub-cat-link{
+.sub-cat-link2{
     text-decoration: none;
     color: black;
     font-size: 20px;
@@ -13,24 +15,65 @@
     cursor: pointer;
 }
 
-.side-menu-div{
+.side-menu-div2{
     position: fixed;
     display: flex;
     justify-content: space-between;
     align-content: center; 
+    width: 30%;
 }
 
-.cat-li{
+.cat-li2{
     
     padding-bottom: 20%;
     border-bottom: 1px solid rgb(212, 209, 209);
 }
-.sub-cat-ul{
+.sub-cat-ul2{
     
     /* display: flex;
     flex-direction: column;
     /* justify-content: flex-start; */
     /* align-content: start;  */ 
     padding-left: 20px;
-    /* height: 10%; */
+}
+
+.category-items-div2{
+    width: 70%;
+    padding-left: 25%;
+}
+.category-items-ul2{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: start;  
+}
+.one-item-div2{
+    width: 30%;
+}
+.category-items-img2{
+    width: 100%;
+
+}
+
+.category-items-nav2{
+    text-decoration: none;
+    color: black;
+    
+}
+
+.category-items-name2,
+.price2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.item-price2{
+    text-decoration: line-through;
+}
+.item-price-sale2{
+    color: red;
 }
