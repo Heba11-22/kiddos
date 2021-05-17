@@ -49,14 +49,13 @@ function CategoryItems() {
             <div className="category-items-div2">
                 <ul className="category-items-ul2">
                     {items2 && ((Object.values(items2)).map((categoryItem, i) => (
-                        <div className="one-item-div2">
+                        <div className="one-item-div2"  key={i}>
                             <NavLink to={`/items/${categoryItem.id}/`} className="category-items-nav2">
                                 <img className="category-items-img2" src={categoryItem.photos.photo_url}/>
-                                <li key={i} className="category-items-name2">{categoryItem.itemName}</li>
+                                <li className="category-items-name2">{categoryItem.itemName}</li>
                                 <div className="price2">
                                     <div className="item-price2">$50</div>
                                     <div>Sale  <span className="item-price-sale2">$24</span></div>
-                                    
                                 </div>
                             </NavLink>
                         </div>

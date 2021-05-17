@@ -24,7 +24,7 @@ import DemoUser from "./components/LoginSignUpForm/DemoUser"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 import { getItemsThunk, deleteAnItemThunk } from "./store/savedItems";
- 
+import { searchThunk } from './store/search';
 
 function App() {
   
@@ -35,6 +35,7 @@ function App() {
     dispatch(allMainCategories())
     dispatch(authenticate())
     dispatch(getItemsThunk(userId))
+    // dispatch(searchThunk(e.target.value));
     }, [dispatch])
 
   return (
