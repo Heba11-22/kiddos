@@ -68,19 +68,21 @@ function SavedItems() {
                 )} */}
                 {!item.photos && (<h3>Already in the favorite list</h3>)}
                   {/* {console.log("?????????", item)} */}
-                  <button className="unsave-item" onClick={() => {
-                    dispatch(deleteAnItemThunk(item.id))
-                    window.location.assign("/savedItems")
-                    // history.push("/savedItems")
-                    setTrigger(!trigger)
-                    // window.location.reload(false)
-                    {/* <Redirect to="/savedItems"/> */}
-                    }}>
-                    DELETE
-                  </button>
-                  <button className="add-cart">
-                    Add to Cart
-                  </button>
+                  <div className="buttons">
+                    <button className="unsave-item" onClick={() => {
+                      dispatch(deleteAnItemThunk(item.id))
+                      window.location.assign("/savedItems")
+                      // history.push("/savedItems")
+                      setTrigger(!trigger)
+                      // window.location.reload(false)
+                      {/* <Redirect to="/savedItems"/> */}
+                      }}>
+                      DELETE
+                    </button>
+                    <button className="add-cart">
+                      Add to Cart
+                    </button>
+                  </div>
               </li>
               
             ))}
