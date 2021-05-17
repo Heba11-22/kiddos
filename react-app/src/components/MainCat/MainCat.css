@@ -16,7 +16,7 @@
 }
 
 .side-menu-div3{
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-content: center; 
@@ -62,7 +62,8 @@
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
-     align-content: center; 
+    align-content: center; 
+    margin: 15px 0px;
 }
 .category-items-img3{
     width: 90%;
