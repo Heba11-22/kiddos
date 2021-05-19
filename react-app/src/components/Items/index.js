@@ -4,7 +4,7 @@ import {useDispatch, useSelector } from 'react-redux'
 import { useParams, Redirect } from "react-router-dom";
 import { useHistory, NavLink} from "react-router-dom";
 import ImageZoom from 'react-medium-image-zoom'
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+// import ScrollMenu from 'react-horizontal-scrolling-menu';
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
 import { allMainCategories } from '../../store/mainCategories'
@@ -166,7 +166,7 @@ const handleSavedItems = (e) => {
                 )}
             </div>
             <div style={{ fontSize: "20px", fontWeight: "bold", paddingTop: "8%", paddingBottom: "8%"}}>Customers also loved</div>
-                <ScrollMenu
+                {/* <ScrollMenu
                 className="main-latest-div2"
                 arrowLeft={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)"}}>{" < "}</div>}
                 arrowRight={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)" }}>{" > "}</div>}
@@ -176,16 +176,14 @@ const handleSavedItems = (e) => {
                         className="latest-items-div2"
                         style={{paddingBottom: "8%"}}
                         >
-                        {/* <li  className="latest-items-li"> */}
                             <NavLink to={`/items/${item.id}`} className="item-name-nav2"
                                 style={{textDecoration: "none", color: "black"}}>
                                 <img className="latest-items-img2" src={item.photos.photo_url}/>
                                 <h3 className="item-name2">{item.itemName}</h3>
                             </NavLink>
-                        {/* </li> */}
                     </div>
                 ))}
-                />
+                /> */}
         </>
     )
 }

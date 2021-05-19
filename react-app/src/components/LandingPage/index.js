@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, NavLink} from "react-router-dom";
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+// import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {getLatestItemsThunk} from "../../store/items"
 import Shop from "./Shop";
 // import {getLatestItemsThunk} from "../../store/items"
@@ -33,7 +33,7 @@ const LandingPage = () => {
             {/* <div className="latest-items-div">
                 <ul className="latest-items-ul"> */}
                 <div >
-                    <ScrollMenu
+                    {/* <ScrollMenu
                         className="main-latest-div"
                         arrowLeft={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)" }}>{" < "}</div>}
                         arrowRight={<div style={{ fontSize: "70px", color: "rgb(214, 208, 208)" }}>{" > "}</div>}
@@ -42,15 +42,13 @@ const LandingPage = () => {
                                 key={i} 
                                 className="latest-items-div"
                                 >
-                                {/* <li  className="latest-items-li"> */}
                                     <NavLink to={`/items/${item.id}`} className="item-name-nav">
                                         <img className="latest-items-img" src={item.photos.photo_url}/>
                                         <h3 className="item-name">{item.itemName}</h3>
                                     </NavLink>
-                                {/* </li> */}
                             </div>
                         ))}
-                        />
+                        /> */}
                 </div>
                 <div className="shop-imgs">
                     <Shop/>
