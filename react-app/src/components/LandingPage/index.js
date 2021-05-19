@@ -5,7 +5,7 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {getLatestItemsThunk} from "../../store/items"
 import Shop from "./Shop";
 // import {getLatestItemsThunk} from "../../store/items"
-import "./LandingPage.css"
+import "./LandingPage.css";
 
 
 const LandingPage = () => {
