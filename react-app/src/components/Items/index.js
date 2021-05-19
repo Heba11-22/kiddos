@@ -36,7 +36,7 @@ function SingleItem() {
     useEffect ( ()=> {
         if (!itemId) return;
         (async () => {
-            const res = await fetch(`/api/items/${itemId}`);
+            const res = await fetch(`/api/items/${itemId}/`);
             const item = await res.json();
             setItem(item)
         })();

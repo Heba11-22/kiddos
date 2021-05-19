@@ -23,13 +23,13 @@ def get_items():
 
 
 # route for getting a single item:
-@item_routes.route('/<int:id>')
+@item_routes.route('/<int:id>/')
 def get_single_item(id):
     item = Items.query.get(id)
     return {"item": item.to_dict()}
 
 
-@item_routes.route('/<int:item_id>', methods=['POST'])
+@item_routes.route('/<int:item_id>/', methods=['POST'])
 # @login_required
 def post_save_an_item(item_id):
     user_id = current_user.get_id()

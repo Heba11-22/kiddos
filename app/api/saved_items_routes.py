@@ -46,7 +46,7 @@ saved_items_routes = Blueprint('saveditems', __name__)
 
 
 # DELETE Route for an item in a user saved_items page:
-@saved_items_routes.route('/<int:item_id>', methods=['DELETE'])
+@saved_items_routes.route('/<int:item_id>/', methods=['DELETE'])
 @login_required
 def delete_save_an_item(item_id):
     user_id = current_user.id

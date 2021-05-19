@@ -20,7 +20,7 @@ def user(id):
 
 
 # Route for getting all the saved items for a user:
-@user_routes.route('/<int:user_id>/saveditems')
+@user_routes.route('/<int:user_id>/saveditems/')
 @login_required
 def user_items(user_id):
     user = User.query.filter(User.id == user_id).first()

@@ -50,7 +50,7 @@ export const authenticate = () => async(dispatch) => {
   export const login = (email, password)=> async(dispatch) => {
 
     // fetch from the backend
-    const response = await fetch('/api/auth/login', {
+    const response = await fetch('/api/auth/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ export const authenticate = () => async(dispatch) => {
 
   //thunk3:  logout
   export const logout = () => async(dispatch) => {
-    const response = await fetch("/api/auth/logout", {
+    const response = await fetch("/api/auth/logout/", {
       headers: {
         "Content-Type": "application/json",
       }
@@ -85,7 +85,7 @@ export const authenticate = () => async(dispatch) => {
   
   //thunk3:  signUp
   export const signUp = (username, email, password) => async(dispatch) => {
-    const response = await fetch("/api/auth/signup", {
+    const response = await fetch("/api/auth/signup/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ export const authenticate = () => async(dispatch) => {
 
   //Thunk 4 for getting one user:
   export const getSingleUser = (id) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}`, {
+    const res = await fetch(`/api/users/${id}/`, {
         method: 'GET'
     })
     if (res.ok) {
@@ -114,7 +114,7 @@ export const authenticate = () => async(dispatch) => {
 
   // Thunk 5 Demo user: 
   export const demoLogin = () => async (dispatch) => {
-    const response = await fetch('/api/auth/login', {
+    const response = await fetch('/api/auth/login/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

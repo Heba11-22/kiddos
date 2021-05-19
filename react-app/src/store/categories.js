@@ -10,7 +10,7 @@ const getCategory = (category) => ({
 
 // Thunck: 
 export const getCategoryThunk = (id) => async(dispatch) => {
-    const res = await fetch (`/api/maincategories/categories/${id}`, {
+    const res = await fetch (`/api/maincategories/categories/${id}/`, {
         method: "GET"
     });
     if (res.ok) {
