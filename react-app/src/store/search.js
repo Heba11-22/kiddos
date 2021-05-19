@@ -19,9 +19,9 @@ export const searchThunk = (searchField) => async (dispatch) => {
             search: searchField
         })
     })
-    console.log("RESRESRES",response)
+    // console.log("RESRESRES",response)
     const data = await response.json();
-    console.log("datadtadatdat",data)
+    // console.log("datadtadatdat",data)
     dispatch(searchCat(data))
     return data
 }

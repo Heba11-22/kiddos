@@ -24,8 +24,9 @@ function Categories () {
     // let catObjectArr2
     let catObjectArr3
 
-    useEffect( (e) => {
+    useEffect( () => {
         dispatch(allMainCategories())
+        // const value = await dispatch(allMainCategories())  // but need async of course
         
         // console.log(e.target)
         // dispatch(getCategoryThunk(targetCat))

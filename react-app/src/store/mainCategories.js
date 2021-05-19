@@ -12,10 +12,8 @@ const all_maincategories = (maincategories) => ({
 
 // Thunk:
 export const allMainCategories = () => async (dispatch) => {
-    const res = await fetch ('/api/maincategories/', {
-        method: "GET"
-    });
-    console.log(res)
+    const res = await fetch ('/api/maincategories/').catch(console.error);
+    // console.log(res)
     if (res.ok) {
         const {maincategories} = await res.json()
         // debugger

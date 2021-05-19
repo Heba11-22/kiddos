@@ -5,8 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Cart.css";
 
 function Cart () {
-    
     const dispatch = useDispatch();
+
+    const allItems = useSelector(state => state.item.allItems) || {}
+    const allCartItems = useSelector(state => state.cartItems.cart) || {}
+    // console.log("BBBBBBBBBB",allItems)
+    // console.log("BBBBBBBBBB",allCartItems)
+    
     useEffect( () => {
         dispatch(getCartItemsThunk());
         dispatch(getAllItemsThunk());
