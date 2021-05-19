@@ -21,7 +21,7 @@ function SavedItems() {
   const allItemsState = useSelector(state => state.savedItems.savedItems) || {}
   const allItems = allItemsState.items || {}
   const user = useSelector(state => state.session.user) || {}
-  const userId = user.id
+  const userId = user.id || {}
   const [trigger, setTrigger] = useState(false);
   const allItemsValues = Object.values(allItems) || {}
   console.log("////////////", allItemsValues)

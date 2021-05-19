@@ -33,11 +33,11 @@ function App() {
   
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user) || {}
-  const userId = user.id
+  const userId = user.id || {}
   useEffect( () => {
     dispatch(allMainCategories())
     dispatch(authenticate())
-    dispatch(getItemsThunk(userId))
+    // dispatch(getItemsThunk(userId))
     dispatch(getAllItemsThunk());
     // dispatch(searchThunk(e.target.value));
     }, [dispatch])

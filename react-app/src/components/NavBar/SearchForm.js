@@ -10,7 +10,7 @@ import LogSign from '../LogSign'
 
 
 const SearchForm = () => {
-    const search_icon = <i class="fas fa-search"></i>
+    const search_icon = <i className="fas fa-search"></i>
     const dispatch = useDispatch();
     const history = useHistory()
     const user = useSelector(state => state.session.user)
@@ -76,12 +76,12 @@ const SearchForm = () => {
             </form>
             <div className="search-button-div">
                 <button className="search-button" type="submit">
-                    <span class="material-icons">&#xe8b6;</span>
+                    <span className="material-icons">&#xe8b6;</span>
                 </button>
             </div>
         <div className="my-fav-div">
             <NavLink to="/savedItems" className="my-fav" onClick={handleSavedItems}>
-                <span class="material-icons">&#xe599;</span>
+                <span className="material-icons">&#xe599;</span>
             </NavLink>
         </div>
         <div>

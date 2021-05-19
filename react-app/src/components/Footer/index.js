@@ -9,12 +9,12 @@ const Footer = () => {
             <div className="left">
                 <div className="my-name">
                     <h3>
-                        <span class="material-icons">&#xe1b0;</span>
+                        <span className="material-icons">&#xe1b0;</span>
                         By: Heba Elkasaby
                     </h3>
                 </div>
                 <div className="languages">
-                    <span class="material-icons">&#xe894;</span>
+                    <span className="material-icons">&#xe894;</span>
                     <h3>Used Languages: </h3>
                     <h5> Python, Flask, JavaScript, React, JSX, CSS </h5>
                 </div>

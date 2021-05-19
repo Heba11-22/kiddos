@@ -125,7 +125,7 @@ const handleSavedItems = (e) => {
                     <h2>color: </h2>
                         <h3>{itemValues.colors}</h3>
                         <div className="item-color" >
-                            <span class="material-icons" style={{color: itemValues.colors, fontSize: "45px"}}>&#xef4a;</span>
+                            <span className="material-icons" style={{color: itemValues.colors, fontSize: "45px"}}>&#xef4a;</span>
                         </div>
                     </div>
                     <div className="sizes">

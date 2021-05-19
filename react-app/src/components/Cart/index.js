@@ -7,13 +7,14 @@ import "./Cart.css";
 function Cart () {
     const dispatch = useDispatch();
 
-    const allItems = useSelector(state => state.item.allItems) || {}
-    const allCartItems = useSelector(state => state.cartItems.cart) || {}
+    // const allItems = useSelector(state => state.item.allItems) || {}
+    // const allCartItems = useSelector(state => state.cartItems.cart) || {}
     // console.log("BBBBBBBBBB",allItems)
     // console.log("BBBBBBBBBB",allCartItems)
-    
-    useEffect( () => {
-        dispatch(getCartItemsThunk());
+
+    useEffect( async () => {
+       const allCartItems = await dispatch(getCartItemsThunk());
+       console.log("BBBBBBBBBB",allCartItems)
         dispatch(getAllItemsThunk());
     }, [dispatch])
 
