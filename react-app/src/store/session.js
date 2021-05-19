@@ -43,6 +43,7 @@ export const authenticate = () => async(dispatch) => {
 
     // dispatch the action creator and pass the data coming from the database
     dispatch(setUser(data));
+    return data;
   }
 
   
@@ -98,6 +99,7 @@ export const authenticate = () => async(dispatch) => {
     });
     const data = await response.json();
     dispatch(setUser(data))
+    return data;
   }
 
   //Thunk 4 for getting one user:

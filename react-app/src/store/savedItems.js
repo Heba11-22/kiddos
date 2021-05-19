@@ -56,6 +56,7 @@ export const saveAnItemThunk = (itemId) => async (dispatch) => {
     // debugger
     // console.log(">>>>>>>>>>>.",data)
     dispatch(saveAnItem(data))
+    return data;
 }
 
 // 3- delete an item:
@@ -71,6 +72,7 @@ export const deleteAnItemThunk = (itemId) => async (dispatch) => {
     });
     const data = await res.json();
     dispatch(deleteAnItem(data))
+    return data
 }
 
 

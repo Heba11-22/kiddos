@@ -23,6 +23,7 @@ export const searchThunk = (searchField) => async (dispatch) => {
     const data = await response.json();
     console.log("datadtadatdat",data)
     dispatch(searchCat(data))
+    return data
 }
 
 const initialState = { search: null };

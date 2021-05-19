@@ -21,7 +21,7 @@ export const allMainCategories = () => async (dispatch) => {
         // debugger
         // console.log(">>>>>>>>>>>", maincategories)
         dispatch(all_maincategories(maincategories))
-        // return maincategories
+        return maincategories
     }
 }
 
