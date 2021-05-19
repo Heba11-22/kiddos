@@ -25,7 +25,8 @@ import Cart from "./components/Cart"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 import { getItemsThunk, deleteAnItemThunk } from "./store/savedItems";
-import { searchThunk } from './store/search';
+// import { searchThunk } from './store/search';
+import { getAllItemsThunk } from "./store/items"
 // import { searchThunk } from './store/search';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
     dispatch(allMainCategories())
     dispatch(authenticate())
     dispatch(getItemsThunk(userId))
+    dispatch(getAllItemsThunk());
     // dispatch(searchThunk(e.target.value));
     }, [dispatch])
 

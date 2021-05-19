@@ -8,18 +8,18 @@ item_routes = Blueprint('items', __name__)
 
 # Route for getting the latest items have been added:
 @item_routes.route('/')
-def get_items():
+def get_latest_items():
     items = Items.query.order_by(Items.id.desc()).limit(8)
     print("++++++++++++++++++", [item.to_dict() for item in items])
     return {"items": [item.to_dict() for item in items]}
 
 
-# # Route for getting all of the items:     >>>>>>>>>>> For now
-# @item_routes.route('/')
-# def get_items():
-#     items = Items.query.all()
-#     # print("++++++++++++++++++", [item.to_dict() for item in items])
-#     return {"items": [item.to_dict() for item in items]}
+# Route for getting all of the items:     >>>>>>>>>>> For now
+@item_routes.route('/all/')
+def get_all_items():
+    items = Items.query.all()
+    # print("++++++++++++++++++", [item.to_dict() for item in items])
+    return {"items": [item.to_dict() for item in items]}
 
 
 # route for getting a single item:

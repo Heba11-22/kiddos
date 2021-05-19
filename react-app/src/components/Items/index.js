@@ -12,6 +12,7 @@ import LoginSignUpModal from '../LoginSignUpForm'
 import { Modal } from '../../context/Modal';
 import { saveAnItemThunk } from "../../store/savedItems";
 import {getLatestItemsThunk} from "../../store/items"
+import {addAnItemThunk} from "../../store/cart"
 import "./Items.css"
 // import "../LandingPage/LandingPage.css"
 
@@ -86,6 +87,7 @@ const handleSavedItems = (e) => {
         }
     }
     const handleSavedCart = (e) => {
+        dispatch(addAnItemThunk(itemId))
         history.push(`/cart`)
     }
 

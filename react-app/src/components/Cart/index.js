@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { getCartItemsThunk } from "../../store/cart"
+import { getAllItemsThunk } from "../../store/items"
 import { useSelector, useDispatch } from "react-redux";
 import "./Cart.css";
 
@@ -8,6 +9,7 @@ function Cart () {
     const dispatch = useDispatch();
     useEffect( () => {
         dispatch(getCartItemsThunk());
+        dispatch(getAllItemsThunk());
     }, [dispatch])
 
     return (
