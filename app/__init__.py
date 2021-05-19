@@ -14,6 +14,7 @@ from .api.auth_routes import auth_routes
 from .api.item_routes import item_routes
 from .api.saved_items_routes import saved_items_routes
 from .api.maincategories_routes import maincategories_routes
+from .api.cart_routes import cart_routes
 
 from .seeds import seed_commands
 
@@ -40,6 +41,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(item_routes, url_prefix='/api/items')
 app.register_blueprint(maincategories_routes, url_prefix='/api/maincategories')
 app.register_blueprint(saved_items_routes, url_prefix='/api/saveditems')
+app.register_blueprint(cart_routes, url_prefix='/api/cart')
 db.init_app(app)
 Migrate(app, db)
 

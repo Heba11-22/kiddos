@@ -9,6 +9,7 @@ import search from './search';
 import categories from './categories';
 import savedItems from './savedItems';
 import categoryItems from './items';
+import cartItems from './cart';
 
 const rootReducer = combineReducers({
     session,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     mainCategories,
     categories,
     savedItems,
-    categoryItems
+    categoryItems,
+    cartItems
 });
 
 let enhancer;

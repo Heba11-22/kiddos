@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { getCartItemsThunk } from "../../store/cart"
+import { useSelector, useDispatch } from "react-redux";
 import "./Cart.css";
 
 function Cart () {
+    
+    const dispatch = useDispatch();
+    useEffect( () => {
+        dispatch(getCartItemsThunk());
+    }, [dispatch])
 
     return (
         <div className="cart-div">
