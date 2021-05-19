@@ -4,7 +4,7 @@ import {useDispatch, useSelector } from 'react-redux'
 import { useParams, Redirect } from "react-router-dom";
 import { useHistory, NavLink} from "react-router-dom";
 import ImageZoom from 'react-medium-image-zoom'
-import {ScrollMenu} from 'react-horizontal-scrolling-menu';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
 import { allMainCategories } from '../../store/mainCategories'

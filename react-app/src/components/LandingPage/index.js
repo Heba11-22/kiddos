@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, NavLink} from "react-router-dom";
-import {ScrollMenu} from 'react-horizontal-scrolling-menu';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {getLatestItemsThunk} from "../../store/items"
 import Shop from "./Shop";
 // import {getLatestItemsThunk} from "../../store/items"
@@ -35,6 +35,7 @@ const LandingPage = () => {
                 <div >
                     <ScrollMenu
                         className="main-latest-div"
+                        // scrollToSelected={false}
                         arrowLeft={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)" }}>{" < "}</div>}
                         arrowRight={<div style={{ fontSize: "70px", color: "rgb(214, 208, 208)" }}>{" > "}</div>}
                         data={(Object.values(latestItems)).map((item, i) => (
