@@ -11,3 +11,29 @@ cart_routes = Blueprint('cart', __name__)
 def get_cart_items():
     items = Carts.query.all()
     return {"items": [item.to_dict() for item in items]}
+
+
+# Route for adding an item to the cart:
+@cart_routes.route('/<int:item_id>/', methods=['POST'])
+def post_item_to_cart(item_id):
+    user_id = current_user.get_id()
+    # user = User.query.filter(User.id == user_id).first()
+    # user_id = user.id
+    # item = Items.query.filter(Items.id == item_id).first()
+    item = Carts(
+        userId=user_id,
+        itemId=item_id
+    )
+    db.session.add(item)
+    db.session.commit()
+    return item.to_dict()
+
+
+# Route for deleting an item to the cart:
+# @cart_routes.route('/<int:item_id>/', methods=['DELETE'])
+# def delete_item_from_cart(item_id):
+#     item = Carts.query.get(item_id)
+#     print(">>>>>>", item)
+#     db.session.delete(item)
+#     db.session.commit()
+#     return "delted"
