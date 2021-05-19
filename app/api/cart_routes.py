@@ -30,10 +30,10 @@ def post_item_to_cart(item_id):
 
 
 # Route for deleting an item to the cart:
-# @cart_routes.route('/<int:item_id>/', methods=['DELETE'])
-# def delete_item_from_cart(item_id):
-#     item = Carts.query.get(item_id)
-#     print(">>>>>>", item)
-#     db.session.delete(item)
-#     db.session.commit()
-#     return "delted"
+@cart_routes.route('/<int:item_id>/', methods=['DELETE'])
+def delete_item_from_cart(item_id):
+    Carts.query.filter(Carts.itemId == item_id).delete()
+    # print(">>>>>>", item)
+    # db.session.delete(item)    <<<<<<<<< Didin't work that way !!!!!!!
+    db.session.commit()
+    return "deleted"
