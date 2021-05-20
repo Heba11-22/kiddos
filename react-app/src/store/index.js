@@ -9,6 +9,7 @@ import search from './search';
 import categories from './categories';
 import savedItems from './savedItems';
 import categoryItems from './items';
+import allItems from './allItems';
 import cartItems from './cart';
 
 const rootReducer = combineReducers({
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     mainCategories,
     categories,
     savedItems,
-    categoryItems,
+    allItems,
+    // categoryItems,
     cartItems
 });
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { getCartItemsThunk } from "../../store/cart"
-import { getAllItemsThunk } from "../../store/items"
+import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
 import "./Cart.css";
 
