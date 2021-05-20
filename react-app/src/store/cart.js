@@ -81,10 +81,10 @@ const initialState = {items: null}
 export default function reducer (state=initialState, action) {
     switch(action.type) {
         case GET_CARTS_ITEMS:
-            return {...state, cart: action.payload}
+            return {...state, ...action.payload}
 
         case ADD_ITEM_TO_CART:
-            return {...state, cart: action.payload}
+            return {...state, ...action.payload}
 
         case DELETE_AN_ITEM:
             return state;
