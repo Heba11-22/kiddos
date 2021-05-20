@@ -12,7 +12,7 @@ function CategoryItems() {
     const categoryId = useParams().id
     const categoryItems = useSelector(state => state.categoryItems) || {} 
     const items = categoryItems.items || {}
-    const items2 = ((Object.values(items))[0]) || {}
+    const items2 = ((Object.values(items))[0])
     const mainCat_states = Object.values(useSelector(state => state.mainCategories)) || {}
     const [targetbutton, setTargetbutton] = useState()
     // console.log((items2))
@@ -50,6 +50,8 @@ function CategoryItems() {
                 <ul className="category-items-ul2">
                     {items2 && ((Object.values(items2)).map((categoryItem, i) => (
                         <div className="one-item-div2"  key={i}>
+                        {console.log("<><><><><><>")}
+                        {/* {console.log("<><><><><><>")} */}
                             <NavLink to={`/items/${categoryItem.id}/`} className="category-items-nav2">
                                 <img className="category-items-img2" src={categoryItem.photos.photo_url}/>
                                 <li className="category-items-name2">{categoryItem.itemName}</li>

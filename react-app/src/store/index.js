@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
     categories,
     savedItems,
     allItems,
-    // categoryItems,
+    categoryItems,
     cartItems
 });
 
