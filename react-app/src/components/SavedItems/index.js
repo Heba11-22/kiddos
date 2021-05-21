@@ -72,10 +72,11 @@ function SavedItems() {
                   <div className="buttons">
                     <button className="unsave-item" onClick={() => {
                       dispatch(deleteAnItemThunk(item.id))
-                      window.location.assign("/savedItems")
+                      // window.location.assign("/savedItems")
                       // history.push("/savedItems")
-                      setTrigger(!trigger)
-                      // window.location.reload(false)
+                      
+                      // setTrigger(!trigger)
+                      window.location.reload(false)
                       {/* <Redirect to="/savedItems"/> */}
                       }}>
                       DELETE

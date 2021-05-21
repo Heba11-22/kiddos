@@ -79,14 +79,19 @@ const SearchForm = () => {
                     <span className="material-icons">&#xe8b6;</span>
                 </button>
             </div>
-        <div className="my-fav-div">
-            <NavLink to="/savedItems" className="my-fav" onClick={handleSavedItems}>
-                <span className="material-icons">&#xe599;</span>
-            </NavLink>
-        </div>
-        <div>
-        { user && (<LogoutButton />)}
-        </div>
+            <div className="my-fav-div">
+                <NavLink to="/savedItems" className="my-fav" onClick={handleSavedItems}>
+                    <span className="material-icons">&#xe87d;</span>
+                </NavLink>
+            </div>
+            <div className="my-cart">
+                <NavLink to="/cart" className="my-cart" style={{color:"black"}}>
+                    <span className="material-icons">&#xe8cc;</span>
+                </NavLink>
+            </div>
+            <div>
+            { user && (<LogoutButton />)}
+            </div>
 
         </div>
         

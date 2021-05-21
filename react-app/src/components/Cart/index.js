@@ -48,7 +48,7 @@ function Cart () {
                             // window.location.assign("/savedItems")
                             // history.push("/savedItems")
                             // setTrigger(!trigger)
-                            window.location.reload(false)
+                            window.location.reload()
                             {/* <Redirect to="/savedItems"/> */}
                             }}>
                             Delete From Cart
