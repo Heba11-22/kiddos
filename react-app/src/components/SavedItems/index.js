@@ -24,7 +24,7 @@ function SavedItems() {
   const userId = user.id || {}
   const [trigger, setTrigger] = useState(false);
   const allItemsValues = Object.values(allItems) || {}
-  console.log("////////////", allItemsValues)
+  // console.log("////////////", allItemsValues)
 
   // useEffect cant't have async func. Only if we invoke it immeditaly.
   useEffect(() => {

@@ -47,7 +47,7 @@ function Categories () {
         // if (showMenu || e.target.innerHTML == targetCat ) return;
         setShowMenu(true);
         buttonValue = e.target.value || 0
-        console.log(">>>>>>", buttonValue)
+        // console.log(">>>>>>", buttonValue)
         // setTargetButton(buttonValue)
         setTargetCat(buttonValue)
         catObject = (mainCat_states[buttonValue])

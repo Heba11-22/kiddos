@@ -7,17 +7,20 @@ import "./Cart.css";
 function Cart () {
     const dispatch = useDispatch();
 
-    const allItems = useSelector(state => state.item.allItems) || {}
+    const allItems = useSelector(state => state.allItems.allItems) || {}
     const oneItem = allItems.items || {}
-    // const targtedItem = oneItem[0] || {}
-    // const allCartItems = useSelector(state => state.cartItems.cart) || {}
-    // console.log("BBBBBBBBBB",allItems)
+    const oneItemArray = Object.values(oneItem) || {}
+    // const targtedItem = oneItem[123-1] || {}
+    const allCartItems = useSelector(state => state.cartItems.items) || {}
+    console.log("BBBBBBBBBB",oneItemArray)
     // console.log("BBBBBBBBBB",targtedItem)
 
-    let allCartItems;
+    let allCartItemsValue;
     useEffect( async () => {
-       allCartItems = await dispatch(getCartItemsThunk());
-    //    console.log("2222BBBBBBBBBB",allCartItems)
+        dispatch(getCartItemsThunk());
+        // let allCartItems = await dispatch(getCartItemsThunk());
+        // allCartItemsValue = allCartItems.items
+    //    console.log("2222BBBBBBBBBB",allCartItems.items)
         dispatch(getAllItemsThunk());
     }, [dispatch])
 
@@ -25,6 +28,16 @@ function Cart () {
         <div className="cart-div">
             <h1 className="cart-sen" >The Page is Under Construction</h1>
             <img className="cart-img" src="https://hebacapstone.s3.us-east-2.amazonaws.com/webfactory-ltd-NoOrDKxUfzo-unsplash.jpg"/>
+            <ul className="cart-items">
+                {allCartItems && (Object.values(allCartItems)).map((item,i) => (
+                    <li key={i}>
+                        {oneItemArray[(item.itemId)-1] && 
+                            <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
+                            }
+
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }

@@ -15,7 +15,7 @@ export const getCategoryThunk = (id) => async(dispatch) => {
     });
     if (res.ok) {
         const category = await res.json();
-        console.log(">>>MMM>>MMM",category);
+        // console.log(">>>MMM>>MMM",category);
         dispatch(getCategory(category))
         return category;
     }

@@ -22,7 +22,7 @@ function SingleItem() {
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     const items = useSelector(state => state.mainCategories) 
-    console.log("USEEEEER",items)
+    // console.log("USEEEEER",items)
     // const userId = user.id || {}
     const [item, setItem] = useState({})
     const [targtedItem, setTargtedItem] = useState()
@@ -57,13 +57,13 @@ let photo_url = (Object.values(itemValues))[6] || {}
 // console.log(photo_url.photo_url)
 let sizesArray = itemValues.sizes || {};
 let currentItemId = itemValues.categoryId
-console.log("111IIIIIIIIIIIII",itemValues.categoryId)
+// console.log("111IIIIIIIIIIIII",itemValues.categoryId)
 let suggestedItems = items[currentItemId] || {}
 let suggestedItemsValues = (Object.values(suggestedItems))[0]|| {}
 let suggestedItemsValues2 = Object.values(suggestedItemsValues) || {}
 // let suggestedItemsValues3 = Object.values(suggestedItemsValues2) 
 // let suggestedItems2 = suggestedItemsValues3[0] 
-console.log("222IIIIIIIIIIIII",suggestedItemsValues)
+// console.log("222IIIIIIIIIIIII",suggestedItemsValues)
 // let savedItemsArray = []
 const handleSavedItems = (e) => {
     // console.log("test")
