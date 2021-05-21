@@ -28,11 +28,11 @@ function Cart () {
 
     return (
         <div className="cart-div">
-            <h1 className="cart-sen" >The Page is Under Construction</h1>
-            <img className="cart-img" src="https://hebacapstone.s3.us-east-2.amazonaws.com/webfactory-ltd-NoOrDKxUfzo-unsplash.jpg"/>
+            {/* <h1 className="cart-sen" >The Page is Under Construction</h1>
+            <img className="cart-img" src="https://hebacapstone.s3.us-east-2.amazonaws.com/webfactory-ltd-NoOrDKxUfzo-unsplash.jpg"/> */}
             <ul className="cart-items">
                 {allCartItems && (Object.values(allCartItems)).map((item,i) => (
-                    <li key={i}>
+                    <li key={i} className="one-item-cart">
                         {oneItemArray[(item.itemId)-1] && 
                             <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="saved-items-nav">
                                     <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>

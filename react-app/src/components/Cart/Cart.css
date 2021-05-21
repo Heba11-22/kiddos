@@ -1,4 +1,4 @@
-.cart-div{
+/* .cart-div{
     padding-top: 17%;
     padding-bottom: 17%;
     padding-left: 20%;
@@ -21,4 +21,13 @@
     font-size: 40px;
     color: rgb(28, 87, 97);
     padding-left: 29%;
+} */
+body{
+    background-color: rgb(224, 221, 221);
+}
+.cart-items{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }

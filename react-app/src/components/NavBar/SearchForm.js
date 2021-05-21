@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import LogoutButton from '../LoginSignUpForm/LogoutButton'
 import { searchThunk } from '../../store/search';
+import { getCartItemsThunk, deleteAnItemThunk } from "../../store/cart"
 import { Modal } from '../../context/Modal';
 import { saveAnItemThunk } from "../../store/savedItems";
 import LoginSignUpModal from '../LoginSignUpForm'
@@ -14,20 +15,34 @@ const SearchForm = () => {
     const dispatch = useDispatch();
     const history = useHistory()
     const user = useSelector(state => state.session.user)
+    // const allCartItems = useSelector(state => state.cartItems.items) || {}
+    let allCartItems;
+    let allCartItemsArr;
     // const [item, setItem] = useState({})
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
     const { itemId } = useParams();
     // const [isSearch, setIsSearch] = useState(false)
     // useEffect ( ()=> {
-    //     if (!itemId) return;
-    //     (async () => {
-    //         const res = await fetch(`/api/items/${itemId}`);
-    //         const item = await res.json();
-    //         setItem(item)
-    //     })();
-    //     // dispatch(getSingleItem(itemId))
-    // }, [setItem, itemId])
+        //     if (!itemId) return;
+        //     (async () => {
+            //         const res = await fetch(`/api/items/${itemId}`);
+            //         const item = await res.json();
+            //         setItem(item)
+            //     })();
+            //     // dispatch(getSingleItem(itemId))
+            // }, [setItem, itemId])
+            
+            useEffect( async () => {
+                allCartItems = await dispatch(getCartItemsThunk()) 
+                // allCartItemsArr = await ((Object.values(allCartItems))[0]).length   // ????????????????
+                // console.log("121212121", allCartItemsArr)
+        // let allCartItems = await dispatch(getCartItemsThunk());
+        // allCartItemsValue = allCartItems.items
+    //    console.log("2222BBBBBBBBBB",allCartItems.items)
+        
+    }, [dispatch])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         history.push(`/maincategories/${search}`)
@@ -49,6 +64,8 @@ const SearchForm = () => {
              history.push(`/savedItems`)
             }
     }
+
+
     
 
     return (
@@ -85,6 +102,7 @@ const SearchForm = () => {
                 </NavLink>
             </div>
             <div className="my-cart">
+                {/* <div style={{color:"red"}}>{allCartItemsArr}</div> */}
                 <NavLink to="/cart" className="my-cart" style={{color:"black"}}>
                     <span className="material-icons">&#xe8cc;</span>
                 </NavLink>
