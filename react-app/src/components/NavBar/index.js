@@ -1,6 +1,7 @@
 import React from 'react';
 import FirstSecond from "./FirstSecond"
 import Categories from "./Categories"
+import Footer from "../Footer"
 
 import "./NavBar.css";
 import { NavLink } from 'react-router-dom';
@@ -8,10 +9,13 @@ import { NavLink } from 'react-router-dom';
 function NavBar () {
 
     return (
-        <nav className="navBar">
-            <FirstSecond/>
-            <Categories/>
-        </nav>
+        <div>
+            <nav className="navBar">
+                <FirstSecond/>
+                <Categories/>
+            </nav>
+            {/* <Footer/> */}   // need to style first
+        </div>
     )
 }
 

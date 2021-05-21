@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
+import { NavLink, useHistory, Redirect} from "react-router-dom";
 import { getCartItemsThunk } from "../../store/cart"
 import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
+import Footer from "../Footer"
 import "./Cart.css";
 
 function Cart () {
@@ -32,12 +34,19 @@ function Cart () {
                 {allCartItems && (Object.values(allCartItems)).map((item,i) => (
                     <li key={i}>
                         {oneItemArray[(item.itemId)-1] && 
-                            <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
-                            }
-
+                            <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="saved-items-nav">
+                                    <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
+                                    <h3 className="saved-items-name">{(oneItemArray[(item.itemId)-1]).itemName}</h3>
+                                    <div className="price4">
+                                        <div className="item-price4">$50</div>
+                                        <div className="item-price-sale4-div">Sale <span className="item-price-sale4"> $24</span></div>
+                                    </div>
+                            </NavLink>
+                        }
                     </li>
                 ))}
             </ul>
+            <Footer/>
         </div>
     )
 }
