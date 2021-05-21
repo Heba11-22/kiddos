@@ -46,7 +46,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar className="nav-bar"/>
       <Switch>
         <Route path="/" exact={true}>
           <LandingPage/>
@@ -98,6 +98,7 @@ function App() {
       </ProtectedRoute> */}
       </Switch>
       {/* <Footer/> */}
+      <Footer className="footer"/>
     </BrowserRouter>
   );
 }
