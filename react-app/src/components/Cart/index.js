@@ -25,7 +25,10 @@ function Cart () {
         {value: 96, label:'4'},
         {value: 120, label:'5'}
     ]
-
+    
+    cosnt selectedCount = () => {
+        
+    }
     let allCartItemsValue;
     useEffect( async () => {
         dispatch(getCartItemsThunk());
@@ -60,8 +63,10 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <Select  options={options} className="select"></Select>
-                                        <span className="item-price-sale4">$24 {options.value}</span>
+                                        <Select  options={options} className="select" onClick={selectedCount}>
+
+                                        </Select>
+                                        <div className="item-price-cart">$24 {options.value}</div>
                                     </div>
                                 </div>
                                 <div className="cart-buttons">
