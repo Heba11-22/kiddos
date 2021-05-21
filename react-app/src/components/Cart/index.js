@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
-import { getCartItemsThunk } from "../../store/cart"
+import { getCartItemsThunk, deleteAnItemThunk } from "../../store/cart"
 import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
 import Footer from "../Footer"
@@ -43,6 +43,19 @@ function Cart () {
                                     </div>
                             </NavLink>
                         }
+                        <button className="delete-item" onClick={() => {
+                            dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
+                            // window.location.assign("/savedItems")
+                            // history.push("/savedItems")
+                            // setTrigger(!trigger)
+                            window.location.reload(false)
+                            {/* <Redirect to="/savedItems"/> */}
+                            }}>
+                            Delete From Cart
+                        </button>
+                        {/* <button className="add-checkout">
+                            <NavLink className="add-cart-nav" to="/cart">Add to Cart</NavLink>
+                        </button> */}
                     </li>
                 ))}
             </ul>

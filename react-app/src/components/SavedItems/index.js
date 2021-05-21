@@ -11,6 +11,7 @@ import User from "../../components/User";
 import LoginSignUpForm from "../LoginSignUpForm";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "../../store/session";
+import {addAnItemThunk} from "../../store/cart"
 import { getItemsThunk, deleteAnItemThunk } from "../../store/savedItems";
 import "./SavedItems.css"
 
@@ -79,8 +80,8 @@ function SavedItems() {
                       }}>
                       DELETE
                     </button>
-                    <button className="add-cart">
-                      <NavLink className="add-cart-nav" to="/cart">Add to Cart</NavLink>
+                    <button className="add-cart" onClick={() => dispatch(addAnItemThunk(item.id))}>
+                      Add to Cart{/* <NavLink className="add-cart-nav" to="/cart">Add to Cart</NavLink> */}
                     </button>
                   </div>
               </li>
