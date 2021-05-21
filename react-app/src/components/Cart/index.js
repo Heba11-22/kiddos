@@ -4,6 +4,7 @@ import Select from 'react-select';
 import { getCartItemsThunk, deleteAnItemThunk } from "../../store/cart"
 import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
+import { saveAnItemThunk } from "../../store/savedItems";
 import Footer from "../Footer"
 import "./Cart.css";
 
@@ -44,6 +45,7 @@ function Cart () {
                     {allCartItems && (Object.values(allCartItems)).map((item,i) => (
                         <li key={i} className="one-item-cart-li">
                             {oneItemArray[(item.itemId)-1] && 
+                            <>
                                 <div className="item-select-price-img">
                                     <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="item-img">
                                             <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
@@ -62,17 +64,26 @@ function Cart () {
                                         <span className="item-price-sale4">$24 {options.value}</span>
                                     </div>
                                 </div>
+                                <div className="cart-buttons">
+                                    <button className="save-for-later" 
+                                        // onClick={() => dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1]).id)}
+                                    >
+                                        Save For Later
+                                    </button>
+                                    <button className="delete-item" onClick={() => {
+                                        dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
+                                        // window.location.assign("/savedItems")
+                                        // history.push("/savedItems")
+                                        // setTrigger(!trigger)
+                                        window.location.reload()
+                                        {/* <Redirect to="/savedItems"/> */}
+                                        }}>
+                                        Delete From Cart
+                                    </button>
+                                    
+                                </div>
+                                </>
                             }
-                            <button className="delete-item" onClick={() => {
-                                dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
-                                // window.location.assign("/savedItems")
-                                // history.push("/savedItems")
-                                // setTrigger(!trigger)
-                                window.location.reload()
-                                {/* <Redirect to="/savedItems"/> */}
-                                }}>
-                                Delete From Cart
-                            </button>
                             {/* <button className="add-checkout">
                                 <NavLink className="add-cart-nav" to="/cart">Add to Cart</NavLink>
                             </button> */}
