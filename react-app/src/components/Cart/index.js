@@ -47,13 +47,17 @@ function Cart () {
                                 <div className="item-select-price-img">
                                     <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="item-img">
                                             <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
-                                            <div className="price4">
+                                            {/* <div className="price4"> */}
                                                 {/* <div className="item-price4">$50</div> */}
                                                 {/* <div className="item-price-sale4-div">Sale <span className="item-price-sale4"> $24</span></div> */}
-                                            </div>
+                                            {/* </div> */}
                                     </NavLink>
                                     <div className="item-select-price">
-                                        <div className="saved-items-name">{(oneItemArray[(item.itemId)-1]).itemName}</div>
+                                        <div className="items-name">
+                                            <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="item-img2">
+                                                {(oneItemArray[(item.itemId)-1]).itemName}
+                                            </NavLink>
+                                        </div>
                                         <Select  options={options} className="select"></Select>
                                         <span className="item-price-sale4">$24 {options.value}</span>
                                     </div>
