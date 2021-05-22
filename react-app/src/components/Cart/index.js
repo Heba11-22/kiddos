@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
 import Select from 'react-select';
 import { getCartItemsThunk, deleteAnItemThunk } from "../../store/cart"
@@ -16,6 +16,7 @@ function Cart () {
     const oneItemArray = Object.values(oneItem) || {}
     // const targtedItem = oneItem[123-1] || {}
     const allCartItems = useSelector(state => state.cartItems.items) || {}
+    const [selectedValue, setSelectedValue] = useState()
     // console.log("BBBBBBBBBB",oneItemArray)
     // console.log("BBBBBBBBBB",targtedItem)
     const options = [
@@ -25,9 +26,10 @@ function Cart () {
         {value: 96, label:'4'},
         {value: 120, label:'5'}
     ]
-    
-    cosnt selectedCount = () => {
-        
+
+    const selectedCount = (e) => {
+        // setSelectedValue(e.target.value)
+        console.log("111111111111",e.target)
     }
     let allCartItemsValue;
     useEffect( async () => {
@@ -63,8 +65,8 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <Select  options={options} className="select" onClick={selectedCount}>
-
+                                        <Select  options={options} className="select" value={selectedValue} onChange={selectedCount}>
+                                            {/* {console.log("22222222111111111111",selectedValue)} */}
                                         </Select>
                                         <div className="item-price-cart">$24 {options.value}</div>
                                     </div>
