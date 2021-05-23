@@ -33,6 +33,7 @@ function Cart () {
         setSelectedcount(e.label)
         // console.log("111111111111",e, "dddd", selectedValue)
     }
+    
     let allCartItemsValue;
     useEffect( async () => {
         dispatch(getCartItemsThunk());
