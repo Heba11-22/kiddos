@@ -17,6 +17,7 @@ function Cart () {
     // const targtedItem = oneItem[123-1] || {}
     const allCartItems = useSelector(state => state.cartItems.items) || {}
     const [selectedValue, setSelectedValue] = useState(24)
+    const [selectedCount, setSelectedcount] = useState(1)
     // console.log("BBBBBBBBBB",oneItemArray)
     // console.log("BBBBBBBBBB",targtedItem)
     const options = [
@@ -27,9 +28,10 @@ function Cart () {
         {value: 120, label:'5'}
     ]
 
-    const selectedCount = (e) => {
+    const selectedOption = (e) => {
         setSelectedValue(e.value)
-        console.log("111111111111",e.value, "dddd", selectedValue)
+        setSelectedcount(e.label)
+        // console.log("111111111111",e, "dddd", selectedValue)
     }
     let allCartItemsValue;
     useEffect( async () => {
@@ -66,11 +68,11 @@ function Cart () {
                                             </NavLink>
                                         </div>
                                         <Select  
-                                            placeholder={options[0].label} 
+                                            placeholder={selectedCount} 
                                             // style={{width: "100px"}}
                                             options={options} className="select" 
                                             value={selectedValue} 
-                                            onChange={selectedCount}
+                                            onChange={selectedOption}
                                             menuColor="red"
                                             />
                                             {/* {console.log("22222222111111111111",selectedValue)} */}
