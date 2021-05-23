@@ -66,6 +66,7 @@
 
 .one-item-cart-li{
     background-color: white;
+    /* color: rgb(148, 4, 4); */
     /* width: 80%; */
     margin: 0px 0px 40px 0px;
     border-radius: 10px;
@@ -80,11 +81,11 @@
     /* width: 50%; */
 }
 .item-img{
-    width: 30%;
+    width: 20%;
     
 }
 .cart-item-img {
-    width: 50%;
+    width: 100%;
     /* display: flex; */
     /* justify-content: center; */
     /* flex-direction: column; */

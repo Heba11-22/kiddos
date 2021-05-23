@@ -16,7 +16,7 @@ function Cart () {
     const oneItemArray = Object.values(oneItem) || {}
     // const targtedItem = oneItem[123-1] || {}
     const allCartItems = useSelector(state => state.cartItems.items) || {}
-    const [selectedValue, setSelectedValue] = useState()
+    const [selectedValue, setSelectedValue] = useState(24)
     // console.log("BBBBBBBBBB",oneItemArray)
     // console.log("BBBBBBBBBB",targtedItem)
     const options = [
@@ -28,8 +28,8 @@ function Cart () {
     ]
 
     const selectedCount = (e) => {
-        // setSelectedValue(e.target.value)
-        console.log("111111111111",e.target)
+        setSelectedValue(e.value)
+        console.log("111111111111",e.value, "dddd", selectedValue)
     }
     let allCartItemsValue;
     useEffect( async () => {
@@ -65,10 +65,13 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <Select  options={options} className="select" value={selectedValue} onChange={selectedCount}>
+                                        <Select  placeHolder={options[0].label} options={options} className="select" value={selectedValue} onChange={selectedCount}/>
                                             {/* {console.log("22222222111111111111",selectedValue)} */}
-                                        </Select>
-                                        <div className="item-price-cart">$24 {options.value}</div>
+                                        <div className="price-divs">
+                                            <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
+                                            <div className="item-price-cart2" style={{color: "rgb(148, 4, 4)", paddingBottom: "5px"}}>Sale $24</div>
+                                            <div className="item-price-cart3">Total: ${selectedValue}</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="cart-buttons">
