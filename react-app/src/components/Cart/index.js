@@ -65,7 +65,14 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <Select  placeHolder={options[0].label} options={options} className="select" value={selectedValue} onChange={selectedCount}/>
+                                        <Select  
+                                            placeholder={options[0].label} 
+                                            // style={{width: "100px"}}
+                                            options={options} className="select" 
+                                            value={selectedValue} 
+                                            onChange={selectedCount}
+                                            menuColor="red"
+                                            />
                                             {/* {console.log("22222222111111111111",selectedValue)} */}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
