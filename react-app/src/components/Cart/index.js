@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
 import Select from 'react-select';
+import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import { getCartItemsThunk, deleteAnItemThunk } from "../../store/cart"
 import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
@@ -83,6 +84,35 @@ function Cart () {
                                             <div className="item-price-cart3">Total: ${selectedValue}</div>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="radio-options"  >
+                                    <RadioGroup  vertical>
+                                        <RadioButton value="">
+                                            <div style={{color: "black", outline: "none"}}>
+                                                <span style={{fontWeight: "bold"}}>
+                                                    Ship it <br/>
+                                                </span>
+                                                <span style={{fontWeight: "lighter", color: "green"}}>
+                                                    In Stock:
+                                                </span> Usually ships within 2 business days.
+                                            </div>
+                                        </RadioButton>
+                                        <RadioButton value="">
+                                            <div style={{color: "black"}}>
+                                            <span style={{fontWeight: "bold"}}>
+                                                Pick Up In 5-8 business days 
+                                            </span>
+                                            <span style={{fontWeight: "lighter"}}>
+                                                at our store 
+                                            </span> <br/>
+                                            <span style={{fontWeight: "lighter"}}> For </span>
+                                            <span style={{fontWeight: "bold"}}> Curbside</span> 
+                                            <span style={{fontWeight: "lighter"}}> or </span> 
+                                            <span style={{fontWeight: "bold"}}> In Store Pickup. </span>
+                                            </div>
+                                        </RadioButton>
+                                    </RadioGroup>
+
                                 </div>
                                 <div className="cart-buttons">
                                     <button className="save-for-later" 
