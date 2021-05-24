@@ -7,6 +7,7 @@ import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
 import { saveAnItemThunk } from "../../store/savedItems";
 import Footer from "../Footer"
+import Checkout from "./CheckOut"
 import "./Cart.css";
 
 function Cart () {
@@ -43,6 +44,10 @@ function Cart () {
     //    console.log("2222BBBBBBBBBB",allCartItems.items)
         dispatch(getAllItemsThunk());
     }, [dispatch])
+
+    // const freeShipping = {
+
+    // }
 
     return (
         <div className="cart-div-whole">
@@ -141,7 +146,7 @@ function Cart () {
                     ))}
                 </ul>
                 <div className="checkout">
-                    CHECKOUT
+                    <Checkout/>
                 </div>
             </div>
             {/* <Footer className="footer"/> */}
