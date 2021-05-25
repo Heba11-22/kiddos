@@ -56,15 +56,17 @@ function Cart () {
         {value: 96, label:'4'},
         {value: 120, label:'5'}
     ]
-    console.log("111111111111",selectedCount)
+    console.log("111111111111",selectedValue)
     // let allCartItemsValue = 0;
     const selectedOption = (e) => {
-        console.log("ggggggggg111111111111", e.id)
-        console.dir(Number(e.target.value) * Number(e.target.label))
-
-        setSelectedValue({...selectedValue, [e.id]: e.value})
-        setSelectedcount({...selectedCount, [e.id]: e.label})
+        // console.log("ggggggggg111111111111", e.id)
+        // console.log("ggggggggg111111111111", e.target)
+        // debugger
+        setSelectedValue({...selectedValue, [e.target.parentNode.id]: e.target.value})
+        // setSelectedcount({...selectedCount, [e.target.parentNode.id]: e.label})
         // setTotalPrice(allCartItemsValue += selectedValue)
+        
+        // console.log("ggggggggg111111111111", Number(e.target.value) * Number(e.target.label))
 
         
         // setSelectedValue(e.target.value)
@@ -96,6 +98,7 @@ function Cart () {
                 <ul className="cart-items-ul">
                     {allCartItems && (Object.values(allCartItems)).map((item,i) => (
                         <li key={i} className="one-item-cart-li">
+                        {console.log("iiiiiitttteeemmm",item)}
                             {oneItemArray[(item.itemId)-1] && 
                             <>
                                 <div className="item-select-price-img">
@@ -106,7 +109,7 @@ function Cart () {
                                                 {/* <div className="item-price-sale4-div">Sale <span className="item-price-sale4"> $24</span></div> */}
                                             {/* </div> */}
                                     </NavLink>
-                                    <div className="item-select-price">
+                                    <div className="item-select-price" id={(oneItemArray[(item.itemId)-1]).id}>
                                         <div className="items-name">
                                             <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="item-img2">
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
@@ -134,7 +137,7 @@ function Cart () {
                                             /> */}
                                             {/* {setTotalPrice(allCartItemsValue += selectedValue)} */}
                                             {/* <form onSubmit={handleSubmit}> */}
-                                                <select value={selectedValue[item.itemId]} onChange={selectedOption} type="submit" >
+                                                <select name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={selectedOption} type="submit" >
                                                     <option value="24"  label='1'>1</option>
                                                     <option value="48"  label='2'>2</option>
                                                     <option value="72" label='3'>3</option>
@@ -143,11 +146,12 @@ function Cart () {
                                                 {/* <input type="submit" value="Submit" hidden/> */}
                                             {/* </form> */}
                                             {/* {allCartItemsValue += selectedValue} */}
-                                            {console.log("22222222111111111111",allCartItemsValue += selectedValue)}
+                                            {/* {console.log("22222222111111111111",allCartItemsValue += selectedValue)} */}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
-                                            <div className="item-price-cart3">Total: ${selectedValue[item.itemId]}</div>
+                                            <div className="item-price-cart3">Total: ${selectedValue[item.itemId] || 24}</div>
+                                            {JSON.stringify(item)}
                                         </div>
                                     </div>
                                 </div>
