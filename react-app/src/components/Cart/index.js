@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { saveAnItemThunk } from "../../store/savedItems";
 import Footer from "../Footer"
 import Checkout from "./CheckOut"
+import FreeShipping from "./FreeShipping";
 import "./Cart.css";
 
 function Cart () {
@@ -86,7 +87,7 @@ function Cart () {
                                             {console.log("22222222111111111111",allCartItemsValue += selectedValue)}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
-                                            <div className="item-price-cart2" style={{color: "rgb(148, 4, 4)", paddingBottom: "5px"}}>Sale $24</div>
+                                            <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
                                             <div className="item-price-cart3">Total: ${selectedValue}</div>
                                         </div>
                                     </div>

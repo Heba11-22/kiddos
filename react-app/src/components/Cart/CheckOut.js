@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
+import FreeShipping from "./FreeShipping";
 
 const Checkout = ({allCartItemsValue}) => {
     return (
         <div className="checkout-div">
+            {allCartItemsValue >= 50 && (
+                <div>
+                <FreeShipping/>
+                </div>
+            )}
             <div className="total">
                 <div className="total-word">
                     Subtotal
@@ -16,7 +22,7 @@ const Checkout = ({allCartItemsValue}) => {
                 <div className="shipping-word">
                     Shipping
                 </div>
-                <div className="shipping-price" style={{color: "rgb(146, 23, 23)"}}>
+                <div className="shipping-price" style={{color: "red"}}>
                 {allCartItemsValue >= 50 ? "Free" : "$5"}
                 </div>
             </div>
