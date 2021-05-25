@@ -87,7 +87,11 @@ export default function reducer (state=initialState, action) {
             return {...state, savedItems: action.payload}
             // return {...state, [state.items[action.payload.id]]: action.payload}
         case UN_SAVE_AN_ITEM:
-            return state
+            let newState = {...state}
+            delete newState[action.payload.itemId]
+            return newState;
+        // case UN_SAVE_AN_ITEM:
+        //     return state
         default:
             return state;
     }
