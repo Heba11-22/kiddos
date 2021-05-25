@@ -91,7 +91,9 @@ export default function reducer (state=initialState, action) {
             // delete newState[action.payload.itemId]
             // return newState;
             // return {...state, ...action.payload};
-            return state;
+            let newState = {...state}
+            delete newState[action.itemId]
+            return newState;
 
         default:
             return state;
