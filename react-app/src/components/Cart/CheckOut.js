@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
 import FreeShipping from "./FreeShipping";
 
-const Checkout = ({allCartItemsValue}) => {
+const Checkout = ({allCartItemsValue, shipping}) => {
     return (
         <div className="checkout-div">
-            {allCartItemsValue >= 50 && (
+            {(allCartItemsValue >= 50)&& (
                 <div>
-                <FreeShipping/>
+                    <FreeShipping/>
                 </div>
             )}
+            {/* {(!shipping)&& (
+                <div>
+                    <FreeShipping/>
+                </div>
+            )} */}
             <div className="total">
                 <div className="total-word">
                     Subtotal

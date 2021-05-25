@@ -21,6 +21,7 @@ function Cart () {
     const allCartItems = useSelector(state => state.cartItems.items) || {}
     const [selectedValue, setSelectedValue] = useState(24)
     const [selectedCount, setSelectedcount] = useState(1)
+    const [shipping, setShipping] = useState(0)
     // console.log("BBBBBBBBBB",oneItemArray)
     // console.log("BBBBBBBBBB",targtedItem)
     const options = [
@@ -94,7 +95,12 @@ function Cart () {
                                 </div>
                                 <div className="radio-options"  >
                                     <RadioGroup  vertical>
-                                        <RadioButton value="">
+                                        <RadioButton 
+                                            // value="1"
+                                            onClick={() => {setShipping(1)
+                                                {console.log("!!!!!", RadioButton)}}}
+                                        >
+                                        {console.log("!!!!!", RadioGroup)}
                                             <div style={{color: "black", outline: "none"}}>
                                                 <span style={{fontWeight: "bold"}}>
                                                     Ship it <br/>
@@ -104,7 +110,12 @@ function Cart () {
                                                 </span> Usually ships within 2 business days.
                                             </div>
                                         </RadioButton>
-                                        <RadioButton value="">
+                                        <RadioButton 
+                                            // value="0"
+                                            onClick={() => {setShipping(0)
+                                            {console.log("!!!!!", shipping)}}} 
+                                        >
+                                        
                                             <div style={{color: "black"}}>
                                             <span style={{fontWeight: "bold"}}>
                                                 Pick Up In 5-8 business days 
@@ -148,7 +159,7 @@ function Cart () {
                     ))}
                 </ul>
                 <div className="checkout">
-                    <Checkout allCartItemsValue={allCartItemsValue}/>
+                    <Checkout allCartItemsValue={allCartItemsValue} shipping={shipping}/>
                 </div>
             </div>
             {/* <Footer className="footer"/> */}
