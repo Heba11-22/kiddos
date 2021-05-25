@@ -20,7 +20,7 @@ function CheckoutForm () {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
-    const [cardNum, setCardNum] = useState();
+    // const [cardNum, setCardNum] = useState();
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
@@ -29,20 +29,20 @@ function CheckoutForm () {
     const validate = () => {
         const validationErrors = [];
     
-        // if (!firstName) validationErrors.push('Please provide a First Name');
-        // if (!lastName) validationErrors.push('Please provide a Last Name');
-        // if (!address) validationErrors.push('Please provide an Address');
-        // if (!zipCode) validationErrors.push('Please provide a zip');
-        // if (!state) validationErrors.push('Please choose a State');
-        // if (!city) validationErrors.push('Please provide a City');    
-        if (!cardNum) validationErrors.push('Please provide a City');    
-        // if (!email || !validator.isEmail(email)) validationErrors.push('Please provide a valid Email');
+        if (!firstName) validationErrors.push('Please provide a First Name');
+        if (!lastName) validationErrors.push('Please provide a Last Name');
+        if (!address) validationErrors.push('Please provide an Address');
+        if (!zipCode) validationErrors.push('Please provide a zip');
+        if (!state) validationErrors.push('Please choose a State');
+        if (!city) validationErrors.push('Please provide a City');    
+        // if (!cardNum) validationErrors.push('Please provide a City');    
+        if (!email || !validator.isEmail(email)) validationErrors.push('Please provide a valid Email');
     
         return validationErrors;
       }
 
     const onSubmit=(e) => {
-        // e.preventDefault();
+        e.preventDefault();
     const errors = validate();
 
     if (errors.length > 0) return setValidationErrors(errors);
@@ -55,6 +55,7 @@ function CheckoutForm () {
     setState('');
     setZipCode('');
     setValidationErrors([]);
+    alert("HHHHIIII");
     }
     // const onSubmit=(e) => {
     //     alert("HHHHIIII");
@@ -62,85 +63,40 @@ function CheckoutForm () {
 
     return(
         <div className="pay-div">
-        {validationErrors.length > 0 && (
-            <div>
-            The following errors were found:
-            <ul>
-                {validationErrors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            </div>
-        )}
+            {validationErrors.length > 0 && (
+                <div>
+                The following errors were found:
+                <ul>
+                    {validationErrors.map(error => <li key={error}>{error}</li>)}
+                </ul>
+                </div>
+            )}
         <div className="shipping-address">
-        <Form 
-onSubmit={onSubmit}
-      render={({
-        handleSubmit,
-        form,
-        submitting,
-        pristine,
-        values,
-        active
-      }) => {
-        return (
-            <form onSubmit={handleSubmit}>
-                <div>
-                <Field
-                    onChange={(e) => setCardNum(e.target.value)}
-                    value={cardNum}
-                    name="number"
-                    component="input"
-                    type="text"
-                    pattern="[\d| ]{16,22}"
-                    placeholder="Card Number"
-                    format={formatCreditCardNumber}
-                />
+            <form onSubmit={onSubmit}>
+                <div> <label> First Name<input type="text"/></label></div>
+                <div> <label> Last Name<input type="text"/></label></div>
+                <div> <label htmlFor="email"> E-mail<input type="email"/></label></div>
+                <div> <label> Phone Number<input type="integer"/></label></div>
+                <div> <label> Address<input type="text"/></label></div>
+                <div> <label> City<input type="text"/></label></div>
+                <div> <label> State<input type="text"/></label></div>
+                <div> <label> ZIP Code<input type="integer"/></label></div>
+                <div className="buttons">
+                <button type="submit" >
+                    Submit
+                </button>
+                <button
+                    type="button"
+                    // onClick={reset}
+                    // disabled={submitting || pristine}
+                >
+                    Reset
+                </button>
                 </div>
-
-                <div>
-                <Field
-                    name="name"
-                    component="input"
-                    type="text"
-                    placeholder="Name"
-                />
-                </div>
-                <div>
-              <Field
-                name="expiry"
-                component="input"
-                type="text"
-                pattern="\d\d/\d\d"
-                placeholder="Valid Thru"
-                format={formatExpirationDate}
-              />
-              <Field
-                name="cvc"
-                component="input"
-                type="text"
-                pattern="\d{3,4}"
-                placeholder="CVC"
-                format={formatCVC}
-              />
-            </div>
-            <div className="buttons">
-              <button type="submit" disabled={submitting}>
-                Submit
-              </button>
-              <button
-                type="button"
-                onClick={form.reset}
-                disabled={submitting || pristine}
-              >
-                Reset
-              </button>
-            </div>
             </form>
-        )}}
-
-        />
         </div>
-        </div>
-        )}
+    </div>
+    )}
                 
 
 export default CheckoutForm;

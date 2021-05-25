@@ -59,5 +59,5 @@ def delete_save_an_item(item_id):
     # items = User.query.filter(User.id == 1).all()
     user.items.remove(item)
     db.session.commit()
-    return
+    return {"msg": "Item deleted"}
     # return redirect('/savedItems/')
