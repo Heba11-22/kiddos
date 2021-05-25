@@ -11,6 +11,20 @@ import Checkout from "./CheckOut"
 import FreeShipping from "./FreeShipping";
 import "./Cart.css";
 
+function SelectWrapper ({itemId, id, placeholder, options, className, value, onChange}) {
+    return (
+        <Select  
+            id={id}
+            placeholder={placeholder} 
+            // style={{width: "100px"}}
+            options={options} 
+            className={className} 
+            value={value} 
+            onChange={onChange}
+        />
+    )
+}
+
 function Cart () {
     const dispatch = useDispatch();
 
@@ -19,8 +33,18 @@ function Cart () {
     const oneItemArray = Object.values(oneItem) || {}
     // const targtedItem = oneItem[123-1] || {}
     const allCartItems = useSelector(state => state.cartItems.items) || {}
-    const [selectedValue, setSelectedValue] = useState(24)
-    const [selectedCount, setSelectedcount] = useState(1)
+    let defaultState = {}
+    Object.values(allCartItems).forEach((item, i) => {
+        // debugger
+        defaultState[i] = 24
+    })
+
+    let defaultState2 = {}
+    Object.values(allCartItems).forEach((item, i) => {
+        defaultState2[i] = 1
+    })
+    const [selectedValue, setSelectedValue] = useState(defaultState)
+    const [selectedCount, setSelectedcount] = useState(defaultState2)
     let [allCartItemsValue, setTotalPrice] = useState(0)
     const [shipping, setShipping] = useState(0)
     // console.log("BBBBBBBBBB",oneItemArray)
@@ -32,11 +56,14 @@ function Cart () {
         {value: 96, label:'4'},
         {value: 120, label:'5'}
     ]
-
+    console.log("111111111111",selectedCount)
     // let allCartItemsValue = 0;
     const selectedOption = (e) => {
-        setSelectedValue(e.value)
-        setSelectedcount(e.label)
+        console.log("ggggggggg111111111111", e.id)
+        console.dir(Number(e.target.value) * Number(e.target.label))
+
+        setSelectedValue({...selectedValue, [e.id]: e.value})
+        setSelectedcount({...selectedCount, [e.id]: e.label})
         // setTotalPrice(allCartItemsValue += selectedValue)
 
         
@@ -46,7 +73,6 @@ function Cart () {
     //     e.preventDefault()
         // setSelectedValue(24)
         // setSelectedcount(1)
-        // console.log("111111111111",selectedCount)
     // }
     
     useEffect( async (e) => {
@@ -86,30 +112,42 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <Select  
+                                        {/* <SelectWrapper
+                                            itemId={item.itemId}
                                             id={(oneItemArray[(item.itemId)-1]).id}
-                                            placeholder={selectedCount} 
+                                            placeholder={selectedCount[item.itemId]} 
                                             // style={{width: "100px"}}
-                                            options={options} className="select" 
-                                            value={selectedValue} 
+                                            options={options} 
+                                            className="select" 
+                                            value={selectedValue[item.itemId]} 
                                             onChange={selectedOption}
-                                            />
+
+                                        /> */}
+                                        {/* <Select  
+                                            id={(oneItemArray[(item.itemId)-1]).id}
+                                            placeholder={selectedCount[item.itemId]} 
+                                            // style={{width: "100px"}}
+                                            options={options} 
+                                            className="select" 
+                                            value={selectedValue[item.itemId]} 
+                                            onChange={selectedOption}
+                                            /> */}
                                             {/* {setTotalPrice(allCartItemsValue += selectedValue)} */}
-                                            {/* <form onSubmit={handleSubmit}>
-                                                <select value={selectedValue} onChange={selectedOption} type="submit" >
+                                            {/* <form onSubmit={handleSubmit}> */}
+                                                <select value={selectedValue[item.itemId]} onChange={selectedOption} type="submit" >
                                                     <option value="24"  label='1'>1</option>
                                                     <option value="48"  label='2'>2</option>
                                                     <option value="72" label='3'>3</option>
                                                     <option value="96"  label='4'>4</option>
                                                 </select>
-                                                <input type="submit" value="Submit" hidden/>
-                                            </form> */}
+                                                {/* <input type="submit" value="Submit" hidden/> */}
+                                            {/* </form> */}
                                             {/* {allCartItemsValue += selectedValue} */}
                                             {console.log("22222222111111111111",allCartItemsValue += selectedValue)}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
-                                            <div className="item-price-cart3">Total: ${selectedValue}</div>
+                                            <div className="item-price-cart3">Total: ${selectedValue[item.itemId]}</div>
                                         </div>
                                     </div>
                                 </div>

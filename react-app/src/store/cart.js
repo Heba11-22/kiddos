@@ -87,7 +87,7 @@ export default function reducer (state=initialState, action) {
             return {...state, ...action.payload}
 
         case DELETE_AN_ITEM:
-            return state;
+            return {...state, ...action.payload};
 
         default:
             return state;
