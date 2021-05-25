@@ -20,23 +20,28 @@ function CheckoutForm () {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
+    const [cardNum, setCardNum] = useState();
+    // const [zipCode, setZipCode] = useState('');
+    // const [zipCode, setZipCode] = useState('');
+    // const [zipCode, setZipCode] = useState('');
     const [validationErrors, setValidationErrors] = useState([]);
 
     const validate = () => {
         const validationErrors = [];
     
-        if (!firstName) validationErrors.push('Please provide a First Name');
-        if (!lastName) validationErrors.push('Please provide a Last Name');
-        if (!address) validationErrors.push('Please provide an Address');
-        if (!zipCode) validationErrors.push('Please provide a zip');
-        if (!state) validationErrors.push('Please choose a State');
-        if (!city) validationErrors.push('Please provide a City');    
-        if (!email || !validator.isEmail(email)) validationErrors.push('Please provide a valid Email');
+        // if (!firstName) validationErrors.push('Please provide a First Name');
+        // if (!lastName) validationErrors.push('Please provide a Last Name');
+        // if (!address) validationErrors.push('Please provide an Address');
+        // if (!zipCode) validationErrors.push('Please provide a zip');
+        // if (!state) validationErrors.push('Please choose a State');
+        // if (!city) validationErrors.push('Please provide a City');    
+        if (!cardNum) validationErrors.push('Please provide a City');    
+        // if (!email || !validator.isEmail(email)) validationErrors.push('Please provide a valid Email');
     
         return validationErrors;
       }
 
-    const handleSubmit=(e) => {
+    const onSubmit=(e) => {
         // e.preventDefault();
     const errors = validate();
 
@@ -66,7 +71,73 @@ function CheckoutForm () {
             </div>
         )}
         <div className="shipping-address">
-        <Form/>
+        <Form 
+onSubmit={onSubmit}
+      render={({
+        handleSubmit,
+        form,
+        submitting,
+        pristine,
+        values,
+        active
+      }) => {
+        return (
+            <form onSubmit={handleSubmit}>
+                <div>
+                <Field
+                    onChange={(e) => setCardNum(e.target.value)}
+                    value={cardNum}
+                    name="number"
+                    component="input"
+                    type="text"
+                    pattern="[\d| ]{16,22}"
+                    placeholder="Card Number"
+                    format={formatCreditCardNumber}
+                />
+                </div>
+
+                <div>
+                <Field
+                    name="name"
+                    component="input"
+                    type="text"
+                    placeholder="Name"
+                />
+                </div>
+                <div>
+              <Field
+                name="expiry"
+                component="input"
+                type="text"
+                pattern="\d\d/\d\d"
+                placeholder="Valid Thru"
+                format={formatExpirationDate}
+              />
+              <Field
+                name="cvc"
+                component="input"
+                type="text"
+                pattern="\d{3,4}"
+                placeholder="CVC"
+                format={formatCVC}
+              />
+            </div>
+            <div className="buttons">
+              <button type="submit" disabled={submitting}>
+                Submit
+              </button>
+              <button
+                type="button"
+                onClick={form.reset}
+                disabled={submitting || pristine}
+              >
+                Reset
+              </button>
+            </div>
+            </form>
+        )}}
+
+        />
         </div>
         </div>
         )}
