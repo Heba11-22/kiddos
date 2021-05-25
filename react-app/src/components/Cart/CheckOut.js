@@ -42,7 +42,7 @@ const Checkout = ({allCartItemsValue, shipping}) => {
             <NavLink to="/checkout" className="proceed">
                 Proceed to Checkout
             </NavLink>
-            <NavLink to="/home" className="continue">
+            <NavLink to="/" className="continue">
                 Continue Shopping
             </NavLink>
         </div>

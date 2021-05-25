@@ -21,6 +21,7 @@ function Cart () {
     const allCartItems = useSelector(state => state.cartItems.items) || {}
     const [selectedValue, setSelectedValue] = useState(24)
     const [selectedCount, setSelectedcount] = useState(1)
+    let [allCartItemsValue, setTotalPrice] = useState(0)
     const [shipping, setShipping] = useState(0)
     // console.log("BBBBBBBBBB",oneItemArray)
     // console.log("BBBBBBBBBB",targtedItem)
@@ -32,13 +33,22 @@ function Cart () {
         {value: 120, label:'5'}
     ]
 
+    // let allCartItemsValue = 0;
     const selectedOption = (e) => {
-        setSelectedValue(e.target.value)
-        // setSelectedcount(e.label)
-        console.log("111111111111",e.target)
+        setSelectedValue(e.value)
+        setSelectedcount(e.label)
+        // setTotalPrice(allCartItemsValue += selectedValue)
+
+        
+        // setSelectedValue(e.target.value)
     }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+        // setSelectedValue(24)
+        // setSelectedcount(1)
+        // console.log("111111111111",selectedCount)
+    // }
     
-    let allCartItemsValue =0;
     useEffect( async (e) => {
         dispatch(getCartItemsThunk());
         // let allCartItems = await dispatch(getCartItemsThunk());
@@ -76,22 +86,26 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        {/* <Select  
+                                        <Select  
                                             id={(oneItemArray[(item.itemId)-1]).id}
                                             placeholder={selectedCount} 
                                             // style={{width: "100px"}}
                                             options={options} className="select" 
                                             value={selectedValue} 
-                                            onChange={selectedOption.bind((oneItemArray[(item.itemId)-1]).id)}
-                                            menuColor="red"
-                                            /> */}
-                                            <select value={selectedValue} onChange={selectedOption} >
-                                                <option value="24"  label='1'>1</option>
-                                                <option value="48"  label='2'>2</option>
-                                                <option value="72" label='3'>3</option>
-                                                <option value="96"  label='4'>4</option>
-                                            </select>
-                                            {console.log("22222222111111111111",this)}
+                                            onChange={selectedOption}
+                                            />
+                                            {/* {setTotalPrice(allCartItemsValue += selectedValue)} */}
+                                            {/* <form onSubmit={handleSubmit}>
+                                                <select value={selectedValue} onChange={selectedOption} type="submit" >
+                                                    <option value="24"  label='1'>1</option>
+                                                    <option value="48"  label='2'>2</option>
+                                                    <option value="72" label='3'>3</option>
+                                                    <option value="96"  label='4'>4</option>
+                                                </select>
+                                                <input type="submit" value="Submit" hidden/>
+                                            </form> */}
+                                            {/* {allCartItemsValue += selectedValue} */}
+                                            {console.log("22222222111111111111",allCartItemsValue += selectedValue)}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
@@ -166,6 +180,7 @@ function Cart () {
                         </li>
                     ))}
                 </ul>
+                {/* {allCartItemsValue += selectedValue} */}
                 <div className="checkout">
                     <Checkout allCartItemsValue={allCartItemsValue} shipping={shipping}/>
                 </div>
