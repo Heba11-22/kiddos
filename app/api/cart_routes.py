@@ -36,4 +36,4 @@ def delete_item_from_cart(item_id):
     # print(">>>>>>", item)
     # db.session.delete(item)    <<<<<<<<< Didin't work that way !!!!!!!
     db.session.commit()
-    return "deleted"
+    return {"msg": "deleted"}
