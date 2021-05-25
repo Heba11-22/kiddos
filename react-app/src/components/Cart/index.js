@@ -33,9 +33,9 @@ function Cart () {
     ]
 
     const selectedOption = (e) => {
-        setSelectedValue(e.value)
-        setSelectedcount(e.label)
-        // console.log("111111111111",e, "dddd", selectedValue)
+        setSelectedValue(e.target.value)
+        // setSelectedcount(e.label)
+        console.log("111111111111",e.target)
     }
     
     let allCartItemsValue =0;
@@ -76,16 +76,22 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <Select  
+                                        {/* <Select  
                                             id={(oneItemArray[(item.itemId)-1]).id}
                                             placeholder={selectedCount} 
                                             // style={{width: "100px"}}
                                             options={options} className="select" 
                                             value={selectedValue} 
-                                            onChange={selectedOption}
+                                            onChange={selectedOption.bind((oneItemArray[(item.itemId)-1]).id)}
                                             menuColor="red"
-                                            />
-                                            {console.log("22222222111111111111",allCartItemsValue += selectedValue)}
+                                            /> */}
+                                            <select value={selectedValue} onChange={selectedOption} >
+                                                <option value="24"  label='1'>1</option>
+                                                <option value="48"  label='2'>2</option>
+                                                <option value="72" label='3'>3</option>
+                                                <option value="96"  label='4'>4</option>
+                                            </select>
+                                            {console.log("22222222111111111111",this)}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
@@ -98,9 +104,10 @@ function Cart () {
                                         <RadioButton 
                                             // value="1"
                                             onClick={() => {setShipping(1)
-                                                {console.log("!!!!!", RadioButton)}}}
+                                                // {console.log("!!!!!", RadioButton)}
+                                                }}
                                         >
-                                        {console.log("!!!!!", RadioGroup)}
+                                        {/* {console.log("!!!!!", RadioGroup)} */}
                                             <div style={{color: "black", outline: "none"}}>
                                                 <span style={{fontWeight: "bold"}}>
                                                     Ship it <br/>
@@ -113,7 +120,8 @@ function Cart () {
                                         <RadioButton 
                                             // value="0"
                                             onClick={() => {setShipping(0)
-                                            {console.log("!!!!!", shipping)}}} 
+                                            // {console.log("!!!!!", shipping)}
+                                            }} 
                                         >
                                         
                                             <div style={{color: "black"}}>
