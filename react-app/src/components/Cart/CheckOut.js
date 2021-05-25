@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
 
-const Checkout = () => {
+const Checkout = ({allCartItemsValue}) => {
     return (
         <div className="checkout-div">
             <div className="total">
@@ -9,7 +9,7 @@ const Checkout = () => {
                     Subtotal
                 </div>
                 <div className="total-price">
-                    $50
+                    ${allCartItemsValue}
                 </div>
             </div>
             <div className="shipping-div">
@@ -17,7 +17,7 @@ const Checkout = () => {
                     Shipping
                 </div>
                 <div className="shipping-price" style={{color: "rgb(146, 23, 23)"}}>
-                    Free
+                {allCartItemsValue >= 50 ? "Free" : "$5"}
                 </div>
             </div>
             <div className="tax-div">
@@ -25,7 +25,7 @@ const Checkout = () => {
                     Pre-Tax Order Total
                 </div>
                 <div className="tax-price">
-                    Free
+                    {allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)}
                 </div>
             </div>
             <NavLink to="/checkout" className="proceed">

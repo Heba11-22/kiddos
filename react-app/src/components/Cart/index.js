@@ -36,8 +36,8 @@ function Cart () {
         // console.log("111111111111",e, "dddd", selectedValue)
     }
     
-    let allCartItemsValue;
-    useEffect( async () => {
+    let allCartItemsValue =0;
+    useEffect( async (e) => {
         dispatch(getCartItemsThunk());
         // let allCartItems = await dispatch(getCartItemsThunk());
         // allCartItemsValue = allCartItems.items
@@ -75,6 +75,7 @@ function Cart () {
                                             </NavLink>
                                         </div>
                                         <Select  
+                                            id={(oneItemArray[(item.itemId)-1]).id}
                                             placeholder={selectedCount} 
                                             // style={{width: "100px"}}
                                             options={options} className="select" 
@@ -82,7 +83,7 @@ function Cart () {
                                             onChange={selectedOption}
                                             menuColor="red"
                                             />
-                                            {/* {console.log("22222222111111111111",selectedValue)} */}
+                                            {console.log("22222222111111111111",allCartItemsValue += selectedValue)}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "rgb(148, 4, 4)", paddingBottom: "5px"}}>Sale $24</div>
@@ -146,7 +147,7 @@ function Cart () {
                     ))}
                 </ul>
                 <div className="checkout">
-                    <Checkout/>
+                    <Checkout allCartItemsValue={allCartItemsValue}/>
                 </div>
             </div>
             {/* <Footer className="footer"/> */}
