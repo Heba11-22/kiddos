@@ -22,6 +22,7 @@ import LandingPage from "./components/LandingPage";
 import Footer from "./components/Footer";
 import DemoUser from "./components/LoginSignUpForm/DemoUser"
 import Cart from "./components/Cart"
+import CheckoutForm from "./components/CheckoutForm"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 import { getItemsThunk, deleteAnItemThunk } from "./store/savedItems";
@@ -62,6 +63,9 @@ function App() {
         </Route>
         <Route path="/cart" exact={true}>
           <Cart/>
+        </Route>
+        <Route path="/checkout" exact={true}>
+          <CheckoutForm/>
         </Route>
         {/* <Route path="/maincategories" exact={true}>
           <Categories/>
