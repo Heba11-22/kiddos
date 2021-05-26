@@ -61,6 +61,17 @@ function CheckoutForm () {
         return validationErrors;
       }
 
+const reset = () => {
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhone('');
+    setAddress('');
+    setCity('');
+    setState('');
+    setZipCode('');
+}
+
     const onSubmit=(e) => {
         e.preventDefault();
     let errors = validate();
@@ -197,7 +208,7 @@ let props = {firstName, lastName, address, city, state, zipCode, setPay}
                             <button
                                 className="button2"
                                 type="button"
-                                // onClick={reset}
+                                onClick={reset}
                                 // disabled={submitting || pristine}
                             >
                                 <h4 className="button2-h4 h4">Reset</h4>
