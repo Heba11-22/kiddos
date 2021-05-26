@@ -1,5 +1,6 @@
 
-.pay-div{
+.pay-div,
+.final-pay-form{
     display: flex;
     margin: 15% auto;
     justify-content: space-around;

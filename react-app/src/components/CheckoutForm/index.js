@@ -21,7 +21,8 @@ function CheckoutForm () {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
-    // const [cardNum, setCardNum] = useState();
+    const [pay, setPay] = useState(1);
+    const [cardNum, setCardNum] = useState();
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
@@ -36,6 +37,23 @@ function CheckoutForm () {
         // ,"IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
         // "NJ", "NM", "NY", "NC"
     ]
+
+    const month = [
+        {value: "01", label:"01"},
+        {value: "02", label:"02"},
+        {value: "03", label:"03"},
+        {value: "04", label:"04"},
+        {value: "05", label:"05"}
+    ]
+    
+    const year = [
+        {value: "2022", label:"2022"},
+        {value: "2023", label:"2023"},
+        {value: "2024", label:"2024"},
+        {value: "2025", label:"2025"},
+        {value: "2026", label:"2026"}
+    ]
+
     let validationErrors = [];
     const validate = () => {
     
@@ -68,12 +86,15 @@ function CheckoutForm () {
     setState('');
     setZipCode('');
     errors =[];
+    setPay(0)
     alert("HHHHIIII");
     }
     // const onSubmit=(e) => {
     //     alert("HHHHIIII");
     // }
-
+const finalSubmit = () => {
+    alert("HHHHIIII");
+}
     return(
         <div className="pay-div">
             {validationErrors.length > 0 && (
@@ -84,6 +105,7 @@ function CheckoutForm () {
                 </ul>
             </div>
             )}
+            {pay && 
             <div className="shipping-address">
                 <form onSubmit={onSubmit} className="shipping-address">
                     <div className="fname f"> 
@@ -160,14 +182,6 @@ function CheckoutForm () {
                             placeholder={"Choose a State"}
                             required 
                         />
-                        
-                            {/* <input 
-                            type="text" 
-                            name="state"
-                            value={state}
-                            onChange={(e) => { setState(e.target.value)}}
-                            required/> */}
-                        {/* </label> */}
                     </div>
 
                     <div className="zcode f"> 
@@ -197,6 +211,39 @@ function CheckoutForm () {
                     </div>
                 </form>
             </div>
+        }
+        {!pay && 
+            <div className="final-pay-form">
+                <form onSubmit={finalSubmit}>
+                    <div className="card-num"> 
+                        <label> Card Number </label>
+                        <input
+                        className="card-num"  
+                        type="integer"
+                        name="cardNum"
+                        value={cardNum}
+                        onChange={(e) => { setCardNum(e.target.value)}} 
+                        required/>
+                    </div>
+
+                    <div className="date"> 
+                        <label> Expiration Date </label>
+                            <Select
+                                options={month} 
+                                className="select"
+                                placeholder={"Month"}
+                                required 
+                            />
+                            <Select
+                                options={year} 
+                                className="select"
+                                placeholder={"Year"}
+                                required 
+                            />
+                    </div>
+                </form>
+            </div>
+        }
     </div>
     )}
                 
