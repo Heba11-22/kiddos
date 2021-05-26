@@ -156,7 +156,7 @@ function Cart () {
                                     </div>
                                 </div>
                                 <div className="radio-options"  >
-                                    <RadioGroup  vertical>
+                                    <RadioGroup  vertical="true">
                                         <RadioButton 
                                             // value="1"
                                             onClick={() => {setShipping(1)
