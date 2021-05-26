@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
 import FreeShipping from "../Cart/FreeShipping";
-import {allCartItemsValue} from "../Cart/CheckOut";
+import {allCartItemsValue} from "../Cart/index";
 
 const Pay = () => {
+    // console.log("kfdjdoiufoidsjlds",all.allCartItemsValue)
     return (
         <div className="checkout-div">
             {(allCartItemsValue >= 50)&& (

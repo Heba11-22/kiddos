@@ -66,4 +66,4 @@ const Checkout = ({allCartItemsValue, shipping}) => {
 }
 
 export default Checkout;
-export {allCartItemsValue};
+// export {allCartItemsValue};

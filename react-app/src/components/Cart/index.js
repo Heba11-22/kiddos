@@ -11,20 +11,21 @@ import Checkout from "./CheckOut"
 import FreeShipping from "./FreeShipping";
 import "./Cart.css";
 
-function SelectWrapper ({itemId, id, placeholder, options, className, value, onChange}) {
-    return (
-        <Select  
-            id={id}
-            placeholder={placeholder} 
-            // style={{width: "100px"}}
-            options={options} 
-            className={className} 
-            value={value} 
-            onChange={onChange}
-        />
-    )
-}
+// function SelectWrapper ({itemId, id, placeholder, options, className, value, onChange}) {
+//     return (
+//         <Select  
+//             id={id}
+//             placeholder={placeholder} 
+//             // style={{width: "100px"}}
+//             options={options} 
+//             className={className} 
+//             value={value} 
+//             onChange={onChange}
+//         />
+//     )
+// }
 
+export let allCartItemsValue = 0;
 function Cart () {
     const dispatch = useDispatch();
 
@@ -45,7 +46,7 @@ function Cart () {
     })
     const [selectedValue, setSelectedValue] = useState(defaultState)
     const [selectedCount, setSelectedcount] = useState(defaultState2)
-    let [allCartItemsValue, setTotalPrice] = useState(0)
+    // [allCartItemsValue, setTotalPrice] = useState(0)
     const [shipping, setShipping] = useState(0)
     // console.log("BBBBBBBBBB",oneItemArray)
     // console.log("BBBBBBBBBB",targtedItem)
@@ -57,7 +58,6 @@ function Cart () {
         {value: 120, label:'5'}
     ]
     console.log("111111111111",selectedValue)
-    // let allCartItemsValue = 0;
     const selectedOption = (e) => {
         // console.log("ggggggggg111111111111", e.id)
         // console.log("ggggggggg111111111111", e.target)
@@ -232,5 +232,5 @@ function Cart () {
     )
 }
 
+// export  {hi};
 export default Cart;
-// export {allCartItemsValue};

@@ -6,6 +6,7 @@ import Select from 'react-select';
 import Cards from 'react-credit-cards'
 import Continue from './Continue'
 import Pay from './Pay'
+// import {allCartItemsValue} from "./Cart/index.js";
 import {
     formatCreditCardNumber,
     formatCVC,
@@ -15,6 +16,8 @@ import {
 import "./CheckoutForm.css"
 
 function CheckoutForm () { 
+    // console.log("kfdjdoiufoidsjlds",all.allCartItemsValue)
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -210,7 +213,7 @@ let props = {firstName, lastName, address, city, state, zipCode, setPay}
 
         </div>
         <div className="discount">
-            <Pay/>
+            <Pay />
         </div>
     </div>
     )}
