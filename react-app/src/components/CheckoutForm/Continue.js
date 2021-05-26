@@ -9,8 +9,6 @@ import "./CheckoutForm.css"
 function Continue ({props}) {
     const [cardNum, setCardNum] = useState('');
     const [nameOnCard, setNameOnCard] = useState('');
-    
-    console.log("><><><><>",props.firstName)
 
     const month = [
         {value: "01", label:"01"},
