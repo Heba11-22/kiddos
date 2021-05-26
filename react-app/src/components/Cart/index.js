@@ -57,7 +57,7 @@ function Cart () {
         {value: 96, label:'4'},
         {value: 120, label:'5'}
     ]
-    console.log("111111111111",selectedValue)
+    // console.log("111111111111",selectedValue)
     const selectedOption = (e) => {
         // console.log("ggggggggg111111111111", e.id)
         // console.log("ggggggggg111111111111", e.target)
@@ -98,7 +98,7 @@ function Cart () {
                 <ul className="cart-items-ul">
                     {allCartItems && (Object.values(allCartItems)).map((item,i) => (
                         <li key={i} className="one-item-cart-li">
-                        {console.log("iiiiiitttteeemmm",item)}
+                        {/* {console.log("iiiiiitttteeemmm",item)} */}
                             {oneItemArray[(item.itemId)-1] && 
                             <>
                                 <div className="item-select-price-img">
@@ -115,49 +115,28 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        {/* <SelectWrapper
-                                            itemId={item.itemId}
-                                            id={(oneItemArray[(item.itemId)-1]).id}
-                                            placeholder={selectedCount[item.itemId]} 
-                                            // style={{width: "100px"}}
-                                            options={options} 
-                                            className="select" 
-                                            value={selectedValue[item.itemId]} 
-                                            onChange={selectedOption}
-
-                                        /> */}
-                                        {/* <Select  
-                                            id={(oneItemArray[(item.itemId)-1]).id}
-                                            placeholder={selectedCount[item.itemId]} 
-                                            // style={{width: "100px"}}
-                                            options={options} 
-                                            className="select" 
-                                            value={selectedValue[item.itemId]} 
-                                            onChange={selectedOption}
-                                            /> */}
-                                            {/* {setTotalPrice(allCartItemsValue += selectedValue)} */}
-                                            {/* <form onSubmit={handleSubmit}> */}
-                                                <select name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={selectedOption} type="submit" >
-                                                    <option value="24"  label='1'>1</option>
-                                                    <option value="48"  label='2'>2</option>
-                                                    <option value="72" label='3'>3</option>
-                                                    <option value="96"  label='4'>4</option>
-                                                </select>
+                                        <select name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={selectedOption} type="submit" >
+                                            <option value="24"  label='1'>1</option>
+                                            <option value="48"  label='2'>2</option>
+                                            <option value="72" label='3'>3</option>
+                                            <option value="96"  label='4'>4</option>
+                                        </select>
                                                 {/* <input type="submit" value="Submit" hidden/> */}
                                             {/* </form> */}
                                             {/* {allCartItemsValue += selectedValue} */}
-                                            {/* {console.log("22222222111111111111",allCartItemsValue += selectedValue)} */}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
                                             <div className="item-price-cart3">Total: ${selectedValue[item.itemId] || 24}</div>
-                                            {JSON.stringify(item)}
+                                            {/* {console.log("22222222111111111111",allCartItemsValue += (selectedValue[item.itemId]))} */}
+                                            {/* {JSON.stringify(item)} */}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="radio-options"  >
-                                    <RadioGroup  vertical="true">
+                                    <RadioGroup className="radio"  vertical="true">
                                         <RadioButton 
+                                        className="radio"
                                             // value="1"
                                             onClick={() => {setShipping(1)
                                                 // {console.log("!!!!!", RadioButton)}
@@ -174,6 +153,7 @@ function Cart () {
                                             </div>
                                         </RadioButton>
                                         <RadioButton 
+                                        className="radio"
                                             // value="0"
                                             onClick={() => {setShipping(0)
                                             // {console.log("!!!!!", shipping)}
@@ -181,8 +161,8 @@ function Cart () {
                                         >
                                         
                                             <div style={{color: "black"}}>
-                                            <span style={{fontWeight: "bold"}}>
-                                                Pick Up In 5-8 business days 
+                                            <span style={{fontWeight: "bold", marginRight: ".3em"}}>
+                                                Pick Up In 5-8 business days  
                                             </span>
                                             <span style={{fontWeight: "lighter"}}>
                                                 at our store 
