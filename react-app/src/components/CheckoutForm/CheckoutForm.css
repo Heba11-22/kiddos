@@ -1,9 +1,10 @@
 .whole{
     display: flex;
-    margin: 13% auto;
+    margin: 13% auto auto auto;
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    height: 100%;
     background-color: rgb(243, 240, 240);
 }
 .discount{
@@ -19,6 +20,7 @@
     align-items: center;
     width: 50%;
     background-color: white;
+    height: 68vw;
 
 }
 
@@ -45,7 +47,7 @@
 }
 .input-form{
     width: 60%;
-    height: 1.8vw;
+    height: 2vw;
     border: 1px solid rgb(204, 202, 202);
     border-radius: 3px;
     margin: .5vw 0px;
@@ -54,7 +56,7 @@
 .input-card{
     margin: 5% 0px;
     width: 100%;
-    height: 1.5vw;
+    height: 2vw;
     border: 1px solid rgb(204, 202, 202);
     border-radius: 3px;
 }
@@ -92,7 +94,7 @@ label{
     width: 100%;
     margin-top: 3%;
     margin-left: 200%;
-    height: 1.5vw;
+    height: 2vw;
     border-radius: 3px;
     display: flex;
     justify-content: space-around;
@@ -142,7 +144,7 @@ label{
     height: 2vw;
     border-radius: 3px;
     border: 1px solid gray;
-    background-color: white;
+    background-color: rgb(240, 239, 239);
 }
 
 .shipping-info{
@@ -159,11 +161,13 @@ label{
     height: 2vw;
 }
 .payment{
-    border-top: 2px solid rgb(194, 190, 190);
+    border-top: 2px solid rgb(187, 182, 182);
+    border-bottom: 1px solid rgb(209, 207, 207);
     width: 100%;
+    margin-bottom: -4vw;
 }
 .payment-h2{
-    margin: 1.5vw 0px;
+    margin-top: 2.5vw;
 }
 
 .div-info{

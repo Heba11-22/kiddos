@@ -184,7 +184,7 @@ const finalSubmit = () => {
                             <Select
                                 options={options} 
                                 className="select-state fi"
-                                placeholder={"Choose a State"}
+                                placeholder={state}
                                 value={state}
                                 onChange={(e) => { setState(e.value)}}
                                 required 
@@ -236,7 +236,7 @@ const finalSubmit = () => {
                         <div className="card-num c"> 
                             <label> Name on the Card </label>
                             <input
-                            className="card-num input-card c"  
+                            className="card-num input-card "  
                             type="text"
                             name="nameOnCard"
                             value={nameOnCard}
