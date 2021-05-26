@@ -4,6 +4,7 @@ import { Form, Field } from 'react-final-form';
 import validator from 'validator'
 import Select from 'react-select';
 import Cards from 'react-credit-cards'
+import Continue from './Continue'
 import {
     formatCreditCardNumber,
     formatCVC,
@@ -22,8 +23,7 @@ function CheckoutForm () {
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [pay, setPay] = useState(1);
-    const [cardNum, setCardNum] = useState('');
-    const [nameOnCard, setNameOnCard] = useState('');
+    
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
@@ -40,21 +40,7 @@ function CheckoutForm () {
         // "NJ", "NM", "NY", "NC"
     ]
 
-    const month = [
-        {value: "01", label:"01"},
-        {value: "02", label:"02"},
-        {value: "03", label:"03"},
-        {value: "04", label:"04"},
-        {value: "05", label:"05"}
-    ]
-    
-    const year = [
-        {value: "2022", label:"2022"},
-        {value: "2023", label:"2023"},
-        {value: "2024", label:"2024"},
-        {value: "2025", label:"2025"},
-        {value: "2026", label:"2026"}
-    ]
+   
 
     let validationErrors = [];
     const validate = () => {
@@ -87,8 +73,7 @@ function CheckoutForm () {
     // setCity('');
     // setState('');
     // setZipCode('');
-    setCardNum('');
-    setNameOnCard('');
+   
     errors =[];
     setPay(0)
     // alert("HHHHIIII");
@@ -96,9 +81,7 @@ function CheckoutForm () {
     // const onSubmit=(e) => {
     //     alert("HHHHIIII");
     // }
-const finalSubmit = () => {
-    alert("HHHHIIII");
-}
+let props = {firstName, lastName, address, city, state, zipCode, setPay}
     return(
         <div className="whole">
             <div className="pay-div">
@@ -220,68 +203,8 @@ const finalSubmit = () => {
                 </div>
             }
             {!pay && 
-                <div className="final-pay-form">
-                        <div className="confirm">
-                            <h2>Shipping Address</h2>
-                            <button className="edit-button" onClick={() => {setPay(1)}}>Edit</button>
-                        </div>
-                        <div className="shipping-info">
-                            <div className="div-info">{firstName} {lastName}</div>
-                            <div className="div-info">{address}</div>
-                            <div className="div-info">{city}, {state} {zipCode}</div>
-                        </div>
-                    <div className="payment"><h2 className="payment-h2">Payment</h2></div>
-                    <form onSubmit={onSubmit} className="card-form">
-
-                        <div className="card-num c"> 
-                            <label> Name on the Card </label>
-                            <input
-                            className="card-num input-card "  
-                            type="text"
-                            name="nameOnCard"
-                            value={nameOnCard}
-                            onChange={(e) => { setNameOnCard(e.target.value)}} 
-                            required/>
-                        </div>
-
-                        <div className="name-on-card c"> 
-                            <label> Card Number </label>
-                            <input
-                            className="card-num input-card"  
-                            type="integer"
-                            name="cardNum"
-                            value={cardNum}
-                            onChange={(e) => { setCardNum(e.target.value)}} 
-                            required/>
-                        </div>
-
-                        <div className="date c"> 
-                            <label> Expiration Date </label>
-                            <div className="date-select"> 
-                                <Select
-                                    options={month} 
-                                    className="select"
-                                    placeholder={"Month"}
-                                    required 
-                                />
-                                <Select
-                                    options={year} 
-                                    className="select"
-                                    placeholder={"Year"}
-                                    required 
-                                />
-                            </div>
-                        </div>
-                        <button
-                            className="button3"
-                                type="submit"
-                                // onClick={reset}
-                                // disabled={submitting || pristine}
-                            >
-                                <h4 className="button3-h4 h4">Place the order</h4>
-                            </button>
-                    </form>
-                </div>
+            <Continue props={props}/>
+                
             }
         </div>
         <div className="discount">
