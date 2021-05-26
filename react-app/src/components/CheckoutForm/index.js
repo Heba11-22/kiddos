@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { render } from 'react-dom';
 import { Form, Field } from 'react-final-form';
 import validator from 'validator'
+import Select from 'react-select';
 import Cards from 'react-credit-cards'
 import {
     formatCreditCardNumber,
@@ -24,10 +25,19 @@ function CheckoutForm () {
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
-    const [validationErrors, setValidationErrors] = useState([]);
-
+    // const [validationErrors, setValidationErrors] = useState([]);
+    const options = [
+        {value: "AL", label:"AL"},
+        {value: "AK", label:"AK"},
+        {value: "AZ", label:"AZ"},
+        {value: "AR", label:"AR"},
+        {value: "CA", label:"CA"}
+        // , , , , , "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", 'IN'
+        // ,"IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
+        // "NJ", "NM", "NY", "NC"
+    ]
+    let validationErrors = [];
     const validate = () => {
-        const validationErrors = [];
     
         if (!firstName) validationErrors.push('Please provide a First Name');
         if (!lastName) validationErrors.push('Please provide a Last Name');
@@ -43,9 +53,12 @@ function CheckoutForm () {
 
     const onSubmit=(e) => {
         e.preventDefault();
-    const errors = validate();
+    let errors = validate();
 
-    if (errors.length > 0) return setValidationErrors(errors);
+    console.log("outside submit")
+    // if (errors.length > 0) return errors;
+    // else{
+        console.log("inside submit")
     setFirstName('');
     setLastName('');
     setEmail('');
@@ -54,7 +67,7 @@ function CheckoutForm () {
     setCity('');
     setState('');
     setZipCode('');
-    setValidationErrors([]);
+    errors =[];
     alert("HHHHIIII");
     }
     // const onSubmit=(e) => {
@@ -65,26 +78,114 @@ function CheckoutForm () {
         <div className="pay-div">
             {validationErrors.length > 0 && (
                 <div>
-                The following errors were found:
-                <ul>
-                    {validationErrors.map(error => <li key={error}>{error}</li>)}
-                </ul>
+                    The following errors were found:
+                    <ul>
+                        {validationErrors.map(error => <li key={error}>{error}</li>)}
+                    </ul>
                 </div>
             )}
         <div className="shipping-address">
             <form onSubmit={onSubmit}>
-                <div> <label> First Name<input type="text"/></label></div>
-                <div> <label> Last Name<input type="text"/></label></div>
-                <div> <label htmlFor="email"> E-mail<input type="email"/></label></div>
-                <div> <label> Phone Number<input type="integer"/></label></div>
-                <div> <label> Address<input type="text"/></label></div>
-                <div> <label> City<input type="text"/></label></div>
-                <div> <label> State<input type="text"/></label></div>
-                <div> <label> ZIP Code<input type="integer"/></label></div>
+                <div> 
+                    <label> First Name
+                        <input 
+                        type="text"
+                        name="firstName"
+                        value={firstName}
+                        onChange={(e) => { setFirstName(e.target.value)}} 
+                        required/>
+                    </label>
+                </div>
+
+                <div> 
+                    <label> Last Name
+                        <input 
+                        type="text"
+                        name="lastName"
+                        value={lastName}
+                        onChange={(e) => { setLastName(e.target.value)}} 
+                        required/>
+                    </label>
+                </div>
+
+                <div> 
+                    <label htmlFor="email"> E-mail
+                        <input 
+                        type="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => { setEmail(e.target.value)}}
+                        required/>
+                    </label>
+                </div>
+
+                <div> 
+                    <label> Phone Number
+                        <input 
+                        type="integer"
+                        name="phone"
+                        value={phone}
+                        onChange={(e) => { setPhone(e.target.value)}}    
+                        />
+                    </label>
+                </div>
+
+                <div> 
+                    <label> Address
+                        <input 
+                        type="text" 
+                        name="address"
+                        value={address}
+                        onChange={(e) => { setAddress(e.target.value)}}
+                        required/>
+                    </label>
+                </div>
+
+                <div> 
+                    <label> City
+                        <input 
+                        type="text"
+                        name="city"
+                        value={city}
+                        onChange={(e) => { setCity(e.target.value)}} 
+                        required/>
+                    </label>
+                </div>
+
+                <div> 
+                    <label> State
+                    <Select
+                        options={options} 
+                        className="select"
+                        placeholder={"Choose a State"}
+                        required 
+                    />
+                    
+                        {/* <input 
+                        type="text" 
+                        name="state"
+                        value={state}
+                        onChange={(e) => { setState(e.target.value)}}
+                        required/> */}
+                    </label>
+                </div>
+
+                <div> 
+                    <label> ZIP Code
+                        <input 
+                        type="integer"
+                        name="zipCode"
+                        value={zipCode}
+                        onChange={(e) => { setZipCode(e.target.value)}} 
+                        required/>
+                    </label>
+                </div>
+
                 <div className="buttons">
                 <button type="submit" >
                     Submit
                 </button>
+
                 <button
                     type="button"
                     // onClick={reset}
