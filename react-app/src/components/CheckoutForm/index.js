@@ -5,6 +5,7 @@ import validator from 'validator'
 import Select from 'react-select';
 import Cards from 'react-credit-cards'
 import Continue from './Continue'
+import Pay from './Pay'
 import {
     formatCreditCardNumber,
     formatCVC,
@@ -202,13 +203,14 @@ let props = {firstName, lastName, address, city, state, zipCode, setPay}
                     </form>
                 </div>
             }
+
             {!pay && 
-            <Continue props={props}/>
-                
+            <Continue props={props}/>   
             }
+
         </div>
         <div className="discount">
-            discount
+            <Pay/>
         </div>
     </div>
     )}

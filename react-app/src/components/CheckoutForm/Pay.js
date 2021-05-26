@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
-import FreeShipping from "./FreeShipping";
+import FreeShipping from "../Cart/FreeShipping";
+import {allCartItemsValue} from "../Cart/CheckOut";
 
-const Checkout = ({allCartItemsValue, shipping}) => {
+const Pay = () => {
     return (
         <div className="checkout-div">
             {(allCartItemsValue >= 50)&& (
@@ -31,14 +32,14 @@ const Checkout = ({allCartItemsValue, shipping}) => {
                 {allCartItemsValue >= 50 ? "Free" : "$5"}
                 </div>
             </div>
-            <div className="tax-div">
+            {/* <div className="tax-div">
                 <div className="tax-word">
                     Pre-Tax Order Total
                 </div>
                 <div className="tax-price">
                     {allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)}
                 </div>
-            </div>
+            </div> */}
             <div className="tax-div">
                 <div className="tax-word">
                     Estimated tax
@@ -55,15 +56,14 @@ const Checkout = ({allCartItemsValue, shipping}) => {
                     {((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)) + (allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5))}
                 </div>
             </div>
-            <NavLink to="/checkout" className="proceed">
+            {/* <NavLink to="/checkout" className="proceed">
                 Proceed to Checkout
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/" className="continue">
-                Continue Shopping
+                Place Order
             </NavLink>
         </div>
     )
 }
 
-export default Checkout;
-export {allCartItemsValue};
+export default Pay;

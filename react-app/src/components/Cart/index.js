@@ -233,3 +233,4 @@ function Cart () {
 }
 
 export default Cart;
+// export {allCartItemsValue};
