@@ -1,14 +1,28 @@
-
-.pay-div,
-.final-pay-form{
+.whole{
     display: flex;
-    margin: 15% auto;
+    margin: 10% auto;
     justify-content: space-around;
     align-items: center;
     width: 90%;
 }
+.descount{
+    width: 40%;
+    /* margin: 15% auto; */
+    background-color: gray;
+}
+.pay-div,
+.final-pay-form{
+    display: flex;
+    /* margin: 15% auto; */
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    background-color: rgb(216, 214, 214);
 
-.shipping-address{
+}
+
+.shipping-address,
+.final-pay-form{
     display: flex;
     /* margin: 15% auto; */
     justify-content: space-around;
@@ -17,7 +31,8 @@
     width: 70%;
 }
 
-.f{
+.f,
+.c{
     margin: 3% 0px;
     display: flex;
     /* margin: 15% auto; */

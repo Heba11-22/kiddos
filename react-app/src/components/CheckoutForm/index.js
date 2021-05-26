@@ -22,7 +22,8 @@ function CheckoutForm () {
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [pay, setPay] = useState(1);
-    const [cardNum, setCardNum] = useState();
+    const [cardNum, setCardNum] = useState('');
+    const [nameOnCard, setNameOnCard] = useState('');
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
     // const [zipCode, setZipCode] = useState('');
@@ -85,6 +86,8 @@ function CheckoutForm () {
     setCity('');
     setState('');
     setZipCode('');
+    setCardNum('');
+    setNameOnCard('');
     errors =[];
     setPay(0)
     alert("HHHHIIII");
@@ -96,154 +99,171 @@ const finalSubmit = () => {
     alert("HHHHIIII");
 }
     return(
-        <div className="pay-div">
-            {validationErrors.length > 0 && (
-            <div className="errors-div">
-                The following errors were found:
-                <ul>
-                    {validationErrors.map(error => <li key={error}>{error}</li>)}
-                </ul>
-            </div>
-            )}
-            {pay && 
-            <div className="shipping-address">
-                <form onSubmit={onSubmit} className="shipping-address">
-                    <div className="fname f"> 
-                        <label> First Name </label>
-                        <input
-                        className="input-form" 
-                        type="text"
-                        name="firstName"
-                        value={firstName}
-                        onChange={(e) => { setFirstName(e.target.value)}} 
-                        required/>
-                    </div>
+        <div className="whole">
+            <div className="pay-div">
+                {validationErrors.length > 0 && (
+                <div className="errors-div">
+                    The following errors were found:
+                    <ul>
+                        {validationErrors.map(error => <li key={error}>{error}</li>)}
+                    </ul>
+                </div>
+                )}
+                {pay && 
+                <div className="shipping-address">
+                    <form onSubmit={onSubmit} className="shipping-address">
+                        <div className="fname f"> 
+                            <label> First Name </label>
+                            <input
+                            className="input-form" 
+                            type="text"
+                            name="firstName"
+                            value={firstName}
+                            onChange={(e) => { setFirstName(e.target.value)}} 
+                            required/>
+                        </div>
 
-                    <div className="lname f"> 
-                        <label> Last Name </label>
-                        <input
-                        className="input-form"  
-                        type="text"
-                        name="lastName"
-                        value={lastName}
-                        onChange={(e) => { setLastName(e.target.value)}} 
-                        required/>
-                    </div>
+                        <div className="lname f"> 
+                            <label> Last Name </label>
+                            <input
+                            className="input-form"  
+                            type="text"
+                            name="lastName"
+                            value={lastName}
+                            onChange={(e) => { setLastName(e.target.value)}} 
+                            required/>
+                        </div>
 
-                    <div className="email-checkout f"> 
-                        <label > E-mail </label>
-                        <input
-                        className="input-form"  
-                        type="email"
-                        name="email"
-                        value={email}
-                        onChange={(e) => { setEmail(e.target.value)}}
-                        required/>
-                    </div>
+                        <div className="email-checkout f"> 
+                            <label > E-mail </label>
+                            <input
+                            className="input-form"  
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => { setEmail(e.target.value)}}
+                            required/>
+                        </div>
 
-                    <div className="phone f"> 
-                        <label> Phone Number </label>
-                        <input
-                        className="input-form"  
-                        type="integer"
-                        name="phone"
-                        value={phone}
-                        onChange={(e) => { setPhone(e.target.value)}}    
-                        />
-                    </div>
+                        <div className="phone f"> 
+                            <label> Phone Number </label>
+                            <input
+                            className="input-form"  
+                            type="integer"
+                            name="phone"
+                            value={phone}
+                            onChange={(e) => { setPhone(e.target.value)}}    
+                            />
+                        </div>
 
-                    <div className="address f"> 
-                        <label> Address </label>
-                        <input
-                        className="input-form"  
-                        type="text" 
-                        name="address"
-                        value={address}
-                        onChange={(e) => { setAddress(e.target.value)}}
-                        required/>
-                    </div>
+                        <div className="address f"> 
+                            <label> Address </label>
+                            <input
+                            className="input-form"  
+                            type="text" 
+                            name="address"
+                            value={address}
+                            onChange={(e) => { setAddress(e.target.value)}}
+                            required/>
+                        </div>
 
-                    <div className="city f"> 
-                        <label className="city-state"> City </label>
-                        <input
-                        className="input-form"  
-                        type="text"
-                        name="city"
-                        value={city}
-                        onChange={(e) => { setCity(e.target.value)}} 
-                        required/>
-                    </div>
+                        <div className="city f"> 
+                            <label className="city-state"> City </label>
+                            <input
+                            className="input-form"  
+                            type="text"
+                            name="city"
+                            value={city}
+                            onChange={(e) => { setCity(e.target.value)}} 
+                            required/>
+                        </div>
 
-                    <div className="state f"> 
-                        <label> State </label>
-                        <Select
-                            options={options} 
-                            className="select"
-                            placeholder={"Choose a State"}
-                            required 
-                        />
-                    </div>
-
-                    <div className="zcode f"> 
-                        <label> ZIP Code </label>
-                        <input
-                        className="input-form"  
-                        type="integer"
-                        name="zipCode"
-                        value={zipCode}
-                        onChange={(e) => { setZipCode(e.target.value)}} 
-                        required/>
-                    </div>
-
-                    <div className="button f">
-                        <button type="submit" className="button1">
-                            <h4 className="button1-h4 h4">Submit</h4>
-                        </button>
-
-                        <button
-                        className="button2"
-                            type="button"
-                            // onClick={reset}
-                            // disabled={submitting || pristine}
-                        >
-                            <h4 className="button2-h4 h4">Reset</h4>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        }
-        {!pay && 
-            <div className="final-pay-form">
-                <form onSubmit={finalSubmit}>
-                    <div className="card-num"> 
-                        <label> Card Number </label>
-                        <input
-                        className="card-num"  
-                        type="integer"
-                        name="cardNum"
-                        value={cardNum}
-                        onChange={(e) => { setCardNum(e.target.value)}} 
-                        required/>
-                    </div>
-
-                    <div className="date"> 
-                        <label> Expiration Date </label>
+                        <div className="state f"> 
+                            <label> State </label>
                             <Select
-                                options={month} 
+                                options={options} 
                                 className="select"
-                                placeholder={"Month"}
+                                placeholder={"Choose a State"}
                                 required 
                             />
-                            <Select
-                                options={year} 
-                                className="select"
-                                placeholder={"Year"}
-                                required 
-                            />
-                    </div>
-                </form>
-            </div>
-        }
+                        </div>
+
+                        <div className="zcode f"> 
+                            <label> ZIP Code </label>
+                            <input
+                            className="input-form"  
+                            type="integer"
+                            name="zipCode"
+                            value={zipCode}
+                            onChange={(e) => { setZipCode(e.target.value)}} 
+                            required/>
+                        </div>
+
+                        <div className="button f">
+                            <button type="submit" className="button1">
+                                <h4 className="button1-h4 h4">Submit</h4>
+                            </button>
+
+                            <button
+                            className="button2"
+                                type="button"
+                                // onClick={reset}
+                                // disabled={submitting || pristine}
+                            >
+                                <h4 className="button2-h4 h4">Reset</h4>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            }
+            {!pay && 
+                <div className="final-pay-form">
+                    <form onSubmit={finalSubmit}>
+
+                        <div className="card-num c"> 
+                            <label> Name on the Card </label>
+                            <input
+                            className="card-num"  
+                            type="text"
+                            name="nameOnCard"
+                            value={nameOnCard}
+                            onChange={(e) => { setNameOnCard(e.target.value)}} 
+                            required/>
+                        </div>
+
+                        <div className="name-on-card c"> 
+                            <label> Card Number </label>
+                            <input
+                            className="card-num"  
+                            type="integer"
+                            name="cardNum"
+                            value={cardNum}
+                            onChange={(e) => { setCardNum(e.target.value)}} 
+                            required/>
+                        </div>
+
+                        <div className="date c"> 
+                            <label> Expiration Date </label>
+                                <Select
+                                    options={month} 
+                                    className="select"
+                                    placeholder={"Month"}
+                                    required 
+                                />
+                                <Select
+                                    options={year} 
+                                    className="select"
+                                    placeholder={"Year"}
+                                    required 
+                                />
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+        <div className="descount">
+            descount
+        </div>
     </div>
     )}
                 
