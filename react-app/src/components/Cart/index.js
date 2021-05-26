@@ -45,7 +45,9 @@ function Cart () {
         defaultState2[i] = 1
     })
     const [selectedValue, setSelectedValue] = useState(defaultState)
-    const [selectedCount, setSelectedcount] = useState(defaultState2)
+    const [allValue, setAllValue] = useState(defaultState)
+    // const [selectedCount, setSelectedcount] = useState(defaultState2)
+    const [all, setAll] = useState(0)
     // [allCartItemsValue, setTotalPrice] = useState(0)
     const [shipping, setShipping] = useState(0)
     // console.log("BBBBBBBBBB",oneItemArray)
@@ -57,25 +59,26 @@ function Cart () {
         {value: 96, label:'4'},
         {value: 120, label:'5'}
     ]
-    // console.log("111111111111",selectedValue)
+    
     const selectedOption = (e) => {
         // console.log("ggggggggg111111111111", e.id)
-        // console.log("ggggggggg111111111111", e.target)
         // debugger
         setSelectedValue({...selectedValue, [e.target.parentNode.id]: e.target.value})
+        setAllValue({...allValue, [e.target.parentNode.id]: e.target.value})
+        // setAll(...all)
+        // allCartItemsValue += Number(all)
+        // console.log("ggggggggg111111111111", Number(Object.values(selectedValue)))
         // setSelectedcount({...selectedCount, [e.target.parentNode.id]: e.label})
         // setTotalPrice(allCartItemsValue += selectedValue)
         
         // console.log("ggggggggg111111111111", Number(e.target.value) * Number(e.target.label))
-
+        
         
         // setSelectedValue(e.target.value)
     }
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-        // setSelectedValue(24)
-        // setSelectedcount(1)
-    // }
+    // let val = Object.values(selectedValue) || {}
+    // console.log("ggggggggg111111111111", Number(val[0]))
+    // allCartItemsValue = Number(val[0])
     
     useEffect( async (e) => {
         dispatch(getCartItemsThunk());
@@ -98,16 +101,13 @@ function Cart () {
                 <ul className="cart-items-ul">
                     {allCartItems && (Object.values(allCartItems)).map((item,i) => (
                         <li key={i} className="one-item-cart-li">
-                        {/* {console.log("iiiiiitttteeemmm",item)} */}
+                        
                             {oneItemArray[(item.itemId)-1] && 
                             <>
                                 <div className="item-select-price-img">
                                     <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="item-img">
                                             <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
-                                            {/* <div className="price4"> */}
-                                                {/* <div className="item-price4">$50</div> */}
-                                                {/* <div className="item-price-sale4-div">Sale <span className="item-price-sale4"> $24</span></div> */}
-                                            {/* </div> */}
+                                           
                                     </NavLink>
                                     <div className="item-select-price" id={(oneItemArray[(item.itemId)-1]).id}>
                                         <div className="items-name">
@@ -115,19 +115,18 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <select name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={selectedOption} type="submit" >
+                                        <select name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={selectedOption} onClick={() => setAll(selectedValue[item.itemId] || 24)} type="submit" >
                                             <option value="24"  label='1'>1</option>
                                             <option value="48"  label='2'>2</option>
                                             <option value="72" label='3'>3</option>
                                             <option value="96"  label='4'>4</option>
                                         </select>
-                                                {/* <input type="submit" value="Submit" hidden/> */}
-                                            {/* </form> */}
-                                            {/* {allCartItemsValue += selectedValue} */}
+                                             
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
-                                            <div className="item-price-cart3">Total: ${selectedValue[item.itemId] || 24}</div>
+                                            <div className="item-price-cart3" >Total: ${selectedValue[item.itemId] || 24}</div>
+                                            {console.log("111111111111",allCartItemsValue)}
                                             {/* {console.log("22222222111111111111",allCartItemsValue += (selectedValue[item.itemId]))} */}
                                             {/* {JSON.stringify(item)} */}
                                         </div>
@@ -139,10 +138,10 @@ function Cart () {
                                         className="radio"
                                             // value="1"
                                             onClick={() => {setShipping(1)
-                                                // {console.log("!!!!!", RadioButton)}
+                                               
                                                 }}
                                         >
-                                        {/* {console.log("!!!!!", RadioGroup)} */}
+                                        
                                             <div style={{color: "black", outline: "none"}}>
                                                 <span style={{fontWeight: "bold"}}>
                                                     Ship it <br/>
@@ -154,9 +153,9 @@ function Cart () {
                                         </RadioButton>
                                         <RadioButton 
                                         className="radio"
-                                            // value="0"
+                                           
                                             onClick={() => {setShipping(0)
-                                            // {console.log("!!!!!", shipping)}
+                                            
                                             }} 
                                         >
                                         
@@ -184,11 +183,7 @@ function Cart () {
                                     </button>
                                     <button className="delete-item" onClick={() => {
                                         dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
-                                        // window.location.assign("/savedItems")
-                                        // history.push("/savedItems")
-                                        // setTrigger(!trigger)
                                         window.location.reload()
-                                        {/* <Redirect to="/savedItems"/> */}
                                         }}>
                                         Delete From Cart
                                     </button>
@@ -196,21 +191,19 @@ function Cart () {
                                 </div>
                                 </>
                             }
-                            {/* <button className="add-checkout">
-                                <NavLink className="add-cart-nav" to="/cart">Add to Cart</NavLink>
-                            </button> */}
+                            
                         </li>
                     ))}
                 </ul>
-                {/* {allCartItemsValue += selectedValue} */}
+                
                 <div className="checkout">
                     <Checkout allCartItemsValue={allCartItemsValue} shipping={shipping}/>
                 </div>
             </div>
-            {/* <Footer className="footer"/> */}
+        
         </div>
     )
 }
 
-// export  {hi};
+
 export default Cart;

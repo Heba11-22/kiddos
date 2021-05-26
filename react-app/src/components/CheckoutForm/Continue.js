@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import { render } from 'react-dom';
+import { useHistory, NavLink} from "react-router-dom";
 import { Form, Field } from 'react-final-form';
 import validator from 'validator'
 import Select from 'react-select';
+import Pay from './Pay'
 
 import "./CheckoutForm.css"
 
 function Continue ({props}) {
+    const history = useHistory()
     const [cardNum, setCardNum] = useState('');
     const [nameOnCard, setNameOnCard] = useState('');
 
@@ -89,12 +92,15 @@ function Continue ({props}) {
                         </div>
                         <button
                             className="button3"
-                                type="submit"
-                                // onClick={reset}
+                                // type="submit"
+                                onClick={() => history.push(`/cart`)}
                                 // disabled={submitting || pristine}
                             >
-                                <h4 className="button3-h4 h4">Place the order</h4>
+                                <h4 className="button3-h4 h4">Cancel</h4>
                             </button>
+                            {/* <div className="discount" type="submit">
+                                <Pay />
+                            </div> */}
                     </form>
                 </div>
     )
