@@ -33,7 +33,8 @@ function CheckoutForm () {
         {value: "AK", label:"AK"},
         {value: "AZ", label:"AZ"},
         {value: "AR", label:"AR"},
-        {value: "CA", label:"CA"}
+        {value: "CA", label:"CA"},
+        {value: "IL", label:"IL"},
         // , , , , , "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", 'IN'
         // ,"IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
         // "NJ", "NM", "NY", "NC"
@@ -74,23 +75,23 @@ function CheckoutForm () {
         e.preventDefault();
     let errors = validate();
 
-    console.log("outside submit")
+    // console.log("outside submit")
     // if (errors.length > 0) return errors;
     // else{
-        console.log("inside submit")
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPhone('');
-    setAddress('');
-    setCity('');
-    setState('');
-    setZipCode('');
+        // console.log("inside submit")
+    // setFirstName('');
+    // setLastName('');
+    // setEmail('');
+    // setPhone('');
+    // setAddress('');
+    // setCity('');
+    // setState('');
+    // setZipCode('');
     setCardNum('');
     setNameOnCard('');
     errors =[];
     setPay(0)
-    alert("HHHHIIII");
+    // alert("HHHHIIII");
     }
     // const onSubmit=(e) => {
     //     alert("HHHHIIII");
@@ -115,7 +116,7 @@ const finalSubmit = () => {
                         <div className="fname f"> 
                             <label> First Name </label>
                             <input
-                            className="input-form" 
+                            className="input-form fi" 
                             type="text"
                             name="firstName"
                             value={firstName}
@@ -126,7 +127,7 @@ const finalSubmit = () => {
                         <div className="lname f"> 
                             <label> Last Name </label>
                             <input
-                            className="input-form"  
+                            className="input-form fi"  
                             type="text"
                             name="lastName"
                             value={lastName}
@@ -137,7 +138,7 @@ const finalSubmit = () => {
                         <div className="email-checkout f"> 
                             <label > E-mail </label>
                             <input
-                            className="input-form"  
+                            className="input-form fi"  
                             type="email"
                             name="email"
                             value={email}
@@ -148,7 +149,7 @@ const finalSubmit = () => {
                         <div className="phone f"> 
                             <label> Phone Number </label>
                             <input
-                            className="input-form"  
+                            className="input-form fi"  
                             type="integer"
                             name="phone"
                             value={phone}
@@ -159,7 +160,7 @@ const finalSubmit = () => {
                         <div className="address f"> 
                             <label> Address </label>
                             <input
-                            className="input-form"  
+                            className="input-form fi"  
                             type="text" 
                             name="address"
                             value={address}
@@ -170,7 +171,7 @@ const finalSubmit = () => {
                         <div className="city f"> 
                             <label className="city-state"> City </label>
                             <input
-                            className="input-form"  
+                            className="input-form fi"  
                             type="text"
                             name="city"
                             value={city}
@@ -182,8 +183,10 @@ const finalSubmit = () => {
                             <label> State </label>
                             <Select
                                 options={options} 
-                                className="select"
+                                className="select-state fi"
                                 placeholder={"Choose a State"}
+                                value={state}
+                                onChange={(e) => { setState(e.value)}}
                                 required 
                             />
                         </div>
@@ -191,7 +194,7 @@ const finalSubmit = () => {
                         <div className="zcode f"> 
                             <label> ZIP Code </label>
                             <input
-                            className="input-form"  
+                            className="input-form fi"  
                             type="integer"
                             name="zipCode"
                             value={zipCode}
@@ -199,13 +202,13 @@ const finalSubmit = () => {
                             required/>
                         </div>
 
-                        <div className="button f">
+                        <div className="button ">
                             <button type="submit" className="button1">
-                                <h4 className="button1-h4 h4">Submit</h4>
+                                <h4 className="button1-h4 h4">Continue</h4>
                             </button>
 
                             <button
-                            className="button2"
+                                className="button2"
                                 type="button"
                                 // onClick={reset}
                                 // disabled={submitting || pristine}
@@ -218,12 +221,22 @@ const finalSubmit = () => {
             }
             {!pay && 
                 <div className="final-pay-form">
-                    <form onSubmit={finalSubmit}>
+                        <div className="confirm">
+                            <h2>Shipping Address</h2>
+                            <button className="edit-button" onClick={() => {setPay(1)}}>Edit</button>
+                        </div>
+                        <div className="shipping-info">
+                            <div className="div-info">{firstName} {lastName}</div>
+                            <div className="div-info">{address}</div>
+                            <div className="div-info">{city}, {state} {zipCode}</div>
+                        </div>
+                    <div className="payment"><h2 className="payment-h2">Payment</h2></div>
+                    <form onSubmit={onSubmit} className="card-form">
 
                         <div className="card-num c"> 
                             <label> Name on the Card </label>
                             <input
-                            className="card-num input-card"  
+                            className="card-num input-card c"  
                             type="text"
                             name="nameOnCard"
                             value={nameOnCard}
@@ -248,20 +261,20 @@ const finalSubmit = () => {
                                 <Select
                                     options={month} 
                                     className="select"
-                                    placeholder={"M"}
+                                    placeholder={"Month"}
                                     required 
                                 />
                                 <Select
                                     options={year} 
                                     className="select"
-                                    placeholder={"Y"}
+                                    placeholder={"Year"}
                                     required 
                                 />
                             </div>
                         </div>
                         <button
                             className="button3"
-                                type="button"
+                                type="submit"
                                 // onClick={reset}
                                 // disabled={submitting || pristine}
                             >
@@ -271,7 +284,7 @@ const finalSubmit = () => {
                 </div>
             }
         </div>
-        <div className="descount">
+        <div className="discount">
             discount
         </div>
     </div>
