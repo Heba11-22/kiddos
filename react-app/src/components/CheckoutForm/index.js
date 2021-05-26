@@ -223,7 +223,7 @@ const finalSubmit = () => {
                         <div className="card-num c"> 
                             <label> Name on the Card </label>
                             <input
-                            className="card-num"  
+                            className="card-num input-card"  
                             type="text"
                             name="nameOnCard"
                             value={nameOnCard}
@@ -234,7 +234,7 @@ const finalSubmit = () => {
                         <div className="name-on-card c"> 
                             <label> Card Number </label>
                             <input
-                            className="card-num"  
+                            className="card-num input-card"  
                             type="integer"
                             name="cardNum"
                             value={cardNum}
@@ -244,25 +244,35 @@ const finalSubmit = () => {
 
                         <div className="date c"> 
                             <label> Expiration Date </label>
+                            <div className="date-select"> 
                                 <Select
                                     options={month} 
                                     className="select"
-                                    placeholder={"Month"}
+                                    placeholder={"M"}
                                     required 
                                 />
                                 <Select
                                     options={year} 
                                     className="select"
-                                    placeholder={"Year"}
+                                    placeholder={"Y"}
                                     required 
                                 />
+                            </div>
                         </div>
+                        <button
+                            className="button3"
+                                type="button"
+                                // onClick={reset}
+                                // disabled={submitting || pristine}
+                            >
+                                <h4 className="button3-h4 h4">Place the order</h4>
+                            </button>
                     </form>
                 </div>
             }
         </div>
         <div className="descount">
-            descount
+            discount
         </div>
     </div>
     )}
