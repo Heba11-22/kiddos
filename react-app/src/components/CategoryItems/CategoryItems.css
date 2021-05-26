@@ -46,7 +46,7 @@
     /* flex-direction: column; */
     justify-content: flex-start;
     flex-wrap: wrap;
-    align-content: start;  
+    align-content: flex-start;  
 }
 .one-item-div2{
     width: 30%;

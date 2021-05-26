@@ -17,7 +17,7 @@
     flex-direction: column;
     /* width: 100%; */
     justify-content: space-around;
-    align-items: start;
+    align-items: flex-start;
 }
 .price{
     display: flex;
@@ -25,7 +25,7 @@
     /* flex-direction: column; */
     /* width: 100%; */
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     
 }
 
