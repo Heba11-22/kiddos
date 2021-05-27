@@ -36,6 +36,7 @@ const Pay = () => {
                 </div>
                 <div className="tax-price">
                     {Number(((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)).toFixed(2))}
+                    {/* {or "Math.round(6.688689, 2)"} */}
                 </div>
             </div>
             <div className="tax-div">

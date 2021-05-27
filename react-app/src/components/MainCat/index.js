@@ -1,41 +1,51 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import "./MainCat.css"
 
 function MainCat(){
     const cats = useSelector(state => state.search.Categories) || {}
+    const searchRes = useSelector(state => state.search)
     let catsValue = (Object.values(cats)) || {}
     // const categoryItems = useSelector(state => state.categoryItems) || {} 
     // const items = categoryItems.items || {}
     // const items2 = ((Object.values(items))[0]) || {}
     const mainCat_states = Object.values(useSelector(state => state.mainCategories)) || {}
+    const search  = useParams().mc;
     // let test = catsValue.Categories
-    console.log("1111>>>>>>>>>>>>>",cats)
-    console.log("2222>>>>>>>>>>>>>",catsValue)
-    console.log("33333>>>>>>>>>>>>>",mainCat_states)
+    // console.log("1111>>>>>>>>>>>>>",searchRes.search)
+    // console.log("2222>>>>>>>>>>>>>",catsValue)
+    // console.log("33333>>>>>>>>>>>>>",mainCat_states)
     /* {if (cat = null) {<h2>Sorry No Results for {`${cat.Main_CategoryName}`}</h2>}} */
     // let item;
    
     let showPhoto =
-    
-        <ul className="category-items-ul3">
-            { catsValue.map((cat,i) => (
-                (Object.values(cat.Items)).map((c,i) => (
+        <div>
+            <ul className="category-items-ul3">
+                { catsValue.map((cat,i) => (
+                    (Object.values(cat.Items)).map((c,i) => (
 
-                             <div key={i} className="one-item-div3">
-                                <NavLink to={`/items/${c.id}`} className="category-items-nav3">
-                                    <img alt="p" src={c.photos.photo_url} className="category-items-img3"/>
-                                    <div className="category-items-name3">{c.itemName}</div>
-                                    <div className="price3">
-                                        <div className="item-price3">$50</div>
-                                        <div>Sale  <span className="item-price-sale3">$24</span></div>
-                                    </div>
-                                </NavLink>
-                            </div> 
-                    ))
-            ))}
-        </ul>
+                                <div key={i} className="one-item-div3">
+                                    <NavLink to={`/items/${c.id}`} className="category-items-nav3">
+                                        <img alt="p" src={c.photos.photo_url} className="category-items-img3"/>
+                                        <div className="category-items-name3">{c.itemName}</div>
+                                        <div className="price3">
+                                            <div className="item-price3">$50</div>
+                                            <div>Sale  <span className="item-price-sale3">$24</span></div>
+                                        </div>
+                                    </NavLink>
+                                </div> 
+                        ))
+                ))}
+            </ul>
+            {!searchRes.search && 
+            <div className="sorry-div">
+                <div className="sorry-div1">Sorry</div>
+                <div className="sorry-div2">Your search for "{search}"</div>
+                <div className="sorry-div3">did not yield any results.</div>
+            </div>
+            }
+        </div>
     
     return (
         <div className="category-page-div3">

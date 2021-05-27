@@ -31,8 +31,9 @@ import { getLatestItemsThunk } from "./store/items"
 import { getAllItemsThunk} from "./store/allItems"
 // import { searchThunk } from './store/search';
 
-function App() {
-  
+function App({ hideLoader }) {
+// function App() {
+  useEffect(hideLoader, []);
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user) || {}
   // const userId = user.id || {}

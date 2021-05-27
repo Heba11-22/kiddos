@@ -1,3 +1,16 @@
+.sorry-div{
+    font-family: 'Emilys Candy', cursive;
+    width: 100%;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    align-content: center; 
+    /* padding: 15px 0px 15px 50vw; */
+    /* margin-left: 50vw; */
+}
+
 .category-page-div3{
     padding-top: 11%;
     display: flex;
