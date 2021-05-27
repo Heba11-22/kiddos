@@ -86,8 +86,9 @@ const handleSavedItems = (e) => {
             //  } else alert("Your file is being uploaded!")
         }
     }
-    const handleSavedCart = (e) => {
-        dispatch(addAnItemThunk(itemId))
+    const handleSavedCart = async(e) => {
+        await dispatch(addAnItemThunk(itemId))
+        // dispatch()
         history.push(`/cart`)
     }
 

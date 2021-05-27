@@ -17,4 +17,5 @@ class Carts(db.Model):
             "id": self.id,
             "userId": self.userId,
             "itemId": self.itemId,
+            "quantity": 1,
         }

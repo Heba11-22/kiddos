@@ -2,6 +2,8 @@
 const  GET_CARTS_ITEMS = "cart/GET_CARTS_ITEMS";
 const  ADD_ITEM_TO_CART = "cart/ADD_ITEM_TO_CART";
 const  DELETE_AN_ITEM = "cart/DELETE_AN_ITEM";
+const  ADD_COUNT = "cart/ADD_COUNT";
+const  DELETE_COUNT = "cart/DELETE_COUNT";
 
 // Actions:
 
@@ -20,6 +22,16 @@ const addAnItem = (item) => ({
  // 3- delete an item from the cart:
 const deleteAnItem = () => ({
     type: DELETE_AN_ITEM
+})
+
+export const addCount = (item) => ({
+    type: ADD_COUNT,
+    payload: item
+})
+
+export const deleteCount = (item) => ({
+    type: DELETE_COUNT,
+    payload: item
 })
 
  // Thunks:
@@ -77,14 +89,23 @@ export const deleteAnItemThunk = (itemId) => async (dispatch) => {
 
 // Reducer:
 
-const initialState = {items: null}
+const initialState = {items: null, total: 0}
 export default function reducer (state=initialState, action) {
+    let total
+    let count
     switch(action.type) {
         case GET_CARTS_ITEMS:
             return {...state, ...action.payload}
 
         case ADD_ITEM_TO_CART:
-            return {...state, ...action.payload}
+            total = state.total
+            count = state.count
+            state.items[action.payload.id] = action.payload
+            return {...state, total: total + 24}
+
+        case ADD_COUNT:
+            state.items[action.payload.cartItemId].quantity = action.payload.count
+            return { ...state }
 
         case DELETE_AN_ITEM:
             // let newState = {...state}
@@ -93,7 +114,12 @@ export default function reducer (state=initialState, action) {
             // return {...state, ...action.payload};
             let newState = {...state}
             delete newState[action.itemId]
+            newState.total -= 24
             return newState;
+
+        case DELETE_COUNT:
+            state.items[action.payload.cartItemId].quantity = action.payload.count
+            return { ...state }
 
         default:
             return state;

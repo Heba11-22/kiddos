@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
 import Select from 'react-select';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
-import { getCartItemsThunk, deleteAnItemThunk } from "../../store/cart"
+import { getCartItemsThunk, deleteAnItemThunk, addCount, deleteCount } from "../../store/cart"
 import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
 import { saveAnItemThunk } from "../../store/savedItems";
 import Footer from "../Footer"
 import Checkout from "./CheckOut"
 import FreeShipping from "./FreeShipping";
+
 import "./Cart.css";
 
 // function SelectWrapper ({itemId, id, placeholder, options, className, value, onChange}) {
@@ -48,8 +49,10 @@ function Cart () {
     const [allValue, setAllValue] = useState(defaultState)
     // const [selectedCount, setSelectedcount] = useState(defaultState2)
     const [all, setAll] = useState(0)
-    // [allCartItemsValue, setTotalPrice] = useState(0)
+    const [cartItemsValue, setCartItemsValue] = useState(24 * (Object.values(allCartItems)).length)
     const [shipping, setShipping] = useState(0)
+    const [quantity, setQuantity] = useState({})
+
     // console.log("BBBBBBBBBB",oneItemArray)
     // console.log("BBBBBBBBBB",targtedItem)
     const options = [
@@ -59,12 +62,44 @@ function Cart () {
         {value: 96, label:'4'},
         {value: 120, label:'5'}
     ]
+
+    const parseCount = (value) => {
+        switch (value){
+            case "24":
+                return 1
+            case "48":
+                return 2
+            case "72":
+                return 3
+            case "96":
+                return 4
+            default:
+                return 0
+        }
+    }
     
-    const selectedOption = (e) => {
+    const selectedOption = (e, itemId) => {
         // console.log("ggggggggg111111111111", e.id)
         // debugger
+        if ( allCartItems[itemId].quantity > Number(e.target.value) ) {
+            dispatch(deleteCount({cartItemId: itemId, count: parseCount(e.target.value)}))
+        } else {
+            // increment count
+            dispatch(addCount({cartItemId: itemId, count: parseCount(e.target.value)}))
+        }
         setSelectedValue({...selectedValue, [e.target.parentNode.id]: e.target.value})
-        setAllValue({...allValue, [e.target.parentNode.id]: e.target.value})
+        // setQuantity({...quantity, [e.target.parentNode.id]: Number(e.target.value)})
+
+        // let total = 0
+        // // let count =0 
+        // for (let key in allCartItems) {
+        //     total += allCartItems[key].quantity
+        //     // count 
+        // }
+        // setCartItemsValue( total * 24 )
+        // allCartItemsValue = cartItemsValue
+        // console.log("????", cartItemsValue)
+        // setAllValue({...allValue, [e.target.parentNode.id]: e.target.value})
         // setAll(...all)
         // allCartItemsValue += Number(all)
         // console.log("ggggggggg111111111111", Number(Object.values(selectedValue)))
@@ -115,18 +150,18 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <select name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={selectedOption} onClick={() => setAll(selectedValue[item.itemId] || 24)} type="submit" >
+                                        <select name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={(e) => selectedOption(e, item.id)} onClick={() => setAll(selectedValue[item.itemId] || 24)} type="submit" >
                                             <option value="24"  label='1'>1</option>
                                             <option value="48"  label='2'>2</option>
                                             <option value="72" label='3'>3</option>
                                             <option value="96"  label='4'>4</option>
                                         </select>
-                                             
+                                        {console.log("????", cartItemsValue)}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
                                             <div className="item-price-cart3" >Total: ${selectedValue[item.itemId] || 24}</div>
-                                            {console.log("111111111111",allCartItemsValue)}
+                                            {/* {console.log("111111111111",allCartItemsValue)} */}
                                             {/* {console.log("22222222111111111111",allCartItemsValue += (selectedValue[item.itemId]))} */}
                                             {/* {JSON.stringify(item)} */}
                                         </div>

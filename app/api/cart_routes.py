@@ -10,7 +10,7 @@ cart_routes = Blueprint('cart', __name__)
 @cart_routes.route('/')
 def get_cart_items():
     items = Carts.query.all()
-    return {"items": [item.to_dict() for item in items]}
+    return {"items": {item.id: item.to_dict() for item in items}}
 
 
 # Route for adding an item to the cart:
