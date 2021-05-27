@@ -79,6 +79,7 @@ function App({ hideLoader }) {
         </ProtectedRoute>
         <Route path="/maincategories/:mc" exact={true}>
           <MainCat/>
+          {/* <Footer className="footer"/> */}
         </Route>
         <Route path="/signform" exact={true}>
           {/* <NavBar /> */}
@@ -103,7 +104,7 @@ function App({ hideLoader }) {
       </ProtectedRoute> */}
       </Switch>
       {/* <Footer/> */}
-      <Footer className="footer"/>
+      {/* <Footer className="footer"/> */}
     </BrowserRouter>
   );
 }

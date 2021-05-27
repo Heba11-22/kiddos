@@ -13,6 +13,7 @@ import { Modal } from '../../context/Modal';
 import { saveAnItemThunk } from "../../store/savedItems";
 import {getLatestItemsThunk} from "../../store/items"
 import {addAnItemThunk} from "../../store/cart"
+import Footer from "../Footer"
 import "./Items.css"
 // import "../LandingPage/LandingPage.css"
 
@@ -187,6 +188,9 @@ const handleSavedItems = (e) => {
                     </div>
                 ))}
                 />
+                <footer>
+                    <Footer />
+                </footer>
         </>
     )
 }

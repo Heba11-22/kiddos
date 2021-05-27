@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import { saveAnItemThunk } from "../../store/savedItems";
 // import Footer from "../Footer"
 import Checkout from "./CheckOut"
+import Footer from "../Footer"
 // import FreeShipping from "./FreeShipping";
 import "./Cart.css";
 
@@ -184,7 +185,9 @@ function Cart () {
                     <Checkout allCartItemsValue={allCartItemsValue} shipping={shipping}/>
                 </div>
             </div>
-        
+            <footer>
+                <Footer />
+            </footer>
         </div>
     )
 }

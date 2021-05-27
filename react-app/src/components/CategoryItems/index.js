@@ -5,6 +5,7 @@ import { useParams} from "react-router-dom";
 import { NavLink} from "react-router-dom";
 import { allMainCategories } from '../../store/mainCategories'
 import { getCategoryItems } from "../../store/items";
+import Footer from "../Footer";
 import "./CategoryItems.css";
 
 function CategoryItems() {
@@ -57,6 +58,9 @@ function CategoryItems() {
                     )))} 
                 </ul> 
             </div>
+            <footer>
+                <Footer />
+            </footer>
         </div>
     )
 }

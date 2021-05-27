@@ -5,6 +5,7 @@ import validator from 'validator'
 import Select from 'react-select';
 // import Cards from 'react-credit-cards'
 import Continue from './Continue'
+import Footer from '../Footer'
 import Pay from './Pay'
 // import {allCartItemsValue} from "./Cart/index.js";
 // import {
@@ -226,6 +227,9 @@ let props = {firstName, lastName, address, city, state, zipCode, setPay}
         <div className="discount">
             <Pay />
         </div>
+        {/* <footer>
+            <Footer />
+        </footer> */}
     </div>
     )}
                 

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 // import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
-// import NavBar from "../NavBar";
+// import Footer from "../Footer";
 import './LoginSignUpForm.css'
 
 
@@ -27,6 +27,9 @@ const LoginSignUpModal = ({setShowModal}) => {
                     <SignUpForm setShowModal={setShowModal}/>
                 </div>
             </div>
+            {/* <footer> */}
+                {/* <Footer /> */}
+            {/* </footer> */}
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { NavLink} from "react-router-dom";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {getLatestItemsThunk} from "../../store/items"
 import Shop from "./Shop";
+import Footer from "../Footer";
 // import {getLatestItemsThunk} from "../../store/items"
 import "./LandingPage.css";
 
@@ -54,6 +55,9 @@ const LandingPage = () => {
                 <div className="shop-imgs">
                     <Shop/>
                 </div>
+                <footer>
+                    <Footer />
+                </footer>
         </div>
     )
 }

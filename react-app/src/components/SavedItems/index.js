@@ -12,6 +12,7 @@ import { NavLink, useHistory} from "react-router-dom";
 // import { authenticate } from "./services/auth";
 // import { authenticate } from "../../store/session";
 import {addAnItemThunk} from "../../store/cart"
+import Footer from "../Footer"
 import { getItemsThunk, deleteAnItemThunk } from "../../store/savedItems";
 import "./SavedItems.css"
 
@@ -90,6 +91,9 @@ function SavedItems() {
             ))}
 
           </ul>
+          <footer>
+              <Footer />
+          </footer>
       {/* </div> */}
     </div>
   )

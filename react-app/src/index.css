@@ -1,5 +1,7 @@
 /* TODO Add site wide styles */
-
+/* .footer {
+  margin-bottom: 0px;
+} */
 .loader {
     position: absolute;
     top: calc(50% - 4em);

@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
+import img from "../../marten-newhall-uAFjFsMS3YY-unsplash.jpg"
 import "./MainCat.css"
+import Footer from "../Footer";
 
 function MainCat(){
     const cats = useSelector(state => state.search.Categories) || {}
@@ -22,7 +24,7 @@ function MainCat(){
     let showPhoto =
         <div>
             <ul className="category-items-ul3">
-                { catsValue.map((cat,i) => (
+                { !searchRes.sorry && catsValue.map((cat,i) => (
                     (Object.values(cat.Items)).map((c,i) => (
 
                                 <div key={i} className="one-item-div3">
@@ -43,6 +45,15 @@ function MainCat(){
                 <div className="sorry-div1">Sorry</div>
                 <div className="sorry-div2">Your search for "{search}"</div>
                 <div className="sorry-div3">did not yield any results.</div>
+                {/* <img src={img}/> */}
+            </div>
+            }
+            {searchRes.search == null && 
+            <div className="sorry-div">
+                {/* <div className="sorry-div1">Sorry</div>
+                <div className="sorry-div2">Your search for "{search}"</div> */}
+                {/* <div className="sorry-div3">did not yield any results.</div> */}
+                {/* <img src={img}/> */}
             </div>
             }
         </div>
@@ -73,6 +84,9 @@ function MainCat(){
             <div className="one-item-div3">
                 {showPhoto}
             </div>
+            <footer className="fd">
+                <Footer />
+            </footer>
         </div>
     )
 }
