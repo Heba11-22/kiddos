@@ -123,9 +123,9 @@ function Cart () {
         dispatch(getAllItemsThunk());
     }, [dispatch])
 
-    // const freeShipping = {
-
-    // }
+    const test = (e) => {
+        console.log("GGGGGGGG", e)
+    }
 
     return (
         <div className="cart-div-whole">
@@ -171,11 +171,11 @@ function Cart () {
                                     <RadioGroup className="radio"  vertical="true">
                                         <RadioButton 
                                         className="radio"
-                                            // value="1"
-                                            onClick={() => {setShipping(1)
-                                               
-                                                }}
+                                        value="0"
+                                        onClick={(e) => {setShipping(e)}} 
+                                        // onChange={test}
                                         >
+                                        {/* {console.log("GGGGGGGG", shipping)} */}
                                         
                                             <div style={{color: "black", outline: "none"}}>
                                                 <span style={{fontWeight: "bold"}}>
@@ -187,13 +187,12 @@ function Cart () {
                                             </div>
                                         </RadioButton>
                                         <RadioButton 
+                                        // onChange={test}
                                         className="radio"
-                                           
-                                            onClick={() => {setShipping(0)
-                                            
-                                            }} 
+                                        value="1"
+                                        onClick={(e) => {setShipping(e)}} 
                                         >
-                                        
+                                        {/* {console.log("GGGGGGGG", shipping)} */}
                                             <div style={{color: "black"}}>
                                             <span style={{fontWeight: "bold", marginRight: ".3em"}}>
                                                 Pick Up In 5-8 business days  

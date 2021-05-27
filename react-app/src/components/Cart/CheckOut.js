@@ -38,7 +38,7 @@ const Checkout = ({shipping}) => {
                     Shipping
                 </div>
                 <div className="shipping-price" style={{color: "red"}}>
-                {allCartItemsValue >= 50 ? "Free" : "$5"}
+                {(allCartItemsValue >= 50 ) ? "Free" : "$5"}
                 </div>
             </div>
             <div className="tax-div">

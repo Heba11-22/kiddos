@@ -5,7 +5,6 @@ import FreeShipping from "../Cart/FreeShipping";
 import {allCartItemsValue} from "../Cart/CheckOut";
 
 const Pay = () => {
-    // console.log("kfdjdoiufoidsjlds",allCartItemsValue)
     const history = useHistory();
     return (
         <div className="checkout-div">
