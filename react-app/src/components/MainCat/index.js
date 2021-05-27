@@ -50,12 +50,22 @@ function MainCat(){
             }
             {searchRes.search == null && 
             <div className="sorry-div">
-                {/* <div className="sorry-div1">Sorry</div>
-                <div className="sorry-div2">Your search for "{search}"</div> */}
-                <div className="sorry-div3">Ops Something went wrong.</div>
-                <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/saeed-karimi-JrrWC7Qcmhs-unsplash.jpg"/>
+                <div className="sorry-div1">Sorry</div>
+                <div className="sorry-div2">Your search for "{search}"</div>
+                <div className="sorry-div3">did not yield any results.</div>
+                <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/>
             </div>
             }
+            {/* {searchRes.search == null &&  */}
+            
+            {/* <div className="sorry-div"> */}
+                {/* <div className="sorry-div1">Sorry</div> */}
+                {/* <div className="sorry-div2">Your search for "{search}"</div> */}
+                {/* <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/> */}
+                {/* <div className="sorry-div3">Ops Something went wrong.</div> */}
+                {/* <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/saeed-karimi-JrrWC7Qcmhs-unsplash.jpg"/> */}
+            {/* </div>
+             }  */}
         </div>
     
     return (
