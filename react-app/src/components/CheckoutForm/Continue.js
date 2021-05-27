@@ -97,7 +97,7 @@ function Continue ({props}) {
                                 // disabled={submitting || pristine}
                             >
                                 <h4 className="button3-h4 h4">Cancel</h4>
-                            </button>
+                        </button>
                             {/* <div className="discount" type="submit">
                                 <Pay />
                             </div> */}

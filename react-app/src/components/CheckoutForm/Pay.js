@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
+// import { useHistory, NavLink} from "react-router-dom";
 import FreeShipping from "../Cart/FreeShipping";
 import {allCartItemsValue} from "../Cart/CheckOut";
 
 const Pay = () => {
-    console.log("kfdjdoiufoidsjlds",allCartItemsValue)
+    // console.log("kfdjdoiufoidsjlds",allCartItemsValue)
+    const history = useHistory();
     return (
         <div className="checkout-div">
             {(allCartItemsValue >= 50)&& (
@@ -63,6 +65,14 @@ const Pay = () => {
             <NavLink to="/" className="continue">
                 Place Order
             </NavLink>
+            <button
+                className="button3"
+                    // type="submit"
+                    onClick={() => history.push(`/cart`)}
+                    // disabled={submitting || pristine}
+                >
+                    <h4 className="button3-h4 h4">Cancel</h4>
+            </button>
         </div>
     )
 }
