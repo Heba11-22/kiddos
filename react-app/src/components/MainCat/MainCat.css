@@ -65,6 +65,7 @@
     flex-wrap: wrap;
     /* align-content: center;   */
     margin-left: 100%; 
+    margin-bottom: -35vw; 
     display: flex;
     /* flex-direction: column; */
     justify-content: flex-start;
@@ -107,8 +108,8 @@
     color: red;
 }
 
-.fd{
-    margin-top: 40vw;
+.fd {
+    margin-top: 37vw;
 }
 /* .footer-div{
     margin-top: 70%;
