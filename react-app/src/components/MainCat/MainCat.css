@@ -1,10 +1,11 @@
 .sorry-div{
     font-family: 'Emilys Candy', cursive;
+    font-size: 30px;
     position: absolute;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
-    align-content: center; 
+    justify-content: center;
+    align-content: flex-end; 
     width: 30%;
     /* height: 70vw; */
      /* margin-top: 5vw; */
