@@ -47,7 +47,7 @@ def post_search_category():
     # print("4------------------", data)
     # if not data:
     #     return {"users": []}
-    categories = MainCategories.query.filter(MainCategories.main_categoryName.ilike(f'%{data}%')).all()
+    categories = Categories.query.filter(Categories.categoryName.ilike(f'%{data}%')).all()
     # if not categories:
     #     return {"Categories": []}
     # cat = categories.categories
