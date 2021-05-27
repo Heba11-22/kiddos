@@ -23,8 +23,9 @@ function MainCat(){
    
     let showPhoto =
         <div>
+        {catsValue && 
             <ul className="category-items-ul3">
-                { !searchRes.sorry && catsValue.map((cat,i) => (
+                { catsValue && catsValue.map((cat,i) => (
                     (Object.values(cat.Items)).map((c,i) => (
 
                                 <div key={i} className="one-item-div3">
@@ -40,19 +41,20 @@ function MainCat(){
                         ))
                 ))}
             </ul>
+        }
             {searchRes.sorry && 
-            <div className="sorry-div">
-                <div className="sorry-div1">Sorry</div>
-                <div className="sorry-div2">Your search for "{search}"</div>
-                <div className="sorry-div3">did not yield any results.</div>
-                <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/>
-            </div>
+                <div className="sorry-div">
+                    <div style={{alignSelf: "center"}} className="sorry-div1">Sorry</div>
+                    <div style={{alignSelf: "center"}} className="sorry-div2">Your search for "{search}"</div>
+                    <div style={{alignSelf: "center"}} className="sorry-div3">did not yield any results.</div>
+                    <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/>
+                </div>
             }
-            {searchRes.search == null && 
+            {searchRes.search === null && 
             <div className="sorry-div">
-                <div className="sorry-div1">Sorry</div>
-                <div className="sorry-div2">Your search for "{search}"</div>
-                <div className="sorry-div3">did not yield any results.</div>
+                <div style={{alignSelf: "center"}} className="sorry-div1">Sorry</div>
+                <div style={{alignSelf: "center"}} className="sorry-div2">Your search for "{search}"</div>
+                <div style={{alignSelf: "center"}} className="sorry-div3">did not yield any results.</div>
                 <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/>
             </div>
             }
