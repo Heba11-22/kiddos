@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory} from "react-router-dom";
+import { useAlert } from 'react-alert'
 // import LoginForm from "../../components/LoginSignUpForm/LoginForm";
 // import SignUpForm from "../../components/LoginSignUpForm/SignUpForm";
 // import LogSign from "../LogSign";
@@ -19,6 +20,7 @@ import "./SavedItems.css"
 function SavedItems() {
 // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
+  const alert = useAlert();
   // const history = useHistory()
   const allItemsState = useSelector(state => state.savedItems.savedItems) || {}
   const allItems = allItemsState.items || {}
@@ -82,7 +84,10 @@ function SavedItems() {
                       }}>
                       DELETE
                     </button>
-                    <button className="add-cart" onClick={() => dispatch(addAnItemThunk(item.id))}>
+                    <button className="add-cart" onClick={async() => {
+                      await dispatch(addAnItemThunk(item.id))
+                      alert.show('Added to the Cart');
+                      }}>
                       Add to Cart{/* <NavLink className="add-cart-nav" to="/cart">Add to Cart</NavLink> */}
                     </button>
                   </div>
