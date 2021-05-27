@@ -49,7 +49,7 @@ def post_search_category():
     #     return {"users": []}
     categories = Categories.query.filter(Categories.categoryName.ilike(f'%{data}%')).all()
     if not categories:
-        return {{}}
+        return {"sorry": {}}
     # cat = categories.categories
     # print("5++++++++++", [category.to_dict() for category in categories])
     # print("5++++++++++", cat)

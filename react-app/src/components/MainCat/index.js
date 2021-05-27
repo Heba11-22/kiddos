@@ -13,7 +13,7 @@ function MainCat(){
     const mainCat_states = Object.values(useSelector(state => state.mainCategories)) || {}
     const search  = useParams().mc;
     // let test = catsValue.Categories
-    // console.log("1111>>>>>>>>>>>>>",searchRes.search)
+    console.log("1111>>>>>>>>>>>>>",searchRes)
     // console.log("2222>>>>>>>>>>>>>",catsValue)
     // console.log("33333>>>>>>>>>>>>>",mainCat_states)
     /* {if (cat = null) {<h2>Sorry No Results for {`${cat.Main_CategoryName}`}</h2>}} */
@@ -38,7 +38,7 @@ function MainCat(){
                         ))
                 ))}
             </ul>
-            {!searchRes.search && 
+            {searchRes.sorry && 
             <div className="sorry-div">
                 <div className="sorry-div1">Sorry</div>
                 <div className="sorry-div2">Your search for "{search}"</div>
