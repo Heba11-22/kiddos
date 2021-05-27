@@ -5,7 +5,7 @@ import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import { getCartItemsThunk, deleteAnItemThunk, addCount, deleteCount } from "../../store/cart"
 import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
-// import { saveAnItemThunk } from "../../store/savedItems";
+import { saveAnItemThunk } from "../../store/savedItems";
 // import Footer from "../Footer"
 import Checkout from "./CheckOut"
 import Footer from "../Footer"
@@ -80,9 +80,8 @@ function Cart () {
     }, [dispatch])
 
 
-    // const test = (e) => {
-    //     console.log("GGGGGGGG", e)
-    // }
+    const saveLater = (e) => {
+    }
 
     return (
         <div className="cart-div-whole">
@@ -161,13 +160,21 @@ function Cart () {
 
                                 </div>
                                 <div className="cart-buttons">
+                                
                                     <button className="save-for-later" 
-                                        // onClick={() => dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1]).id)}
+                                        onClick={ async (e) => {
+                                        // dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1]).id)
+                                        await dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
+                                        await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
+
+                                        // console.log("GGGGGG", oneItemArray[(item.itemId)-1].id)
+                                            window.location.reload()
+                                        }}
                                     >
                                         Save For Later
                                     </button>
-                                    <button className="delete-item" onClick={() => {
-                                        dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
+                                    <button className="delete-item" onClick={ async () => {
+                                        await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
                                         window.location.reload()
                                         }}>
                                         Delete From Cart
