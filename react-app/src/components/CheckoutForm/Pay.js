@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory, Redirect} from "react-router-dom";
 import FreeShipping from "../Cart/FreeShipping";
-import {allCartItemsValue} from "../Cart/index";
+import {allCartItemsValue} from "../Cart/CheckOut";
 
 const Pay = () => {
-    // console.log("kfdjdoiufoidsjlds",all.allCartItemsValue)
+    console.log("kfdjdoiufoidsjlds",allCartItemsValue)
     return (
         <div className="checkout-div">
             {(allCartItemsValue >= 50)&& (
@@ -46,7 +46,7 @@ const Pay = () => {
                     Estimated tax
                 </div>
                 <div className="tax-price">
-                    {(allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)}
+                    {Number(((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)).toFixed(2))}
                 </div>
             </div>
             <div className="tax-div">

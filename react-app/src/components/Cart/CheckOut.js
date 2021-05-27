@@ -3,18 +3,15 @@ import { NavLink, useHistory, Redirect} from "react-router-dom";
 import {useSelector} from 'react-redux';
 import FreeShipping from "./FreeShipping";
 
+let allCartItemsValue = 0;
 const Checkout = ({shipping}) => {
     const allCartItems = useSelector(state => state.cartItems.items) || {}
-    let allCartItemsValue = 0;
 
     let total = 0
-        // let count =0 
         for (let key in allCartItems) {
             total += allCartItems[key].quantity
-            // count 
         }
         allCartItemsValue =  total * 24 
-        // allCartItemsValue = cartItemsValue
     
     return (
         <div className="checkout-div">
@@ -57,7 +54,7 @@ const Checkout = ({shipping}) => {
                     Estimated tax
                 </div>
                 <div className="tax-price">
-                    {(allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)}
+                    {Number(((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)).toFixed(2))}
                 </div>
             </div>
             <div className="tax-div">
@@ -79,4 +76,4 @@ const Checkout = ({shipping}) => {
 }
 
 export default Checkout;
-// export {allCartItemsValue};
+export {allCartItemsValue};
