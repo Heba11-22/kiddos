@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useHistory, NavLink} from "react-router-dom";
 import ImageZoom from 'react-medium-image-zoom'
 import ScrollMenu from 'react-horizontal-scrolling-menu';
+import { useAlert } from 'react-alert'
 // import { useLocation } from 'react-router-dom'
 // import { getSingleItem } from '../../store/items';
 import { allMainCategories } from '../../store/mainCategories'
@@ -20,7 +21,8 @@ import "./Items.css"
 
 function SingleItem() {
     const dispatch = useDispatch();
-    const history = useHistory()
+    const history = useHistory();
+    const alert = useAlert();
     const user = useSelector(state => state.session.user)
     const items = useSelector(state => state.mainCategories) 
     // console.log("USEEEEER",items)
@@ -83,14 +85,18 @@ const handleSavedItems = (e) => {
             //  savedItemsArray.push(itemId)
             // console.log("!!!!!!!!", userId, itemId)
             //  console.log("HIIIII", e.target.value, "UUUUU", user.id)
-            history.push(`/savedItems`)
+            // history.push(`/savedItems`)
+                alert.show('Added to your Favorite List');
+
+
             //  } else alert("Your file is being uploaded!")
         }
     }
     const handleSavedCart = async(e) => {
-        await dispatch(addAnItemThunk(itemId))
+        await dispatch(addAnItemThunk(itemId));
         // dispatch()
-        history.push(`/cart`)
+        // history.push(`/cart`)
+        alert.show('Added to the Cart');
     }
 
     return (

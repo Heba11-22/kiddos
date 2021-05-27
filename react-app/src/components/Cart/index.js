@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
+// import { useAlert } from 'react-alert'
 // import Select from 'react-select';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import { getCartItemsThunk, deleteAnItemThunk, addCount, deleteCount } from "../../store/cart"
@@ -16,7 +17,7 @@ import "./Cart.css";
 export let allCartItemsValue = 0;
 function Cart () {
     const dispatch = useDispatch();
-
+    // const alert = useAlert()
     const allItems = useSelector(state => state.allItems.allItems) || {}
     const oneItem = allItems.items || {}
     const oneItemArray = Object.values(oneItem) || {}
@@ -26,7 +27,7 @@ function Cart () {
         // debugger
         defaultState[i] = 24
     })
-
+// console.log("LSLSLSL", Object.keys(allCartItems).length)
     let defaultState2 = {}
     Object.values(allCartItems).forEach((item, i) => {
         defaultState2[i] = 1
@@ -34,11 +35,13 @@ function Cart () {
     const [selectedValue, setSelectedValue] = useState(defaultState)
     // const [allValue, setAllValue] = useState(defaultState)
     // const [selectedCount, setSelectedcount] = useState(defaultState2)
+    const [cartItemNumber, setCartItemNumber] = useState(Object.keys(allCartItems).length)
     const [all, setAll] = useState(0)
-    const [cartItemsValue, setCartItemsValue] = useState(24 * (Object.values(allCartItems)).length)
+    const [force, setForce] = useState(0)
+    // const [cartItemsValue, setCartItemsValue] = useState(24 * (Object.values(allCartItems)).length)
     const [shipping, setShipping] = useState(0)
     // const [quantity, setQuantity] = useState({})
-
+    const forceUpdate = () => setForce(force + 1);
     const options = [
         {value: 24, label:'1'},
         {value: 48, label:'2'},
@@ -166,9 +169,17 @@ function Cart () {
                                         // dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1]).id)
                                         await dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
                                         await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
-
+                                        setCartItemNumber(cartItemNumber-1)
                                         // console.log("GGGGGG", oneItemArray[(item.itemId)-1].id)
+                                        // setTimeout(() => {
+                                        // alert.show('Oh look, an alert!')
+
+                                        // }, 1000)
+                                        // window.location.forceUpdate()
+                                        // window.location.reload(false)
+                                            // forceUpdate()
                                             window.location.reload()
+
                                         }}
                                     >
                                         Save For Later
@@ -176,6 +187,7 @@ function Cart () {
                                     <button className="delete-item" onClick={ async () => {
                                         await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
                                         window.location.reload()
+                                        // setCartItemNumber(cartItemNumber-1)
                                         }}>
                                         Delete From Cart
                                     </button>

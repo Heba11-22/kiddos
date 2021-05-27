@@ -44,18 +44,22 @@ function MainCat(){
         }
             {searchRes.sorry && 
                 <div className="sorry-div">
-                    <div style={{alignSelf: "center"}} className="sorry-div1">Sorry</div>
-                    <div style={{alignSelf: "center"}} className="sorry-div2">Your search for "{search}"</div>
-                    <div style={{alignSelf: "center"}} className="sorry-div3">did not yield any results.</div>
-                    <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/>
+                    <div style={{alignSelf: "center", marginBottom: "5%"}} className="sorry-div1"><h1 style={{fontSize: "40px"}}>Sorry</h1></div>
+                    <div style={{alignSelf: "center", marginBottom: "5%"}} className="sorry-div2">Your search for 
+                        <span style={{fontSize: "40px"}}> " {search} " </span>
+                    </div>
+                    <div style={{alignSelf: "center", marginBottom: "8%"}} className="sorry-div3">did not yield any results.</div>
+                    <img style={{ borderRadius: "5px"}} src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/>
                 </div>
             }
             {searchRes.search === null && 
             <div className="sorry-div">
-                <div style={{alignSelf: "center"}} className="sorry-div1">Sorry</div>
-                <div style={{alignSelf: "center"}} className="sorry-div2">Your search for "{search}"</div>
-                <div style={{alignSelf: "center"}} className="sorry-div3">did not yield any results.</div>
-                <img src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/>
+                <div style={{alignSelf: "center", fontSize: "40px", marginBottom: "5%"}} className="sorry-div1">Sorry</div>
+                <div style={{alignSelf: "center", marginBottom: "5%"}} className="sorry-div2">Your search for 
+                    <span style={{fontSize: "40px"}}> " {search} " </span>
+                </div>           
+                <div style={{alignSelf: "center", marginBottom: "8%"}} className="sorry-div3">did not yield any results.</div>
+                <img style={{ borderRadius: "5px"}} src="https://hebacapstone.s3.us-east-2.amazonaws.com/unsplash/ben-white-qDY9ahp0Mto-unsplash.jpg"/>
             </div>
             }
             {/* {searchRes.search == null &&  */}
