@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, useHistory, Redirect} from "react-router-dom";
+import React from 'react';
+import { NavLink, useHistory} from "react-router-dom";
 // import { useHistory, NavLink} from "react-router-dom";
 import FreeShipping from "../Cart/FreeShipping";
 import {allCartItemsValue} from "../Cart/CheckOut";
@@ -13,11 +13,6 @@ const Pay = () => {
                     <FreeShipping/>
                 </div>
             )}
-            {/* {(!shipping)&& (
-                <div>
-                    <FreeShipping/>
-                </div>
-            )} */}
             <div className="total">
                 <div className="total-word">
                     Subtotal
@@ -34,14 +29,7 @@ const Pay = () => {
                 {allCartItemsValue >= 50 ? "Free" : "$5"}
                 </div>
             </div>
-            {/* <div className="tax-div">
-                <div className="tax-word">
-                    Pre-Tax Order Total
-                </div>
-                <div className="tax-price">
-                    {allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)}
-                </div>
-            </div> */}
+     
             <div className="tax-div">
                 <div className="tax-word">
                     Estimated tax
@@ -58,15 +46,11 @@ const Pay = () => {
                     {((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)) + (allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5))}
                 </div>
             </div>
-            {/* <NavLink to="/checkout" className="proceed">
-                Proceed to Checkout
-            </NavLink> */}
             <NavLink to="/" className="continue">
                 Place Order
             </NavLink>
             <button
                 className="button3"
-                    // type="submit"
                     onClick={() => history.push(`/cart`)}
                     // disabled={submitting || pristine}
                 >

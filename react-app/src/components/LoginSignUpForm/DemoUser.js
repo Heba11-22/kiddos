@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 //import * as sessionActions from '../../store/session'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { demoLogin,login } from "../../store/session";
+import { demoLogin } from "../../store/session";
 
 // import { setErrors } from '../../store/errors';
 

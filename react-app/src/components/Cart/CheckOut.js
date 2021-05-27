@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, useHistory, Redirect} from "react-router-dom";
+import React from 'react';
+import { NavLink } from "react-router-dom";
 import {useSelector} from 'react-redux';
 import FreeShipping from "./FreeShipping";
 
@@ -38,6 +38,7 @@ const Checkout = ({shipping}) => {
                     Shipping
                 </div>
                 <div className="shipping-price" style={{color: "red"}}>
+                {/* {shipping ? ((allCartItemsValue >= 50 ) ? "Free" : "$5"): "Free"} */}
                 {(allCartItemsValue >= 50 ) ? "Free" : "$5"}
                 </div>
             </div>

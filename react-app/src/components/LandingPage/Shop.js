@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory, NavLink} from "react-router-dom";
+import React, { useState} from "react";
+import { useDispatch } from "react-redux";
+import { NavLink} from "react-router-dom";
 import { searchThunk } from '../../store/search';
 
 const Shop = () => {

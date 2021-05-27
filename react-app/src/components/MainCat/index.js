@@ -6,9 +6,9 @@ import "./MainCat.css"
 function MainCat(){
     const cats = useSelector(state => state.search.Categories) || {}
     let catsValue = (Object.values(cats))
-    const categoryItems = useSelector(state => state.categoryItems) || {} 
-    const items = categoryItems.items || {}
-    const items2 = ((Object.values(items))[0]) || {}
+    // const categoryItems = useSelector(state => state.categoryItems) || {} 
+    // const items = categoryItems.items || {}
+    // const items2 = ((Object.values(items))[0]) || {}
     const mainCat_states = Object.values(useSelector(state => state.mainCategories)) || {}
     // let test = catsValue.Categories
     // console.log("1111>>>>>>>>>>>>>",cats)

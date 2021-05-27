@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, NavLink} from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {getLatestItemsThunk} from "../../store/items"
 import Shop from "./Shop";

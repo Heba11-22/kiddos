@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
-import { render } from 'react-dom';
-import { Form, Field } from 'react-final-form';
+// import { render } from 'react-dom';
+// import { Form, Field } from 'react-final-form';
 import validator from 'validator'
 import Select from 'react-select';
-import Cards from 'react-credit-cards'
+// import Cards from 'react-credit-cards'
 import Continue from './Continue'
 import Pay from './Pay'
 // import {allCartItemsValue} from "./Cart/index.js";
-import {
-    formatCreditCardNumber,
-    formatCVC,
-    formatExpirationDate
-  } from './CardUtils'
+// import {
+//     formatCreditCardNumber,
+//     formatCVC,
+//     formatExpirationDate
+//   } from './CardUtils'
 
 import "./CheckoutForm.css"
 

@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import LogoutButton from '../LoginSignUpForm/LogoutButton'
 import { searchThunk } from '../../store/search';
-import { getCartItemsThunk, deleteAnItemThunk } from "../../store/cart"
+import { getCartItemsThunk } from "../../store/cart"
 import { Modal } from '../../context/Modal';
-import { saveAnItemThunk } from "../../store/savedItems";
+// import { saveAnItemThunk } from "../../store/savedItems";
 import LoginSignUpModal from '../LoginSignUpForm'
-import LogSign from '../LogSign'
+// import LogSign from '../LogSign'
 
 
 const SearchForm = () => {
@@ -17,11 +17,11 @@ const SearchForm = () => {
     const user = useSelector(state => state.session.user)
     // const allCartItems = useSelector(state => state.cartItems.items) || {}
     let allCartItems;
-    let allCartItemsArr;
+    // let allCartItemsArr;
     // const [item, setItem] = useState({})
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
-    const { itemId } = useParams();
+    // const { itemId } = useParams();
     // const [isSearch, setIsSearch] = useState(false)
     // useEffect ( ()=> {
         //     if (!itemId) return;

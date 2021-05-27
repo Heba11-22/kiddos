@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import { useSelector } from "react-redux";
 import {useDispatch, useSelector } from 'react-redux'
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useHistory, NavLink} from "react-router-dom";
 import ImageZoom from 'react-medium-image-zoom'
 import ScrollMenu from 'react-horizontal-scrolling-menu';
@@ -25,7 +25,7 @@ function SingleItem() {
     // console.log("USEEEEER",items)
     // const userId = user.id || {}
     const [item, setItem] = useState({})
-    const [targtedItem, setTargtedItem] = useState()
+    // const [targtedItem, setTargtedItem] = useState()
     const [showModal, setShowModal] = useState(false);
     const { itemId } = useParams();
 
@@ -60,7 +60,7 @@ let currentItemId = itemValues.categoryId
 // console.log("111IIIIIIIIIIIII",itemValues.categoryId)
 let suggestedItems = items[currentItemId] || {}
 let suggestedItemsValues = (Object.values(suggestedItems))[0]|| {}
-let suggestedItemsValues2 = Object.values(suggestedItemsValues) || {}
+// let suggestedItemsValues2 = Object.values(suggestedItemsValues) || {}
 // let suggestedItemsValues3 = Object.values(suggestedItemsValues2) 
 // let suggestedItems2 = suggestedItemsValues3[0] 
 // console.log("222IIIIIIIIIIIII",suggestedItemsValues)

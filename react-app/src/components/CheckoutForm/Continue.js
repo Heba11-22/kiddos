@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import { render } from 'react-dom';
-import { useHistory, NavLink} from "react-router-dom";
-import { Form, Field } from 'react-final-form';
-import validator from 'validator'
+// import { render } from 'react-dom';
+import { useHistory} from "react-router-dom";
+// import { Form, Field } from 'react-final-form';
+// import validator from 'validator'
 import Select from 'react-select';
-import Pay from './Pay'
+// import Pay from './Pay'
 
 import "./CheckoutForm.css"
 

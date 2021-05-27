@@ -1,16 +1,16 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory, Redirect} from "react-router-dom";
-import LoginForm from "../../components/LoginSignUpForm/LoginForm";
-import SignUpForm from "../../components/LoginSignUpForm/SignUpForm";
-import LogSign from "../LogSign";
-import ProtectedRoute from "../../components/LoginSignUpForm/ProtectedRoute";
-import UsersList from "../../components/UsersList";
-import User from "../../components/User";
-import LoginSignUpForm from "../LoginSignUpForm";
+import { NavLink, useHistory} from "react-router-dom";
+// import LoginForm from "../../components/LoginSignUpForm/LoginForm";
+// import SignUpForm from "../../components/LoginSignUpForm/SignUpForm";
+// import LogSign from "../LogSign";
+// import ProtectedRoute from "../../components/LoginSignUpForm/ProtectedRoute";
+// import UsersList from "../../components/UsersList";
+// import User from "../../components/User";
+// import LoginSignUpForm from "../LoginSignUpForm";
 // import { authenticate } from "./services/auth";
-import { authenticate } from "../../store/session";
+// import { authenticate } from "../../store/session";
 import {addAnItemThunk} from "../../store/cart"
 import { getItemsThunk, deleteAnItemThunk } from "../../store/savedItems";
 import "./SavedItems.css"
@@ -18,12 +18,12 @@ import "./SavedItems.css"
 function SavedItems() {
 // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
-  const history = useHistory()
+  // const history = useHistory()
   const allItemsState = useSelector(state => state.savedItems.savedItems) || {}
   const allItems = allItemsState.items || {}
   const user = useSelector(state => state.session.user) || {}
   const userId = user.id || {}
-  const [trigger, setTrigger] = useState(false);
+  // const [trigger, setTrigger] = useState(false);
   const allItemsValues = Object.values(allItems) || {}
   // console.log("////////////", allItemsValues)
 
