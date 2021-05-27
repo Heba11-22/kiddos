@@ -47,6 +47,8 @@
 }
 .checkout{
     width: 40%;
+    margin-bottom: 4vw;
+    margin-top: 3vw;
     background-color: white;
     /* height: 90%; */
     height: 25vw;
@@ -153,6 +155,7 @@
     align-items: center;
     height: 80%;
     padding-top: 5%;
+    /* margin-bottom: 50vw; */
     /* overflow-y: scroll;
     overflow-x: scroll; */
     /* flex-wrap: wrap; */
