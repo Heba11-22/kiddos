@@ -33,7 +33,7 @@ const LandingPage = () => {
             </div>
             {/* <div className="latest-items-div">
                 <ul className="latest-items-ul"> */}
-                <div >
+                <div className="scroll-div">
                     <ScrollMenu
                         className="main-latest-div"
                         // scrollToSelected={false}
