@@ -206,6 +206,6 @@ label{
     height: 6vw;
 }
 
-.fake:hover:after {
-    content: "....... It is fake! :)"
-}
+/* .fake:hover:after {
+    content: "......."
+} */
