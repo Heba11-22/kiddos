@@ -112,7 +112,8 @@ const handleSavedItems = (e) => {
                 <ImageZoom
                     image={{ 
                         className: "item-img", 
-                        src: `${photo_url.photo_url}`
+                        src: `${photo_url.photo_url}`,
+                        style: {height: "80%", width: "48%"}
                         }}
                         zoomImage={{
                             src: `${photo_url.photo_url}-big`,
@@ -123,7 +124,7 @@ const handleSavedItems = (e) => {
                 </div>
                 <div className="item-info-div">
                     {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
-                    <h2 className="item-name">{itemValues.itemName}</h2>
+                    <h1 className="item-name">{itemValues.itemName}</h1>
                     <h4 className="item-price-sale-sen">OUR PRICE: </h4>
                     <div className="price">
                         <div className="item-price-sale">$24</div>
@@ -151,8 +152,8 @@ const handleSavedItems = (e) => {
                     </div>
                     <div className="item-detail">
                         
-                        <h3>Product Details: </h3>
-                        <h4 style={{width: "50%", fontWeight: "lighter"}}>{itemValues.detail}</h4>
+                        <h2>Product Details: </h2>
+                        <h3 style={{width: "50%", fontWeight: "lighter"}}>{itemValues.detail}</h3>
                     </div>
                     {/* <ScrollMenu
                             className="main-latest-div"
@@ -175,7 +176,7 @@ const handleSavedItems = (e) => {
                     </div>
                 )}
             </div>
-            <div style={{ fontSize: "20px", fontWeight: "bold", paddingTop: "8%", paddingBottom: "8%"}}>Customers also loved</div>
+            <div style={{ fontSize: "25px", fontWeight: "bold", padding: "7% 8%"}}>Customers also loved</div>
                 <ScrollMenu
                 className="main-latest-div2"
                 arrowLeft={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)"}}>{" < "}</div>}
