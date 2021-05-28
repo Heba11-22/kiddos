@@ -15,7 +15,6 @@ def seed_photos():
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-dresses/18823398_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-dresses/18823404_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-dresses/18823405_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-dresses/18516975_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-dresses/18694249_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-dresses/18721895_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-dresses/18724277_fpx.jpeg",
@@ -23,17 +22,13 @@ def seed_photos():
     ]
 
     girl_pants = [
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/13304142_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/13304143_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/13892542_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/16134721_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/17977541_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/17993122_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/17993123_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/18380999_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/18425527_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/18425528_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/18677545_fpx.jpeg",
+        "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/13304142_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/girls-pants/18677543_fpx.jpeg",
     ]
 
@@ -51,59 +46,38 @@ def seed_photos():
     ]
 
     boy_shirts = [
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18459293_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18459294_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18509168_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18509172_fpx.webp",
+        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18575150_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18509191_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18509195_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18509373_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18509376_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18517666_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18574404_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18574405_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18575149_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18575150_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18575176_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-shirts/18714270_fpx.webp",
+        
     ]
 
     boy_jackets = [
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/17909569_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/17974672_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/17980557_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18135301_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18135306_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18144728_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18206588_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18206590_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18282485_fpx+(1).jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18436080_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18828505_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18828509_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/boy-jackets/18436081_fpx.jpeg",
     ]
 
     boy_pants = [
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/14468832_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/14468835_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/17933784_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/17990937_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/17990996_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18046404_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18057865_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18057868_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18058793_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18421792_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18421795_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18985929_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18985930_fpx.jpeg",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18985929_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/8901424_fpx.webp",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/8901426_fpx.jpeg",
         "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/8924579_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18421795_fpx.webp",
-        "https://hebacapstone.s3.us-east-2.amazonaws.com/tboy-pants/18058793_fpx.webp",
     ]
 
     for num in range(16):
@@ -111,27 +85,27 @@ def seed_photos():
         db.session.add(photo)
     db.session.commit()
 
-    for num in range(11):
+    for num in range(8):
         photo = Photos(photo_url=girl_pants[num])
         db.session.add(photo)
     db.session.commit()
 
-    for num in range(9):
+    for num in range(10):
         photo = Photos(photo_url=girl_tops[num])
         db.session.add(photo)
     db.session.commit()
 
-    for num in range(14):
+    for num in range(8):
         photo = Photos(photo_url=boy_shirts[num])
         db.session.add(photo)
     db.session.commit()
 
-    for num in range(12):
+    for num in range(9):
         photo = Photos(photo_url=boy_jackets[num])
         db.session.add(photo)
     db.session.commit()
 
-    for num in range(18):
+    for num in range(8):
         photo = Photos(photo_url=boy_pants[num])
         db.session.add(photo)
     db.session.commit()
