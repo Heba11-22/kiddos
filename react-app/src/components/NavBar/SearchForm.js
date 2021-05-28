@@ -4,6 +4,7 @@ import { useParams, useHistory, NavLink } from "react-router-dom";
 import LogoutButton from '../LoginSignUpForm/LogoutButton'
 import { searchThunk } from '../../store/search';
 import { getCartItemsThunk } from "../../store/cart"
+import { logout } from "../../store/session";
 import { Modal } from '../../context/Modal';
 // import { saveAnItemThunk } from "../../store/savedItems";
 import LoginSignUpModal from '../LoginSignUpForm'
@@ -17,7 +18,7 @@ const SearchForm = () => {
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cartItems.items) || {}
     let cartCount = Object.keys(cart).length
-    const saved = useSelector(state => state.savedItems.items) || {}
+    const saved = useSelector(state => state.savedItems.savedItems) || {}
     let savedCount = Object.keys(saved).length
     // console.log("><><><", savedCount)
     // const allCartItems = useSelector(state => state.cartItems.items) || {}
@@ -26,6 +27,7 @@ const SearchForm = () => {
     // const [item, setItem] = useState({})
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
+    // const [save, setSave] = useState(savedCount);
     // const { itemId } = useParams();
     // const [isSearch, setIsSearch] = useState(false)
     // useEffect ( ()=> {
@@ -40,6 +42,7 @@ const SearchForm = () => {
             
             useEffect( async () => {
                 allCartItems = await dispatch(getCartItemsThunk()) 
+                await dispatch(logout());
                 // allCartItemsArr = await ((Object.values(allCartItems))[0]).length   // ????????????????
                 // console.log("121212121", allCartItemsArr)
         // let allCartItems = await dispatch(getCartItemsThunk());
