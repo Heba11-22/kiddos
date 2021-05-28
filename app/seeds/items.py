@@ -17,7 +17,7 @@ def seed_items():
     for num in range(8):
         item = Items(itemName="GIRL PANT", colors="black", material="Cotton",
                      detail="A colorful floral print creates the fun, fresh look of these comfortable leggings from Ideology.",
-                     photoId=num+16, categoryId=2)
+                     photoId=num+17, categoryId=2)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -25,7 +25,7 @@ def seed_items():
     for num in range(10):
         item = Items(itemName="GIRL TOP", colors="pink", material="Cotton",
                      detail="Look lovely in this heart print and bow detail tank by Epic Threads. Bow back detail.",
-                     photoId=num+23, categoryId=3)
+                     photoId=num+25, categoryId=3)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -41,7 +41,7 @@ def seed_items():
     for num in range(8):
         item = Items(itemName="TODDLER GIRL PANT", colors="navy", material="Cotton",
                      detail="A colorful floral print creates the fun, fresh look of these comfortable leggings from Ideology.",
-                    photoId=num+16, categoryId=5)
+                    photoId=num+17, categoryId=5)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -49,7 +49,7 @@ def seed_items():
     for num in range(10):
         item = Items(itemName="TODDLER GIRL TOP", colors="pink", material="Polyester",
                      detail="Look lovely in this heart print and bow detail tank by Epic Threads. Bow back detail.",
-                    photoId=num+23, categoryId=6)
+                    photoId=num+25, categoryId=6)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -57,7 +57,7 @@ def seed_items():
     for num in range(8):
         item = Items(itemName="BOY SHIRT", colors="gray", material="Cotton",
                      detail="He will have a fresh update to casual style in this t-shirt, fashioned in soft fabric for comfortable wear.",
-                    photoId=num+31, categoryId=7)
+                    photoId=num+35, categoryId=7)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -65,7 +65,7 @@ def seed_items():
     for num in range(9):
         item = Items(itemName="BOY JACKET", colors="black", material="Polyester",
                      detail="No need to mess with an icon. Gear up your star player in this boys jacket and head out the door. The signature sheen of tricot and 3-Stripes give your MVP a winning adidas style. Wash and wear. Repeat.",
-                    photoId=num+38, categoryId=8)
+                    photoId=num+43, categoryId=8)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -73,7 +73,7 @@ def seed_items():
     for num in range(8):
         item = Items(itemName="BOY PANT", colors="beige", material="Cotton",
                      detail="Jordan alpha dry pant is great for actives this season. Constructed with dry-fit fabrication to keep you dry in every day activities.",
-                    photoId=num+46, categoryId=9)
+                    photoId=num+52, categoryId=9)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -81,7 +81,7 @@ def seed_items():
     for num in range(8):
         item = Items(itemName="TODDLER BOY SHIRT", colors="gray", material="Cotton",
                      detail="He will have a fresh update to casual style in this t-shirt, fashioned in soft fabric for comfortable wear.",
-                    photoId=num+31, categoryId=10)
+                    photoId=num+35, categoryId=10)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -89,7 +89,7 @@ def seed_items():
     for num in range(9):
         item = Items(itemName="TODDLER BOY JACKET", colors="black", material="Polyester",
                      detail="No need to mess with an icon. Gear up your star player in this boys jacket and head out the door. The signature sheen of tricot and 3-Stripes give your MVP a winning adidas style. Wash and wear. Repeat.",
-                     photoId=num+38, categoryId=11)
+                     photoId=num+43, categoryId=11)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
@@ -97,7 +97,7 @@ def seed_items():
     for num in range(8):
         item = Items(itemName="TODDLER BOY PANT", colors="beige", material="Polyester",
                      detail="Jordan alpha dry pant is great for actives this season. Constructed with dry-fit fabrication to keep you dry in every day activities.",
-                     photoId=num+46, categoryId=12)
+                     photoId=num+52, categoryId=12)
         # item.sizes.push(1) 
         db.session.add(item)
     db.session.commit()
