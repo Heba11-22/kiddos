@@ -15,6 +15,11 @@ const SearchForm = () => {
     const dispatch = useDispatch();
     const history = useHistory()
     const user = useSelector(state => state.session.user)
+    const cart = useSelector(state => state.cartItems.items) || {}
+    let cartCount = Object.keys(cart).length
+    const saved = useSelector(state => state.savedItems.items) || {}
+    let savedCount = Object.keys(saved).length
+    // console.log("><><><", savedCount)
     // const allCartItems = useSelector(state => state.cartItems.items) || {}
     let allCartItems;
     // let allCartItemsArr;
@@ -97,12 +102,14 @@ const SearchForm = () => {
                 </button>
             </div>
             <div className="my-fav-div">
+                <h5 style={{marginBottom: ".2px", color: "red"}}>{savedCount}</h5>
                 <NavLink to="/savedItems" className="my-fav" onClick={handleSavedItems}>
                     <span className="material-icons">&#xe87d;</span>
                 </NavLink>
             </div>
             <div className="my-cart">
                 {/* <div style={{color:"red"}}>{allCartItemsArr}</div> */}
+                <h5 style={{marginBottom: ".2px", color: "red"}}>{cartCount}</h5>
                 <NavLink to="/cart" className="my-cart" style={{color:"black"}}>
                     <span className="material-icons">&#xe8cc;</span>
                 </NavLink>
@@ -113,7 +120,6 @@ const SearchForm = () => {
             { !user && (
                 <div onClick={() => setShowModal(true)} style={{ cursor: "pointer"}}>
                 <span className="material-icons">&#xea77;</span>
-                {/* <LoginSignUpModal /> */}
                 </div>
             )}
 
