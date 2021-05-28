@@ -60,7 +60,7 @@
 }
 
 .category-items-ul3{
-    width: 100%;
+    width: 210%;
     /* display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -75,7 +75,7 @@
     align-content: flex-start;  
 }
 .one-item-div3{
-    width: 50%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
