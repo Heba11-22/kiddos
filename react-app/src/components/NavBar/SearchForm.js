@@ -110,6 +110,12 @@ const SearchForm = () => {
             <div>
             { user && (<LogoutButton />)}
             </div>
+            { !user && (
+                <div onClick={() => setShowModal(true)} style={{ cursor: "pointer"}}>
+                <span className="material-icons">&#xea77;</span>
+                {/* <LoginSignUpModal /> */}
+                </div>
+            )}
 
         </div>
         
