@@ -18,7 +18,7 @@
 }
 
 .saved-items-li{
-    width: 30%;
+    width: 27%;
     border: 1.5px solid rgb(165, 161, 161);
     border-radius: 5px;
     margin: 20px 0px;
@@ -28,7 +28,7 @@
     justify-content: space-around;
     /* flex-wrap: wrap; */
     align-content: center;
-    height: 1000px;
+    height: 50vw;
     /* box-shadow: -3px 5px 8px rgba(149, 147, 147, 0.692); */
     
 }
