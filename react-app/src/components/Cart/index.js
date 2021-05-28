@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
-// import { useAlert } from 'react-alert'
+import { useAlert } from 'react-alert'
 // import Select from 'react-select';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import { getCartItemsThunk, deleteAnItemThunk, addCount, deleteCount } from "../../store/cart"
 import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
 import { saveAnItemThunk } from "../../store/savedItems";
+import { Modal } from '../../context/Modal';
+// import { saveAnItemThunk } from "../../store/savedItems";
+import LoginSignUpModal from '../LoginSignUpForm'
 // import Footer from "../Footer"
 import Checkout from "./CheckOut"
 import Footer from "../Footer"
@@ -17,7 +20,8 @@ import "./Cart.css";
 export let allCartItemsValue = 0;
 function Cart () {
     const dispatch = useDispatch();
-    // const alert = useAlert()
+    const alert = useAlert()
+    const user = useSelector(state => state.session.user)
     const allItems = useSelector(state => state.allItems.allItems) || {}
     const oneItem = allItems.items || {}
     const oneItemArray = Object.values(oneItem) || {}
@@ -38,6 +42,7 @@ function Cart () {
     const [cartItemNumber, setCartItemNumber] = useState(Object.keys(allCartItems).length)
     const [all, setAll] = useState(0)
     const [force, setForce] = useState(0)
+    const [showModal, setShowModal] = useState(false);
     // const [cartItemsValue, setCartItemsValue] = useState(24 * (Object.values(allCartItems)).length)
     const [shipping, setShipping] = useState(0)
     // const [quantity, setQuantity] = useState({})
@@ -83,8 +88,8 @@ function Cart () {
     }, [dispatch])
 
 
-    const saveLater = (e) => {
-    }
+    // const saveLater = (e) => {
+    // }
 
     return (
         <div className="cart-div-whole">
@@ -165,20 +170,29 @@ function Cart () {
                                 <div className="cart-buttons">
                                 
                                     <button className="save-for-later" 
-                                        onClick={ async (e) => {
+                                        onClick={  (e) => {
                                         // dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1]).id)
-                                        await dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
-                                        await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
-                                        setCartItemNumber(cartItemNumber-1)
+                                            console.log("????USER")
+                                        if (!user ) {
+                                            setShowModal(true)
+                                            console.log("NO USER")
+                                        } else if (user) {
+                                            console.log("USER")
+                                             dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
+                                             dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
+                                            // setCartItemNumber(cartItemNumber-1)
+                                            // dispatch(saveAnItemThunk(itemId))
+                                            // history.push(`/savedItems`)
+                                                alert.show('Added to your Favorite List')
+                                            }
                                         // console.log("GGGGGG", oneItemArray[(item.itemId)-1].id)
                                         // setTimeout(() => {
-                                        // alert.show('Oh look, an alert!')
 
                                         // }, 1000)
                                         // window.location.forceUpdate()
                                         // window.location.reload(false)
                                             // forceUpdate()
-                                            window.location.reload()
+                                            // window.location.reload()
 
                                         }}
                                     >
@@ -207,6 +221,12 @@ function Cart () {
             <footer>
                 <Footer />
             </footer>
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    {/* <h3 className="sen-plz-login">Please Login or Sign up</h3> */}
+                    <LoginSignUpModal setShowModal={setShowModal}/>
+                </Modal> 
+        )}
         </div>
     )
 }

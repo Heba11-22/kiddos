@@ -20,8 +20,8 @@ const hideLoader = () => loader.classList.add('loader--hide');
 const options = {
   // you can also just use 'bottom center'
   position: positions.MIDDLE,
-  timeout: 2000,
-  offset: '30px',
+  timeout: 3000,
+  offset: '40px',
   // you can also just use 'scale'
   transition: transitions.SCALE,
 }

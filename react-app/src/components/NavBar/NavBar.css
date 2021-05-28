@@ -107,14 +107,14 @@ button {
     cursor: pointer;
 }
 
-.my-fav-div{
+/* .my-fav-div{
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;  */
     /* justify-content: center; */
-    align-items: center; 
+    /* align-items: center;  */
     /* height: 0vw; */
-    padding: 0px .4vw 1.8vw .4vw;
-}
+    /* padding: 0px .4vw 1.8vw .4vw; */
+/* } */
 
 .my-cart{ 
     display: flex;

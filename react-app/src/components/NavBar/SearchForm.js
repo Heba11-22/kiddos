@@ -18,8 +18,9 @@ const SearchForm = () => {
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cartItems.items) || {}
     let cartCount = Object.keys(cart).length
-    const saved = useSelector(state => state.savedItems.savedItems) || {}
-    let savedCount = Object.keys(saved).length
+    // const saved = useSelector(state => state.savedItems.savedItems) || {}
+    // const saved2 = saved.items || {}
+    // let savedCount = Object.keys(saved2).length
     // console.log("><><><", savedCount)
     // const allCartItems = useSelector(state => state.cartItems.items) || {}
     let allCartItems;
@@ -42,7 +43,8 @@ const SearchForm = () => {
             
             useEffect( async () => {
                 allCartItems = await dispatch(getCartItemsThunk()) 
-                await dispatch(logout());
+                // await dispatch(logout());
+                
                 // allCartItemsArr = await ((Object.values(allCartItems))[0]).length   // ????????????????
                 // console.log("121212121", allCartItemsArr)
         // let allCartItems = await dispatch(getCartItemsThunk());
@@ -105,7 +107,7 @@ const SearchForm = () => {
                 </button>
             </div>
             <div className="my-fav-div">
-                <h5 style={{marginBottom: ".2px", color: "red"}}>{savedCount}</h5>
+                {/* <h5 style={{marginBottom: ".2px", color: "red"}}>{savedCount}</h5> */}
                 <NavLink to="/savedItems" className="my-fav" onClick={handleSavedItems}>
                     <span className="material-icons">&#xe87d;</span>
                 </NavLink>
