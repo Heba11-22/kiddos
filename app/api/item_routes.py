@@ -9,7 +9,7 @@ item_routes = Blueprint('items', __name__)
 # Route for getting the latest items have been added:
 @item_routes.route('/')
 def get_latest_items():
-    items = Items.query.order_by(Items.id.desc()).limit(8)
+    items = Items.query.order_by(Items.id.desc()).limit(12)
     print("++++++++++++++++++", [item.to_dict() for item in items])
     return {"items": [item.to_dict() for item in items]}
 
