@@ -48,7 +48,7 @@ const Pay = () => {
                 </div>
             </div>
             <NavLink to="/" className="continue">
-                Place Order
+                <button className="continue" id="order" disabled>Place Order</button>
             </NavLink>
             <button
                 className="button3"

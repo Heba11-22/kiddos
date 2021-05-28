@@ -1,60 +1,64 @@
-// import Payment from 'payment'
+// this is a package import 
+// 'react-final-form'
+//  'react-credit-cards'
 
-// function clearNumber(value = '') {
-//   return value.replace(/\D+/g, '')
-// }
+import Payment from 'payment'
 
-// export function formatCreditCardNumber(value) {
-//   if (!value) {
-//     return value
-//   }
+function clearNumber(value = '') {
+  return value.replace(/\D+/g, '')
+}
 
-//   const issuer = Payment.fns.cardType(value)
-//   const clearValue = clearNumber(value)
-//   let nextValue
+export function formatCreditCardNumber(value) {
+  if (!value) {
+    return value
+  }
 
-//   switch (issuer) {
-//     case 'amex':
-//       nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
-//         4,
-//         10
-//       )} ${clearValue.slice(10, 15)}`
-//       break
-//     case 'dinersclub':
-//       nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
-//         4,
-//         10
-//       )} ${clearValue.slice(10, 14)}`
-//       break
-//     default:
-//       nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
-//         4,
-//         8
-//       )} ${clearValue.slice(8, 12)} ${clearValue.slice(12, 19)}`
-//       break
-//   }
+  const issuer = Payment.fns.cardType(value)
+  const clearValue = clearNumber(value)
+  let nextValue
 
-//   return nextValue.trim()
-// }
+  switch (issuer) {
+    case 'amex':
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        10
+      )} ${clearValue.slice(10, 15)}`
+      break
+    case 'dinersclub':
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        10
+      )} ${clearValue.slice(10, 14)}`
+      break
+    default:
+      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+        4,
+        8
+      )} ${clearValue.slice(8, 12)} ${clearValue.slice(12, 19)}`
+      break
+  }
 
-// export function formatCVC(value, prevValue, allValues = {}) {
-//   const clearValue = clearNumber(value)
-//   let maxLength = 4
+  return nextValue.trim()
+}
 
-//   if (allValues.number) {
-//     const issuer = Payment.fns.cardType(allValues.number)
-//     maxLength = issuer === 'amex' ? 4 : 3
-//   }
+export function formatCVC(value, prevValue, allValues = {}) {
+  const clearValue = clearNumber(value)
+  let maxLength = 4
 
-//   return clearValue.slice(0, maxLength)
-// }
+  if (allValues.number) {
+    const issuer = Payment.fns.cardType(allValues.number)
+    maxLength = issuer === 'amex' ? 4 : 3
+  }
 
-// export function formatExpirationDate(value) {
-//   const clearValue = clearNumber(value)
+  return clearValue.slice(0, maxLength)
+}
 
-//   if (clearValue.length >= 3) {
-//     return `${clearValue.slice(0, 2)}/${clearValue.slice(2, 4)}`
-//   }
+export function formatExpirationDate(value) {
+  const clearValue = clearNumber(value)
 
-//   return clearValue
-// }
+  if (clearValue.length >= 3) {
+    return `${clearValue.slice(0, 2)}/${clearValue.slice(2, 4)}`
+  }
+
+  return clearValue
+}

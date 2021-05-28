@@ -5,7 +5,7 @@ import validator from 'validator'
 import Select from 'react-select';
 // import Cards from 'react-credit-cards'
 import Continue from './Continue'
-import Footer from '../Footer'
+// import Footer from '../Footer'
 import Pay from './Pay'
 // import {allCartItemsValue} from "./Cart/index.js";
 // import {

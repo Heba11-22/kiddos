@@ -14,20 +14,32 @@
     margin: 2% auto auto auto;
     height: 20vw;
 }
-.pay-div,
-.final-pay-form{
+.pay-div
+/* .final-pay-form */
+{
     display: flex;
     margin: 2% auto;
     justify-content: space-around;
     align-items: center;
     width: 50%;
     background-color: white;
-    height: 68vw;
+    height: 80vw;
 
 }
 
+.final-pay-form{
+    display: flex;
+    margin: 2% auto;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    background-color: white;
+    height: 70vw;
+}
+
 .shipping-address,
-.final-pay-form,
+/* .final-pay-form, */
 .card-form{
     display: flex;
     margin: 5% auto;
@@ -39,13 +51,13 @@
 
 .f,
 .c{
-    margin: 3% 0px;
+    margin: 5% 0px;
     display: flex;
     /* margin: 15% auto; */
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
-    width: 60%;
+    width: 80%;
 }
 .input-form{
     width: 60%;
@@ -72,12 +84,14 @@
     margin: .5vw 0px;
 }
 .select {
-    margin: 5% 3%;
+    margin: 6% 4% 6% 0%;
     width: 50%;
+    height: 2vw;
 }
 
 label{
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .button{
@@ -103,12 +117,14 @@ label{
     flex-direction: column;
     align-items: center;
 }
+
+
 .button3{
     background-color: rgb(146, 23, 23);
-    width: 60%;
+    width: 65%;
     margin-top: 3%;
     
-    height: 2.8vw;
+    height: 3vw;
     border-radius: 3px;
     display: flex;
     justify-content: space-around;
@@ -139,6 +155,7 @@ label{
     /* flex-direction: column; */
     align-items: center;
     border-bottom: 1px solid rgb(209, 207, 207);
+    margin-top: -15vw;
 }
 
 .edit-button{
@@ -152,15 +169,16 @@ label{
 .shipping-info{
     width: 100%;
     display: flex;
+    font-size: 20px;
     /* justify-content:start; */
     flex-direction: column;
     align-items: flex-start;
-    margin: 1.5vw 0px;
+    margin: -28vw 0px -28vw 0px;
     
 }
 
 .input-card{
-    height: 2vw;
+    height: 2.5vw;
 }
 .payment{
     border-top: 2px solid rgb(187, 182, 182);
@@ -174,4 +192,16 @@ label{
 
 .div-info{
     margin: .5vw 0px;
+}
+
+:disabled {
+    cursor: not-allowed;
+}
+.form-card{
+    margin-top: -25vw;
+}
+
+.cardNum {
+    margin: 100px;
+    height: 6vw;
 }

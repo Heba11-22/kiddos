@@ -12,6 +12,7 @@
     "react": "^17.0.0",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
+    "react-credit-card-display": "^0.5.7",
     "react-credit-cards": "^0.8.3",
     "react-dom": "^17.0.0",
     "react-final-form": "^6.5.3",

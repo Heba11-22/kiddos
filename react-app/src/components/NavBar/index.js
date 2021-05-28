@@ -14,7 +14,7 @@ function NavBar () {
                 <FirstSecond/>
                 <Categories/>
             </nav>
-            {/* <Footer/> */}   // need to style first
+            {/* <Footer/> */}   .
         </div>
     )
 }
