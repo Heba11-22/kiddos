@@ -172,12 +172,12 @@ function Cart () {
                                     <button className="save-for-later" 
                                         onClick={  (e) => {
                                         // dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1]).id)
-                                            console.log("????USER")
+                                            // console.log("????USER")
                                         if (!user ) {
                                             setShowModal(true)
-                                            console.log("NO USER")
+                                            // console.log("NO USER")
                                         } else if (user) {
-                                            console.log("USER")
+                                            // console.log("USER")
                                              dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
                                              dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
                                             // setCartItemNumber(cartItemNumber-1)
