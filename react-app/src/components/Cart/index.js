@@ -183,7 +183,7 @@ function Cart () {
                                             // setCartItemNumber(cartItemNumber-1)
                                             // dispatch(saveAnItemThunk(itemId))
                                             // history.push(`/savedItems`)
-                                                alert.show('Added to your Favorite List')
+                                                // alert.show('Added to your Favorite List')
                                             }
                                         // console.log("GGGGGG", oneItemArray[(item.itemId)-1].id)
                                         // setTimeout(() => {
@@ -192,7 +192,7 @@ function Cart () {
                                         // window.location.forceUpdate()
                                         // window.location.reload(false)
                                             // forceUpdate()
-                                            // window.location.reload()
+                                            window.location.reload()
 
                                         }}
                                     >
