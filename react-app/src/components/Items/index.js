@@ -99,7 +99,7 @@ const handleSavedItems = (e) => {
     for (let i = 0; i < saved2.length; i++){
         itemCart.push(saved2[i].itemId)
     }
-    console.log("??????", itemCart)
+    // console.log("??????", itemCart)
 
 
     const handleSavedCart = async(e) => {
