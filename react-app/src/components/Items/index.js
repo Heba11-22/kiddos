@@ -129,7 +129,7 @@ const handleSavedItems = (e) => {
                     image={{ 
                         className: "item-img", 
                         src: `${photo_url.photo_url}`,
-                        style: {height: "80%", width: "48%"}
+                        style: {height: "57%", width: "48%"}
                         }}
                         zoomImage={{
                             src: `${photo_url.photo_url}-big`,
