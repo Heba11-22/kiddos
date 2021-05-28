@@ -13,7 +13,7 @@ import LoginSignUpModal from '../LoginSignUpForm'
 import { Modal } from '../../context/Modal';
 import { saveAnItemThunk } from "../../store/savedItems";
 import {getLatestItemsThunk} from "../../store/items"
-import {addAnItemThunk} from "../../store/cart"
+import {addAnItemThunk , addCount} from "../../store/cart"
 import Footer from "../Footer"
 import "./Items.css"
 // import "../LandingPage/LandingPage.css"
@@ -25,7 +25,10 @@ function SingleItem() {
     const alert = useAlert();
     const user = useSelector(state => state.session.user)
     const items = useSelector(state => state.mainCategories) 
-    // console.log("USEEEEER",items)
+    const saved = useSelector(state => state.cartItems.items) || {}
+    const saved2 = (Object.values(saved))
+
+    // console.log("USEEEEER",saved2.itemId)
     // const userId = user.id || {}
     const [item, setItem] = useState({})
     // const [targtedItem, setTargtedItem] = useState()
@@ -92,8 +95,21 @@ const handleSavedItems = (e) => {
             //  } else alert("Your file is being uploaded!")
         }
     }
+    let itemCart = [];
+    for (let i = 0; i < saved2.length; i++){
+        itemCart.push(saved2[i].itemId)
+    }
+    console.log("??????", itemCart)
+
+
     const handleSavedCart = async(e) => {
-        await dispatch(addAnItemThunk(itemId));
+        // if (itemCart.includes(itemId)) {
+        //     dispatch(addCount({cartItemId: itemId}))
+
+        // } else {
+
+            await dispatch(addAnItemThunk(itemId));
+        // }
         // dispatch()
         // history.push(`/cart`)
         alert.show('Added to the Cart');

@@ -205,3 +205,7 @@ label{
     margin: 100px;
     height: 6vw;
 }
+
+.fake:hover:after {
+    content: "....... It is fake!"
+}
