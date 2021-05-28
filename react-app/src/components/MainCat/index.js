@@ -30,7 +30,7 @@ function MainCat(){
 
                                 <div key={i} className="one-item-div3">
                                     <NavLink to={`/items/${c.id}`} className="category-items-nav3">
-                                        <img alt="p" src={c.photos.photo_url} className="category-items-img3"/>
+                                        <div className="category-items-img3"><img alt="p" src={c.photos.photo_url} className="category-items-img3"/></div>
                                         <div className="category-items-name3">{c.itemName}</div>
                                         <div className="price3">
                                             <div className="item-price3">$50</div>
