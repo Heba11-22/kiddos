@@ -10,16 +10,16 @@ import "./CategoryItems.css";
 
 function CategoryItems() {
     const dispatch = useDispatch();
-    const categoryId = useParams().id
-    const categoryItems = useSelector(state => state.categoryItems) || {} 
-    const items = categoryItems.items || {}
-    const items2 = ((Object.values(items))[0])
-    const mainCat_states = Object.values(useSelector(state => state.mainCategories)) || {}
+    const categoryId = useParams().id;
+    const categoryItems = useSelector(state => state.categoryItems) || {} ;
+    const items = categoryItems.items || {};
+    const items2 = ((Object.values(items))[0]);
+    const mainCat_states = Object.values(useSelector(state => state.mainCategories)) || {};
 
     useEffect(() =>{
-        dispatch(getCategoryItems(categoryId))
-        dispatch(allMainCategories())
-    }, [dispatch, categoryId])
+        dispatch(getCategoryItems(categoryId));
+        dispatch(allMainCategories());
+    }, [dispatch, categoryId]);
     
     return (
         <div className="category-page-div2">

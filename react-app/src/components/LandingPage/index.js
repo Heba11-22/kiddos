@@ -12,7 +12,7 @@ const LandingPage = () => {
     const dispatch = useDispatch();
     const latestItemsStore = useSelector(state => state.item.latestItems) || {};
     const latestItems = (latestItemsStore.items) || {};
-    // console.log(">>>>>>", latestItems[0])
+
     useEffect( () => {
         dispatch(getLatestItemsThunk());
     }, [dispatch]);
@@ -33,7 +33,6 @@ const LandingPage = () => {
                 <div className="scroll-div">
                     <ScrollMenu
                         className="main-latest-div"
-                        // scrollToSelected={false}
                         arrowLeft={<div style={{ fontSize: "50px", color: "rgb(214, 208, 208)" }}>{" < "}</div>}
                         arrowRight={<div style={{ fontSize: "70px", color: "rgb(214, 208, 208)" }}>{" > "}</div>}
                         data={(Object.values(latestItems)).map((item, i) => (

@@ -1,24 +1,11 @@
 import React, {useState} from 'react';
-// import { render } from 'react-dom';
-// import { Form, Field } from 'react-final-form';
 import validator from 'validator'
 import Select from 'react-select';
-// import Cards from 'react-credit-cards'
 import Continue from './Continue'
-// import Footer from '../Footer'
 import Pay from './Pay'
-// import {allCartItemsValue} from "./Cart/index.js";
-// import {
-//     formatCreditCardNumber,
-//     formatCVC,
-//     formatExpirationDate
-//   } from './CardUtils'
-
 import "./CheckoutForm.css"
 
 function CheckoutForm () { 
-    // console.log("kfdjdoiufoidsjlds",all.allCartItemsValue)
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -28,11 +15,6 @@ function CheckoutForm () {
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [pay, setPay] = useState(1);
-    
-    // const [zipCode, setZipCode] = useState('');
-    // const [zipCode, setZipCode] = useState('');
-    // const [zipCode, setZipCode] = useState('');
-    // const [validationErrors, setValidationErrors] = useState([]);
     const options = [
         {value: "AL", label:"AL"},
         {value: "AK", label:"AK"},
@@ -40,12 +22,7 @@ function CheckoutForm () {
         {value: "AR", label:"AR"},
         {value: "CA", label:"CA"},
         {value: "IL", label:"IL"},
-        // , , , , , "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", 'IN'
-        // ,"IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH",
-        // "NJ", "NM", "NY", "NC"
     ]
-
-   
 
     let validationErrors = [];
     const validate = () => {
@@ -56,7 +33,6 @@ function CheckoutForm () {
         if (!zipCode) validationErrors.push('Please provide a zip');
         if (!state) validationErrors.push('Please choose a State');
         if (!city) validationErrors.push('Please provide a City');    
-        // if (!cardNum) validationErrors.push('Please provide a City');    
         if (!email || !validator.isEmail(email)) validationErrors.push('Please provide a valid Email');
     
         return validationErrors;
@@ -75,28 +51,11 @@ const reset = () => {
 
     const onSubmit=(e) => {
         e.preventDefault();
-    let errors = validate();
-
-    // console.log("outside submit")
-    // if (errors.length > 0) return errors;
-    // else{
-        // console.log("inside submit")
-    // setFirstName('');
-    // setLastName('');
-    // setEmail('');
-    // setPhone('');
-    // setAddress('');
-    // setCity('');
-    // setState('');
-    // setZipCode('');
-   
+    let errors = validate(); 
     errors =[];
     setPay(0)
-    // alert("HHHHIIII");
     }
-    // const onSubmit=(e) => {
-    //     alert("HHHHIIII");
-    // }
+   
 let props = {firstName, lastName, address, city, state, zipCode, setPay}
     return(
         <div className="whole">
@@ -210,7 +169,6 @@ let props = {firstName, lastName, address, city, state, zipCode, setPay}
                                 className="button2"
                                 type="button"
                                 onClick={reset}
-                                // disabled={submitting || pristine}
                             >
                                 <h4 className="button2-h4 h4">Reset</h4>
                             </button>
@@ -227,14 +185,17 @@ let props = {firstName, lastName, address, city, state, zipCode, setPay}
         <div className="discount">
             <Pay />
         </div>
-        {/* <footer>
-            <Footer />
-        </footer> */}
     </div>
     )}
                 
 
 export default CheckoutForm;
+
+
+
+
+
+
 
 
 /*{/* // onSubmit={handleSubmit} */

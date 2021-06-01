@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { allMainCategories } from '../../store/mainCategories';
-// import { getCategoryThunk } from '../../store/categories'
 import SearchForm from "./SearchForm";
 
 function Categories () {
@@ -19,13 +18,10 @@ function Categories () {
 
     useEffect( () => {
         dispatch(allMainCategories());
-        // const value = await dispatch(allMainCategories())  // I can use the outcome of the dispatch right away but need async of course
-        // dispatch(getCategoryThunk(targetCat))
         }, [dispatch]);
 
     // function to open the menu
     const openMenu =  (e) => {
-        // if (showMenu || e.target.innerHTML == targetCat ) return;
         buttonValue = e.target.value || 0;
         catObject = (mainCat_states[buttonValue]);
         catObjectArr3 = (Object.values(catObject))[0] || 0;
@@ -45,8 +41,6 @@ function Categories () {
         document.addEventListener('click', closeMenu);
         return (() => document.removeEventListener('click', closeMenu))
     }, [showMenu]);
-
-
 
 return (
     <>

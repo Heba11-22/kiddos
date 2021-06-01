@@ -1,9 +1,8 @@
 import React from 'react';
-import { NavLink, useHistory} from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { useAlert } from 'react-alert'
-// import { useHistory, NavLink} from "react-router-dom";
 import FreeShipping from "../Cart/FreeShipping";
-import {allCartItemsValue} from "../Cart/CheckOut";
+import { allCartItemsValue } from "../Cart/CheckOut";
 
 const Pay = () => {
     const history = useHistory();
@@ -49,13 +48,10 @@ const Pay = () => {
                     {((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)) + (allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5))}
                 </div>
             </div>
-            {/* <NavLink to="/" className="continue"> */}
                 <button className="continue fake" id="order" title="Thanks" onClick={() => {alert.show('Your order has been placed!!!')}}>Place Order</button>
-            {/* </NavLink> */}
             <button
                 className="button3"
                     onClick={() => history.push(`/cart`)}
-                    // disabled={submitting || pristine}
                 >
                     <h4 className="button3-h4 h4">Cancel</h4>
             </button>

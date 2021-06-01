@@ -3,8 +3,6 @@
     position:static;
     padding-top: 14%;
     display: flex;
-    /* flex-direction: column; */
-
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
@@ -86,7 +84,6 @@
 
 .shop-girl-h{
     color: rgb(240, 157, 222);
-    /* outline: none; */
 }
 
 .shop-boy-h{

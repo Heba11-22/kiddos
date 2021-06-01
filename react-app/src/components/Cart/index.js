@@ -1,51 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { useAlert } from 'react-alert'
-// import Select from 'react-select';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import { getCartItemsThunk, deleteAnItemThunk, addCount, deleteCount } from "../../store/cart"
 import { getAllItemsThunk } from "../../store/allItems"
 import { useSelector, useDispatch } from "react-redux";
 import { saveAnItemThunk } from "../../store/savedItems";
 import { Modal } from '../../context/Modal';
-// import { saveAnItemThunk } from "../../store/savedItems";
 import LoginSignUpModal from '../LoginSignUpForm'
-// import Footer from "../Footer"
 import Checkout from "./CheckOut"
 import Footer from "../Footer"
-// import FreeShipping from "./FreeShipping";
 import "./Cart.css";
-
 
 export let allCartItemsValue = 0;
 function Cart () {
     const dispatch = useDispatch();
-    const alert = useAlert()
-    const user = useSelector(state => state.session.user)
-    const allItems = useSelector(state => state.allItems.allItems) || {}
-    const oneItem = allItems.items || {}
-    const oneItemArray = Object.values(oneItem) || {}
-    const allCartItems = useSelector(state => state.cartItems.items) || {}
-    let defaultState = {}
+    const alert = useAlert();
+    const user = useSelector(state => state.session.user);
+    const allItems = useSelector(state => state.allItems.allItems) || {};
+    const oneItem = allItems.items || {};
+    const oneItemArray = Object.values(oneItem) || {};
+    const allCartItems = useSelector(state => state.cartItems.items) || {};
+    let defaultState = {};
     Object.values(allCartItems).forEach((item, i) => {
         // debugger
-        defaultState[i] = 24
+        defaultState[i] = 24;
     })
-// console.log("LSLSLSL", Object.keys(allCartItems).length)
+
     let defaultState2 = {}
     Object.values(allCartItems).forEach((item, i) => {
         defaultState2[i] = 1
     })
-    const [selectedValue, setSelectedValue] = useState(defaultState)
-    // const [allValue, setAllValue] = useState(defaultState)
-    // const [selectedCount, setSelectedcount] = useState(defaultState2)
-    const [cartItemNumber, setCartItemNumber] = useState(Object.keys(allCartItems).length)
-    const [all, setAll] = useState(0)
-    const [force, setForce] = useState(0)
+    const [selectedValue, setSelectedValue] = useState(defaultState);
+    // const [cartItemNumber, setCartItemNumber] = useState(Object.keys(allCartItems).length);
+    const [all, setAll] = useState(0);
+    const [force, setForce] = useState(0);
     const [showModal, setShowModal] = useState(false);
-    // const [cartItemsValue, setCartItemsValue] = useState(24 * (Object.values(allCartItems)).length)
-    const [shipping, setShipping] = useState(0)
-    // const [quantity, setQuantity] = useState({})
+    const [shipping, setShipping] = useState(0);
     const forceUpdate = () => setForce(force + 1);
     const options = [
         {value: 24, label:'1'},
@@ -53,7 +44,7 @@ function Cart () {
         {value: 72, label:'3'},
         {value: 96, label:'4'},
         {value: 120, label:'5'}
-    ]
+    ];
 
     const parseCount = (value) => {
         switch (value){
@@ -87,10 +78,6 @@ function Cart () {
         dispatch(getAllItemsThunk());
     }, [dispatch])
 
-
-    // const saveLater = (e) => {
-    // }
-
     return (
         <div className="cart-div-whole">
             <div className="cart-div">                
@@ -117,7 +104,6 @@ function Cart () {
                                             <option value="72" label='3'>3</option>
                                             <option value="96"  label='4'>4</option>
                                         </select>
-                                        {/* {console.log("????", cartItemsValue)} */}
                                         <div className="price-divs">
                                             <div className="item-price-cart1" style={{paddingBottom: "5px", paddingTop: "25px"}}>Reg. $50</div>
                                             <div className="item-price-cart2" style={{color: "red", paddingBottom: "5px"}}>Sale $24</div>
@@ -131,9 +117,7 @@ function Cart () {
                                         className="radio"
                                         value="0"
                                         onClick={(e) => {setShipping(e)}} 
-                                        // onChange={test}
                                         >
-                                        {/* {console.log("GGGGGGGG", shipping)} */}
                                         
                                             <div style={{color: "black", outline: "none"}}>
                                                 <span style={{fontWeight: "bold"}}>
@@ -145,12 +129,10 @@ function Cart () {
                                             </div>
                                         </RadioButton>
                                         <RadioButton 
-                                        // onChange={test}
                                         className="radio"
                                         value="1"
                                         onClick={(e) => {setShipping(e)}} 
                                         >
-                                        {/* {console.log("GGGGGGGG", shipping)} */}
                                             <div style={{color: "black"}}>
                                             <span style={{fontWeight: "bold", marginRight: ".3em"}}>
                                                 Pick Up In 5-8 business days  
@@ -171,29 +153,13 @@ function Cart () {
                                 
                                     <button className="save-for-later" 
                                         onClick={  (e) => {
-                                        // dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1]).id)
-                                            // console.log("????USER")
                                         if (!user ) {
                                             setShowModal(true)
-                                            // console.log("NO USER")
                                         } else if (user) {
-                                            // console.log("USER")
                                              dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
                                              dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
-                                            // setCartItemNumber(cartItemNumber-1)
-                                            // dispatch(saveAnItemThunk(itemId))
-                                            // history.push(`/savedItems`)
-                                                // alert.show('Added to your Favorite List')
                                             }
-                                        // console.log("GGGGGG", oneItemArray[(item.itemId)-1].id)
-                                        // setTimeout(() => {
-
-                                        // }, 1000)
-                                        // window.location.forceUpdate()
-                                        // window.location.reload(false)
-                                            // forceUpdate()
                                             window.location.reload()
-
                                         }}
                                     >
                                         Save For Later
@@ -201,7 +167,6 @@ function Cart () {
                                     <button className="delete-item" onClick={ async () => {
                                         await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
                                         window.location.reload()
-                                        // setCartItemNumber(cartItemNumber-1)
                                         }}>
                                         Delete From Cart
                                     </button>
@@ -209,7 +174,6 @@ function Cart () {
                                 </div>
                                 </>
                             }
-                            
                         </li>
                     ))}
                 </ul>
@@ -223,14 +187,12 @@ function Cart () {
             </footer>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    {/* <h3 className="sen-plz-login">Please Login or Sign up</h3> */}
                     <LoginSignUpModal setShowModal={setShowModal}/>
                 </Modal> 
         )}
         </div>
     )
 }
-
 
 export default Cart;
 

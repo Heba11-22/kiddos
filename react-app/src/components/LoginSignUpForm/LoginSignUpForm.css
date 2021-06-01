@@ -2,41 +2,31 @@
 .sign-page-div{
     height: 100%;
 }
+
 .sen-plz-login{
     display: flex;
     justify-content: center;
     font-family: 'Emilys Candy', cursive;
     font-size: 30px;
 }
+
 .log-sign-forms-div {
     display: flex;
     justify-content: space-around;
-    /* flex-direction: column; */
     height: 100%;
     align-items: center;
  }  
 
-/* .log-sign-forms-div, */
-.log-div {
-    /* border-right: 2px solid rgb(209, 207, 207); */
-}
 .log-div,
 .signup-div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /* margin-bottom: 0px; */
-    /* margin-top: 30%;  */
     height: 100%;
-    /* background:rgb(246, 245, 245); */
-    /* border-radius: 5px; */
     width: 50%;
-    
  } 
- /* .login-form-div {
-     margin-bottom: 30%;
- } */
+
  .login-form-div,
  .signup-form-div{
     height: 65%;
@@ -46,10 +36,12 @@
     justify-content: center;
     align-items: center;
  }
+
  .login-form-div {
 
      border-right: 2px solid rgb(209, 207, 207);
  }
+
  .login-forms,
  .signup-forms {
     height: 80%;
@@ -58,7 +50,6 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    
  }
 
  .login-form,
@@ -68,10 +59,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* align-items: flex-start; */
-    align-items: center;
-    /* margin-top: 10px; */
-    
+    align-items: center;    
  }
 
 .password,
@@ -80,14 +68,11 @@
 .email2,
 .password2,
 .repeat-pass {
-    /* /* margin-top: 10px; */
     width: 50%;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    
 }
 
 .log-in,
@@ -104,8 +89,8 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     border-radius: 6px;
-    /* box-shadow: -3px 5px 8px rgba(149, 147, 147, 0.692); */
 }
+
 .demo-link {
     border: none;
     outline: none;
@@ -113,5 +98,4 @@
     cursor: pointer;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
-    /* padding-bottom: 30%; */
  } 

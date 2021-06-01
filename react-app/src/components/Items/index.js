@@ -1,129 +1,85 @@
 import React, { useEffect, useState } from 'react';
-// import { useSelector } from "react-redux";
 import {useDispatch, useSelector } from 'react-redux'
 import { useParams } from "react-router-dom";
-import { useHistory, NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ImageZoom from 'react-medium-image-zoom'
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import { useAlert } from 'react-alert'
-// import { useLocation } from 'react-router-dom'
-// import { getSingleItem } from '../../store/items';
 import { allMainCategories } from '../../store/mainCategories'
 import LoginSignUpModal from '../LoginSignUpForm'
 import { Modal } from '../../context/Modal';
 import { saveAnItemThunk } from "../../store/savedItems";
 import {getLatestItemsThunk} from "../../store/items"
-import {addAnItemThunk , addCount} from "../../store/cart"
+import {addAnItemThunk } from "../../store/cart"
 import Footer from "../Footer"
 import "./Items.css"
-// import "../LandingPage/LandingPage.css"
-
 
 function SingleItem() {
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const alert = useAlert();
     const user = useSelector(state => state.session.user)
     const items = useSelector(state => state.mainCategories) 
     const saved = useSelector(state => state.cartItems.items) || {}
     const saved2 = (Object.values(saved))
-
-    // console.log("USEEEEER",saved2.itemId)
-    // const userId = user.id || {}
     const [item, setItem] = useState({})
-    // const [targtedItem, setTargtedItem] = useState()
     const [showModal, setShowModal] = useState(false);
     const { itemId } = useParams();
 
   useEffect( () => {
     dispatch(allMainCategories())
-    }, [dispatch])
+    dispatch(getLatestItemsThunk())
+    if (!itemId) return;
+    (async () => {
+        const res = await fetch(`/api/items/${itemId}/`);
+        const item = await res.json();
+        setItem(item)
+    })();
+    }, [dispatch, setItem, itemId])
 
-
-    useEffect ( ()=> {
-        if (!itemId) return;
-        (async () => {
-            const res = await fetch(`/api/items/${itemId}/`);
-            const item = await res.json();
-            setItem(item)
-        })();
-        // dispatch(getSingleItem(itemId))
-    }, [setItem, itemId])
+    // useEffect ( ()=> {
+    //     if (!itemId) return;
+    //     (async () => {
+    //         const res = await fetch(`/api/items/${itemId}/`);
+    //         const item = await res.json();
+    //         setItem(item)
+    //     })();
+    // }, [setItem, itemId])
 
     const latestItemsStore = useSelector(state => state.item.latestItems) || {}
     const latestItems = (latestItemsStore.items) || {}
-    // console.log(">>>>>>", latestItems[0])
-    useEffect( () => {
-        dispatch(getLatestItemsThunk())
-    }, [dispatch])
+    // useEffect( () => {
+    //     dispatch(getLatestItemsThunk())
+    // }, [dispatch])
 
 
 const itemValues = Object.values(item)[0] || {}
 let photo_url = (Object.values(itemValues))[6] || {}
-// console.log(photo_url.photo_url)
 let sizesArray = itemValues.sizes || {};
 let currentItemId = itemValues.categoryId
-// console.log("111IIIIIIIIIIIII",itemValues.categoryId)
 let suggestedItems = items[currentItemId] || {}
-let suggestedItemsValues = (Object.values(suggestedItems))[0]|| {}
-// let suggestedItemsValues2 = Object.values(suggestedItemsValues) || {}
-// let suggestedItemsValues3 = Object.values(suggestedItemsValues2) 
-// let suggestedItems2 = suggestedItemsValues3[0] 
-// console.log("222IIIIIIIIIIIII",suggestedItemsValues)
-// let savedItemsArray = []
+// let suggestedItemsValues = (Object.values(suggestedItems))[0] || {}
 const handleSavedItems = (e) => {
-    // console.log("test")
     if (!user ) {
         setShowModal(true)
-        // console.log("HIIIII", itemId)
-        // if(user) console.log("UUUUU", user.id)
-        //    console.log("NOT A USER")
-        //    history.push(`/signform`)
     } else if (user) {
         dispatch(saveAnItemThunk(itemId))
-        //  if (savedItemsArray.includes(itemId)) { 
-            //      alert("Your file is being uploaded!")
-            //     console.log("????????????")
-            //     return}
-            //  savedItemsArray.push(itemId)
-            // console.log("!!!!!!!!", userId, itemId)
-            //  console.log("HIIIII", e.target.value, "UUUUU", user.id)
-            // history.push(`/savedItems`)
                 alert.show('Added to your Favorite List');
-
-
-            //  } else alert("Your file is being uploaded!")
         }
     }
     let itemCart = [];
     for (let i = 0; i < saved2.length; i++){
         itemCart.push(saved2[i].itemId)
     }
-    // console.log("??????", itemCart)
-
 
     const handleSavedCart = async(e) => {
-        // if (itemCart.includes(itemId)) {
-        //     dispatch(addCount({cartItemId: itemId}))
-
-        // } else {
-
-            await dispatch(addAnItemThunk(itemId));
-        // }
-        // dispatch()
-        // history.push(`/cart`)
+        await dispatch(addAnItemThunk(itemId));
         alert.show('Added to the Cart');
     }
 
     return (
         <>
-            {/* <div className="links-to-previuos">
-                <NavLink to="/" className="home-nav">
-                    HOME >
-                </NavLink>
-            </div> */}
             <div className="single-item">
-                {/* <LoginSignUpModal/> */}
                 <div className="item-img-div">
                 <ImageZoom
                     image={{ 
@@ -139,7 +95,6 @@ const handleSavedItems = (e) => {
                     />
                 </div>
                 <div className="item-info-div">
-                    {/* <div className="bag-button-div"><button className="bag-button" onClick={handleBag}>Add To Bag</button></div> */}
                     <h1 className="item-name">{itemValues.itemName}</h1>
                     <h4 className="item-price-sale-sen">OUR PRICE: </h4>
                     <div className="price">
@@ -171,18 +126,6 @@ const handleSavedItems = (e) => {
                         <h2>Product Details: </h2>
                         <h3 style={{width: "50%", fontWeight: "lighter"}}>{itemValues.detail}</h3>
                     </div>
-                    {/* <ScrollMenu
-                            className="main-latest-div"
-                            arrowLeft={<div style={{ fontSize: "50px", color: "gray" }}>{" < "}</div>}
-                            arrowRight={<div style={{ fontSize: "50px", color: "gray" }}>{" > "}</div>}
-                            data={(Object.values(suggestedItemsValues)).map((suggestedItem, i) => (
-                                <NavLink to={`/items/${suggestedItem.id}`} className="item-name-nav">
-                                {console.log("dfgetrgtgrwg",suggestedItem)}
-                                            {/* <img className="latest-items-img" src={suggestedItem.photos.photo_url}/> */}
-                                            {/* <h3 className="item-name">{suggestedItem.itemName}</h3> */}
-                                {/* </NavLink> */}
-                            {/* ))} */}
-                            {/* />  */}
                 </div>
                 {showModal && (
                     <div>

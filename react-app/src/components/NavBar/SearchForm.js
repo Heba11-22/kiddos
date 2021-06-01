@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory, NavLink } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import LogoutButton from '../LoginSignUpForm/LogoutButton'
 import { searchThunk } from '../../store/search';
 import { getCartItemsThunk } from "../../store/cart"
-import { logout } from "../../store/session";
 import { Modal } from '../../context/Modal';
-// import { saveAnItemThunk } from "../../store/savedItems";
 import LoginSignUpModal from '../LoginSignUpForm'
-// import LogSign from '../LogSign'
-
 
 const SearchForm = () => {
     const dispatch = useDispatch();
     const history = useHistory()
-    // const search_icon = <i className="fas fa-search"></i>
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cartItems.items) || {}
     const [search, setSearch] = useState("")
@@ -43,7 +38,6 @@ const SearchForm = () => {
         if (!user ) {
             setShowModal(true)
          } else if (user) {
-            // dispatch(saveAnItemThunk(itemId))
              history.push(`/savedItems`)
             }
     }
@@ -59,7 +53,6 @@ const SearchForm = () => {
         <div className="search-saved-div">
             <form onSubmit={handleSubmit}>
                 <div className="search-bar">
-                    {/* {search_icon} */}
                     <input style={{outline:"none"}} type="text"
                         placeholder="Search"
                         value={search}
@@ -74,13 +67,11 @@ const SearchForm = () => {
                 </button>
             </div>
             <div className="my-fav-div">
-                {/* <h5 style={{marginBottom: ".2px", color: "red"}}>{savedCount}</h5> */}
                 <NavLink to="/savedItems" className="my-fav" onClick={handleSavedItems}>
                     <span className="material-icons">&#xe87d;</span>
                 </NavLink>
             </div>
             <div className="my-cart">
-                {/* <div style={{color:"red"}}>{allCartItemsArr}</div> */}
                 <h5 style={{marginBottom: ".2px", color: "red"}}>{cartCount}</h5>
                 <NavLink to="/cart" className="my-cart" style={{color:"black"}}>
                     <span className="material-icons">&#xe8cc;</span>

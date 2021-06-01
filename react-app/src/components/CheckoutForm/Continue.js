@@ -37,14 +37,13 @@ function Continue ({props}) {
         {value: "2026", label:"2026"}
     ]
 
-    const onSubmit=(e) => {
-        e.preventDefault();
-        setCardNum('');
-        setNameOnCard('');
-        // errors =[];
-        props.setPay(0)
-        // alert("HHHHIIII");
-        }
+    // const onSubmit=(e) => {
+    //     e.preventDefault();
+    //     setCardNum('');
+    //     setNameOnCard('');
+    //     props.setPay(0)
+    //     }
+
     const handleSubmit=(e) => {
         // e.preventDefault();
         // setCardNum('');
@@ -65,8 +64,8 @@ function Continue ({props}) {
                             <div className="div-info">{props.city}, {props.state} {props.zipCode}</div>
                         </div>
                     <div className="payment"><h1 className="payment-h2">Payment</h1></div>
-        {/* <CardDisplay number="4321 0987 6543 2109" square={true} expand={true}  active="amex|discover|mc|visa" style={{width: "50vw"}}/> */}
-        {/* <CardDisplay number="4321 0987 6543 2109"/> */}
+                    {/* <CardDisplay number="4321 0987 6543 2109" square={true} expand={true}  active="amex|discover|mc|visa" style={{width: "50vw"}}/> */}
+                    {/* <CardDisplay number="4321 0987 6543 2109"/> */}
                     {/* <form onSubmit={onSubmit} className="card-form"> */}
                     <div className="form-card">
                     <Form
@@ -121,7 +120,6 @@ function Continue ({props}) {
                                     className="card-num input-card"  
                                     type="integer"
                                     name="cardNum"
-                                    pattern="[\d| ]{16,22}"
                                     format={formatCreditCardNumber}
                                     value={cardNum}
                                     onChange={(e) => { setCardNum(e.target.value)}} 
@@ -139,7 +137,6 @@ function Continue ({props}) {
                                             pattern="\d\d/\d\d"
                                             placeholder="Valid Thru"
                                             format={formatExpirationDate}
-                                            
                                         />
                                         <Field
                                         className="select"
@@ -167,16 +164,29 @@ function Continue ({props}) {
                                 </div>
                                 <button
                                     className="button3 bb"
-                                        // type="submit"
                                         onClick={() => history.push(`/cart`)}
-                                        // disabled={submitting || pristine}
                                     >
                                         <h4 className="button3-h4 h4">Cancel</h4>
                                 </button>
-                                    {/* <div className="discount" type="submit">
-                                        <Pay />
-                                    </div> */}
-                            {/* </form> */}
+                                </div> 
+                            </form>
+                            )
+                        }}
+                /> 
+                </div>
+                </div>
+    )
+}
+
+export default Continue;
+
+
+
+
+
+
+
+
 
 
 
@@ -253,14 +263,4 @@ function Continue ({props}) {
                                             Reset
                                         </button>
                                         </div>  */}
-                                        </div> 
-                            </form>
-                            )
-                        }}
-                /> 
-                </div>
-                </div>
-    )
-}
-
-export default Continue;
+                                        

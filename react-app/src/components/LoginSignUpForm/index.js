@@ -1,25 +1,16 @@
 import React from "react";
-// import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-// import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
-// import Footer from "../Footer";
 import './LoginSignUpForm.css'
-
 
 const LoginSignUpModal = ({setShowModal}) => {
     const history = useHistory()
-    // const [showModal, setShowModal] = useState(false);
 
     return (
         <div className="sign-page-div">
-            {/* <div className="nav-div">
-                <NavBar/> 
-            </div> */}
-                <h3 className="sen-plz-login">Please Login or Sign up</h3>
+            <h3 className="sen-plz-login">Please Login or Sign up</h3>
             <div className="log-sign-forms-div">
-
                 <div className="log-div">
                     <LoginForm setShowModal={setShowModal}/>
                 </div>
@@ -27,9 +18,6 @@ const LoginSignUpModal = ({setShowModal}) => {
                     <SignUpForm setShowModal={setShowModal}/>
                 </div>
             </div>
-            {/* <footer> */}
-                {/* <Footer /> */}
-            {/* </footer> */}
         </div>
     )
 }
