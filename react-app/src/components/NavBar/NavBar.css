@@ -1,23 +1,9 @@
 
-/* @import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap'); */
-
-
 .navBar {
     position: fixed;
     opacity: .9;
     width: 100%;
     z-index: 1;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-}
-
-.navBar1 {
-    /* position: fixed;
-    opacity: .9;
-    width: 100%; */
-    
-    /* margin-top: 0px; */
 }
 
 .sen1-div {
@@ -32,18 +18,15 @@
 
 .sen1 {
     color: white;
-    /* font-family: 'Frijole', cursive; */
 }
 
 .kiddos {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65px;
-    /* align-self: flex-start; */
+    height: 60px;
     background: white;
-    outline: none;
-   
+    outline: none;   
 }
 
 .k,
@@ -53,9 +36,6 @@
     font-weight: bolder;
     font-size: 32px;
     color:rgb(3, 1, 3)
-    /* color:rgb(119, 49, 113) */
-    /* align-self: flex-end; */
-
 }
 
 .i,
@@ -67,7 +47,6 @@
 }
 
 .main-cat-ul{
-    /* background: red; */
     width: 65%;
     display: flex;
     flex-direction: row;
@@ -89,16 +68,12 @@ li {
 .kiddos-link{
     text-decoration: none;
 }
-/* .h3{
-    background: red;
-} */
 
 .kiddos-link{
     text-decoration: none;
     cursor: pointer;
 }
 
-/* .main-cat-button, */
 .search-button,
 button {
     border: none;
@@ -107,26 +82,14 @@ button {
     cursor: pointer;
 }
 
-/* .my-fav-div{
-    display: flex;
-    flex-direction: column;  */
-    /* justify-content: center; */
-    /* align-items: center;  */
-    /* height: 0vw; */
-    /* padding: 0px .4vw 1.8vw .4vw; */
-/* } */
-
 .my-cart{ 
     display: flex;
     flex-direction: column; 
-    /* justify-content: center; */
     align-items: center; 
-    /* height: 0vw; */
-    padding: 0px .4vw 1vw .4vw;
+    padding: 0px .4vw 1.3vw .4vw;
 }
 
 .third-nav-div {
-    /* background: red; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -136,63 +99,35 @@ button {
 }
 
 .search-saved-div {
-    /* width: 30%; */
-    /* padding-right: 13%; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-/* .search-bar{
-    align-self: flex-end;
-}
-.search-button {
-    height: 3px;
-} */
+
 .search-button-input{
     margin-bottom: 4px;
     cursor: pointer;
     height: 23px;
     border-radius: 3px;
-    /* box-shadow: -3px 5px 8px rgba(149, 147, 147, 0.692); */
 }
 .search-button{
     margin-left: -80%;
     color: rgb(87, 84, 84);
 }
 
-.search-button-div{
-    /* width: 2px;
-    height: 2px; */
-    /* size: 2px; */
-}
-.my-fav-div{
-    /* padding-left: 24%; */
-}
 .my-fav {
     color: rgb(22, 22, 22);
     text-decoration: none;
 }
 
-/* .sen-plz-login{
-    display: flex;
-    justify-content: center;
-    font-family: 'Emilys Candy', cursive;
-    font-size: 30px;
-} */
-
 .drop-down-div{
     width: 12%;
-    /* margin-bottom: -100px; */
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid black; */
     background:rgb(255, 255, 255);
-    /* opacity: 1; */
-    /* border-radius: 6px; */
     box-shadow: -3px 5px 8px rgba(149, 147, 147, 0.692);
 }
 

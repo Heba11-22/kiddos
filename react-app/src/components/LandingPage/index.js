@@ -5,18 +5,17 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {getLatestItemsThunk} from "../../store/items"
 import Shop from "./Shop";
 import Footer from "../Footer";
-// import {getLatestItemsThunk} from "../../store/items"
 import "./LandingPage.css";
 
 
 const LandingPage = () => {
-    const dispatch = useDispatch()
-    const latestItemsStore = useSelector(state => state.item.latestItems) || {}
-    const latestItems = (latestItemsStore.items) || {}
+    const dispatch = useDispatch();
+    const latestItemsStore = useSelector(state => state.item.latestItems) || {};
+    const latestItems = (latestItemsStore.items) || {};
     // console.log(">>>>>>", latestItems[0])
     useEffect( () => {
-        dispatch(getLatestItemsThunk())
-    }, [dispatch])
+        dispatch(getLatestItemsThunk());
+    }, [dispatch]);
 
     return (
         <div className="landing">
@@ -31,8 +30,6 @@ const LandingPage = () => {
             <div className="latest-sen2">
                 <h3>Shop The Latest Trends & Styles</h3>
             </div>
-            {/* <div className="latest-items-div">
-                <ul className="latest-items-ul"> */}
                 <div className="scroll-div">
                     <ScrollMenu
                         className="main-latest-div"

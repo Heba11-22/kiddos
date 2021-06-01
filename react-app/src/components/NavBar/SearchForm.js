@@ -12,58 +12,31 @@ import LoginSignUpModal from '../LoginSignUpForm'
 
 
 const SearchForm = () => {
-    const search_icon = <i className="fas fa-search"></i>
     const dispatch = useDispatch();
     const history = useHistory()
+    // const search_icon = <i className="fas fa-search"></i>
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cartItems.items) || {}
-    let cartCount = Object.keys(cart).length
-    // const saved = useSelector(state => state.savedItems.savedItems) || {}
-    // const saved2 = saved.items || {}
-    // let savedCount = Object.keys(saved2).length
-    // console.log("><><><", savedCount)
-    // const allCartItems = useSelector(state => state.cartItems.items) || {}
-    let allCartItems;
-    // let allCartItemsArr;
-    // const [item, setItem] = useState({})
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
-    // const [save, setSave] = useState(savedCount);
-    // const { itemId } = useParams();
-    // const [isSearch, setIsSearch] = useState(false)
-    // useEffect ( ()=> {
-        //     if (!itemId) return;
-        //     (async () => {
-            //         const res = await fetch(`/api/items/${itemId}`);
-            //         const item = await res.json();
-            //         setItem(item)
-            //     })();
-            //     // dispatch(getSingleItem(itemId))
-            // }, [setItem, itemId])
-            
-            useEffect( async () => {
-                allCartItems = await dispatch(getCartItemsThunk()) 
-                // await dispatch(logout());
-                
-                // allCartItemsArr = await ((Object.values(allCartItems))[0]).length   // ????????????????
-                // console.log("121212121", allCartItemsArr)
-        // let allCartItems = await dispatch(getCartItemsThunk());
-        // allCartItemsValue = allCartItems.items
-    //    console.log("2222BBBBBBBBBB",allCartItems.items)
-        
-    }, [dispatch])
+
+    let cartCount = Object.keys(cart).length
+    let allCartItems;
+
+    useEffect( async () => {
+        allCartItems = await dispatch(getCartItemsThunk());         
+    }, [dispatch]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        history.push(`/maincategories/${search}`)
-        setSearch("")
+        history.push(`/maincategories/${search}`);
+        setSearch("");
     }
 
     const onChange = (e) => {
         setSearch(e.target.value)
         e.preventDefault()
         dispatch(searchThunk(e.target.value));
-        // console.log(search)
     }
     
     const handleSavedItems = (e) => {
@@ -75,30 +48,24 @@ const SearchForm = () => {
             }
     }
 
-
-    
-
     return (
         <>
         {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    {/* <h3 className="sen-plz-login">Please Login or Sign up</h3> */}
                     <LoginSignUpModal setShowModal={setShowModal}/>
                 </Modal> 
         )}
+
         <div className="search-saved-div">
-        
             <form onSubmit={handleSubmit}>
                 <div className="search-bar">
-                    {search_icon}
+                    {/* {search_icon} */}
                     <input style={{outline:"none"}} type="text"
                         placeholder="Search"
                         value={search}
                         onChange={onChange}
                         className="search-button-input"
-
                     />
-                    {/* {console.log(search)} */}
                 </div>
             </form>
             <div className="search-button-div">
@@ -127,11 +94,8 @@ const SearchForm = () => {
                 <span className="material-icons">&#xea77;</span>
                 </div>
             )}
-
-        </div>
-        
+        </div>        
         </>
-
     )
 }
 
