@@ -1,7 +1,7 @@
 # Welcome to [*Kiddos*](https://heba-kiddos.herokuapp.com/)!
 ![Screen Shot 2021-06-01 at 7 13 21 PM](https://user-images.githubusercontent.com/70715884/120407850-88b09180-c313-11eb-8a88-3b5d03764961.png)
 
-### [*Kiddos*](https://heba-kiddos.herokuapp.com/) is an e-Commercial web application for kids clothing using React/Redux in the frontend and Flask in the backend.
+### [*Kiddos*](https://heba-kiddos.herokuapp.com/) is an e-Commercial web application for kids' clothing using React/Redux in the frontend and Flask in the backend.
 
 ## Technologies Used:
     1- React / Redux.
@@ -14,10 +14,10 @@
     8- Docker.
 
 #### The landing page has:
-    1- The category drop-downs to let a user to navigate between the items sorted by the categories.
+    1- The category drop-downs let a user navigates between the items sorted by the categories.
     2- The search so a user can search for an item.
     3- The latest items have been added to the database.
-    4- The main two categories "Girls" and "Boys" in ease to navigate to the items for girls and boys.
+    4- The main two categories "Girls" and "Boys" in easy navigate items for girls and boys.
     
 
 ### [*Kiddos*](https://heba-kiddos.herokuapp.com/) allows users to:
@@ -33,8 +33,8 @@
 
 #### 3- Explore the items by:
     1- searching by the item name.
-    2- explore the categories drop-downs in the nav bar.
-    3- side menus which are int the sides of the exploring pages.
+    2- explore the categories drop-downs in the navbar.
+    3- side menus which are in the sides of the exploring pages.
 
 ![Screen Shot 2021-06-01 at 7 23 17 PM](https://user-images.githubusercontent.com/70715884/120422287-8e1ad580-c32d-11eb-962c-4e1998a46c09.png)
 
