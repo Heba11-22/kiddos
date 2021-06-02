@@ -21,7 +21,7 @@ function CheckoutForm () {
         {value: "AZ", label:"AZ"},
         {value: "AR", label:"AR"},
         {value: "CA", label:"CA"},
-        {value: "IL", label:"IL"},
+        {value: "WI", label:"WI"},
     ]
 
     let validationErrors = [];
