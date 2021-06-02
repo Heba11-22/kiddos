@@ -28,8 +28,9 @@
    
 #### 2- Add to the cart page:
    The logged in and logged out users can add, and delete items to the cart page.
+   The price changes when the user add items value more than $50.
    
-   <img width="1440" alt="Screen Shot 2021-06-01 at 7 25 38 PM" src="https://user-images.githubusercontent.com/70715884/120422012-02a14480-c32d-11eb-92db-2d0e532a0dc1.png">
+   ![Cart](https://user-images.githubusercontent.com/70715884/120428457-48640a00-c339-11eb-973e-68efe20acc89.gif)
 
 #### 3- Explore the items by:
     1- searching by the item name.
