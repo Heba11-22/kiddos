@@ -68,7 +68,7 @@
 .email2,
 .password2,
 .repeat-pass {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
