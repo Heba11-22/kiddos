@@ -24,6 +24,8 @@
 #### 1- Create an account, and Log in / Log out:
    The users can not add an item to their favorite lists page unless they are logged in. 
    
+   ![LogIn](https://user-images.githubusercontent.com/70715884/120427593-c7584300-c337-11eb-89ee-3cfc382e8093.gif)
+
    https://user-images.githubusercontent.com/70715884/120420711-7d1c9500-c32a-11eb-8b95-9babefa62b14.mov
    
 #### 2- Add to the cart page:
