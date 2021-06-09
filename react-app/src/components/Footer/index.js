@@ -16,6 +16,14 @@ const Footer = () => {
                     <h3>Used Languages: </h3>
                     <h5> Python, Flask, JavaScript, React, JSX, CSS </h5>
                 </div>
+                <div className="my-name">
+                    <h4 className="cpyright">
+                        <span className="material-icons">&#xe90c;</span>
+                        2021 Kiddos
+                    </h4>
+                    {/* <div className="material-icons">&#xe90c;</div>
+                    <h5>2021 Kiddos </h5> */}
+                </div>
             </div>
             <div className="icons">
                 <div className="github">
