@@ -118,8 +118,8 @@ const handleSavedItems = (e) => {
                         </ul>
                     </div>
                     <div className="save-bag-buttons">
-                        <div className="save-button-div"><button className="save-button" value={itemId} onClick={handleSavedItems}>Add To Favorite</button></div>
-                        <div className="bag-button-div"><button className="bag-button" value={itemId} onClick={handleSavedCart}>Add To Cart</button></div>
+                        <button className="save-button save-button-div" value={itemId} onClick={handleSavedItems}>Add To Favorite</button>
+                        <button className="bag-button bag-button-div" value={itemId} onClick={handleSavedCart}>Add To Cart</button>
                     </div>
                     <div className="item-detail">
                         
