@@ -78,7 +78,7 @@ let props = {firstName, lastName, address, city, state, zipCode, setPay}
                             type="text"
                             name="firstName"
                             value={firstName}
-                            onChange={(e) => { setFirstName(e.target.value)}} 
+                            onChange={(e) => { setFirstName(e.target.value) }} 
                             required/>
                         </div>
 
@@ -160,7 +160,7 @@ let props = {firstName, lastName, address, city, state, zipCode, setPay}
                             required/>
                         </div>
 
-                        <div className="button ">
+                        <div className="button">
                             <button type="submit" className="button1">
                                 <h4 className="button1-h4 h4">Continue</h4>
                             </button>

@@ -30,7 +30,9 @@ const Checkout = ({shipping}) => {
                     Subtotal
                 </div>
                 <div className="total-price">
-                    ${allCartItemsValue}
+                   {/* { allCartItemsValue &&  */}
+                    <div>${allCartItemsValue}</div>
+                   {/* }  */}
                 </div>
             </div>
             <div className="shipping-div">
@@ -66,12 +68,21 @@ const Checkout = ({shipping}) => {
                     {((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)) + (allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5))}
                 </div>
             </div>
-            <NavLink to="/checkout" className="proceed">
-                Proceed to Checkout
-            </NavLink>
-            <NavLink to="/" className="continue">
-                Continue Shopping
-            </NavLink>
+            { allCartItemsValue && 
+                <div className="proceed-continue">
+                    <NavLink to="/checkout" className="proceed">
+                        Proceed to Checkout
+                    </NavLink>
+                    <NavLink to="/" className="continue">
+                        Continue Shopping
+                    </NavLink>
+                </div>
+            }
+            {!allCartItemsValue &&
+                <NavLink to="/" className="continue">
+                    Continue Shopping
+                </NavLink>
+            }
         </div>
     )
 }
