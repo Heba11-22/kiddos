@@ -122,9 +122,9 @@ label{
 
 .button3{
     background-color: rgb(146, 23, 23);
-    width: 65%;
+    width: 50%;
     margin-top: 3%;
-    height: 3vw;
+    height: 2vw;
     border-radius: 3px;
     display: flex;
     justify-content: space-around;
