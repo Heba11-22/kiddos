@@ -23,7 +23,7 @@
     align-items: center;
     width: 50%;
     background-color: white;
-    height: 40vw;
+    height: 35vw;
 
 }
 
@@ -203,7 +203,8 @@ label{
 
 .checkout-div{
     /* margin: 15% auto; */
-    height: 20vw;
+    height: 18vw;
+    /* border-radius: 3px; */
 
 }
 /* .fake:hover:after {
