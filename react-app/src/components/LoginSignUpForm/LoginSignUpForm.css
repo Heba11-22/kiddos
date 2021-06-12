@@ -1,4 +1,4 @@
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1400px){
     .password,
     .email,
     .user-name,
@@ -7,6 +7,14 @@
     .repeat-pass {
         display: flex;
         flex-direction: column;
+        
+}
+
+@media screen  and (max-height: 640px) {
+    .login-forms,
+    .signup-forms {
+        margin-top: -40%;
+    }
 }
 }
 .sign-page-div{
