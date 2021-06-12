@@ -54,6 +54,7 @@ const SignUpForm = ({setShowModal}) => {
         <div className="user-name">
           <label>User Name</label>
           <input
+            className="input-modal"
             type="text"
             name="username"
             placeholder="User Name"
@@ -64,6 +65,7 @@ const SignUpForm = ({setShowModal}) => {
         <div className="email2">
           <label>Email</label>
           <input
+            className="input-modal"
             type="text"
             name="email"
             placeholder="Email"
@@ -74,6 +76,7 @@ const SignUpForm = ({setShowModal}) => {
         <div className="password2">
           <label>Password</label>
           <input
+            className="input-modal"
             type="password"
             name="password"
             placeholder="Password"
@@ -84,6 +87,7 @@ const SignUpForm = ({setShowModal}) => {
         <div className="repeat-pass">
           <label>Repeat Password</label>
           <input
+            className="input-modal"
             type="password"
             name="repeat_password"
             placeholder="Repeat Password"

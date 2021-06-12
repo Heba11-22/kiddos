@@ -19,7 +19,7 @@ const DemoUser = ({setShowModal}) => {
         <>
             <form onSubmit={demoLoginWrapper} >
                 <div >
-                    <input className="demo-link" type="submit" value="Demo Login"/> 
+                    <input className="demo-link" type="submit" value="Demo"/> 
                 </div>
             </form>
         </>

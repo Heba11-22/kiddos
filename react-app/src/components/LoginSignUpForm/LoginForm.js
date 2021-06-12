@@ -43,6 +43,7 @@ const LoginForm = ( {setShowModal} ) => {
         <div className="email">
           <label htmlFor="email">Email</label>
           <input
+            className="input-modal"
             name="email"
             type="text"
             placeholder="Email"
@@ -54,15 +55,14 @@ const LoginForm = ( {setShowModal} ) => {
         <div>
           <label htmlFor="password">Password</label>
           </div>
-          <div>
           <input
+            className="input-modal"
             name="password"
             type="password"
             placeholder="Password"
             value={password}
             onChange={updatePassword}
           />
-          </div>
         </div>
         <div className="log-in">
           <button className="login-button" type="submit">Login</button>
