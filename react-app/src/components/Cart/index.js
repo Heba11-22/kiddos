@@ -36,7 +36,7 @@ function Cart () {
     const [all, setAll] = useState(0);
     const [force, setForce] = useState(0);
     const [showModal, setShowModal] = useState(false);
-    const [shipping, setShipping] = useState(0);
+    const [shipping, setShipping] = useState(5);
     const forceUpdate = () => setForce(force + 1);
     const options = [
         {value: 24, label:'1'},
@@ -115,11 +115,13 @@ function Cart () {
                                     <RadioGroup className="radio"  vertical="true">
                                         <RadioButton 
                                         className="radio"
-                                        value="0"
-                                        onClick={(e) => {setShipping(e)}} 
+                                        default
                                         >
                                         
-                                            <div style={{color: "black", outline: "none"}}>
+                                            <div 
+                                                style={{color: "black", outline: "none"}} 
+                                                onClick={(e) => {setShipping(5)}} 
+                                            >
                                                 <span style={{fontWeight: "bold"}}>
                                                     Ship it <br/>
                                                 </span>
@@ -130,10 +132,13 @@ function Cart () {
                                         </RadioButton>
                                         <RadioButton 
                                         className="radio"
-                                        value="1"
-                                        onClick={(e) => {setShipping(e)}} 
+                                        // value="1"
+                                       
                                         >
-                                            <div style={{color: "black"}}>
+                                            <div 
+                                            style={{color: "black"}}  
+                                            onClick={(e) => {setShipping(0)}} 
+                                            >
                                             <span style={{fontWeight: "bold", marginRight: ".3em"}}>
                                                 Pick Up In 5-8 business days  
                                             </span>

@@ -5,6 +5,7 @@ import FreeShipping from "./FreeShipping";
 
 let allCartItemsValue = 0;
 const Checkout = ({shipping}) => {
+    console.log(">>>>", shipping)
     const allCartItems = useSelector(state => state.cartItems.items) || {}
 
     let total = 0
@@ -41,7 +42,9 @@ const Checkout = ({shipping}) => {
                 </div>
                 <div className="shipping-price" style={{color: "red"}}>
                 {/* {shipping ? ((allCartItemsValue >= 50 ) ? "Free" : "$5"): "Free"} */}
-                {(allCartItemsValue >= 50 ) ? "Free" : "$5"}
+                {shipping && 
+                (allCartItemsValue >= 50 ) ? "Free" : `$${shipping}`
+                }
                 </div>
             </div>
             <div className="tax-div">
