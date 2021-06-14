@@ -56,17 +56,26 @@
 
 .one-item-cart-li{
     background-color: white;
-    height: 29vw;
-    margin: 1% 0px 40px 0px;
+    height: 25rem;
+    margin: 1% 0px 2% 0px;
     border-radius: 10px;
-    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    /* flex-wrap: wrap; */
 }
 
 .item-select-price-img{
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    flex-wrap: wrap;
     height: 10vw;
+    margin-bottom: 2.5rem;
+}
+
+.price-divs {
+    margin-bottom: 2rem;
 }
 
 .item-img{
@@ -86,16 +95,16 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 2%;
+    margin-left: -10%;
     width: 60%;
 }
 
 .cart-buttons{
-    width: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: auto;
+    /* width: auto; */
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    /* margin: auto; */
 }
 
 .radio{

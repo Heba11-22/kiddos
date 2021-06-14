@@ -86,7 +86,7 @@ function Cart () {
                         <li key={i} className="one-item-cart-li">
                         
                             {oneItemArray[(item.itemId)-1] && 
-                            <>
+                            <div className="one-item-cart-div">
                                 <div className="item-select-price-img">
                                     <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="item-img">
                                             <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
@@ -98,7 +98,7 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <select name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={(e) => selectedOption(e, item.id)} onClick={() => setAll(selectedValue[item.itemId] || 24)} type="submit" >
+                                        <select style={{marginRight: "5%"}} name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={(e) => selectedOption(e, item.id)} onClick={() => setAll(selectedValue[item.itemId] || 24)} type="submit" >
                                             <option value="24"  label='1'>1</option>
                                             <option value="48"  label='2'>2</option>
                                             <option value="72" label='3'>3</option>
@@ -177,7 +177,7 @@ function Cart () {
                                     </button>
                                     
                                 </div>
-                                </>
+                            </div>
                             }
                         </li>
                     ))}
