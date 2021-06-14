@@ -73,15 +73,15 @@ const SearchForm = () => {
             </div>
             <div className="my-cart">
                 <h5 style={{marginBottom: ".2px", color: "red"}}>{cartCount}</h5>
-                <NavLink to="/cart" className="my-cart" style={{color:"black"}}>
+                <NavLink to="/cart" className="my-cart1" style={{color:"black"}}>
                     <span className="material-icons">&#xe8cc;</span>
                 </NavLink>
             </div>
-            <div>
+            <div className="log-out-div">
             { user && (<LogoutButton />)}
             </div>
             { !user && (
-                <div onClick={() => setShowModal(true)} style={{ cursor: "pointer"}}>
+                <div className="sign-in-div" onClick={() => setShowModal(true)} style={{ cursor: "pointer"}}>
                 <span className="material-icons">&#xea77;</span>
                 </div>
             )}
