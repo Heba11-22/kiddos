@@ -16,7 +16,7 @@ const Checkout = ({shipping}) => {
     return (
         <div className="checkout-div">
             {(allCartItemsValue >= 50)&& (
-                <div>
+                <div className="free-shipping">
                     <FreeShipping/>
                 </div>
             )}
@@ -79,9 +79,11 @@ const Checkout = ({shipping}) => {
                 </div>
             }
             {!allCartItemsValue &&
-                <NavLink to="/" className="continue">
-                    Continue Shopping
-                </NavLink>
+                <div className="continue2">
+                    <NavLink to="/" className="continue2">
+                        Continue Shopping
+                    </NavLink>
+                </div>
             }
         </div>
     )
