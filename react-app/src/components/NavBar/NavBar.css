@@ -162,6 +162,8 @@ button {
     align-items: center;
     background:rgb(255, 255, 255);
     box-shadow: -3px 5px 8px rgba(149, 147, 147, 0.692);
+    z-index: 1;
+    position: fixed;
 }
 
 .drop-down-link {
