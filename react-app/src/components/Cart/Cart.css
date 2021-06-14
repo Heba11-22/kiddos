@@ -100,16 +100,19 @@
 }
 
 .cart-buttons{
-    /* width: auto; */
-    /* display: flex; */
-    /* justify-content: space-around; */
-    /* align-items: center; */
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     /* margin: auto; */
+    margin-bottom: 2rem;
 }
-
+.radio-options{
+    height: 23vw;
+}
 .radio{
     width:80%;
-    height: 13vw;
+    height: 11vw;
     margin: auto;
 }
 
@@ -121,7 +124,7 @@
     font-weight: bolder;
     border-radius: 3px; 
     width: 40%;
-    height: 2vw;
+    height: 3vw;
 }
 
 /* Checkout page */
