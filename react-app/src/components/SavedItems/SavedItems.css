@@ -1,29 +1,35 @@
 .saved-items-div {
-    padding-top: 11%;
+    padding-top: 9rem;
     display: flex;
     flex-direction: column; 
     justify-content: space-between;
     align-content: center;
     width: 100%;
+    height: 90%;
 }
 
 .saved-items-ul{
     display: flex;
     justify-content: space-around;
+    /* flex-direction: column; */
     flex-wrap: wrap;
     align-content: center;
+    width: 90%;
+    height: 100%;
+    margin-top: 5rem;
 }
 
 .saved-items-li{
-    width: 27%;
+    width: 30%;
+    height: 40%;
     border: 1.5px solid rgb(165, 161, 161);
     border-radius: 5px;
-    margin: 20px 0px;
+    margin: 4%;
     display: flex; 
     flex-direction: column; 
     justify-content: space-around;
     align-content: center;
-    height: 50vw;    
+    /* height: 40vw;     */
 }
 
 .saved-items-nav{
@@ -31,12 +37,19 @@
     color: black;
     display: flex; 
     flex-direction: column; 
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
     cursor: pointer;
+    height: 69%;
+    /* margin-top: 6%; */
 }
 
-.saved-items-img,
+.price4{
+    height: 15%;
+    width: 100%;
+    margin: 2rem 0px;
+}
+
 .saved-items-name,
 .item-price4,
 .item-price-sale4-div{
@@ -44,8 +57,15 @@
     display: flex;
     justify-content: center;
     align-content: center;
-}
 
+}
+.saved-items-img{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 .item-price4{
     text-decoration: line-through;
 }
@@ -55,11 +75,12 @@
 }
 
 .buttons{
-    height: 100px;
+    height: 28%;
     width: 100%;
+    /* margin: 3% 0%; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-around; 
     align-items: center; 
 }
 
@@ -67,8 +88,10 @@
 .add-cart {
     background-color: rgb(146, 23, 23);
     color: rgb(233, 227, 227);
-    height: 40%;
+    /* height: auto; */
+    height: 2.5rem;
     width: 80%;
+    margin: 3% 0%;
     cursor: pointer;
     font-weight: bolder;
     border-radius: 3px;
@@ -79,4 +102,6 @@
     font-weight: bolder;
     text-decoration: none;
     color: rgb(233, 227, 227);
+    /* margin: 3% 0%; */
+
 }
