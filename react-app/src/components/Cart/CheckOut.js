@@ -52,7 +52,7 @@ const Checkout = ({shipping}) => {
                     Pre-Tax Order Total
                 </div>
                 <div className="tax-price">
-                    {allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)}
+                    {allCartItemsValue + shipping}
                 </div>
             </div>
             <div className="tax-div">
@@ -60,7 +60,7 @@ const Checkout = ({shipping}) => {
                     Estimated tax
                 </div>
                 <div className="tax-price">
-                    {Number(((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)).toFixed(2))}
+                    {Number(((allCartItemsValue + shipping) * (5/100)).toFixed(2))}
                 </div>
             </div>
             <div className="tax-div">
@@ -68,7 +68,8 @@ const Checkout = ({shipping}) => {
                 Order total
                 </div>
                 <div className="tax-price">
-                    {((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)) + (allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5))}
+                    {(allCartItemsValue + shipping) + ((allCartItemsValue + shipping) * (5/100))}
+                    {/* {((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)) + (allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5))} */}
                 </div>
             </div>
             { allCartItemsValue && 
