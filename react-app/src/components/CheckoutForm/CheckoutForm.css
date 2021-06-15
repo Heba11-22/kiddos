@@ -21,7 +21,7 @@
     margin-left: 7%;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
+    width: 49%;
     background-color: white;
     height: 40vw;
 
@@ -29,15 +29,16 @@
 
 .final-pay-form{
     display: flex;
-    margin: 15% auto;
+    margin-top: 20rem;
     justify-content: space-around;
     flex-direction: column;
     align-items: flex-start;
-    width: 90%;
+    width: 100%;
     background-color: white;
-    height: 70vw;
+    height: 90vw;
 }
 
+.confirm,
 .shipping-address,
 .card-form{
     display: flex;
@@ -45,7 +46,7 @@
     justify-content: space-around;
     flex-direction: column;
     align-items: flex-start;
-    width: 90%;
+    width: 100%;
 }
 
 .f{

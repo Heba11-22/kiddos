@@ -54,15 +54,15 @@ function Continue ({props}) {
         }
     return (
         <div className="final-pay-form">
-                        <div className="confirm">
-                            <h1>Shipping Address</h1>
-                            <button className="edit-button" onClick={() => {props.setPay(1)}}>Edit</button>
-                        </div>
-                        <div className="shipping-info">
-                            <div className="div-info">{props.firstName} {props.lastName}</div>
-                            <div className="div-info">{props.address}</div>
-                            <div className="div-info">{props.city}, {props.state} {props.zipCode}</div>
-                        </div>
+                    <div className="confirm">
+                        <h1>Shipping Address</h1>
+                        <button className="edit-button" onClick={() => {props.setPay(1)}}>Edit</button>
+                    </div>
+                    <div className="shipping-info">
+                        <div className="div-info">{props.firstName} {props.lastName}</div>
+                        <div className="div-info">{props.address}</div>
+                        <div className="div-info">{props.city}, {props.state} {props.zipCode}</div>
+                    </div>
                     <div className="payment"><h1 className="payment-h2">Payment</h1></div>
                     {/* <CardDisplay number="4321 0987 6543 2109" square={true} expand={true}  active="amex|discover|mc|visa" style={{width: "50vw"}}/> */}
                     {/* <CardDisplay number="4321 0987 6543 2109"/> */}
