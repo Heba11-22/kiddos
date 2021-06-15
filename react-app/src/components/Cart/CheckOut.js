@@ -5,7 +5,7 @@ import FreeShipping from "./FreeShipping";
 
 let allCartItemsValue = 0;
 const Checkout = ({shipping}) => {
-    console.log(">>>>", shipping)
+    // console.log(">>>>", shipping)
     const allCartItems = useSelector(state => state.cartItems.items) || {}
 
     let total = 0

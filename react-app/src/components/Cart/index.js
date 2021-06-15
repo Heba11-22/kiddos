@@ -13,6 +13,7 @@ import Footer from "../Footer"
 import "./Cart.css";
 
 export let allCartItemsValue = 0;
+export let shippingValue = 0;
 function Cart () {
     const dispatch = useDispatch();
     const alert = useAlert();
@@ -77,7 +78,7 @@ function Cart () {
         dispatch(getCartItemsThunk());
         dispatch(getAllItemsThunk());
     }, [dispatch])
-
+    shippingValue = shipping;
     return (
         <div className="cart-div-whole">
             <div className="cart-div">                

@@ -3,6 +3,7 @@ import { useHistory} from "react-router-dom";
 import { useAlert } from 'react-alert'
 import FreeShipping from "../Cart/FreeShipping";
 import { allCartItemsValue } from "../Cart/CheckOut";
+import { shippingValue } from "../Cart/index";
 
 const Pay = () => {
     const history = useHistory();
@@ -27,7 +28,8 @@ const Pay = () => {
                     Shipping
                 </div>
                 <div className="shipping-price" style={{color: "red"}}>
-                {allCartItemsValue >= 50 ? "Free" : "$5"}
+                {`$${shippingValue}`}
+                {/* {allCartItemsValue >= 50 ? "Free" : "$5"} */}
                 </div>
             </div>
      
@@ -36,8 +38,7 @@ const Pay = () => {
                     Estimated tax
                 </div>
                 <div className="tax-price">
-                    {Number(((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)).toFixed(2))}
-                    {/* {or "Math.round(6.688689, 2)"} */}
+                {Number(((allCartItemsValue + shippingValue) * (5/100)).toFixed(2))}                    {/* {or "Math.round(6.688689, 2)"} */}
                 </div>
             </div>
             <div className="tax-div">
@@ -45,10 +46,13 @@ const Pay = () => {
                 Order total
                 </div>
                 <div className="tax-price">
-                    {((allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5)) * (5/100)) + (allCartItemsValue + (allCartItemsValue >= 50 ? 0 : 5))}
+                {(allCartItemsValue + shippingValue) + ((allCartItemsValue + shippingValue) * (5/100))}
                 </div>
             </div>
-                <button className="continue fake" id="order" title="Thanks" onClick={() => {alert.show('Your order has been placed!!!')}}>Place Order</button>
+                <button className="continue fake button3" id="order" title="Thanks" 
+                    onClick={() => {alert.show('Your order has been placed!!!')}}>
+                    Place Order
+                </button>
             <button
                 className="button3"
                     onClick={() => history.push(`/cart`)}
