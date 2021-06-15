@@ -1,29 +1,29 @@
 .whole{
     display: flex;
-    /* margin: 13% auto auto auto; */
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 90%;
+    height: 100vw;
     background-color: rgb(243, 240, 240);
 }
 
 .discount {
     width: 30%;
-    /* margin: 15% auto; */
+    margin-top: -31%;
     background-color: white;
-    margin: 15% auto auto auto;
+    /* margin-top: 5%; */
     height: 25vw;
 }
 
 .pay-div {
     display: flex;
-    margin: 10% auto;
+    margin-top: -16%;
+    margin-left: 7%;
     justify-content: space-around;
     align-items: center;
     width: 50%;
     background-color: white;
-    height: 35vw;
+    height: 40vw;
 
 }
 
