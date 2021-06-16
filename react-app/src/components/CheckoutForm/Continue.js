@@ -44,19 +44,19 @@ function Continue ({props}) {
     //     props.setPay(0)
     //     }
 
-    const handleSubmit=(e) => {
+    // const handleSubmit=(e) => {
         // e.preventDefault();
         // setCardNum('');
         // setNameOnCard('');
         // // errors =[];
         // props.setPay(0)
-        alert("HHHHIIII");
-        }
+        // alert("HHHHIIII");
+        // }
     return (
         <div className="final-pay-form">
                     <div className="confirm">
                         <h1>Shipping Address</h1>
-                        <button className="edit-button" onClick={() => {props.setPay(1)}}>Edit</button>
+                        <button className="edit-button" onClick={() =>{props.setPay(1)}}>Edit</button>
                     </div>
                     <div className="shipping-info">
                         <div className="div-info" style={{marginTop: "20px"}}>{props.firstName} {props.lastName}</div>

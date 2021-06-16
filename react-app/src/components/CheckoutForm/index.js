@@ -56,7 +56,7 @@ const reset = () => {
     setPay(0)
     }
    
-let props = {firstName, lastName, address, city, state, zipCode, setPay}
+let props = {firstName, lastName, address, city, state, zipCode, setPay, pay}
     return(
         <div className="whole">
             <div className="pay-div">
