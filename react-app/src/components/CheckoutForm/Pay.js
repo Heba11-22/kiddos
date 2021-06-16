@@ -56,7 +56,7 @@ const Pay = () => {
                  </button>
             }
             {!allCartItemsValue &&
-                <button  disabled='disabled' className="continue disable button3" id="order" title="Sorry your cart is empty" 
+                <button className="continue disable button3" id="order" title="Sorry your cart is empty" 
                     onClick={() => {alert.show('Please, add to your cart')}}>
                     Place Order
                  </button>
