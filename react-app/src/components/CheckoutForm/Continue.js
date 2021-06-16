@@ -68,18 +68,18 @@ function Continue ({props}) {
                     {/* <CardDisplay number="4321 0987 6543 2109"/> */}
                     {/* <form onSubmit={onSubmit} className="card-form"> */}
                     <div className="form-card">
-                    <Form
+                    {/* <Form
                         onSubmit={handleSubmit}
                         render={({
-                            handleSubmit,
+                            handleSubmit, */}
                             // form,
                             // submitting,
                             // pristine,
                             // values,
                             // active
-                        }) => {
+                        {/* }) => {
                             return (
-                            <form onSubmit={handleSubmit}> 
+                            <form onSubmit={handleSubmit}>  */}
                                 {/* <Cards
                                 number={values.number || ''}
                                 name={values.name || ''}
@@ -87,7 +87,7 @@ function Continue ({props}) {
                                 cvc={values.cvc || ''}
                                 focused={active}
                                 />  */}
-                                <div>
+                                {/* <div>
                                 <div className="name-on-card c"> 
                                     <label> Name on the Card </label>
                                 
@@ -99,9 +99,9 @@ function Continue ({props}) {
                                         placeholder="Name"
                                     />
                                     
-                                </div>
+                                </div> */}
 
-                                <div className="card-num c"> 
+                                {/* <div className="card-num c"> 
                                     <label> Card Number </label>
                                     <Field
                                         className="card-num input-card " 
@@ -112,7 +112,7 @@ function Continue ({props}) {
                                         placeholder="Card Number"
                                         format={formatCreditCardNumber}
                                     />
-                                </div>
+                                </div> */}
 
                                 {/* <div className="name-on-card c"> 
                                     <label> Card Number </label>
@@ -126,7 +126,7 @@ function Continue ({props}) {
                                     required/>
                                 </div> */}
 
-                                <div className="date c"> 
+                                {/* <div className="date c"> 
                                     <label> Expiration Date </label>
                                     <div className="date-select"> 
                                         <Field
@@ -147,7 +147,7 @@ function Continue ({props}) {
                                             placeholder="CVC"
                                             format={formatCVC}
                                         />
-                                    </div>
+                                    </div> */}
                                         {/* <Select
                                             options={month} 
                                             className="select"
@@ -161,7 +161,7 @@ function Continue ({props}) {
                                             required 
                                         /> */}
                                     {/* </div> */}
-                                </div>
+                                {/* </div>
                                 <button
                                     className="button3 bb"
                                         onClick={() => history.push(`/cart`)}
@@ -169,10 +169,10 @@ function Continue ({props}) {
                                         <h4 className="button3-h4 h4">Cancel</h4>
                                 </button>
                                 </div> 
-                            </form>
-                            )
+                            </form> */}
+                            {/* )
                         }}
-                /> 
+                />  */}
                 </div>
                 </div>
     )
