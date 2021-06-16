@@ -49,10 +49,17 @@ const Pay = () => {
                 {(allCartItemsValue + shippingValue) + ((allCartItemsValue + shippingValue) * (5/100))}
                 </div>
             </div>
-            {allCartItemsValue && <button className="continue fake button3" id="order" title="Thanks" 
-                onClick={() => {alert.show('Your order has been placed!!!')}}>
-                Place Order
-            </button>
+            {allCartItemsValue &&
+                 <button className="continue fake button3" id="order"
+                    onClick={() => {alert.show('Your order has been placed!!!')}}>
+                    Place Order
+                 </button>
+            }
+            {!allCartItemsValue &&
+                <button  disabled='disabled' className="continue disable button3" id="order" title="Sorry your cart is empty" 
+                    onClick={() => {alert.show('Please, add to your cart')}}>
+                    Place Order
+                 </button>
             }
             <button
                 className="button3"
@@ -60,13 +67,6 @@ const Pay = () => {
                 >
                     <h4 className="button3-h4 h4">Cancel</h4>
             </button>
-            {!allCartItemsValue &&
-                <div className="continue2">
-                    <NavLink to="/" className="continue2">
-                        Continue Shopping
-                    </NavLink>
-                </div>
-            }
         </div>
     )
 }
