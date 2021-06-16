@@ -49,10 +49,10 @@ const Pay = () => {
                 {(allCartItemsValue + shippingValue) + ((allCartItemsValue + shippingValue) * (5/100))}
                 </div>
             </div>
-                <button className="continue fake button3" id="order" title="Thanks" 
+                {allCartItemsValue && <button className="continue fake button3" id="order" title="Thanks" 
                     onClick={() => {alert.show('Your order has been placed!!!')}}>
                     Place Order
-                </button>
+                </button>}
             <button
                 className="button3"
                     onClick={() => history.push(`/cart`)}
