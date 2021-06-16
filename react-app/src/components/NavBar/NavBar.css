@@ -45,14 +45,20 @@
     font-weight: bolder;
     font-size: 35px;
 }
+.main-cat-div{
 
+    width: 63%;
+    display: flex;
+    margin:auto;
+}
 .main-cat-ul{
-    width: 65%;
+    width: 63%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     list-style: none;
+    /* margin:auto; */
 }
 
 li {
@@ -86,7 +92,7 @@ button {
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    margin-bottom: 12%;
+    margin-bottom: 17%;
     text-decoration: none;
 }
 
@@ -122,20 +128,23 @@ button {
 
 .third-nav-div {
     display: flex;
+    margin: auto;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding-right: 13%;
+    /* padding-right: 13%; */
     background-color: white;
-    height: 20%;
+    height: 15%;
 }
 
 .search-saved-div {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    margin: auto;
+    width: 35%;
 }
 
 .search-button-input{

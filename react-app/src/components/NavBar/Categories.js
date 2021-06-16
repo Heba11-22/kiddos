@@ -45,7 +45,7 @@ function Categories () {
 return (
     <>
     <nav className="third-nav-div">
-        <div className="main-cat-ul">
+        <div className="main-cat-div">
         
             <ul className="main-cat-ul">
                 {mainCat_states.map( (mainCat_state, i) => (
