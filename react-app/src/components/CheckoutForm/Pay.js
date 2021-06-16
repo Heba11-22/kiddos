@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory} from "react-router-dom";
+import { useHistory, NavLink} from "react-router-dom";
 import { useAlert } from 'react-alert'
 import FreeShipping from "../Cart/FreeShipping";
 import { allCartItemsValue } from "../Cart/CheckOut";
@@ -60,6 +60,13 @@ const Pay = () => {
                 >
                     <h4 className="button3-h4 h4">Cancel</h4>
             </button>
+            {!allCartItemsValue &&
+                <div className="continue2">
+                    <NavLink to="/" className="continue2">
+                        Continue Shopping
+                    </NavLink>
+                </div>
+            }
         </div>
     )
 }
