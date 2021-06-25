@@ -12,7 +12,7 @@ import Checkout from "./CheckOut"
 import Footer from "../Footer"
 import "./Cart.css";
 
-// I need to save the user's count of the item in cookies
+// I need to save the user's count of the item in cookies or localStorage
 export let allCartItemsValue = 0;
 export let shippingValue = 0;
 function Cart () {
