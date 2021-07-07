@@ -14,14 +14,17 @@ const SearchForm = () => {
     const cart = useSelector(state => state.cartItems.items) || {}
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
+    // const [cartCount, setCartCount] = useState(Object.keys(cart).length);
 
-    let cartCount = Object.keys(cart).length
+    let cartCount = Object.keys(cart).length;
     let allCartItems;
 
     useEffect( async () => {
-        allCartItems = await dispatch(getCartItemsThunk());         
+        allCartItems = await dispatch(getCartItemsThunk());  
+        // setCartCount(Object.keys(cart).length);
     }, [dispatch]);
-
+    // }, [dispatch, cart]);
+// console.log(cartCount, "ddddd", cart)
     const handleSubmit = (e) => {
         e.preventDefault();
         history.push(`/maincategories/${search}`);
