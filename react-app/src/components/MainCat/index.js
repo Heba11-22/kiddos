@@ -6,6 +6,7 @@ import Footer from "../Footer";
 
 function MainCat(){
     const search  = useParams().mc;
+    // console.log(">>>", search);
     const searchRes = useSelector(state => state.search)
     const mainCat_states = Object.values(useSelector(state => state.mainCategories)) || {}
     const cats = useSelector(state => state.search.Categories) || {}

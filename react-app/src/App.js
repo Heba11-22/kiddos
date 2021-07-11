@@ -19,7 +19,7 @@ import ProtectedRoute from "./components/LoginSignUpForm/ProtectedRoute";
 // import User from "./components/User";
 import CategoryItems from "./components/CategoryItems";
 import LandingPage from "./components/LandingPage";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 // import DemoUser from "./components/LoginSignUpForm/DemoUser"
 import Cart from "./components/Cart"
 import CheckoutForm from "./components/CheckoutForm"

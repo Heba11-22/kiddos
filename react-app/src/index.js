@@ -12,7 +12,6 @@ const store = configureStore();
 
 const loader = document.querySelector('.loader');
 const showLoader = () => loader.classList.remove('loader--hide');
-
 const hideLoader = () => loader.classList.add('loader--hide');
 
 // optional configuration
@@ -31,8 +30,7 @@ const options = {
 setTimeout(() => 
 ReactDOM.render(
   <React.StrictMode>
-  
-      <Provider store={store}>
+    <Provider store={store}>
       <AlertProvider template={AlertTemplate} color={"red"} {...options}>
         <ModalProvider>
           <App 
@@ -40,8 +38,8 @@ ReactDOM.render(
             showLoader={showLoader}
           />
         </ModalProvider>
-        </AlertProvider>
-      </Provider>
+      </AlertProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )

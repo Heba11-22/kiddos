@@ -12,6 +12,7 @@ const SearchForm = () => {
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cartItems.items) || {}
+    //declares a "state variable" using array destructuring
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
     // const [cartCount, setCartCount] = useState(Object.keys(cart).length);
@@ -24,14 +25,14 @@ const SearchForm = () => {
         // setCartCount(Object.keys(cart).length);
     }, [dispatch]);
     // }, [dispatch, cart]);
-// console.log(cartCount, "ddddd", cart)
+    // console.log(cartCount, "ddddd", cart)
     const handleSubmit = (e) => {
         e.preventDefault();
         history.push(`/maincategories/${search}`);
         setSearch("");
     }
 
-    const onChange = (e) => {
+    const onInputChange = (e) => {
         setSearch(e.target.value)
         e.preventDefault()
         dispatch(searchThunk(e.target.value));
@@ -59,7 +60,8 @@ const SearchForm = () => {
                     <input style={{outline:"none"}} type="text"
                         placeholder="Search"
                         value={search}
-                        onChange={onChange}
+                        //we don't invoke the func onChange, otherwise it will be called every time the component's rendered
+                        onChange={onInputChange}
                         className="search-button-input"
                     />
                 </div>
@@ -81,7 +83,7 @@ const SearchForm = () => {
                 </NavLink>
             </div>
             <div className="log-out-div">
-            { user && (<LogoutButton />)}
+                { user && (<LogoutButton />)}
             </div>
             { !user && (
                 <div className="sign-in-div" onClick={() => setShowModal(true)} style={{ cursor: "pointer"}}>
