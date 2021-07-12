@@ -43,4 +43,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
-, 1000);
+, 500);

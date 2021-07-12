@@ -78,6 +78,7 @@ function Cart () {
     useEffect( async (e) => {
         dispatch(getCartItemsThunk());
         dispatch(getAllItemsThunk());
+        dispatch(deleteAnItemThunk())
     }, [dispatch])
     shippingValue = shipping;
     return (
@@ -166,7 +167,6 @@ function Cart () {
                                              dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
                                              dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
                                             }
-                                            window.location.reload()
                                         }}
                                     >
                                         Save For Later
