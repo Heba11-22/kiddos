@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import {  transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import { Provider } from 'react-redux'
-import './index.css';
+import { ModalProvider } from "./context/Modal";
 import App from './App';
 import configureStore from './store';
-import { ModalProvider } from "./context/Modal";
+import './index.css';
 
 const store = configureStore();
 
