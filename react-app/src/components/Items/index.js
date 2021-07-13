@@ -20,8 +20,12 @@ function SingleItem() {
     const alert = useAlert();
     const user = useSelector(state => state.session.user)
     const items = useSelector(state => state.mainCategories) 
-    const saved = useSelector(state => state.cartItems.items) || {}
-    const saved2 = (Object.values(saved))
+    const cart = useSelector(state => state.cartItems.items) || {}
+    const cart2 = (Object.values(cart))
+    const savedItemsState = useSelector(state => state.savedItems.savedItems) || {}
+    const allSavedItems = savedItemsState.items || {}
+    const allSavedItems2 = (Object.values(allSavedItems))
+    // console.log(">>>", allSavedItems2)
     const [item, setItem] = useState({})
     const [showModal, setShowModal] = useState(false);
     const { itemId } = useParams();
@@ -59,22 +63,42 @@ let sizesArray = itemValues.sizes || {};
 let currentItemId = itemValues.categoryId
 let suggestedItems = items[currentItemId] || {}
 // let suggestedItemsValues = (Object.values(suggestedItems))[0] || {}
+
+let SavedIdsArray = []
+allSavedItems2.forEach (item => {
+    SavedIdsArray.push(item.id)
+})
+
 const handleSavedItems = (e) => {
     if (!user ) {
         setShowModal(true)
     } else if (user) {
-        dispatch(saveAnItemThunk(itemId))
-                alert.show('Added to your Favorite List');
+        if (SavedIdsArray.includes(Number(itemId))) {
+            alert.show('Already in your Favorite List')
+        } else{
+            dispatch(saveAnItemThunk(itemId))
+            alert.show('Added to your Favorite List');
+        }
         }
     }
+
     let itemCart = [];
-    for (let i = 0; i < saved2.length; i++){
-        itemCart.push(saved2[i].itemId)
+    for (let i = 0; i < cart2.length; i++){
+        itemCart.push(cart2[i].itemId)
     }
 
+    let idsArray = []
+    cart2.forEach (item => {
+        idsArray.push(item.itemId)
+    })
+    
     const handleSavedCart = async(e) => {
-        await dispatch(addAnItemThunk(itemId));
-        alert.show('Added to the Cart');
+        if (idsArray.includes(Number(itemId))) {
+            alert.show('Already in the Cart')
+        } else{
+            await dispatch(addAnItemThunk(itemId));
+            alert.show('Added to the Cart');
+        }
     }
 
     return (

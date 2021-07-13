@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import {  transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
-import { Provider } from 'react-redux'
 import { ModalProvider } from "./context/Modal";
 import App from './App';
 import configureStore from './store';

@@ -29,8 +29,7 @@ npm start
 #####  ```BrowserRouter``` makes routing information from React Router available to all its descendent components
 ```bash
 import { BrowserRouter } from 'react-router-dom';
-```
-```bash
+
 return (
     <BrowserRouter>
       <App />
@@ -38,4 +37,10 @@ return (
   );
 ```
 
+#### 5- import ReactDOM from 'react-dom';
+>ReactDOM.render method takes a React virtual DOM node and a real DOM node in the document. ReactDOM.render will convert the virtual DOM node into a real DOM and nest it under the given real DOM node.
+```bash
+import ReactDOM from 'react-dom';
 
+ReactDOM.render(navList, document.getElementById('root'));
+```

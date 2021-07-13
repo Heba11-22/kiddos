@@ -12,6 +12,7 @@ const SearchForm = () => {
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cartItems.items) || {}
+    // const cart = useSelector(state => state.cartItems.items) || {}
     //declares a "state variable" using array destructuring
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
@@ -21,7 +22,7 @@ const SearchForm = () => {
     let allCartItems;
 
     useEffect( async () => {
-        allCartItems = await dispatch(getCartItemsThunk());  
+        allCartItems = await dispatch(getCartItemsThunk()); 
         // setCartCount(Object.keys(cart).length);
     }, [dispatch]);
     // }, [dispatch, cart]);
