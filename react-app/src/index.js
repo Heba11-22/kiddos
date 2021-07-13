@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import {  transitions, positions, Provider as AlertProvider } from 'react-alert'
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import { ModalProvider } from "./context/Modal";
 import App from './App';
@@ -23,7 +23,6 @@ const options = {
   // you can also just use 'scale'
   transition: transitions.SCALE,
 }
-
 
 // I added the timeout just to show it :)
 // I searched for the spinnig circle online

@@ -50,15 +50,28 @@ ReactDOM.render(navList, document.getElementById('root'));
 #### 1- iside the file " store/index.js " >> import { createStore } from "redux"
 
 ```bash
-import { createStore, combineReducers } from "redux";
+// Boiler Plate code
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 
 const rootReducer = combineReducers({
-   state1,
-   state2
+   reducer1,
+   reducer2
 });
 
+// to enhance the functionality of the store
+let enhancer;
+
+if (process.env.NODE_ENV === 'production') {
+    enhancer = applyMiddleware(thunk);
+} else {
+    const logger = require('redux-logger').default;
+    const composeEnhancers =
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    enhancer = composeEnhancers(applyMiddleware(thunk, logger));
+}
+
 const configureStore = (preloadedState) => {
-    return createStore(rootReducer, preloadedState);
+    return createStore(rootReducer, preloadedState, enhancer);
 };
 
 export default configureStore;
@@ -72,9 +85,11 @@ import configureStore from './store';
 const store = configureStore();
 
 ReactDOM.render(
+  <React.StrictMode>
     <Provider store={store}>
       <App />
-    </Provider>,
+    </Provider>
+  <React.StrictMode>,
   document.getElementById('root')
 )
 ```
