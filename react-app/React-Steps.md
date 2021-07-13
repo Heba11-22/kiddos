@@ -85,7 +85,8 @@ import configureStore from './store';
 const store = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode>
+  # React.StrictMode >> activates additional checks and warnings for its descendants.
+  <React.StrictMode> 
     <Provider store={store}>
       <App />
     </Provider>
