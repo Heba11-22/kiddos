@@ -35,6 +35,8 @@ function App({ hideLoader }) {
     <BrowserRouter>
       <NavBar className="nav-bar"/>
       <Switch>
+      {/* The <Route> component is used to wrap another component, causing that component to only be rendered if a certain URL is matched. */}
+        {/* if I didn't put exact={true} it will render all of matches of some initial portion of url */}
         <Route path="/" exact={true}>
           <LandingPage/>
         </Route>
@@ -43,6 +45,9 @@ function App({ hideLoader }) {
         </Route>
         <Route path="/maincategories/categories/:id/items" exact={true}>
           <CategoryItems/>
+        </Route>
+        <Route path="/maincategories/:mc" exact={true}>
+          <MainCat/>
         </Route>
         <Route path="/saveItems" exact={true}>
           <SavedItems/>
@@ -56,9 +61,6 @@ function App({ hideLoader }) {
         <ProtectedRoute path="/savedItems" exact={true}>
           <SavedItems/>
         </ProtectedRoute>
-        <Route path="/maincategories/:mc" exact={true}>
-          <MainCat/>
-        </Route>
         <Route path="/signform" exact={true}>
           <LoginSignUpForm/>
         </Route>
