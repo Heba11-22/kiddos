@@ -8,6 +8,7 @@ import { useAlert } from 'react-alert'
 import { allMainCategories } from '../../store/mainCategories'
 import LoginSignUpModal from '../LoginSignUpForm'
 import { Modal } from '../../context/Modal';
+import { getCartItemsThunk } from "../../store/cart"
 import { saveAnItemThunk } from "../../store/savedItems";
 import {getLatestItemsThunk} from "../../store/items"
 import {addAnItemThunk } from "../../store/cart"
@@ -97,6 +98,7 @@ const handleSavedItems = (e) => {
             alert.show('Already in the Cart')
         } else{
             await dispatch(addAnItemThunk(itemId));
+            await dispatch(getCartItemsThunk())
             alert.show('Added to the Cart');
         }
     }

@@ -22,11 +22,9 @@ const SearchForm = () => {
     let allCartItems;
 
     useEffect( async () => {
-        allCartItems = await dispatch(getCartItemsThunk()); 
-        // setCartCount(Object.keys(cart).length);
+        allCartItems = await dispatch(getCartItemsThunk());
     }, [dispatch]);
-    // }, [dispatch, cart]);
-    // console.log(cartCount, "ddddd", cart)
+   
     const handleSubmit = (e) => {
         e.preventDefault();
         history.push(`/maincategories/${search}`);
