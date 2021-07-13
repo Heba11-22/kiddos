@@ -31,7 +31,7 @@ def seed_items():
     db.session.commit()
 
     for num in range(16):
-        item = Items(itemName="TODDLER GRIL DRESS", colors="pink", material="Polyester",
+        item = Items(itemName="TODDLER GIRL DRESS", colors="pink", material="Polyester",
                      detail="Textured gauze ruffle maci dress with necklace. Imported.",
                     photoId=num+1, categoryId=4)
         # item.sizes.push(1) 
