@@ -44,3 +44,37 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(navList, document.getElementById('root'));
 ```
+
+## REDUX:
+
+#### 1- iside the file " store/index.js " >> import { createStore } from "redux"
+
+```bash
+import { createStore, combineReducers } from "redux";
+
+const rootReducer = combineReducers({
+   state1,
+   state2
+});
+
+const configureStore = (preloadedState) => {
+    return createStore(rootReducer, preloadedState);
+};
+
+export default configureStore;
+```
+
+#### 2-inside "src/index.js" 
+```bash
+import { Provider } from 'react-redux';
+import configureStore from './store';
+
+const store = configureStore();
+
+ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+  document.getElementById('root')
+)
+```
