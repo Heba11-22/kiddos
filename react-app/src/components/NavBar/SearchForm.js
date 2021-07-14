@@ -12,15 +12,13 @@ const SearchForm = () => {
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     const cart = useSelector(state => state.cartItems.items) || {}
-    // const cart = useSelector(state => state.cartItems.items) || {}
-    //declares a "state variable" using array destructuring
     const [search, setSearch] = useState("")
     const [showModal, setShowModal] = useState(false);
-    // const [cartCount, setCartCount] = useState(Object.keys(cart).length);
 
     let cartCount = Object.keys(cart).length;
     let allCartItems;
 
+    // useEffect cant't have async func. Only if we invoke it immeditaly.
     useEffect( async () => {
         allCartItems = await dispatch(getCartItemsThunk());
     }, [dispatch]);

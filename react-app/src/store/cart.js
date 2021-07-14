@@ -82,8 +82,6 @@ export const deleteAnItemThunk = (itemId) => async (dispatch) => {
             itemId
         }),
     });
-    // const data = await res.json();
-    // dispatch(deleteAnItem(itemId))
     return dispatch(deleteAnItem(itemId))
 }
 

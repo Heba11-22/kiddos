@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { useAlert } from 'react-alert'
@@ -15,11 +15,7 @@ function SavedItems() {
   const user = useSelector(state => state.session.user) || {}
   const userId = user.id || {}
   const allItemsValues = Object.values(allItems) || {}
-
-  // useEffect cant't have async func. Only if we invoke it immeditaly.
-  useEffect(() => {
-    dispatch(getItemsThunk(userId))
-  },[dispatch]);
+  
 
   return (
     <div className="saved-items-div">        
@@ -42,7 +38,6 @@ function SavedItems() {
                     <button className="unsave-item" onClick={async () => {
                       await dispatch(deleteAnItemThunk(item.id))
                       await dispatch(getItemsThunk(userId))
-                      // window.location.reload(false)
                       }}>
                       DELETE
                     </button>
@@ -56,7 +51,6 @@ function SavedItems() {
               </li>
               
             ))}
-
           </ul>
           <footer>
               <Footer />
