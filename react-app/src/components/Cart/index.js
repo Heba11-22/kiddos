@@ -34,7 +34,6 @@ function Cart () {
         defaultState2[i] = 1
     })
     const [selectedValue, setSelectedValue] = useState(defaultState);
-    // const [cartItemNumber, setCartItemNumber] = useState(Object.keys(allCartItems).length);
     const [all, setAll] = useState(0);
     const [force, setForce] = useState(0);
     const [showModal, setShowModal] = useState(false);
@@ -73,27 +72,20 @@ function Cart () {
         }
         setSelectedValue({...selectedValue, [e.target.parentNode.id]: e.target.value})
     }
-   
     
-    // useEffect( async (e) => {
-    //     dispatch(getCartItemsThunk());
-    //     dispatch(getAllItemsThunk());
-    //     dispatch(deleteAnItemThunk())
-    // }, [dispatch])
     shippingValue = shipping;
+
     return (
         <div className="cart-div-whole">
             <div className="cart-div">                
                 <ul className="cart-items-ul">
                     {allCartItems && (Object.values(allCartItems)).map((item,i) => (
                         <li key={i} className="one-item-cart-li">
-                        
                             {oneItemArray[(item.itemId)-1] && 
                             <div className="one-item-cart-div">
                                 <div className="item-select-price-img">
                                     <NavLink to={`/items/${(oneItemArray[(item.itemId)-1]).id}`} className="item-img">
-                                            <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
-                                           
+                                        <img className="cart-item-img" src={((oneItemArray[(item.itemId)-1]).photos).photo_url}/>
                                     </NavLink>
                                     <div className="item-select-price" id={(oneItemArray[(item.itemId)-1]).id}>
                                         <div className="items-name">
@@ -101,7 +93,13 @@ function Cart () {
                                                 {(oneItemArray[(item.itemId)-1]).itemName}
                                             </NavLink>
                                         </div>
-                                        <select style={{marginRight: "5%"}} name={selectedValue[item.itemId]} value={selectedValue[item.itemId]} onChange={(e) => selectedOption(e, item.id)} onClick={() => setAll(selectedValue[item.itemId] || 24)} type="submit" >
+                                        <select 
+                                            style={{marginRight: "5%"}} 
+                                            name={selectedValue[item.itemId]} 
+                                            value={selectedValue[item.itemId]} 
+                                            onChange={(e) => selectedOption(e, item.id)} 
+                                            onClick={() => setAll(selectedValue[item.itemId] || 24)} type="submit" 
+                                        >
                                             <option value="24"  label='1'>1</option>
                                             <option value="48"  label='2'>2</option>
                                             <option value="72" label='3'>3</option>
@@ -114,61 +112,55 @@ function Cart () {
                                         </div>
                                     </div>
                                 </div>
-                                {/* <div className="radio-div"  > */}
-                                    <RadioGroup className="radio"  vertical="true">
-                                        <RadioButton 
-                                        className="radio"
-                                        default
+                                <RadioGroup className="radio"  vertical="true">
+                                    <RadioButton 
+                                    className="radio"
+                                    default
+                                    >
+                                        <div 
+                                            style={{color: "black", outline: "none"}} 
+                                            onClick={(e) => {setShipping(5)}} 
                                         >
-                                        
-                                            <div 
-                                                style={{color: "black", outline: "none"}} 
-                                                onClick={(e) => {setShipping(5)}} 
-                                            >
-                                                <span style={{fontWeight: "bold"}}>
-                                                    Ship it <br/>
-                                                </span>
-                                                <span style={{fontWeight: "lighter", color: "green"}}>
-                                                    In Stock:
-                                                </span> Usually ships within 2 business days.
-                                            </div>
-                                        </RadioButton>
-                                        <RadioButton 
-                                        className="radio"
-                                        // value="1"
-                                       
-                                        >
-                                            <div 
-                                            style={{color: "black"}}  
-                                            onClick={(e) => {setShipping(0)}} 
-                                            >
-                                            <span style={{fontWeight: "bold", marginRight: ".3em"}}>
-                                                Pick Up In 5-8 business days  
+                                            <span style={{fontWeight: "bold"}}>
+                                                Ship it <br/>
                                             </span>
-                                            <span style={{fontWeight: "lighter"}}>
-                                                at our store 
-                                            </span> <br/>
-                                            <span style={{fontWeight: "lighter"}}> For </span>
-                                            <span style={{fontWeight: "bold"}}> Curbside</span> 
-                                            <span style={{fontWeight: "lighter"}}> or </span> 
-                                            <span style={{fontWeight: "bold"}}> In Store Pickup. </span>
-                                            </div>
-                                        </RadioButton>
-                                    </RadioGroup>
-
-                                {/* </div> */}
+                                            <span style={{fontWeight: "lighter", color: "green"}}>
+                                                In Stock:
+                                            </span> Usually ships within 2 business days.
+                                        </div>
+                                    </RadioButton>
+                                    <RadioButton 
+                                        className="radio"
+                                    >
+                                        <div 
+                                        style={{color: "black"}}  
+                                        onClick={(e) => {setShipping(0)}} 
+                                        >
+                                        <span style={{fontWeight: "bold", marginRight: ".3em"}}>
+                                            Pick Up In 5-8 business days  
+                                        </span>
+                                        <span style={{fontWeight: "lighter"}}>
+                                            at our store 
+                                        </span> <br/>
+                                        <span style={{fontWeight: "lighter"}}> For </span>
+                                        <span style={{fontWeight: "bold"}}> Curbside</span> 
+                                        <span style={{fontWeight: "lighter"}}> or </span> 
+                                        <span style={{fontWeight: "bold"}}> In Store Pickup. </span>
+                                        </div>
+                                    </RadioButton>
+                                </RadioGroup>
                                 <div className="cart-buttons">
-                                
-                                    <button className="save-for-later" 
+                                    <button 
+                                        className="save-for-later" 
                                         onClick={  async(e) => {
-                                        if (!user ) {
-                                            setShowModal(true)
-                                        } else if (user) {
-                                             await dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
-                                             await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
-                                             await dispatch(getCartItemsThunk())
-                                            }
-                                        }}
+                                            if (!user ) {
+                                                setShowModal(true)
+                                            } else if (user) {
+                                                await dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
+                                                await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
+                                                await dispatch(getCartItemsThunk())
+                                                }
+                                            }}
                                     >
                                         Save For Later
                                     </button>
@@ -178,14 +170,12 @@ function Cart () {
                                         }}>
                                         Delete From Cart
                                     </button>
-                                    
                                 </div>
                             </div>
                             }
                         </li>
                     ))}
                 </ul>
-                
                 <div className="checkout">
                     <Checkout allCartItemsValue={allCartItemsValue} shipping={shipping}/>
                 </div>
@@ -203,22 +193,3 @@ function Cart () {
 }
 
 export default Cart;
-
-
-
-
-
-
-// function SelectWrapper ({itemId, id, placeholder, options, className, value, onChange}) {
-//     return (
-//         <Select  
-//             id={id}
-//             placeholder={placeholder} 
-//             // style={{width: "100px"}}
-//             options={options} 
-//             className={className} 
-//             value={value} 
-//             onChange={onChange}
-//         />
-//     )
-// }
