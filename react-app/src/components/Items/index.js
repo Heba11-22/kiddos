@@ -66,7 +66,7 @@ let suggestedItems = items[currentItemId] || {}
 // let suggestedItemsValues = (Object.values(suggestedItems))[0] || {}
 
 let SavedIdsArray = []
-allSavedItems2.forEach (item => {
+    allSavedItems2.forEach (item => {
     SavedIdsArray.push(item.id)
 })
 

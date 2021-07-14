@@ -75,11 +75,11 @@ function Cart () {
     }
    
     
-    useEffect( async (e) => {
-        dispatch(getCartItemsThunk());
-        dispatch(getAllItemsThunk());
-        dispatch(deleteAnItemThunk())
-    }, [dispatch])
+    // useEffect( async (e) => {
+    //     dispatch(getCartItemsThunk());
+    //     dispatch(getAllItemsThunk());
+    //     dispatch(deleteAnItemThunk())
+    // }, [dispatch])
     shippingValue = shipping;
     return (
         <div className="cart-div-whole">
@@ -173,7 +173,7 @@ function Cart () {
                                     </button>
                                     <button className="delete-item" onClick={ async () => {
                                         await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
-                                        window.location.reload()
+                                        // window.location.reload()
                                         }}>
                                         Delete From Cart
                                     </button>
