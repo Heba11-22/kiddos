@@ -20,8 +20,9 @@ const addAnItem = (item) => ({
 })
 
  // 3- delete an item from the cart:
-const deleteAnItem = () => ({
-    type: DELETE_AN_ITEM
+const deleteAnItem = (itemId) => ({
+    type: DELETE_AN_ITEM,
+    itemId
 })
 
 export const addCount = (item) => ({
@@ -72,7 +73,7 @@ export const addAnItemThunk = (itemId) => async (dispatch) => {
 
 // 3- delete an item from the cart:
 export const deleteAnItemThunk = (itemId) => async (dispatch) => {
-    const res = await fetch(`/api/cart/${itemId}/`, {
+    await fetch(`/api/cart/${itemId}/`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -81,9 +82,9 @@ export const deleteAnItemThunk = (itemId) => async (dispatch) => {
             itemId
         }),
     });
-    const data = await res.json();
-    dispatch(deleteAnItem(data))
-    return data
+    // const data = await res.json();
+    // dispatch(deleteAnItem(itemId))
+    return dispatch(deleteAnItem(itemId))
 }
 
 

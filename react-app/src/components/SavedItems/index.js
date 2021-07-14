@@ -39,9 +39,10 @@ function SavedItems() {
               
                 {!item.photos && (<h3>Already in the favorite list</h3>)}
                   <div className="buttons">
-                    <button className="unsave-item" onClick={() => {
-                      dispatch(deleteAnItemThunk(item.id))
-                      window.location.reload(false)
+                    <button className="unsave-item" onClick={async () => {
+                      await dispatch(deleteAnItemThunk(item.id))
+                      await dispatch(getItemsThunk(userId))
+                      // window.location.reload(false)
                       }}>
                       DELETE
                     </button>

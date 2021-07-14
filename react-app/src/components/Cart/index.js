@@ -160,12 +160,13 @@ function Cart () {
                                 <div className="cart-buttons">
                                 
                                     <button className="save-for-later" 
-                                        onClick={  (e) => {
+                                        onClick={  async(e) => {
                                         if (!user ) {
                                             setShowModal(true)
                                         } else if (user) {
-                                             dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
-                                             dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
+                                             await dispatch(saveAnItemThunk(oneItemArray[(item.itemId)-1].id))
+                                             await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
+                                             await dispatch(getCartItemsThunk())
                                             }
                                         }}
                                     >
@@ -173,7 +174,7 @@ function Cart () {
                                     </button>
                                     <button className="delete-item" onClick={ async () => {
                                         await dispatch(deleteAnItemThunk((oneItemArray[(item.itemId)-1]).id))
-                                        // window.location.reload()
+                                        await dispatch(getCartItemsThunk())
                                         }}>
                                         Delete From Cart
                                     </button>

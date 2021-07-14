@@ -49,7 +49,7 @@ export const saveAnItemThunk = (itemId) => async (dispatch) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            itemId
+            itemId 
         }),
     });
     const data = await res.json();
